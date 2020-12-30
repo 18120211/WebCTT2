@@ -1,0 +1,14 @@
+<div class="jumbotron">
+    <% if(isAuthenticated) {%>
+        <%- include('../partials/toolbarAuth'); %>
+    <% } %>
+    <%  if(!isAuthenticated){ %>
+        <%- include('../partials/toolbar'); %>
+    <% } %>
+</div>
+<div>
+    <a class="btn btn-primary" href="/" role="button">
+        <i class="fa fa-home" aria-hidden="true"></i>
+            HOME
+    </a>
+</div>
