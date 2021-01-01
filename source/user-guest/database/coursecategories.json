@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f00662"
+  },
+  "numberOfView": 100000,
+  "name": "Web Development",
+  "topic": "Development",
+  "__v": 0,
+  "numberOfSignUp": 150
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f00663"
+  },
+  "numberOfView": 120000,
+  "name": "Programming Languages",
+  "topic": "Development",
+  "__v": 0,
+  "numberOfSignUp": 400
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f00664"
+  },
+  "numberOfView": 100000,
+  "name": "Mobile Development",
+  "topic": "Development",
+  "__v": 0,
+  "numberOfSignUp": 300
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f00665"
+  },
+  "numberOfView": 100000,
+  "name": "Game Development",
+  "topic": "Development",
+  "__v": 0,
+  "numberOfSignUp": 250
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f00666"
+  },
+  "numberOfView": 150000,
+  "name": "Data Science",
+  "topic": "Development",
+  "__v": 0,
+  "numberOfSignUp": 500
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f00667"
+  },
+  "numberOfView": 0,
+  "name": "Game Design",
+  "topic": "Design",
+  "__v": 0,
+  "numberOfSignUp": 0
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f00668"
+  },
+  "numberOfView": 140000,
+  "name": "Design Tools",
+  "topic": "Design",
+  "__v": 0,
+  "numberOfSignUp": 420
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f00669"
+  },
+  "numberOfView": 0,
+  "name": "Web Design",
+  "topic": "Design",
+  "__v": 0,
+  "numberOfSignUp": 0
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f0066a"
+  },
+  "numberOfView": 130000,
+  "name": "Communications",
+  "topic": "Business",
+  "__v": 0,
+  "numberOfSignUp": 450
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f0066b"
+  },
+  "numberOfView": 0,
+  "name": "Management",
+  "topic": "Business",
+  "__v": 0,
+  "numberOfSignUp": 0
+},{
+  "_id": {
+    "$oid": "5fedf971d7966e3ea8f0066c"
+  },
+  "numberOfView": 0,
+  "name": "Sales",
+  "topic": "Business",
+  "__v": 0,
+  "numberOfSignUp": 0
+}]

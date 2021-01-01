@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "5feb5b061e17e40784aee490"
+  },
+  "gender": "Male",
+  "date": {
+    "$date": "2020-12-29T16:34:32.514Z"
+  },
+  "avatar": "/public/avatar/default/avatar.png",
+  "isAuth": true,
+  "name": "Ngô Phù Hữu Đại Sơn",
+  "email": "sonkhungmtp.52@gmail.com",
+  "password": "$2a$10$WEAZJwez8PlUyhGSvEZyS.kt8S80Nzg.ym53rSUaovSIN.bHa/pL.",
+  "otpNumber": "744581",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5febf92853a7c10cf0c50ad1"
+  },
+  "gender": "Male",
+  "date": {
+    "$date": "2020-12-30T03:49:34.237Z"
+  },
+  "avatar": "/public/avatar/5febf92853a7c10cf0c50ad1/avatar.png",
+  "isAuth": true,
+  "name": "Võ Thế Minh",
+  "email": "minhthevotemp@gmail.com",
+  "password": "$2a$10$U9nKiZRYcvU93FSxl8aGCOary10xYnamD7wPrep4hRvpnAzzNADPa",
+  "otpNumber": "603083",
+  "__v": 1,
+  "idCourses": [
+    {
+      "$oid": "5fed79e2c327961030c832ec"
+    }
+  ]
+}]

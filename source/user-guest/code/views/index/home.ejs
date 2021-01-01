@@ -7,6 +7,16 @@
     <% } %>
 </div>
 <div>
+    <% for( let i = 0; i < proCourse.length; i++ ) { %>
+        <img src="<%= proCourse[i].poster%>" alt="">
+        <p>Name: <%=  proCourse[i].name%> </p>
+        <p>Đánh giá: <%=  proCourse[i].evaluationPoint%></p>
+        <p>Số đánh giá: <%=  proCourse[i].numberOfEvaluation%> </p>
+        <p>Số học viên: <%=  proCourse[i].numberOfStudent%></p>
+        <p>Học phí: <%=  proCourse[i].tuition%></p>
+        <p>Lĩnh vực: <%=  proCourse[i].idCourseCategory.name%></p>
+        <p>Tên gv: <%=  proCourse[i].idLecturer.name%></p>
+    <% } %>
     <a class="btn btn-primary" href="/" role="button">
         <i class="fa fa-home" aria-hidden="true"></i>
             HOME

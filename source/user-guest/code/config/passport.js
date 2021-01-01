@@ -2,11 +2,11 @@ const bcrypt = require('bcryptjs');
 
 const LocalStrategy = require('passport-local').Strategy;
 
-const LocalUser = require('../models/LocalUser');
+const LocalUser = require('../models/LocalUser.model');
 
 const FacebookStrategy = require('passport-facebook').Strategy;
 
-const FaceBookUser = require('../models/FaceBookUser');
+const FaceBookUser = require('../models/FaceBookUser.model');
 
 module.exports = function (passport) {
     passport.use(

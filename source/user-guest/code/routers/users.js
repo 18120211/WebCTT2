@@ -9,7 +9,7 @@ const {
     forwardAuthenticated
 } = require('../config/auth');
 
-const LocalUser = require('../models/LocalUser');
+const LocalUser = require('../models/LocalUser.model');
 
 const nodemailer = require("nodemailer");
 

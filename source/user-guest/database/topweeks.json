@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "5fef059957dec812702c2a84"
+  },
+  "nameTopCourses": [
+    "Graphing Python",
+    "Photoshop tutorial",
+    "Tutorial Android development",
+    "Tutorial Javascript development"
+  ],
+  "idTopCourses": [
+    {
+      "$oid": "5feefda068b54f12c839c609"
+    },
+    {
+      "$oid": "5feefda068b54f12c839c60f"
+    },
+    {
+      "$oid": "5feefda068b54f12c839c60a"
+    },
+    {
+      "$oid": "5feefda068b54f12c839c60b"
+    }
+  ],
+  "nameTopCategories": [
+    "Data Science",
+    "Communications",
+    "Design Tools",
+    "Programming Languages",
+    "Mobile Development"
+  ],
+  "idTopCategories": [
+    {
+      "$oid": "5fedf971d7966e3ea8f00666"
+    },
+    {
+      "$oid": "5fedf971d7966e3ea8f0066a"
+    },
+    {
+      "$oid": "5fedf971d7966e3ea8f00668"
+    },
+    {
+      "$oid": "5fedf971d7966e3ea8f00663"
+    },
+    {
+      "$oid": "5fedf971d7966e3ea8f00664"
+    }
+  ],
+  "name": "Top view khóa học và lĩnh vực tuần 1",
+  "__v": 0
+}]
