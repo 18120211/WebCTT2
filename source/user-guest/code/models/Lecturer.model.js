@@ -35,6 +35,10 @@ const LecturerSchema = mongoose.Schema({
     },
     otpNumber: {
         type: String
+    },
+    idCourses: {
+        type: [mongoose.Schema.ObjectId],
+        ref: 'courses'
     }
 });
 

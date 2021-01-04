@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
+const CourseTopic = require('./CourseTopic.enum');
+
 const CourseSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
+        unique: true
     },
     poster: {
         type: String,
@@ -14,8 +17,8 @@ const CourseSchema = mongoose.Schema({
         default: 'Đây là miêu tả khóa học'
     },
     evaluationPoint: {
-        type: String,
-        default: '0'
+        type: Number,
+        default: 0
     },
     numberOfEvaluation: {
         type: Number,
@@ -41,14 +44,27 @@ const CourseSchema = mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    idCourseDocument: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'coursedocuments'  
-    },
     idLecturer: {
         type: mongoose.Schema.ObjectId,
         ref: 'lecturers'
-    }
+    },
+    topic: {
+        type: CourseTopic,
+        required: true
+    },
+    videos: {
+        type: [{
+            name: String,
+            source: String
+        }]
+    },
+    previewIndex: {
+        type: [Number]
+    },
+    whatYoullLearn: {
+        type: [String],
+        required: true
+    },
 });
 
 const Course = mongoose.model('courses', CourseSchema);

@@ -16,6 +16,10 @@ const CourseCategorySchema = mongoose.Schema({
     numberOfView: {
         type: Number,
         default : 0
+    },
+    numberOfSignUp: {
+        type: Number,
+        default: 0
     }
 });
 

@@ -1,7 +1,5 @@
 <style>
-    .prom-courses,
-    .most-view-courses,
-    .latest-courses {
+    .wish-courses {
         display: inline-block;
     }
 
@@ -9,38 +7,15 @@
         display: none;
     }
 
-    .prom-courses:hover .courses-detail {
+    .wish-courses:hover .courses-detail {
         display: block;
     }
 
-    .most-view-courses:hover .courses-detail {
-        display: block;
-    }
-
-    .latest-courses:hover .courses-detail {
-        display: block;
-    }
-
-    .prom-courses,
-    .latest-courses,
-    .most-view-courses {
+    .wish-courses {
         margin: auto;
         width: 285px;
-        text-overflow: ellipsis;
-        position: sticky;
     }
 
-    .most-view-categories {
-        display: inline-block;
-        border: solid 2px red;
-        background-color: antiquewhite;
-        width: 200px;
-        height: 60px;
-    }
-
-    .fake-link {
-        cursor: pointer;
-    }
 </style>
 <div class="jumbotron">
     <% if(isAuthenticated) {%>
@@ -54,10 +29,10 @@
     <h2>Các khóa học nổi bật nhất tuần qua</h2>
     <% for( let i = 0; i < proCourses.length; i++ ) { %>
     <a href="/course/<%= proCourses[i].name %>">
-        <div class="prom-courses">
+        <div class="wish-courses" data-id="<%= proCourses[i]._id %>">
             <div class="courses">
-                <img class="poster" src="<%= proCourses[i].poster%>" width="285px" height="150px">
-                <h4 class="name"><%=  proCourses[i].name%> </h4>
+                <img src="<%= proCourses[i].poster%>" width="285px" height="150px">
+                <h4 class="name" data-id="<%= proCourses[i]._id %>"><%=  proCourses[i].name%> </h4>
                 <p class="lecturer"><%=  proCourses[i].idLecturer.name%></p>
                 <p class="evaluation" style="display: inline-block;"><%=  proCourses[i].evaluationPoint%></p>
                 <i class="fa fa-star"></i>
@@ -77,3 +52,12 @@
     </a>
     <% } %>
 </div>
+<form id="myForm" action="" method="GET">
+    <!-- <input type="text" name="courseID" id="courseID"> -->
+</form>
+<script type="text/javascript">
+    // $('.prom-courses').on('click', (e) => {
+    //     console.log('HELLO');
+    // })
+    
+</script>

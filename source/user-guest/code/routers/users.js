@@ -26,6 +26,8 @@ const fs = require('fs');
 const path = require('path');
 
 const multer = require('multer');
+const FaceBookUser = require('../models/FaceBookUser.model');
+const Course = require('../models/Course.model');
 
 //Xác thục bởi facebook
 Router.get(
@@ -54,11 +56,6 @@ Router.get('/login', forwardAuthenticated, (req, res) => {
 //GET register
 Router.get('/register', forwardAuthenticated, (req, res) => {
     res.render('./user/register');
-});
-
-//GET otp
-Router.get('/otp', (req, res) => {
-    res.render('./user/otp');
 });
 
 //POST register
@@ -154,7 +151,7 @@ Router.post("/register", function (req, res) {
 
                     req.session.currentEmail = email;
 
-                    res.redirect('/users/otp');
+                    res.render('./user/otp');
                 });
             }
         });
@@ -205,7 +202,7 @@ Router.post('/login', async (req, res, next) => {
         res.redirect('/users/otp');
     } else if (!user) {
         req.flash("error_msg", "Invalid account");
-        res.redirect('/users/login');
+        res.render('./user/otp')
     }
 });
 
@@ -325,5 +322,47 @@ Router.post("/updateAvatar", function (req, res) {
         }
     });
 });
+
+Router.get('/wish-list-change', async (req, res)=>{
+    courseID = req.query.courseID;
+    if (courseID != undefined) {
+        let index;
+        if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
+            console.log(index);
+            req.user.idWishList.push(courseID);  
+        }
+        else {
+            console.log(index);
+            req.user.idWishList.splice(index, 1);
+        }
+        req.user.save();
+        res.end();
+    }
+});
+
+Router.get('/my-wish-list', ensureAuthenticated, async (req, res)=>{
+    let arr = [];
+    for (let i = 0; i < req.user.idWishList.length; i++) {
+        const course = await Course
+            .findOne({_id: req.user.idWishList[i]}, [
+                'poster',
+                '_id',
+                'name',
+                'idLecturer',
+                'evaluationPoint',
+                'numberOfEvaluation',
+                'tuition',
+                'numberOfStudent',
+                'idCourseCategory'
+            ]);
+        await arr.push(course);
+    }
+    console.log(arr);
+    res.render('my-wish-list', {
+        
+    });
+});
+
+
 
 module.exports = Router;

@@ -1,0 +1,68 @@
+<style>
+    .body {
+        margin: 0%;
+    }
+
+    .video {
+        display: none;
+    }
+
+    .show-video {
+        display: block;
+    }
+
+    .heart {
+        color: red;
+    }
+</style>
+<div class="jumbotron">
+    <% if(isAuthenticated) {%>
+    <%- include('../partials/toolbarAuth'); %>
+    <% } %>
+    <%  if(!isAuthenticated){ %>
+    <%- include('../partials/toolbar'); %>
+    <% } %>
+</div>
+<div class="body">
+    <img src='<%= course.poster %> ' alt="" width="670px" height="300">
+    <h2><%= course.name %> </h2>
+    <p class="evaluation" style="display: inline-block;"><%=  course.evaluationPoint%></p>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <p style="display: inline-block;" class="numberOfEvaluation">(<%=  course.numberOfEvaluation%> đánh giá)</p>
+    <p style="display: inline-block;"><%= course.numberOfStudent %> học sinh</p>
+    <p>Created by: <%= course.idLecturer.name %> </p>
+    <p>Update: <%= course.uploadDate.toDateString() %> </p>
+    <button data-id="<%= course._id %> " id="wish-list" class="btn btn-primary"><i class="fa fa-heart"
+            aria-hidden="true" class="heart"></i> Yêu thích</button>
+    <h3>What you will learn: </h3>
+    <h3>Description: </h3>
+
+    <div style="background-color: antiquewhite;">
+        <% for( let i = 0; i < course.videos.length; i++ ) { %>
+        <div class='document'>
+            <p style="display: inline-block;"><%= course.videos[i].name %> </p>
+            <button class='btn btn-primary'>Preview</button>
+            <video id="my-video" class="video-js video" controls preload="auto" width="640" height="264">
+                <source src="<%= course.videos[i].source %>" type="video/mp4" />
+            </video>
+        </div>
+        <% } %>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.document').children('button').on('click', (e) => {
+        if ($(e.target).siblings('video').hasClass('show-video')) {
+        
+        }
+        $(e.target).siblings('video').toggleClass('show-video');
+    });
+    $('#wish-list').on('click', (e) => {
+        const courseID = $(e.target).data('id');
+        console.log(courseID);
+        $.getJSON(`/users/wish-list-change?courseID=${courseID}`);
+    });
+</script>
