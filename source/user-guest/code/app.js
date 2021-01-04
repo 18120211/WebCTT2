@@ -7,7 +7,6 @@ app.use('/public', express.static('public'));
 
 //Default body-parser
 app.use(express.urlencoded());
-
 require('./middlewares/dbLocal.mdw')(app);
 require('./middlewares/session.mdw')(app);
 require('./middlewares/passport.mdw')(app);
@@ -30,5 +29,5 @@ app.listen(8000, console.log('Server running on port 8000'));
 // const CourseCategory = require('./models/CourseCategory.model');
 // const CategoryEnum = require('./models/CourseCategory.enum');
 // const TopicEnum = require('./models/CourseTopic.enum');
-// const TopWeek = require('./models/TopWeek.model');
 // const UserReview = require('./models/UserReview.model');
+// const CourseTopic = require('./models/CourseTopic.model');

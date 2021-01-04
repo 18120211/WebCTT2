@@ -8,6 +8,8 @@ const Lecturer = require('../models/Lecturer.model');
 
 const CourseCategory = require("../models/CourseCategory.model");
 
+const CourseTopic = require('../models/CourseTopic.model');
+
 Router.get('/', async (req, res) => {
     //4 khóa học được quan tâm nhất(dựa trên điểm đánh giá), view trên tb
     const proCourses = await Course.find({}, [
@@ -19,14 +21,13 @@ Router.get('/', async (req, res) => {
             'numberOfEvaluation',
             'tuition',
             'numberOfStudent',
-            'idCourseCategory'
+            'idCourseTopic'
         ])
         .sort([
             ['evaluationPoint', -1]
         ])
-        .where('numberOfView').gt(100000)
         .populate('idLecturer')
-        .populate('idCourseCategory')
+        .populate('idCourseTopic')
         .limit(4);
 
     //10 khóa học được xem nhiều nhất
@@ -39,13 +40,13 @@ Router.get('/', async (req, res) => {
             'numberOfEvaluation',
             'tuition',
             'numberOfStudent',
-            'idCourseCategory'
+            'idCourseTopic'
         ])
         .sort([
             ['numberOfView', -1]
         ])
         .populate('idLecturer')
-        .populate('idCourseCategory')
+        .populate('idCourseTopic')
         .limit(10);
 
     //10 khóa học mới nhất 
@@ -58,27 +59,20 @@ Router.get('/', async (req, res) => {
             'numberOfEvaluation',
             'tuition',
             'numberOfStudent',
-            'idCourseCategory'
+            'idCourseTopic'
         ])
         .sort([
             ['uploadDate', 1]
         ])
         .populate('idLecturer')
-        .populate('idCourseCategory')
+        .populate('idCourseTopic')
         .limit(10);
-
-    //Danh sách lĩnh vực đc đăng kí nhiều nhất
-    const mostViewCategories = await CourseCategory.find({})
-        .sort([
-            ['numberOfView', -1]
-        ]);
 
     await res.render('./index/home', {
         isAuthenticated: req.isAuthenticated(),
         proCourses: proCourses,
         mostViewCourses: mostViewCourses,
-        latestCourses: latestCourses,
-        mostViewCategories: mostViewCategories
+        latestCourses: latestCourses
     });
 });
 

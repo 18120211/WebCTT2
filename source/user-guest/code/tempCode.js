@@ -3,12 +3,12 @@ Course.insertMany([{
     name: 'Graphing Python',
     poster: '/public/poster/graphPython/poster.png',
     description: 'Bạn có thể học mọi thứ về đồ thị với Python qua khóa học của chúng tôi',
-    evaluationPoint: 5,
-    numberOfEvaluation: 300,
-    numberOfStudent: 500,
-    tuition: 1,
-    numberOfView: 150000,
-    idCourseCategory: '5ff020b0b1db3c35881d0d1d', //Dev data
+    evaluationPoint: 0,
+    numberOfEvaluation: 0,
+    numberOfStudent: 0,
+    tuition: 10,
+    numberOfView: 0,
+    idCourseTopic: '5ff2e1c9ac3567138849dbdf', //Dev data
     idLecturer: '5fed6330aba5d81fc019f9b7',
     topic: TopicEnum.DEVELOPMENT,
     videos: [{
@@ -44,12 +44,12 @@ Course.insertMany([{
     name: 'Tutorial Android development',
     poster: '/public/poster/beginerAdrDev/poster.png',
     description: 'Học xong khóa tutorial bạn sẽ trùm Android',
-    evaluationPoint: 4,
-    numberOfEvaluation: 200,
-    numberOfStudent: 300,
+    evaluationPoint: 0,
+    numberOfEvaluation: 0,
+    numberOfStudent: 0,
     tuition: 10,
-    numberOfView: 130000,
-    idCourseCategory: '5ff020b0b1db3c35881d0d20', //Mobile development
+    numberOfView: 0,
+    idCourseTopic: '5ff2e1c9ac3567138849dbe2', //Mobile development
     idLecturer: '5fed6330aba5d81fc019f9b7',
     topic: TopicEnum.DEVELOPMENT,
     videos: [{
@@ -76,12 +76,12 @@ Course.insertMany([{
     name: 'Tutorial Javascript development',
     poster: '/public/poster/beginerJvsDev/poster.png',
     description: 'Học xong lương 10000$',
-    evaluationPoint: 4.5,
-    numberOfEvaluation: 250,
-    numberOfStudent: 400,
+    evaluationPoint: 0,
+    numberOfEvaluation: 0,
+    numberOfStudent: 0,
     tuition: 10,
-    numberOfView: 130000,
-    idCourseCategory: '5ff020b0b1db3c35881d0d1f', //Program language
+    numberOfView: 0,
+    idCourseTopic: '5ff2e1c9ac3567138849dbe1', //Program language
     idLecturer: '5fed6330aba5d81fc019f9b7',
     topic: TopicEnum.DEVELOPMENT,
     videos: [{
@@ -108,12 +108,12 @@ Course.insertMany([{
     name: 'Tutorial Web development',
     poster: '/public/poster/beginerWebDev/poster.png',
     description: 'Học 2 buổi 10 chấm môn Web',
-    evaluationPoint: 4.5,
-    numberOfEvaluation: 50,
-    numberOfStudent: 150,
+    evaluationPoint: 0,
+    numberOfEvaluation: 0,
+    numberOfStudent: 0,
     tuition: 10,
-    numberOfView: 80000,
-    idCourseCategory: '5ff020b0b1db3c35881d0d1e', //Web dev
+    numberOfView: 0,
+    idCourseTopic: '5ff2e1c9ac3567138849dbe0', //Web dev
     idLecturer: '5fed6330aba5d81fc019f9b7',
     topic: TopicEnum.DEVELOPMENT,
     videos: [{
@@ -140,12 +140,12 @@ Course.insertMany([{
     name: 'Unity game development',
     poster: '/public/poster/gameDevUnity/poster.png',
     description: 'Học 3 buổi là vào Facebook',
-    evaluationPoint: 3.5,
-    numberOfEvaluation: 100,
-    numberOfStudent: 250,
+    evaluationPoint: 0,
+    numberOfEvaluation: 0,
+    numberOfStudent: 0,
     tuition: 10,
-    numberOfView: 90000,
-    idCourseCategory: '5ff020b0b1db3c35881d0d21', //Game dev
+    numberOfView: 0,
+    idCourseTopic: '5ff2e1c9ac3567138849dbe3', //Game dev
     idLecturer: '5fed6330aba5d81fc019f9b7',
     topic: TopicEnum.DEVELOPMENT,
     videos: [{
@@ -172,12 +172,12 @@ Course.insertMany([{
     name: 'Communication tutorial',
     poster: '/public/poster/tutCommunication/poster.png',
     description: 'Bạn muốn làm đa cấp không thể bỏ qua khóa học này',
-    evaluationPoint: 4.5,
-    numberOfEvaluation: 350,
-    numberOfStudent: 450,
+    evaluationPoint: 0,
+    numberOfEvaluation: 0,
+    numberOfStudent: 0,
     tuition: 10,
-    numberOfView: 130000,
-    idCourseCategory: '5ff020b0b1db3c35881d0d25', //Bus communication
+    numberOfView: 0,
+    idCourseTopic: '5ff2e1c9ac3567138849dbe7', //Bus communication
     idLecturer: '5fed6330aba5d81fc019f9b7',
     topic: TopicEnum.BUSINESS,
     videos: [{
@@ -204,12 +204,12 @@ Course.insertMany([{
     name: 'Photoshop tutorial',
     poster: '/public/poster/tutPhotoshop/poster.png',
     description: 'Bạn muốn làm đa cấp không thể bỏ qua khóa học này',
-    evaluationPoint: 4.5,
-    numberOfEvaluation: 350,
-    numberOfStudent: 420,
+    evaluationPoint: 0,
+    numberOfEvaluation: 0,
+    numberOfStudent: 0,
     tuition: 10,
-    numberOfView: 140000,
-    idCourseCategory: '5ff020b0b1db3c35881d0d23', //Design tool
+    numberOfView: 0,
+    idCourseTopic: '5ff2e1c9ac3567138849dbe5', //Design tool
     idLecturer: '5fed6330aba5d81fc019f9b7',
     topic: TopicEnum.DESIGN,
     videos: [{
@@ -245,107 +245,89 @@ Lecturer.insertMany({
     description: 'Siêu giáo viên, tác giả của hơn 300 framwork nổi tiếng của Javascript, C#, ..., 30 năm kinh nghiệp giảng dạy các trường đại học danh tiếng',
     isAuth: true,
     otpNumber: '',
-    idCourses: [
-        '5ff0a3447b12cc3930737863',
-        '5ff0a3447b12cc3930737864',
-        '5ff0a3447b12cc3930737865',
-        '5ff0a3447b12cc3930737866',
-        '5ff0a3447b12cc3930737867',
-        '5ff0a3447b12cc3930737868',
-        '5ff0a3447b12cc3930737869',
-    ]
+    idCourses: []
 }).then(console.log('saved'));
-
 
 //Course Category
 CourseCategory.insertMany([{
-    name: CategoryEnum.DEVELOPMENT_DATA,
-    topic: TopicEnum.DEVELOPMENT,
-    numberOfView: 150000,
-    numberOfSignUp: 500
+    name: CategoryEnum.DEVELOPMENT,
+    numberOfView: 0,
+    numberOfSignUp: 0
 },{
-    name: CategoryEnum.DEVELOPMENT_WEB,
-    topic: TopicEnum.DEVELOPMENT,
-    numberOfView: 80000,
-    numberOfSignUp: 150
+    name: CategoryEnum.BUSINESS,
+    numberOfView: 0,
+    numberOfSignUp: 0
 },
 {
-    name: CategoryEnum.DEVELOPMENT_PROLANG,
-    topic: TopicEnum.DEVELOPMENT,
-    numberOfView: 130000,
-    numberOfSignUp: 400
+    name: CategoryEnum.DESIGN,
+    numberOfView: 0,
+    numberOfSignUp: 0
+}]).then(console.log('saved'));
+
+CourseTopic.insertMany([{
+    name: TopicEnum.DEVELOPMENT_DATA,
+    numberOfView: 0,
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a15'
+},{
+    name: TopicEnum.DEVELOPMENT_WEB,
+    numberOfView: 0,
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a15'
+},
+{
+    name: TopicEnum.DEVELOPMENT_PROLANG,
+    numberOfView: 0,
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a15'
 }, {
-    name: CategoryEnum.DEVELOPMENT_MOBILE,
-    topic: TopicEnum.DEVELOPMENT,
-    numberOfView: 130000,
-    numberOfSignUp: 300
+    name: TopicEnum.DEVELOPMENT_MOBILE,
+    numberOfView: 0,
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a15'
 }, {
-    name: CategoryEnum.DEVELOPMENT_GAME,
-    topic: TopicEnum.DEVELOPMENT,
-    numberOfView: 90000,
-    numberOfSignUp: 250
+    name: TopicEnum.DEVELOPMENT_GAME,
+    numberOfView: 0,
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a15'
 }, {
-    name: CategoryEnum.DESIGN_GAME,
-    topic: TopicEnum.DESIGN,
+    name: TopicEnum.DESIGN_GAME,
     numberOfView: 0,
     numberOfSignUp: 0
 }, {
-    name: CategoryEnum.DESIGN_TOOL,
-    topic: TopicEnum.DESIGN,
-    numberOfView: 140000,
-    numberOfSignUp: 420
-}, {
-    name: CategoryEnum.DESIGN_WEB,
-    topic: TopicEnum.DESIGN,
+    name: TopicEnum.DESIGN_TOOL,
     numberOfView: 0,
-    numberOfSignUp: 0
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a17'
 }, {
-    name: CategoryEnum.BUSINESS_COM,
-    topic: TopicEnum.BUSINESS,
-    numberOfView: 140000,
-    numberOfSignUp: 450
-}, {
-    name: CategoryEnum.BUSINESS_MANA,
-    topic: TopicEnum.BUSINESS,
+    name: TopicEnum.DESIGN_WEB,
     numberOfView: 0,
-    numberOfSignUp: 0
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a17'
 }, {
-    name: CategoryEnum.BUSINESS_SALE,
-    topic: TopicEnum.BUSINESS,
+    name: TopicEnum.BUSINESS_COM,
     numberOfView: 0,
-    numberOfSignUp: 0
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a16'
+}, {
+    name: TopicEnum.BUSINESS_MANA,
+    numberOfView: 0,
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a16'
+}, {
+    name: TopicEnum.BUSINESS_SALE,
+    numberOfView: 0,
+    numberOfSignUp: 0,
+    idCourseCategory: '5ff2dd54eb01461e54152a16'
 }
 ]).then(console.log('saved'));
 
 //Top week
 TopWeek.insertMany([{
-    name: 'Top view khóa học và lĩnh vực tuần 1',
-    nameTopCourses: [
-        'Graphing Python',
-        'Photoshop tutorial',
-        'Tutorial Android development',
-        'Tutorial Javascript development'
-    ],
-    idTopCourses: [
-        '5feefda068b54f12c839c609',
-        '5feefda068b54f12c839c60f',
-        '5feefda068b54f12c839c60a',
-        '5feefda068b54f12c839c60b'
-    ],
-    nameTopCategories: [
-        'Data Science',
-        'Communications',
-        'Design Tools', 
-        'Programming Languages',
-        'Mobile Development'
-    ],
-    idTopCategories: [
-        '5fedf971d7966e3ea8f00666',
-        '5fedf971d7966e3ea8f0066a',
-        '5fedf971d7966e3ea8f00668',
-        '5fedf971d7966e3ea8f00663',
-        '5fedf971d7966e3ea8f00664'
-    ]
+    name: 'Top view khóa học, thể loại và chủ đề tuần 1',
+    topCourses: [{}],
+    topTopics: [{}],
+    topCategories: [{}] 
 }]).then(console.log('saved'));
 
 //User review

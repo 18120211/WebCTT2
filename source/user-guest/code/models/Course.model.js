@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-const CourseTopic = require('./CourseTopic.enum');
-
 const CourseSchema = mongoose.Schema({
     name: {
         type: String,
@@ -36,9 +34,9 @@ const CourseSchema = mongoose.Schema({
         type: Number,
         default: 10 //USD
     },
-    idCourseCategory: {
+    idCourseTopic: {
         type: mongoose.Schema.ObjectId,
-        ref: 'coursecategories'
+        ref: 'coursetopics'
     },
     uploadDate: {
         type: Date,
@@ -47,10 +45,6 @@ const CourseSchema = mongoose.Schema({
     idLecturer: {
         type: mongoose.Schema.ObjectId,
         ref: 'lecturers'
-    },
-    topic: {
-        type: CourseTopic,
-        required: true
     },
     videos: {
         type: [{

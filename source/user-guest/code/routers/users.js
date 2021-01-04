@@ -27,7 +27,12 @@ const path = require('path');
 
 const multer = require('multer');
 const FaceBookUser = require('../models/FaceBookUser.model');
+
 const Course = require('../models/Course.model');
+
+const CourseTopic = require('../models/CourseTopic.model');
+
+const CourseCategory = require('../models/CourseCategory.model');
 
 //Xác thục bởi facebook
 Router.get(
@@ -323,16 +328,14 @@ Router.post("/updateAvatar", function (req, res) {
     });
 });
 
-Router.get('/wish-list-change', async (req, res)=>{
+Router.get('/wish-list-change', ensureAuthenticated, async (req, res)=>{
     courseID = req.query.courseID;
     if (courseID != undefined) {
         let index;
         if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
-            console.log(index);
             req.user.idWishList.push(courseID);  
         }
         else {
-            console.log(index);
             req.user.idWishList.splice(index, 1);
         }
         req.user.save();
@@ -341,7 +344,7 @@ Router.get('/wish-list-change', async (req, res)=>{
 });
 
 Router.get('/my-wish-list', ensureAuthenticated, async (req, res)=>{
-    let arr = [];
+    let courses = [];
     for (let i = 0; i < req.user.idWishList.length; i++) {
         const course = await Course
             .findOne({_id: req.user.idWishList[i]}, [
@@ -353,13 +356,14 @@ Router.get('/my-wish-list', ensureAuthenticated, async (req, res)=>{
                 'numberOfEvaluation',
                 'tuition',
                 'numberOfStudent',
-                'idCourseCategory'
-            ]);
-        await arr.push(course);
+                'idCourseTopic'
+            ])
+            .populate('idCourseTopic');
+        await courses.push(course);
     }
-    console.log(arr);
-    res.render('my-wish-list', {
-        
+    await res.render('./user/my-wish-list', {
+        isAuthenticated: req.isAuthenticated(),
+        courses: courses
     });
 });
 

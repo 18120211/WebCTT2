@@ -30,25 +30,12 @@
         position: sticky;
     }
 
-    .most-view-categories {
-        display: inline-block;
-        border: solid 2px red;
-        background-color: antiquewhite;
-        width: 200px;
-        height: 60px;
-    }
-
     .fake-link {
         cursor: pointer;
     }
 </style>
 <div class="jumbotron">
-    <% if(isAuthenticated) {%>
-    <%- include('../partials/toolbarAuth'); %>
-    <% } %>
-    <%  if(!isAuthenticated){ %>
-    <%- include('../partials/toolbar'); %>
-    <% } %>
+    <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated});  %> 
 </div>
 <div>
     <h2>Các khóa học nổi bật nhất tuần qua</h2>
@@ -71,7 +58,7 @@
             </div>
             <div class="courses-detail">
                 <p><%=  proCourses[i].numberOfStudent%> Studying</p>
-                <p><%=  proCourses[i].idCourseCategory.name%></p>
+                <p><%=  proCourses[i].idCourseTopic.name%></p>
             </div>
         </div>
     </a>
