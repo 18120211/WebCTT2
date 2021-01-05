@@ -1,0 +1,121 @@
+<style>
+    .body {
+        margin: 0%;
+    }
+
+    .video {
+        display: none;
+    }
+
+    .show-video {
+        display: block;
+    }
+
+    .yellow-start {
+        color: yellow;
+    }
+
+    .red-heart {
+        color: red;
+    }
+
+    .buy-now {
+        width: 250px;
+        height: 60px;
+        color: white;
+        background-color: red;
+    }
+</style>
+<div class="jumbotron">
+    <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated});  %>
+</div>
+<div class="body">
+    <img src='<%= course.poster %>' alt="" width="670px" height="300">
+    <h2><%= course.name %> </h2>
+    <p id="evaPoint" data-evaPoint="<%= course.evaluationPoint %>" class="evaluation" style="display: inline;">
+        <%=  course.evaluationPoint%></p>
+    <i id="start0" class="fas fa-star"></i>
+    <i id="start1" class="fas fa-star"></i>
+    <i id="start2" class="fas fa-star"></i>
+    <i id="start3" class="fas fa-star"></i>
+    <i id="start4" class="fas fa-star"></i>
+    <p style="display: inline;" class="numberOfEvaluation">(<%=  course.numberOfEvaluation%> đánh giá)</p>
+    <p style="display: inline"><%= course.numberOfStudent %> học sinh</p><br>
+    <button class="buy-now"><i class="fas fa-wallet"></i> MUA LUÔN</button>
+    <p>Created by: <%= course.idLecturer.name %> </p>
+    <p>Update: <%= course.uploadDate.toDateString() %> </p>
+    <button data-isWishCourse="<%= isWishCourse %>" data-isAuthenticated="<%= isAuthenticated%>"
+        data-id="<%= course._id %>" id="wish-list" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"
+            id="heart"></i> Yêu thích</button>
+    <h3>What you will learn: </h3>
+    <h3>Description: </h3>
+
+    <div style="background-color: antiquewhite;">
+        <% for( let i = 0; i < course.videos.length; i++ ) { %>
+        <div class='document'>
+            <p style="display: inline-block;"><%= course.videos[i].name %> </p>
+            <button class='btn btn-primary'>Preview</button>
+            <video id="my-video" class="video-js video" controls preload="auto" width="640" height="264">
+                <source src="<%= course.videos[i].source %>" type="video/mp4" />
+            </video>
+        </div>
+        <% } %>
+    </div>
+</div>
+<script type="text/javascript">
+    $('document').ready(() => {
+        //Đánh dấu trái tim đỏ
+        const isWishCourse = $('#wish-list').attr('data-isWishCourse');
+        if (isWishCourse == 'true') {
+            $('#heart').addClass('red-heart');
+        }
+
+        //Đánh dấu sao vàng
+        let evaPoint = +($('#evaPoint').attr('data-evaPoint'));
+        evaPoint = evaPoint.toFixed(1);
+        if (evaPoint >= 5) {
+            $('#start0').addClass('yellow-start');
+            $('#start1').addClass('yellow-start');
+            $('#start2').addClass('yellow-start');
+            $('#start3').addClass('yellow-start');
+            $('#start4').addClass('yellow-start');
+        } else if (evaPoint >= 4) {
+            $('#start0').addClass('yellow-start');
+            $('#start1').addClass('yellow-start');
+            $('#start2').addClass('yellow-start');
+            $('#start3').addClass('yellow-start');
+        } else if (evaPoint >= 3) {
+            $('#start0').addClass('yellow-start');
+            $('#start1').addClass('yellow-start');
+            $('#start2').addClass('yellow-start');
+        } else if (evaPoint >= 2) {
+            $('#start0').addClass('yellow-start');
+            $('#start1').addClass('yellow-start');
+        } else if (evaPoint >= 1) {
+            $('#start0').addClass('yellow-start');
+        }
+    });
+    //Bấm vào hiện video
+    $('.document').children('button').on('click', (e) => {
+        if ($(e.target).siblings('video').hasClass('show-video')) {
+
+        }
+        $(e.target).siblings('video').toggleClass('show-video');
+    });
+    //Bấm vào nút Yêu thích
+    $('#wish-list').on('click', (e) => {
+        //Đổi màu button
+        $('#wish-list').children('i').toggleClass('red-heart');
+
+        //Kiểm tra đã đăng nhập chưa
+        const isAuthenticated = $('#wish-list').attr('data-isAuthenticated');
+        if (isAuthenticated == 'true') {
+            //Dùng ajax gửi thông tin về cho server thay đổi danh sách yêu thích
+            const courseID = $(e.target).data('id');
+            $.getJSON(`/users/wish-list-change?courseID=${courseID}`);
+        } else {
+            //điều hướng sang trang đăng nhập
+            location.replace('/users/login')
+        }
+    });
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <%- include('../common/header'); -%>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="active">Tạo user </h2>
+          <!-- Icon -->
+         
+          <!-- Login Form -->
+          <form action="" method="post" id="frmRegister">
+            <input type="text" id="email" class="fadeIn second" name="email" placeholder="email" value="<%= data.username%>">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" value="<%= data.password%>">
+            <input type="text" id="password" class="fadeIn third" name="re_password" placeholder="re-password" value="<%= data.re_password%>">
+
+            <input type="submit" id="register-button" class="fadeIn fourth" value="Tạo user">
+          </form>
+      
+          <!-- Remind Passowrd -->
+        </div>
+    </div>
+  <%- include('../common/footer'); -%>
+</body>
+<script>
+  $('#frmRegister').on('submit', function(e) {
+    e.preventDefault();
+    email = $("#email").val();
+    $.getJSON("/admin/is-user-available?email=" + email,function( json ) {
+      if(json === true){
+        $("#frmRegister").off("submit").submit();
+      }else{
+        alert("invalid Data");
+      }
+    });
+  });
+</script>
+</html>
+

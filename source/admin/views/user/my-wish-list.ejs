@@ -1,0 +1,49 @@
+<style>
+    .wish-courses {
+        display: inline-block;
+    }
+
+    .courses-detail {
+        display: none;
+    }
+
+    .wish-courses:hover .courses-detail {
+        display: block;
+    }
+
+    .wish-courses {
+        margin: auto;
+        width: 285px;
+    }
+
+</style>
+<div class="jumbotron">
+    <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated});  %> 
+</div>
+<div>
+    <h2>Các khóa học nổi bật nhất tuần qua</h2>
+    <% for( let i = 0; i < courses.length; i++ ) { %>
+    <a href="/course/<%= courses[i].name %>">
+        <div class="wish-courses">
+            <div class="courses">
+                <img src="<%= courses[i].poster%>" width="285px" height="150px">
+                <h4 class="name"><%=  courses[i].name%> </h4>
+                <p class="lecturer"><%=  courses[i].idLecturer.name%></p>
+                <p class="evaluation" style="display: inline-block;"><%=  courses[i].evaluationPoint%></p>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <p style="display: inline-block;" class="numberOfEvaluation"><%=  courses[i].numberOfEvaluation%>
+                </p>
+                <p class="tuition">$<%=  courses[i].tuition%></p>
+            </div>
+            <div class="courses-detail">
+                <p><%=  courses[i].numberOfStudent%> Studying</p>
+                <p><%=  courses[i].idCourseTopic.name%></p>
+            </div>
+        </div>
+    </a>
+    <% } %>
+</div>
