@@ -365,6 +365,17 @@ header img{
 .user-info .avatar-update{
   margin-top:  20px;
 }
-.avatar-update input{
-  /* display: none; */
+.avatar-update #avatar{
+  display: none;
+}
+.avatar-update #file{
+  display: none;
+}
+.user-info .info{
+  width: 80%;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
