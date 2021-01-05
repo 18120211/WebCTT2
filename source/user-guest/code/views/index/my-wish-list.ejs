@@ -21,7 +21,7 @@
     <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated});  %> 
 </div>
 <div>
-    <h2>Các khóa học nổi bật nhất tuần qua</h2>
+    <h2>Các khóa học nổi Yêu Thích</h2>
     <% for( let i = 0; i < courses.length; i++ ) { %>
     <a href="/course/<%= courses[i].name %>">
         <div class="wish-courses">

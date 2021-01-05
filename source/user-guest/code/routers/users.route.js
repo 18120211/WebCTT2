@@ -328,45 +328,4 @@ Router.post("/updateAvatar", function (req, res) {
     });
 });
 
-Router.get('/wish-list-change', ensureAuthenticated, async (req, res)=>{
-    courseID = req.query.courseID;
-    if (courseID != undefined) {
-        let index;
-        if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
-            req.user.idWishList.push(courseID);  
-        }
-        else {
-            req.user.idWishList.splice(index, 1);
-        }
-        req.user.save();
-        res.end();
-    }
-});
-
-Router.get('/my-wish-list', ensureAuthenticated, async (req, res)=>{
-    let courses = [];
-    for (let i = 0; i < req.user.idWishList.length; i++) {
-        const course = await Course
-            .findOne({_id: req.user.idWishList[i]}, [
-                'poster',
-                '_id',
-                'name',
-                'idLecturer',
-                'evaluationPoint',
-                'numberOfEvaluation',
-                'tuition',
-                'numberOfStudent',
-                'idCourseTopic'
-            ])
-            .populate('idCourseTopic');
-        await courses.push(course);
-    }
-    await res.render('./user/my-wish-list', {
-        isAuthenticated: req.isAuthenticated(),
-        courses: courses
-    });
-});
-
-
-
 module.exports = Router;

@@ -44,7 +44,11 @@
         <div class="prom-courses">
             <div class="courses">
                 <img class="poster" src="<%= proCourses[i].poster%>" width="285px" height="150px">
-                <h4 class="name"><%=  proCourses[i].name%> </h4>
+                <div>
+                    <h4 style="display: inline-block;" class="name"><%=  proCourses[i].name%> </h4>
+                    <div style="display: inline-block;">(<%= proCourses[i].numberOfView%> lượt xem)</div> 
+                </div>
+                
                 <p class="lecturer"><%=  proCourses[i].idLecturer.name%></p>
                 <p class="evaluation" style="display: inline-block;"><%=  proCourses[i].evaluationPoint%></p>
                 <i class="fa fa-star"></i>
