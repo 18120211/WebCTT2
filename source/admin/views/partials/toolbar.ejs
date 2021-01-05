@@ -1,0 +1,21 @@
+<div style="display: inline-block;">
+    <a class="btn btn-primary" href="/" role="button">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        HOME
+    </a>
+    <% if (!isAuthenticated) { %>
+    <a href="/users/register"><button type="button" class="btn btn-light">ĐĂNG KÝ</button></a>
+    <a href="/users/login"><button type="button" class="btn btn-danger">ĐĂNG NHẬP</button></a>
+    <a href="/users/auth/facebook"><button type="button" class="btn btn-info">FACEBOOK LOGIN</button></a>
+    <% } %>
+    <% if (isAuthenticated) { %>
+    <a href="/users/account"><button type="button" class="btn btn-info">TÀI KHOẢN</button></a>
+    <a href="/users/logout"><button type="button" class="btn btn-secondary">ĐĂNG XUẤT</button></a>
+    <a href="/users/my-wish-list"><button type="button" class="btn btn-light"><i class="fa fa-heart" aria-hidden="true"
+                style="color:red;"></i> YÊU THÍCH</button></a>
+    <a href=""><button type="button" class="btn btn-light"><i class="fas fa-folder-open" style="color: darkorange;"></i> Khóa học của
+            tôi</button></a>
+    <% } %>
+
+
+</div>

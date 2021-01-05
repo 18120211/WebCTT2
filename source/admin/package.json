@@ -1,0 +1,32 @@
+{
+  "name": "webctt2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Võ Thế Minh",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.4.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
+    "fs": "0.0.1-security",
+    "googleapis": "^66.0.0",
+    "mongoose": "^5.11.8",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "paypal-rest-sdk": "^1.8.1",
+    "video.js": "^7.10.2"
+  }
+}
