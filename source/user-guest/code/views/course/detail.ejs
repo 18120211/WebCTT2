@@ -41,14 +41,29 @@
     <i id="start4" class="fas fa-star"></i>
     <p style="display: inline;" class="numberOfEvaluation">(<%=  course.numberOfEvaluation%> đánh giá)</p>
     <p style="display: inline"><%= course.numberOfStudent %> học sinh</p><br>
-    <button class="buy-now"><i class="fas fa-wallet"></i> MUA LUÔN</button>
+    <button class="buy-now"><i class="fas fa-wallet"></i> MUA LUÔN($<%= course.tuition %>)</button>
     <p>Created by: <%= course.idLecturer.name %> </p>
     <p>Update: <%= course.uploadDate.toDateString() %> </p>
     <button data-isWishCourse="<%= isWishCourse %>" data-isAuthenticated="<%= isAuthenticated%>"
         data-id="<%= course._id %>" id="wish-list" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"
             id="heart"></i> Yêu thích</button>
     <h3>What you will learn: </h3>
+    <% for( let i = 0; i < Math.ceil(course.whatYoullLearn.length / 2); i++ ) { %>
+    <div class="row">
+        <div class="col-sm">
+            <i class="fas fa-check"></i>
+            <%= course.whatYoullLearn[2*i] %>
+        </div>
+        <div class="col-sm">
+            <i class="fas fa-check"></i>
+            <% if (course.whatYoullLearn[2*1+1] != undefined) { %>
+            <%= course.whatYoullLearn[2*i+1] %>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
     <h3>Description: </h3>
+    <p style="display:inline-block;"> <%= course.description %></p>
 
     <div style="background-color: antiquewhite;">
         <% for( let i = 0; i < course.videos.length; i++ ) { %>

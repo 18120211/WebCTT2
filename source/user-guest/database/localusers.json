@@ -12,25 +12,31 @@
   "email": "sonkhungmtp.52@gmail.com",
   "password": "$2a$10$WEAZJwez8PlUyhGSvEZyS.kt8S80Nzg.ym53rSUaovSIN.bHa/pL.",
   "otpNumber": "744581",
-  "__v": 0
+  "__v": 1,
+  "idCourses": [],
+  "idWishList": []
 },{
   "_id": {
-    "$oid": "5febf92853a7c10cf0c50ad1"
+    "$oid": "5ff0980efd23d439fc8dd732"
   },
   "gender": "Male",
   "date": {
-    "$date": "2020-12-30T03:49:34.237Z"
+    "$date": "2021-01-02T15:57:14.377Z"
   },
-  "avatar": "/public/avatar/5febf92853a7c10cf0c50ad1/avatar.png",
+  "avatar": "/public/avatar/5ff0980efd23d439fc8dd732/avatar.png",
   "isAuth": true,
+  "idCourses": [],
   "name": "Võ Thế Minh",
   "email": "minhthevotemp@gmail.com",
-  "password": "$2a$10$U9nKiZRYcvU93FSxl8aGCOary10xYnamD7wPrep4hRvpnAzzNADPa",
-  "otpNumber": "603083",
-  "__v": 1,
-  "idCourses": [
+  "password": "$2a$10$GE522quSVuqtUVOoZjscE.dOoZ9M1c9VDB9eXTeEriN5iqs9VoiwS",
+  "otpNumber": "862739",
+  "__v": 69,
+  "idWishList": [
     {
-      "$oid": "5fed79e2c327961030c832ec"
+      "$oid": "5ff2e3b37d305e09608a1df0"
+    },
+    {
+      "$oid": "5ff2e3b37d305e09608a1dde"
     }
   ]
 }]

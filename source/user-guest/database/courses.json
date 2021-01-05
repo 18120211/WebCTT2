@@ -1,176 +1,464 @@
 [{
   "_id": {
-    "$oid": "5feefda068b54f12c839c609"
+    "$oid": "5ff2e3b37d305e09608a1dde"
   },
   "poster": "/public/poster/graphPython/poster.png",
   "description": "Bạn có thể học mọi thứ về đồ thị với Python qua khóa học của chúng tôi",
-  "evaluationPoint": "9.0",
-  "numberOfEvaluation": 300,
-  "numberOfStudent": 500,
-  "numberOfView": 150000,
-  "tuition": 1,
+  "evaluationPoint": 0,
+  "numberOfEvaluation": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
+  "tuition": 10,
   "uploadDate": {
-    "$date": "2021-01-01T10:46:56.205Z"
+    "$date": "2021-01-04T09:45:23.278Z"
   },
+  "previewIndex": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về ngôn ngữ lập trình.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc lập trình.",
+    "Hiểu cách tạo các chương trình của riêng bạn.",
+    "Học xong đảm bảo trùm lập trình"
+  ],
   "name": "Graphing Python",
-  "idCourseCategory": {
-    "$oid": "5fedf971d7966e3ea8f00666"
-  },
-  "idCourseDocument": {
-    "$oid": "5fed652629777d245ce0e315"
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbdf"
   },
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
+  "videos": [
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1ddf"
+      },
+      "name": "Introduction and line",
+      "source": "/public/video/graphPython/0.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de0"
+      },
+      "name": "Legends titles and labels",
+      "source": "/public/video/graphPython/1.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de1"
+      },
+      "name": "Bar charts and histograms",
+      "source": "/public/video/graphPython/2.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de2"
+      },
+      "name": "Scatter Plots",
+      "source": "/public/video/graphPython/3.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de3"
+      },
+      "name": "Stack plots",
+      "source": "/public/video/graphPython/4.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de4"
+      },
+      "name": "Pie Charts",
+      "source": "/public/video/graphPython/5.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de5"
+      },
+      "name": "Loading data from files",
+      "source": "/public/video/graphPython/6.mp4"
+    }
+  ],
   "__v": 0
 },{
   "_id": {
-    "$oid": "5feefda068b54f12c839c60a"
+    "$oid": "5ff2e3b37d305e09608a1de6"
   },
   "poster": "/public/poster/beginerAdrDev/poster.png",
   "description": "Học xong khóa tutorial bạn sẽ trùm Android",
-  "evaluationPoint": "8.0",
-  "numberOfEvaluation": 200,
-  "numberOfStudent": 300,
-  "numberOfView": 130000,
+  "evaluationPoint": 0,
+  "numberOfEvaluation": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
   "tuition": 10,
   "uploadDate": {
-    "$date": "2021-01-01T10:46:56.205Z"
+    "$date": "2021-01-04T09:45:23.278Z"
   },
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về ngôn ngữ lập trình.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc lập trình.",
+    "Hiểu cách tạo các chương trình của riêng bạn.",
+    "Học xong đảm bảo trùm lập trình"
+  ],
   "name": "Tutorial Android development",
-  "idCourseCategory": {
-    "$oid": "5fedf971d7966e3ea8f00664"
-  },
-  "idCourseDocument": {
-    "$oid": "5feeabda6d59961bf0ad76a0"
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbe2"
   },
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
+  "videos": [
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de7"
+      },
+      "name": "Introduction to Android",
+      "source": "/public/video/beginerAdrDev/0.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de8"
+      },
+      "name": "Prepare development environment",
+      "source": "/public/video/beginerAdrDev/1.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1de9"
+      },
+      "name": "Create hello world Android application",
+      "source": "/public/video/beginerAdrDev/2.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1dea"
+      },
+      "name": "Test android app in virtual device",
+      "source": "/public/video/beginerAdrDev/3.mp4"
+    }
+  ],
   "__v": 0
 },{
   "_id": {
-    "$oid": "5feefda068b54f12c839c60b"
+    "$oid": "5ff2e3b37d305e09608a1deb"
   },
   "poster": "/public/poster/beginerJvsDev/poster.png",
   "description": "Học xong lương 10000$",
-  "evaluationPoint": "8.5",
-  "numberOfEvaluation": 250,
-  "numberOfStudent": 400,
-  "numberOfView": 130000,
+  "evaluationPoint": 0,
+  "numberOfEvaluation": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
   "tuition": 10,
   "uploadDate": {
-    "$date": "2021-01-01T10:46:56.205Z"
+    "$date": "2021-01-04T09:45:23.278Z"
   },
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về ngôn ngữ lập trình.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc lập trình.",
+    "Hiểu cách tạo các chương trình của riêng bạn.",
+    "Học xong đảm bảo trùm lập trình"
+  ],
   "name": "Tutorial Javascript development",
-  "idCourseCategory": {
-    "$oid": "5fedf971d7966e3ea8f00663"
-  },
-  "idCourseDocument": {
-    "$oid": "5feeabda6d59961bf0ad76a1"
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbe1"
   },
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
+  "videos": [
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1dec"
+      },
+      "name": "Beginning the Beginer series",
+      "source": "/public/video/beginerJvsDev/0.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1ded"
+      },
+      "name": "What is Javascript",
+      "source": "/public/video/beginerJvsDev/1.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1dee"
+      },
+      "name": "Running Javascript",
+      "source": "/public/video/beginerJvsDev/2.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1def"
+      },
+      "name": "Building your toolbox",
+      "source": "/public/video/beginerJvsDev/3.mp4"
+    }
+  ],
   "__v": 0
 },{
   "_id": {
-    "$oid": "5feefda068b54f12c839c60c"
+    "$oid": "5ff2e3b37d305e09608a1df0"
   },
   "poster": "/public/poster/beginerWebDev/poster.png",
   "description": "Học 2 buổi 10 chấm môn Web",
-  "evaluationPoint": "8.5",
-  "numberOfEvaluation": 50,
-  "numberOfStudent": 150,
-  "numberOfView": 80000,
+  "evaluationPoint": 0,
+  "numberOfEvaluation": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
   "tuition": 10,
   "uploadDate": {
-    "$date": "2021-01-01T10:46:56.205Z"
+    "$date": "2021-01-04T09:45:23.278Z"
   },
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về ngôn ngữ lập trình.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc lập trình.",
+    "Hiểu cách tạo các chương trình của riêng bạn.",
+    "Học xong đảm bảo trùm lập trình"
+  ],
   "name": "Tutorial Web development",
-  "idCourseCategory": {
-    "$oid": "5fedf971d7966e3ea8f00662"
-  },
-  "idCourseDocument": {
-    "$oid": "5feeabda6d59961bf0ad76a2"
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbe0"
   },
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
+  "videos": [
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df1"
+      },
+      "name": "How to make a website",
+      "source": "/public/video/beginerWebDev/0.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df2"
+      },
+      "name": "HTML tutorial",
+      "source": "/public/video/beginerWebDev/1.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df3"
+      },
+      "name": "HTML&CSS tutorial",
+      "source": "/public/video/beginerWebDev/2.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df4"
+      },
+      "name": "Make a website using HTML&CSS-FAST",
+      "source": "/public/video/beginerWebDev/3.mp4"
+    }
+  ],
   "__v": 0
 },{
   "_id": {
-    "$oid": "5feefda068b54f12c839c60d"
+    "$oid": "5ff2e3b37d305e09608a1df5"
   },
   "poster": "/public/poster/gameDevUnity/poster.png",
   "description": "Học 3 buổi là vào Facebook",
-  "evaluationPoint": "7.5",
-  "numberOfEvaluation": 100,
-  "numberOfStudent": 250,
-  "numberOfView": 90000,
+  "evaluationPoint": 0,
+  "numberOfEvaluation": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
   "tuition": 10,
   "uploadDate": {
-    "$date": "2021-01-01T10:46:56.205Z"
+    "$date": "2021-01-04T09:45:23.278Z"
   },
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về ngôn ngữ lập trình.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc lập trình.",
+    "Hiểu cách tạo các chương trình của riêng bạn.",
+    "Học xong đảm bảo trùm lập trình"
+  ],
   "name": "Unity game development",
-  "idCourseCategory": {
-    "$oid": "5fedf971d7966e3ea8f00665"
-  },
-  "idCourseDocument": {
-    "$oid": "5feeabda6d59961bf0ad76a3"
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbe3"
   },
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
+  "videos": [
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df6"
+      },
+      "name": "Introduction to game development",
+      "source": "/public/video/gameDevUnity/0.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df7"
+      },
+      "name": "Variables and method",
+      "source": "/public/video/gameDevUnity/1.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df8"
+      },
+      "name": "Using classes",
+      "source": "/public/video/gameDevUnity/2.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1df9"
+      },
+      "name": "Unity overview",
+      "source": "/public/video/gameDevUnity/3.mp4"
+    }
+  ],
   "__v": 0
 },{
   "_id": {
-    "$oid": "5feefda068b54f12c839c60e"
+    "$oid": "5ff2e3b37d305e09608a1dfa"
   },
   "poster": "/public/poster/tutCommunication/poster.png",
   "description": "Bạn muốn làm đa cấp không thể bỏ qua khóa học này",
-  "evaluationPoint": "8.5",
-  "numberOfEvaluation": 350,
-  "numberOfStudent": 450,
-  "numberOfView": 130000,
+  "evaluationPoint": 0,
+  "numberOfEvaluation": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
   "tuition": 10,
   "uploadDate": {
-    "$date": "2021-01-01T10:46:56.205Z"
+    "$date": "2021-01-04T09:45:23.278Z"
   },
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về Business.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc Business.",
+    "Hiểu cách tạo các chương trình Business.",
+    "Học xong đảm bảo trùm Business"
+  ],
   "name": "Communication tutorial",
-  "idCourseCategory": {
-    "$oid": "5fedf971d7966e3ea8f0066a"
-  },
-  "idCourseDocument": {
-    "$oid": "5feeabda6d59961bf0ad76a4"
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbe7"
   },
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
+  "videos": [
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1dfb"
+      },
+      "name": "Business communication",
+      "source": "/public/video/tutCommunication/0.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1dfc"
+      },
+      "name": "Business writing tips",
+      "source": "/public/video/tutCommunication/1.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1dfd"
+      },
+      "name": "Communicate with influence every time",
+      "source": "/public/video/tutCommunication/2.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1dfe"
+      },
+      "name": "Shake shark CEO",
+      "source": "/public/video/tutCommunication/3.mp4"
+    }
+  ],
   "__v": 0
 },{
   "_id": {
-    "$oid": "5feefda068b54f12c839c60f"
+    "$oid": "5ff2e3b37d305e09608a1dff"
   },
   "poster": "/public/poster/tutPhotoshop/poster.png",
   "description": "Bạn muốn làm đa cấp không thể bỏ qua khóa học này",
-  "evaluationPoint": "8.5",
-  "numberOfEvaluation": 350,
-  "numberOfStudent": 420,
-  "numberOfView": 140000,
+  "evaluationPoint": 0,
+  "numberOfEvaluation": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
   "tuition": 10,
   "uploadDate": {
-    "$date": "2021-01-01T10:46:56.205Z"
+    "$date": "2021-01-04T09:45:23.278Z"
   },
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về Deisgn.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc Deisgn.",
+    "Hiểu cách tạo các chương trình Deisgn.",
+    "Học xong đảm bảo trùm Deisgn"
+  ],
   "name": "Photoshop tutorial",
-  "idCourseCategory": {
-    "$oid": "5fedf971d7966e3ea8f00668"
-  },
-  "idCourseDocument": {
-    "$oid": "5feeabda6d59961bf0ad76a5"
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbe5"
   },
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
+  "videos": [
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1e00"
+      },
+      "name": "Course overview",
+      "source": "/public/video/tutPhotoshop/0.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1e01"
+      },
+      "name": "Interface introduction to Adobe Photoshop",
+      "source": "/public/video/tutPhotoshop/1.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1e02"
+      },
+      "name": "Pannel and workspace in Adobe Photoshop",
+      "source": "/public/video/tutPhotoshop/2.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "5ff2e3b37d305e09608a1e03"
+      },
+      "name": "Raster imgae principles",
+      "source": "/public/video/tutPhotoshop/3.mp4"
+    }
+  ],
   "__v": 0
 }]

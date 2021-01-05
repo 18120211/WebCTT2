@@ -15,7 +15,7 @@ Router.get('/:nameCourse', async (req, res) => {
             name: nameCourse
         })
         .populate('idLecturer')
-        .populate('idCourseCategory')
+        .populate('idCourseTopic')
     let isWishCourse = false;
     if (req.user != undefined && req.user.idWishList.indexOf(course._id) != -1) {
         isWishCourse = true
@@ -25,6 +25,14 @@ Router.get('/:nameCourse', async (req, res) => {
         isWishCourse: isWishCourse,
         course: course
     });
+});
+
+Router.get('/:nameCourse/checkout', async (req, res) => {
+    const now = new Date(Date.now());
+    const date = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
+    res.render('./course/checkout', {
+        date: date
+    })
 });
 
 module.exports = Router;

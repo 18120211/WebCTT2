@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 module.exports = function(app) {
-    const uris = require('../config/key').MongoLocal;
+    const uris = require('../config/key.config').MongoLocal;
     
     const mongooseConfig = {
         useNewUrlParser: true,

@@ -1,8 +1,8 @@
-const index = require('../routers/index');
+const index = require('../routers/index.route');
 
-const users = require('../routers/users');
+const users = require('../routers/users.route');
 
-const course = require('../routers/course');
+const course = require('../routers/course.router');
 
 module.exports = function(app) {
     app.use('/', index);

@@ -7,7 +7,7 @@ const passport = require('passport');
 const {
     ensureAuthenticated,
     forwardAuthenticated
-} = require('../config/auth');
+} = require('../config/auth.config');
 
 const LocalUser = require('../models/LocalUser.model');
 
