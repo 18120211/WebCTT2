@@ -365,3 +365,6 @@ header img{
 .user-info .avatar-update{
   margin-top:  20px;
 }
+.avatar-update input{
+  /* display: none; */
+}

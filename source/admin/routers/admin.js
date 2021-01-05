@@ -10,6 +10,11 @@ const bcrypt = require("bcryptjs");
 
 const passport = require("passport");
 
+const multer = require('multer');
+
+const fs = require('fs');
+
+const path = require('path');
 
 const {
   ensureAuthenticated,
@@ -105,4 +110,38 @@ router.post("/register",async function (req, res) {
   }
   res.redirect("/admin/register");
 });
+
+router.post('/upload', function (req, res) {
+
+    console.log(req.user._id);
+    fs.mkdir(path.join(__dirname, '../public/avatar/'+req.user._id.toString()), () => {});
+  
+    const storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, './public/avatar/' + req.user._id);
+      },
+      filename: function (req, file, cb) {
+        let avatar = ('/public/avatar/') + req.user._id.toString() + '/' + 'avatar.png';
+        Lecturer.findOne({
+          _id: req.user._id
+        }).then((user) => {
+          user.avatar = avatar;
+          user.save();
+        });
+        cb(null, 'avatar.png');
+      }
+    });
+    const upload = multer({
+      storage
+    });
+    upload.single('file')(req, res, function async (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        const avatar =  ('/public/avatar/') + req.user._id.toString() + '/' + 'avatar.png';
+
+        res.json(avatar);
+      }
+    });
+  });
 module.exports = router;
