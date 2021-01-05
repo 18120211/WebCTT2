@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST_PEOJECT_NMPM_NODEJS</title>
+    <title>WEB_CTT2</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -21,22 +21,29 @@
             <div class="col-sm-8">
                 <div class="card shadow w-50 mx-auto">
                     <div class="card-body">
-                        <h1 class="card-title text-center">HÓA ĐƠN</h1>
-                        <img src="" alt="" width="60px" height="40px">
-                        <strong class="card-text"> ANDROID DEVELOPMENT</strong>
+                        <h1 class="card-title text-center">SUMMARY</h1>
+                        <img src="<%= course.poster %>" alt="" width="60px" height="40px">
+                        <strong class="card-text"> <%= course.name %> </strong>
                         <hr>
-                        <div>Giá gốc: <p style="display: inline-block;">$10</p></div>
-                        <div>Giá đã giảm: <p style="display: inline-block;">$10</p></div>
+                        <div>Giá gốc: <p style="display: inline-block;">$<%= course.tuition*100 %> </p>
+                        </div>
+                        <div>Giá đã giảm: <p style="display: inline-block;">$<%= course.tuition %> </p>
+                        </div>
+                        <div>Lợi nhuận: <p style="display: inline-block;">$<%= course.tuition*99 %> </p>
+                        </div>
                         <hr>
-                        <div>Tổng cộng: <p style="display: inline;">$10</p></div>
+                        <div>Tổng cộng: <p style="display: inline;">$<%= course.tuition %> </p>
+                        </div>
                         <div>
-                            <button class="btn btn-light" style="margin-top: 10px;"><img src="/public/paypal.png" width="50px" height="50px"></button>
+                            <button id="btnPay" type="button" class="btn btn-light" style="margin-top: 10px;"><img
+                                    src="/public/paypal.png" width="50px" height="50px"></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <form id="myForm" action="/payment/<%= course.name %>/checkout" method="POST"></form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -47,7 +54,11 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
     <script>
-        
+        $('#btnPay').on('click', ()=>{
+            console.log('HELLO');
+            $('#myForm').submit();
+        });
     </script>
 </body>
+
 </html>

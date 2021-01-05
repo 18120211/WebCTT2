@@ -109,6 +109,7 @@ Router.post("/register", function (req, res) {
                     errors,
                 });
             } else {
+                //Tạo client request để gửi gmail xác thực OTP
                 const clientID = '520933105747-lvrafi3nq92ia2hv9mkgrdh706sl0ei2.apps.googleusercontent.com';
                 const clientSecret = 'NAjZvQbzYipjQYBxnaHPHSr9';
                 const redirectUri = 'https://developers.google.com/oauthplayground';
@@ -188,7 +189,7 @@ Router.post('/otp', async (req, res) => {
 });
 
 Router.post('/login', async (req, res, next) => {
-    const {
+    let {
         email,
         password
     } = req.body;
@@ -196,18 +197,31 @@ Router.post('/login', async (req, res, next) => {
     const user = await LocalUser.findOne({
         email: email
     });
-    if (user && user.isAuth) {
-        passport.authenticate('local', {
-            failureRedirect: '/users/login',
-            successRedirect: '/'
-        })(req, res, next);
-    } else if (user && !user.isAuth) {
-        req.session.currentEmail = email;
-        req.flash('error_msg', "Please fill correct OTP to login");
-        res.redirect('/users/otp');
-    } else if (!user) {
+
+    if (user != null) {
+        bcrypt.compare(password, user.password).then((isMatch) => {
+            if (isMatch) {
+                if (user.isAuth) {
+                    passport.authenticate('local', {
+                        failureRedirect: '/users/login',
+                        successRedirect: '/'
+                    })(req, res, next);
+                }
+                else {
+                    req.session.currentEmail = email;
+                    req.flash('error_msg', "Please fill correct OTP to login");
+                    res.redirect('/users/otp');
+                }
+            }
+            else {
+                req.flash("error_msg", "Invalid account");
+        res.render('./user/login')
+            }
+        })
+    }
+    else {
         req.flash("error_msg", "Invalid account");
-        res.render('./user/otp')
+        res.render('./user/login')
     }
 });
 
@@ -277,6 +291,7 @@ Router.post('/updateInfor', async (req, res) => {
 
     if (errors.length > 0) {
         res.render("./user/updateinfor", {
+            isLocalAccount: (req.user.password != undefined) ? true : false,
             name: req.user.name,
             errors,
         });
@@ -327,46 +342,5 @@ Router.post("/updateAvatar", function (req, res) {
         }
     });
 });
-
-Router.get('/wish-list-change', ensureAuthenticated, async (req, res)=>{
-    courseID = req.query.courseID;
-    if (courseID != undefined) {
-        let index;
-        if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
-            req.user.idWishList.push(courseID);  
-        }
-        else {
-            req.user.idWishList.splice(index, 1);
-        }
-        req.user.save();
-        res.end();
-    }
-});
-
-Router.get('/my-wish-list', ensureAuthenticated, async (req, res)=>{
-    let courses = [];
-    for (let i = 0; i < req.user.idWishList.length; i++) {
-        const course = await Course
-            .findOne({_id: req.user.idWishList[i]}, [
-                'poster',
-                '_id',
-                'name',
-                'idLecturer',
-                'evaluationPoint',
-                'numberOfEvaluation',
-                'tuition',
-                'numberOfStudent',
-                'idCourseTopic'
-            ])
-            .populate('idCourseTopic');
-        await courses.push(course);
-    }
-    await res.render('./user/my-wish-list', {
-        isAuthenticated: req.isAuthenticated(),
-        courses: courses
-    });
-});
-
-
 
 module.exports = Router;

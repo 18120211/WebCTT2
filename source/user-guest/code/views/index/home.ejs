@@ -1,66 +1,10 @@
-<style>
-    .prom-courses,
-    .most-view-courses,
-    .latest-courses {
-        display: inline-block;
-    }
-
-    .courses-detail {
-        display: none;
-    }
-
-    .prom-courses:hover .courses-detail {
-        display: block;
-    }
-
-    .most-view-courses:hover .courses-detail {
-        display: block;
-    }
-
-    .latest-courses:hover .courses-detail {
-        display: block;
-    }
-
-    .prom-courses,
-    .latest-courses,
-    .most-view-courses {
-        margin: auto;
-        width: 285px;
-        text-overflow: ellipsis;
-        position: sticky;
-    }
-
-    .fake-link {
-        cursor: pointer;
-    }
-</style>
 <div class="jumbotron">
     <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated});  %> 
 </div>
 <div>
     <h2>Các khóa học nổi bật nhất tuần qua</h2>
     <% for( let i = 0; i < proCourses.length; i++ ) { %>
-    <a href="/course/<%= proCourses[i].name %>">
-        <div class="prom-courses">
-            <div class="courses">
-                <img class="poster" src="<%= proCourses[i].poster%>" width="285px" height="150px">
-                <h4 class="name"><%=  proCourses[i].name%> </h4>
-                <p class="lecturer"><%=  proCourses[i].idLecturer.name%></p>
-                <p class="evaluation" style="display: inline-block;"><%=  proCourses[i].evaluationPoint%></p>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <p style="display: inline-block;" class="numberOfEvaluation"><%=  proCourses[i].numberOfEvaluation%>
-                </p>
-                <p class="tuition">$<%=  proCourses[i].tuition%></p>
-            </div>
-            <div class="courses-detail">
-                <p><%=  proCourses[i].numberOfStudent%> Studying</p>
-                <p><%=  proCourses[i].idCourseTopic.name%></p>
-            </div>
-        </div>
-    </a>
+    <!-- 1 card khóa học -->
+    <%- include('../partials/card-course', {course: proCourses[i]})  %> 
     <% } %>
 </div>

@@ -31,7 +31,10 @@
 </div>
 <div class="body">
     <img src='<%= course.poster %>' alt="" width="670px" height="300">
-    <h2><%= course.name %> </h2>
+    <div>
+        <h2 style="display: inline-block;" class="name"><%=  course.name%> </h2>
+        <div style="display: inline-block;">(<%= course.numberOfView%> lượt xem)</div> 
+    </div>
     <p id="evaPoint" data-evaPoint="<%= course.evaluationPoint %>" class="evaluation" style="display: inline;">
         <%=  course.evaluationPoint%></p>
     <i id="start0" class="fas fa-star"></i>
@@ -41,9 +44,15 @@
     <i id="start4" class="fas fa-star"></i>
     <p style="display: inline;" class="numberOfEvaluation">(<%=  course.numberOfEvaluation%> đánh giá)</p>
     <p style="display: inline"><%= course.numberOfStudent %> học sinh</p><br>
-    <button class="buy-now"><i class="fas fa-wallet"></i> MUA LUÔN($<%= course.tuition %>)</button>
-    <p>Created by: <%= course.idLecturer.name %> </p>
-    <p>Update: <%= course.uploadDate.toDateString() %> </p>
+    <% if (!isPaid) { %>
+        <a href="/payment/<%= course.name%>/checkout">
+            <button class="buy-now"><i class="fas fa-wallet"></i> MUA LUÔN($<%= course.tuition %>)</button>
+        </a>
+    <% } %>
+
+
+    <p>Tác giả: <%= course.idLecturer.name %> </p>
+    <p>Ngày đăng: <%= course.uploadDate.toDateString() %> </p>
     <button data-isWishCourse="<%= isWishCourse %>" data-isAuthenticated="<%= isAuthenticated%>"
         data-id="<%= course._id %>" id="wish-list" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"
             id="heart"></i> Yêu thích</button>
@@ -127,7 +136,7 @@
         if (isAuthenticated == 'true') {
             //Dùng ajax gửi thông tin về cho server thay đổi danh sách yêu thích
             const courseID = $(e.target).data('id');
-            $.getJSON(`/users/wish-list-change?courseID=${courseID}`);
+            $.getJSON(`wish-list-change?courseID=${courseID}`);
         } else {
             //điều hướng sang trang đăng nhập
             location.replace('/users/login')
