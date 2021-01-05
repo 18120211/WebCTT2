@@ -102,6 +102,7 @@ Router.post("/register", function (req, res) {
                   errors: errors
                 });
               } else {
+                //Tạo client request để gửi gmail xác thực OTP
                 clientID = '520933105747-lvrafi3nq92ia2hv9mkgrdh706sl0ei2.apps.googleusercontent.com';
                 clientSecret = 'NAjZvQbzYipjQYBxnaHPHSr9';
                 redirectUri = 'https://developers.google.com/oauthplayground';
@@ -225,18 +226,27 @@ Router.post('/login', function _callee4(req, res, next) {
         case 3:
           user = _context4.sent;
 
-          if (user && user.isAuth) {
-            passport.authenticate('local', {
-              failureRedirect: '/users/login',
-              successRedirect: '/'
-            })(req, res, next);
-          } else if (user && !user.isAuth) {
-            req.session.currentEmail = email;
-            req.flash('error_msg', "Please fill correct OTP to login");
-            res.redirect('/users/otp');
-          } else if (!user) {
+          if (user != null) {
+            bcrypt.compare(password, user.password).then(function (isMatch) {
+              if (isMatch) {
+                if (user.isAuth) {
+                  passport.authenticate('local', {
+                    failureRedirect: '/users/login',
+                    successRedirect: '/'
+                  })(req, res, next);
+                } else {
+                  req.session.currentEmail = email;
+                  req.flash('error_msg', "Please fill correct OTP to login");
+                  res.redirect('/users/otp');
+                }
+              } else {
+                req.flash("error_msg", "Invalid account");
+                res.render('./user/login');
+              }
+            });
+          } else {
             req.flash("error_msg", "Invalid account");
-            res.render('./user/otp');
+            res.render('./user/login');
           }
 
         case 5:
@@ -316,6 +326,7 @@ Router.post('/updateInfor', function _callee5(req, res) {
           }
 
           res.render("./user/updateinfor", {
+            isLocalAccount: req.user.password != undefined ? true : false,
             name: req.user.name,
             errors: errors
           });

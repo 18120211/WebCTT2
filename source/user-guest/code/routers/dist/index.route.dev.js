@@ -99,7 +99,7 @@ Router.get('/my-wish-list', ensureAuthenticated, function _callee3(req, res) {
           _context3.next = 5;
           return regeneratorRuntime.awrap(Course.findOne({
             _id: req.user.idWishList[i]
-          }, ['poster', '_id', 'name', 'idLecturer', 'evaluationPoint', 'numberOfEvaluation', 'tuition', 'numberOfStudent', 'idCourseTopic']).populate('idCourseTopic'));
+          }, ['poster', '_id', 'name', 'idLecturer', 'evaluationPoint', 'numberOfEvaluation', 'tuition', 'numberOfStudent', 'idCourseTopic']).populate('idCourseTopic').populate('idLecturer'));
 
         case 5:
           course = _context3.sent;
@@ -144,7 +144,7 @@ Router.get('/my-courses', ensureAuthenticated, function _callee4(req, res) {
           _context4.next = 5;
           return regeneratorRuntime.awrap(Course.findOne({
             _id: req.user.idCourses[i]
-          }, ['poster', '_id', 'name', 'idLecturer', 'evaluationPoint', 'numberOfEvaluation', 'tuition', 'numberOfStudent', 'idCourseTopic']).populate('idCourseTopic'));
+          }, ['poster', '_id', 'name', 'idLecturer', 'evaluationPoint', 'numberOfEvaluation', 'tuition', 'numberOfStudent', 'idCourseTopic']).populate('idCourseTopic').populate('idLecturer'));
 
         case 5:
           course = _context4.sent;

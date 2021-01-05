@@ -51,8 +51,8 @@
     <% } %>
 
 
-    <p>Created by: <%= course.idLecturer.name %> </p>
-    <p>Update: <%= course.uploadDate.toDateString() %> </p>
+    <p>Tác giả: <%= course.idLecturer.name %> </p>
+    <p>Ngày đăng: <%= course.uploadDate.toDateString() %> </p>
     <button data-isWishCourse="<%= isWishCourse %>" data-isAuthenticated="<%= isAuthenticated%>"
         data-id="<%= course._id %>" id="wish-list" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"
             id="heart"></i> Yêu thích</button>

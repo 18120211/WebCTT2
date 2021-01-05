@@ -120,7 +120,8 @@ Router.get('/my-wish-list', ensureAuthenticated, async (req, res) => {
                 'numberOfStudent',
                 'idCourseTopic'
             ])
-            .populate('idCourseTopic');
+            .populate('idCourseTopic')
+            .populate('idLecturer');
         await courses.push(course);
     }
     await res.render('./index/my-wish-list', {
@@ -147,7 +148,8 @@ Router.get('/my-courses', ensureAuthenticated, async (req, res) => {
                 'numberOfStudent',
                 'idCourseTopic'
             ])
-            .populate('idCourseTopic');
+            .populate('idCourseTopic')
+            .populate('idLecturer');
         await courses.push(course);
     }
     await res.render('./index/my-courses', {
