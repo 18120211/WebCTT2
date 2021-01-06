@@ -15,94 +15,134 @@
     
 </head>
 <body>
-    <div id="container">
+    <div  id="container">
         <%- include('../common/header',{user: user}); -%>
         <%- include('../common/column_left'); -%>
         <div id="content">
-          <div class="user-info">
-              <div class="row">
-                <div class="col-sm-4 image">
-                  <img src=" <%=user.avatar%>" id="avatar-img">
-                  <div class="avatar-update">
-                    <form action="/admin/upload" enctype="multipart/form-data" method="POST" >
-                        <input type="file" name="file" id="file"/>
-                     </form>
-                     <button class="btn btn-success" id="avartar-upload" > Thay avatar </button>
-                  </div>
+            <div class="page-header">
+                <div class="container-fluid">
+                    <h2><%= data.title %></h2>
                 </div>
-                <div class="col-sm-8 info">
-                  <div class="form-group">
-                      <label class ="col-sm-2 control-label" for="my-input">Name:</label>
-                      <div class="col-sm-10">
-                        <input  class="form-control" type="text" name="name" value="<%=user.name%>" >
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <label class ="col-sm-2 control-label" for="my-input">Email:</label>
-                    <div class="col-sm-10">
-                        <input  class="form-control" type="text" name="email" value="<%=user.email%>">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <label class ="col-sm-2 control-label" for="my-input">Gender:</label>
-                    <div class="col-sm-10">
-                        <select  class="form-control" type="text" name="gender">
-                            <%if (user.gender == "nam") { %>
-                                <option value="nam" selected="selected"> Nam</option>
-                                <option value="nữ"> Nữ</option>
-                            <% }else{ %>
-                                <option value="nam" > Nam</option>
-                                <option value="nữ"  selected="selected"> Nữ</option>
-                            <% } %>
-                        </select>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <label class ="col-sm-2 control-label" for="my-input">Description:</label>
-                    <div class="col-sm-10">
-                        <textarea  class="form-control" type="text" name="description" ><%=user.description%></textarea>
+            </div>
+            <form action="" method="post" id="frmUpdateInfo">
+                <div class="user-info">
+                    <div class="row">
+                        <div class="col-sm-4 image">
+                            <img src="<%=user.avatar%>" id="avatar-img">
+                            <div class="avatar-update">
+                                <input type="file" name="file" id="file"/>
+                                <input type="text" name="avatar" id="avatar" value="<%=user.avatar%>" />
+                                <button class="btn btn-success" id="avartar-upload" > Thay avatar </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-8 info">
+                            <div class="form-group">
+                                <label class ="col-sm-2 control-label" for="my-input">Name:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control" type="text" name="name" value="<%=user.name%>" >
+                                </div>
+                            </div>
+                            <div class="form-group hidden">
+                                <label class ="col-sm-2 control-label" for="my-input">ID:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control" type="text" name="id" value="<%=user.id%>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class ="col-sm-2 control-label" for="my-input">Gender:</label>
+                                <div class="col-sm-10">
+                                    <select  class="form-control" type="text" name="gender">
+                                        <%if (user.gender == "nam") { %>
+                                            <option value="nam" selected="selected"> Nam</option>
+                                            <option value="nữ"> Nữ</option>
+                                        <% }else{ %>
+                                            <option value="nam" > Nam</option>
+                                            <option value="nữ"  selected="selected"> Nữ</option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class ="col-sm-2 control-label" for="my-input">Description:</label>
+                                <div class="col-sm-10">
+                                    <textarea  class="form-control" type="text" name="description" ><%=user.description%></textarea>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label class ="col-sm-2 control-label" for="my-input">Password:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control" type="password" name="password" value="" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class ="col-sm-2 control-label" for="my-input">Confirm:</label>
+                                <div class="col-sm-10">
+                                    <input  class="form-control" type="password" name="confirm" value="" >
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-10 text-center">
+                                <button class="btn btn-success" type="submit" id="update-info"> Thay đổi thông tin </button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-          </div>
+            </form>
       </div>
         <%- include('../common/footer'); -%>
     </div>
     
 </body>
 <script>
-   $(document).ready(function() {
-    $('#avartar-upload').on('click', function() {
-        var fd = new FormData();
-        var files = $('#file')[0].files;
-        
-        // Check file selected or not
-        if(files.length > 0 ){
-           fd.append('file',files[0]);
+    $(document).ready(function() {
+        $('#avartar-upload').on('click', function() {
+            var fd = new FormData();
+            var files = $('#file')[0].files;
+            var id = $("input[name='id']").val();
+            var folder = "/image/lecturer/";
+            // Check file selected or not
+            if(files.length > 0 ){
+            fd.append('file',files[0]);
 
-           $.ajax({
-              url: '/admin/upload',
-              type: 'post',
-              data: fd,
-              contentType: false,
-              processData: false,
-              success: function(response){
-                 if(response){
-                    var timestamp = new Date().getTime();     
-                    var el = document.getElementById("avatar-img");     
-                    el.src = response +"?t=" + timestamp; 
-                 }else{
-                    alert('file not uploaded');
-                 }
-              },
-           });
-        }else{
-           alert("Please select a file.");
-        }
-      return false;
-    });
-});
+            $.ajax({
+                url: '/admin/upload?&id=' + id + '&folder=' + folder,
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response){
+                    if(response){
+                        var timestamp = new Date().getTime();     
+                        var el = document.getElementById("avatar-img");     
+                        el.src = response +"?t=" + timestamp; 
+                        $("input#avatar").val(response);
+                    }else{
+                        alert('file not uploaded');
+                    }
+                },
+            });
+            }else{
+            alert("Please select a file.");
+            }
+            return false;
+        });
+        $('#avatar-img').on('click', function() {
+            $('#file').trigger("click");
+        });
+      
+        //check password and re-passowrd
+        $('#frmUpdateInfo').on('submit', function(e) {
+            e.preventDefault();
+            password = $("input[name='password']").val();
+            re_password = $("input[name='confirm']").val();
+            if(password!==re_password && password !== ""){
+                alert("password and confirm doesn't match");
+            }else{
+                $("#frmUpdateInfo").off("submit").submit();
+            }
+        });
+        
+   });
 </script>
 </html>
 

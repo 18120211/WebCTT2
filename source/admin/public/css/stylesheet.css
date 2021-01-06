@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 /* BASIC */
-
-html {
-  background-color: #56baed;
-}
+html, body { height: 100%!important; }
 
 body {
   font-family: "Poppins", sans-serif;
@@ -288,6 +285,7 @@ header img{
   top: 0px;
   padding-top: 80px;
   z-index: 10;
+  display: block;
 }
 
 #column-left + #content, #column-left + #content + #footer {
@@ -331,7 +329,10 @@ header img{
 #content {
   padding-top: 20px;
   padding-bottom: 40px;
+  padding-right: 20px;
 }
+
+
 
 #column-left + #content{
   left: 0px;
@@ -365,6 +366,53 @@ header img{
 .user-info .avatar-update{
   margin-top:  20px;
 }
-.avatar-update input{
-  /* display: none; */
+.avatar-update #avatar{
+  display: none;
+}
+.avatar-update #file{
+  display: none;
+}
+.user-info .info{
+  width: 80%;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hidden{
+  display: none;
+}
+
+input.hidden{
+  display: none;
+}
+
+.page-header {
+  vertical-align: middle;
+  margin: 20px 0 15px 0;
+  padding: 0;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.page-header h2{
+  color: #0d0d0d;
+  font-size: 25px;
+  margin: 4px 8px 35px 8px;
+}
+
+.page-header .pull-right{
+  float: right;
+}
+#container{
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.lecturer-add .info{
+  margin-left: auto;
+    margin-right: auto;
 }
