@@ -11,9 +11,17 @@ const CourseCategorySchema = mongoose.Schema({
         type: Number,
         default : 0
     },
+    image : {
+        type: String,
+        default: '/public/avatar/default/avatar.png'
+    },
     numberOfSignUp: {
         type: Number,
         default: 0
+    },
+    parent: {
+        type: String,
+        default: ""
     }
 });
 

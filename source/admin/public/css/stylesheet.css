@@ -385,6 +385,10 @@ header img{
   display: none;
 }
 
+input.hidden{
+  display: none;
+}
+
 .page-header {
   vertical-align: middle;
   margin: 20px 0 15px 0;

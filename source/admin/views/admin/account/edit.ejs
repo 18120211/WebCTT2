@@ -99,12 +99,13 @@
             var fd = new FormData();
             var files = $('#file')[0].files;
             var id = $("input[name='id']").val();
+            var folder = "/image/lecturer/";
             // Check file selected or not
             if(files.length > 0 ){
             fd.append('file',files[0]);
 
             $.ajax({
-                url: '/admin/upload?id='+id,
+                url: '/admin/upload?&id=' + id + '&folder=' + folder,
                 type: 'post',
                 data: fd,
                 contentType: false,

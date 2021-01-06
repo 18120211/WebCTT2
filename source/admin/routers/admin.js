@@ -8,6 +8,9 @@ const Lecturer = require("../models/Lecturer.model");
 
 const Course = require("../models/Course.model");
 
+const Category = require("../models/CourseCategory.model");
+
+
 const mongoose = require('mongoose');
 
 const bcrypt = require("bcryptjs");
@@ -43,6 +46,7 @@ router.get("/account/edit", ensureAuthenticated,  (req, res) => {
     })
 });
 
+//route for lecturers
 router.get("/lecturer/lecturersList", ensureAuthenticated,  (req, res) => {
    
     Lecturer.find({}, function(err, Lecturers) {
@@ -154,6 +158,111 @@ router.get("/lecturer/lecturerDelete",ensureAuthenticated,async function (req, r
     }
   });
 });
+
+//route for Category
+router.get("/course/categoryList", ensureAuthenticated,  (req, res) => {
+   
+  Category.find({}, function(err, Categories) {
+      let data = [];
+      let Categories_arr = [];
+
+      Categories.forEach(function(Category) {
+
+        Categories_arr.push(Category);
+
+      });
+
+      data['Categories'] = Categories_arr;
+      data['title'] = "Danh sách Category";
+      res.render("admin/course/categoryList", {
+          user: req.user, data:data
+      })
+  });
+
+  
+});
+router.get("/course/categoryEdit",ensureAuthenticated, async function (req, res) {
+  let data = [];
+
+  let category_info = await  Category.findById(req.query.id);;
+  
+  var Categories = await Category.find({});
+
+  data["category_info"] = category_info;
+
+  data["categories_option"] = Categories;
+
+  data["title"] = "Thông tin giảng viên";
+  
+  res.render("admin/course/categoryEdit",{
+    user:req.user, data:data
+  });
+});
+
+router.post("/course/categoryEdit",ensureAuthenticated,async function (req, res) {
+  const {
+    name,
+    image,
+    parent,
+    id
+  } = req.body; 
+
+  Category.findById(id).then(async (category)=>{
+    if(category){
+      category.name = name;
+      category.image = image;
+      category.parent = parent;
+      category.save();
+    }
+  });
+  res.redirect("/admin/course/categoryList");
+});
+router.get("/course/categoryAdd",ensureAuthenticated,async function (req, res) {
+  
+      let data = [];
+      
+      var Categories = await Category.find({});
+    
+    
+      data["categories_option"] = Categories;
+    
+      data["title"] = "Tạo Category";
+      
+      res.render("admin/course/categoryAdd",{
+        user:req.user, data:data
+      });
+ 
+});
+router.post("/course/categoryAdd",ensureAuthenticated,async function (req, res) {
+  const {
+    name,
+    image,
+    parent,
+    id
+  } = req.body;  
+
+  const newcategory = new Category({
+    name,
+    image,
+    parent,
+    id
+  });
+  newcategory.save().then(()=>{
+    console.log("Category save");
+  });
+  res.redirect("/admin/course/categoryList");
+});
+router.get("/course/categoryDelete",ensureAuthenticated,async function (req, res) {
+  Category.findByIdAndDelete(req.query.id).then( async (category)=>{
+    if(category){
+      res.json(true);
+    }else{
+      res.json(false);
+    }
+  });
+});
+
+//route for Courses
 router.get("/course/coursesList", ensureAuthenticated,  (req, res) => {
    
     Course.find({}, function(err, Courses) {
@@ -289,17 +398,21 @@ router.post("/register",async function (req, res) {
 });
 
 router.post('/upload', function (req, res) {
-
-    fs.mkdir(path.join(__dirname, '../public/avatar/'+req.query.id.toString()), () => {});
+  
+    folder_name = req.query.folder;
+    // fs.mkdir(path.join(__dirname, '../public/avatar/'+req.query.id.toString()), () => {});
+    fs.mkdir(path.join(__dirname, '../public' + folder_name + req.query.id.toString()), () => {});
 
     const storage = multer.diskStorage({
       destination: function (req, file, cb) {
-        cb(null, './public/avatar/' + req.query.id);
+        // cb(null, './public/avatar/' + req.query.id);
+        cb(null, './public' + folder_name + req.query.id);
+        
         // cb(null, './public/avatar');
 
       },
       filename: function (req, file, cb) {
-        let avatar = ('/public/avatar/') + req.query.id.toString() + '/' + 'avatar.png';
+        let avatar = ('/public') + folder_name + req.query.id.toString() + '/' + 'avatar.png';
         // Lecturer.findOne({
         //   _id: req.user._id
         // }).then((user) => {
@@ -316,7 +429,7 @@ router.post('/upload', function (req, res) {
       if (err) {
         console.log(err);
       } else {
-        const avatar =  ('/public/avatar/') + req.query.id.toString() + '/' + 'avatar.png';
+        const avatar =  ('/public') + folder_name  + req.query.id.toString() + '/' + 'avatar.png';
         res.json(avatar);
       }
     });

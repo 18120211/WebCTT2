@@ -22,70 +22,48 @@
             <div class="page-header">
                 <div class="container-fluid">
                     <div class="pull-right">
-                        <button class="btn btn-primary" id="editLecturer">
+                        <button class="btn btn-primary" id="editcategory">
                             <i class="fa fa-save"></i>
                         </button>
                     </div>
                     <h2><%= data.title %></h2>
                 </div>
             </div>
-            <% if (data.Lecturer_info) { %>
-            <div class="lecturer-info">
-                <form action="" method="post" id="frmUpdateInfoLecturer">
+           
+            <div class="category-info">
+                <form action="" method="post" id="frmUpdateInfocategory">
                     <div class="user-info">
                         <div class="row">
                             <div class="col-sm-4 image">
-                                <img src="<%=data.Lecturer_info.avatar%>" id="avatar-img">
+                                <img src="/public/avatar/default/avatar.png" id="avatar-img">
                                 <div class="avatar-update">
                                     <input type="file" name="file" id="file"/>
-                                    <input type="text" name="avatar" id="avatar" value="<%=data.Lecturer_info.avatar%>" />
-                                    <button class="btn btn-success" id="avartar-upload" > Thay avatar </button>
+                                    <input class="hidden" type="text" name="image" id="image" value="/public/avatar/default/avatar.png" />
+                                    <button class="btn btn-success" id="avartar-upload" > Thay ảnh Category </button>
                                 </div>
                             </div>
                             <div class="col-sm-8 info">
                                 <div class="form-group">
                                     <label class ="col-sm-2 control-label" for="my-input">Name:</label>
                                     <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="name" value="<%=data.Lecturer_info.name%>" >
+                                        <input  class="form-control" type="text" name="name" value="" >
                                     </div>
                                 </div>
                                 <div class="form-group hidden">
-                                    <label class ="col-sm-2 control-label" for="my-input">Email:</label>
+                                    <label class ="col-sm-2 control-label" for="my-input">Name:</label>
                                     <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="id" value="<%=data.Lecturer_info.id%>">
+                                        <input  class="form-control" type="text" name="id" value="" >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Gender:</label>
+                                    <label class ="col-sm-2 control-label" for="my-input">Parent:</label>
                                     <div class="col-sm-10">
-                                        <select  class="form-control" type="text" name="gender">
-                                            <%if (data.Lecturer_info.gender == "nam") { %>
-                                                <option value="nam" selected="selected"> Nam</option>
-                                                <option value="nữ"> Nữ</option>
-                                            <% }else{ %>
-                                                <option value="nam" > Nam</option>
-                                                <option value="nữ"  selected="selected"> Nữ</option>
-                                            <% } %>
+                                        <select  class="form-control" type="text" name="parent">
+                                        <option value="" > None </option>
+                                        <% data.categories_option.forEach((Category) => { %>
+                                            <option value="<%=Category._id%>" selected="selected"> <%=Category.name%></option>
+                                        <% }); %>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Description:</label>
-                                    <div class="col-sm-10">
-                                        <textarea  class="form-control" type="text" name="description" ><%=data.Lecturer_info.description%></textarea>
-                                    </div>
-                                </div>
-                               
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Password:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="password" name="password" value="" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Confirm:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="password" name="confirm" value="" >
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +71,7 @@
                     </div>
                 </form>
             </div>
-            <% } %>
+        
         </div>
         <%- include('../common/footer'); -%>
     </div>
@@ -105,7 +83,7 @@
             var fd = new FormData();
             var files = $('#file')[0].files;
             var id =  $("input[name='id']").val();
-            var folder = "/image/lecturer/";
+            var folder = "/image/category/";
             // Check file selected or not
             if(files.length > 0 ){
             fd.append('file',files[0]);
@@ -120,7 +98,7 @@
                         var timestamp = new Date().getTime();     
                         var el = document.getElementById("avatar-img");     
                         el.src = response +"?t=" + timestamp; 
-                        $("input#avatar").val(response);
+                        $("input#image").val(response);
                     }else{
                         alert('file not uploaded');
                     }
@@ -142,18 +120,18 @@
             }
             return "valid";
         }
-        $('#frmUpdateInfoLecturer').on('submit', function(e) {
+        $('#frmUpdateInfocategory').on('submit', function(e) {
             e.preventDefault();
           
             let check = validateForm();
             if( check == "valid"){
-                $("#frmUpdateInfoLecturer").off("submit").submit();
+                $("#frmUpdateInfocategory").off("submit").submit();
             }else{
                 alert(check);
             }
         });
-        $('#editLecturer').on('click', function(e) {
-            $("#frmUpdateInfoLecturer").submit();
+        $('#editcategory').on('click', function(e) {
+            $("#frmUpdateInfocategory").submit();
         });
    });
 </script>
