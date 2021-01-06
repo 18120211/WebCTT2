@@ -298,7 +298,7 @@ Router.post('/updateInfor', async (req, res) => {
         }
         req.user.save().then(() => {
             req.flash("success_msg", "Your are updated");
-            res.redirect("/users/account");
+            res.json(true);
         });
     }
 });

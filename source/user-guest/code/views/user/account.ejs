@@ -191,7 +191,12 @@
                 confPassword: $('#confPassword').val(),
                 gender: $('input[name="gender"]:checked').val()
             }
-            $.post('/users/updateInfor', data, (json) => {
+            let myAjax = $.post('/users/updateInfor', data, (json) => {
+                console.log(json);
+                if (json == true) {
+                    window.location.replace('/users/account');
+                    alert('Bạn đã cập nhật thành công');
+                }
                 if (json != undefined) {
                     const data = JSON.parse(json);
                     let mess = '';

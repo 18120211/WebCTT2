@@ -363,7 +363,7 @@ Router.post('/updateInfor', function _callee5(req, res) {
         case 26:
           req.user.save().then(function () {
             req.flash("success_msg", "Your are updated");
-            res.redirect("/users/account");
+            res.json(true);
           });
 
         case 27:
