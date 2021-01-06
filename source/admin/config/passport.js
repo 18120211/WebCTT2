@@ -26,29 +26,28 @@ module.exports = function (passport) {
                         if (isMatch) {
                             return done(null, user);
                         }
-                    })
-                }
-            })
-         
-            // Match user
-            Lecturer.findOne({
-                email: email
-            }).then(async (user) => {
-                if (!user) {
-                    return done(null, false, {
-                        message: 'That email is not registered'
+                    });
+                }else{
+                    Lecturer.findOne({
+                        email: email
+                    }).then(async (user) => {
+                        if (!user) {
+                            return done(null, false, {
+                                message: 'That email is not registered'
+                            });
+                        }
+                        bcrypt.compare(password, user.password).then((isMatch) => {
+                            if (isMatch) {
+                                return done(null, user);
+                            } else {
+                                return done(null, false, {
+                                    message: 'Password incorrect'
+                                });
+                            }
+                        })
                     });
                 }
-                bcrypt.compare(password, user.password).then((isMatch) => {
-                    if (isMatch) {
-                        return done(null, user);
-                    } else {
-                        return done(null, false, {
-                            message: 'Password incorrect'
-                        });
-                    }
-                })
-            })
+            });
         })
     );
     passport.use(

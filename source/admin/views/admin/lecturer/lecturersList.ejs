@@ -19,6 +19,17 @@
         <%- include('../common/header',{user: user}); -%>
         <%- include('../common/column_left'); -%>
         <div id="content">
+
+            <div class="page-header">
+                <div class="container-fluid">
+                    <div class="pull-right">
+                        <button class="btn btn-primary" id="addLecturer">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    <h2><%= data.title %></h2>
+                </div>
+            </div>
             <% if (data.Lecturers) { %>
                 <div class="lecturers_list text-center">
                     <div class="col-sm-10 center ">
@@ -39,10 +50,11 @@
                                             <td class="text-left"><a> <%=Lecturer.email %></a></td>
                                             <td class="text-left"><a> <%=Lecturer.gender %></a></td>
                                             <td class="text-left">
-                                                <button class="btn btn-primary">
-                                                    <i class="fa fa-eye"></i>
+                                                <input type="hidden" value="<%=Lecturer._id %>">
+                                                <button class="btn btn-primary viewLecturer" >
+                                                    <i class="fa fa-pencil"></i>
                                                 </button>
-                                                <button class="btn btn-danger">
+                                                <button class="btn btn-danger deleteLecturer" >
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </td>
@@ -65,40 +77,25 @@
 </body>
 <script>
     $(document).ready(function() {
-        $('#avartar-upload').on('click', function() {
-            var fd = new FormData();
-            var files = $('#file')[0].files;
-            
-            // Check file selected or not
-            if(files.length > 0 ){
-            fd.append('file',files[0]);
+        $('.viewLecturer').on('click', function() {
+            id = $(this).parent().find("input").val();
+            window.location.href = "/admin/lecturer/lecturerEdit?id=" + id;
+        });
 
-            $.ajax({
-                url: '/admin/upload',
-                type: 'post',
-                data: fd,
-                contentType: false,
-                processData: false,
-                success: function(response){
-                    if(response){
-                        var timestamp = new Date().getTime();     
-                        var el = document.getElementById("avatar-img");     
-                        el.src = response +"?t=" + timestamp; 
-                        $("input#avatar").val(response);
-                    }else{
-                        alert('file not uploaded');
-                    }
-                },
+        $('.deleteLecturer').on('click', function() {
+            id = $(this).parent().find("input").val();
+            $.getJSON("/admin/lecturer/lecturerDelete?id=" + id ,function( json ) {
+                if(json === true){
+                    alert("Xóa giảng viên thành công");
+                }else{
+                    alert("Xóa giảng viên thất bại");
+                }
+                window.location.href = "/admin/lecturer/lecturersList";
             });
-            }else{
-            alert("Please select a file.");
-            }
-            return false;
         });
-        $('#avatar-img').on('click', function() {
-            $('#file').trigger("click");
+        $('#addLecturer').on('click', function() {
+            window.location.href = "/admin/lecturer/lecturerAdd";
         });
-        
    });
 </script>
 </html>
