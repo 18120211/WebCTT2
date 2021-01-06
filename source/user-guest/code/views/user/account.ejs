@@ -1,16 +1,229 @@
-<%- include ('../partials/messages') %> 
-<a class="btn btn-primary" href="/" role="button">
-    <i class="fa fa-home" aria-hidden="true"></i>
-    HOME
-</a>
-<a class="btn btn-info" href="/users/updateInfor" role="button">
-    CẬP NHẬT
-</a>
-<div class="container">
-    <h1 class="mt-4">Tài khoản</h1>
-    <p class="lead mb-3">Xin chào <%= user.name %></p>
-    <p class="lead mb-3">Your email: <%= user.email %></p>
-    <a href="/users/logout" class="btn btn-secondary">Logout</a>
-    <p><a href="/users/updateAvatar"><img src='<%= user.avatar %>' width="100px" height="100px"></a></p>
-    <p class="lead mb-3">Your gender: <%= user.gender %></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated}) %>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/css/fileinput.min.css">
+    <title>Tài khoản</title>
+</head>
+
+<body>
+    <div id="site-content"></div>
+    <main class="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked admin-menu">
+                        <img src="<%= user.avatar %>" height="210px" width="210px"
+                            style="padding-bottom: 10px; border-radius: 50%;">
+                        <li class="active"><a href="" data-target-id="profile"><i class="glyphicon glyphicon-user"></i>
+                                Hồ sơ người
+                                dùng</a>
+                        </li>
+                        <li><a href="" data-target-id="change-password"><i class="glyphicon glyphicon-lock"></i> Thay
+                                đổi thông tin cá nhân</a>
+                        </li>
+                        <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-picture"></i>
+                                Thay đổi
+                                ảnh đại diện</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-9  admin-content" id="profile">
+                    <div class="panel panel-info" style="margin: 1em;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Tên người dùng</h3>
+                        </div>
+                        <div class="panel-body">
+                            <%= user.name %>
+                        </div>
+                    </div>
+                    <div class="panel panel-info" style="margin: 1em;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Email</h3>
+                        </div>
+                        <div class="panel-body">
+                            <%= user.email %>
+                        </div>
+                    </div>
+                    <div class="panel panel-info" style="margin: 1em;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Giới tính</h3>
+
+                        </div>
+                        <div class="panel-body">
+                            <%= user.gender %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9  admin-content" id="settings">
+                    <form action="/users/updateAvatar" method="POST" enctype="multipart/form-data">
+                        <div class="panel panel-info" style="margin: 1em;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Chọn ảnh đại diện</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <input id="fuMain" name="fuMain" type="file" multiple>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="pull-right" style="padding-right: 15px;">
+                                <button type="submit" class="form-control btn btn-primary" name="submit" id="submit"
+                                    style="width: 200px;">Submit </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-9  admin-content" id="change-password">
+                    <form id="myForm1" action="/users/updateInfor" method="POST">
+                        <div class="panel panel-info" style="margin: 1em;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><label for="name" class="control-label panel-title">
+                                        Nhập tên
+                                        người dùng</label>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            value="<%= user.name %>">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <% if (isLocalAccount) { %>
+                        <div class="panel panel-info" style="margin: 1em;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><label for="oldPassword" class="control-label panel-title">
+                                        Nhập mật khẩu
+                                        cũ</label>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="oldPassword" name="oldPassword"
+                                            autocomplete="new-password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-info" style="margin: 1em;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><label for="newPassword" class="control-label panel-title">
+                                        Nhập mật khẩu
+                                        mới</label>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="newPassword" name="newPassword"
+                                            autocomplete="new-password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="panel panel-info" style="margin: 1em;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><label for="confPassword" class="control-label panel-title">Xác
+                                        nhận mật
+                                        khẩu</label></h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confPassword"
+                                            name="confPassword" autocomplete="new-password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+
+
+                        <div class="panel panel-info" style="margin: 1em;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><label for="sex" class="control-label panel-title">Giới
+                                        tính</label></h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <input id="male" type="radio" name="gender" value="Male" checked="checked" />
+                                    <label for="male">Male</label> <br>
+                                    <input id="female" type="radio" name="gender" value="Female" />
+                                    <label for="female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="pull-right" style="padding-right: 15px;">
+                                <button type="button" class="form-control btn btn-primary" name="submit1" id="submit1"
+                                    style="width: 200px;">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    </div>
+    <script type="text/javascript">
+        $('#submit1').on('click', () => {
+            const data = {
+                name: $('#name').val(),
+                oldPassword: $('#oldPassword').val(),
+                newPassword: $('#newPassword').val(),
+                confPassword: $('#confPassword').val(),
+                gender: $('input[name="gender"]:checked').val()
+            }
+            $.post('/users/updateInfor', data, (json) => {
+                if (json != undefined) {
+                    const data = JSON.parse(json);
+                    let mess = '';
+                    for (let i = 0; i < data.errors.length; i++) {
+                        mess += data.errors[i].msg + '\n';
+                    }
+                    alert(mess);
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var navItems = $('.admin-menu li > a');
+            var navListItems = $('.admin-menu li');
+            var allWells = $('.admin-content');
+            var allWellsExceptFirst = $('.admin-content:not(:first)');
+            allWellsExceptFirst.hide();
+            navItems.click(function (e) {
+                e.preventDefault();
+                navListItems.removeClass('active');
+                $(this).closest('li').addClass('active');
+                allWells.hide();
+                var target = $(this).attr('data-target-id');
+                $('#' + target).show();
+            });
+        });
+
+        $('#fuMain').fileinput({
+            theme: 'fa',
+            dropZoneEnabled: false,
+            allowedFileExtensions: ['png', 'jpg', 'gif'],
+        });
+    </script>
+</body>

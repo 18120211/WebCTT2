@@ -206,20 +206,17 @@ Router.post('/login', async (req, res, next) => {
                         failureRedirect: '/users/login',
                         successRedirect: '/'
                     })(req, res, next);
-                }
-                else {
+                } else {
                     req.session.currentEmail = email;
                     req.flash('error_msg', "Please fill correct OTP to login");
                     res.redirect('/users/otp');
                 }
-            }
-            else {
+            } else {
                 req.flash("error_msg", "Invalid account");
-        res.render('./user/login')
+                res.render('./user/login')
             }
         })
-    }
-    else {
+    } else {
         req.flash("error_msg", "Invalid account");
         res.render('./user/login')
     }
@@ -233,24 +230,21 @@ Router.get('/logout', (req, res) => {
 
 Router.get('/account', ensureAuthenticated, (req, res) => {
     res.render('./user/account', {
-        user: req.user
+        isLocalAccount: (req.user.password != undefined) ? true : false,
+        user: req.user,
+        isAuthenticated: req.isAuthenticated()
     });
 });
 
-Router.get('/updateInfor', ensureAuthenticated, (req, res) => {
-    res.render('./user/updateinfor', {
-        name: req.user.name,
-        isLocalAccount: (req.user.password != undefined) ? true : false
-    });
-});
-
+//Kiểm tra cập nhật thông tin cá nhân
 Router.post('/updateInfor', async (req, res) => {
-    const name = req.body.name;
-    const oldPassword = req.body.oldPassword;
-    const newPassword = req.body.newPassword;
-    const confPassword = req.body.confPassword;
-    const gender = req.body.gender;
-
+    let {
+        name,
+        oldPassword,
+        newPassword,
+        confPassword,
+        gender
+    } = req.body;
     let errors = [];
     //Nếu là localaccount
     if (req.user.password != undefined) {
@@ -258,27 +252,28 @@ Router.post('/updateInfor', async (req, res) => {
             errors.push({
                 msg: "Please enter all fields",
             });
-        }
-
-        if (newPassword != confPassword) {
-            errors.push({
-                msg: "Passwords do not match",
-            });
-        }
-
-        if (newPassword.length < 6) {
-            errors.push({
-                msg: "Password must be at least 6 characters",
-            });
-        }
-
-        bcrypt.compare(oldPassword, req.user.password).then((isMatch) => {
-            if (!isMatch) {
+        } else {
+            if (newPassword != confPassword) {
                 errors.push({
-                    msg: 'Old password is uncorrect'
+                    msg: "Passwords do not match",
                 });
             }
-        });
+
+            if (newPassword.length < 6) {
+                errors.push({
+                    msg: "Password must be at least 6 characters",
+                });
+            }
+
+            await bcrypt.compare(oldPassword, req.user.password).then((isMatch) => {
+                if (!isMatch) {
+                    errors.push({
+                        msg: 'Old password is uncorrect'
+                    });
+                }
+            });
+        }
+
     }
     //Nếu không phải Local Account
     else {
@@ -288,31 +283,24 @@ Router.post('/updateInfor', async (req, res) => {
             });
         }
     }
-
+    //Nếu có lỗi, tra về 1 file JSON danh sách các lỗi
     if (errors.length > 0) {
-        res.render("./user/updateinfor", {
-            isLocalAccount: (req.user.password != undefined) ? true : false,
-            name: req.user.name,
-            errors,
-        });
-    } else {
+        const data = {
+            errors: errors
+        }
+        await res.json(JSON.stringify(data));
+    } else { //Nếu không có lỗi thì cập nhật lại thông tin user
         req.user.name = name;
         req.user.gender = gender;
         //Không phải account local
         if (req.user.password != undefined) {
             req.user.password = await bcrypt.hash(newPassword, 10);
         }
-
         req.user.save().then(() => {
             req.flash("success_msg", "Your are updated");
             res.redirect("/users/account");
         });
     }
-});
-
-//Get update Avatar
-Router.get("/updateAvatar", ensureAuthenticated, (req, res) => {
-    res.render("./user/updateAvatar");
 });
 
 //Upload avatar

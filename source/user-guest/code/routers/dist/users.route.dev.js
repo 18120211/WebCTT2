@@ -263,107 +263,115 @@ Router.get('/logout', function (req, res) {
 });
 Router.get('/account', ensureAuthenticated, function (req, res) {
   res.render('./user/account', {
-    user: req.user
+    isLocalAccount: req.user.password != undefined ? true : false,
+    user: req.user,
+    isAuthenticated: req.isAuthenticated()
   });
-});
-Router.get('/updateInfor', ensureAuthenticated, function (req, res) {
-  res.render('./user/updateinfor', {
-    name: req.user.name,
-    isLocalAccount: req.user.password != undefined ? true : false
-  });
-});
+}); //Kiểm tra cập nhật thông tin cá nhân
+
 Router.post('/updateInfor', function _callee5(req, res) {
-  var name, oldPassword, newPassword, confPassword, gender, errors;
+  var _req$body3, name, oldPassword, newPassword, confPassword, gender, errors, data;
+
   return regeneratorRuntime.async(function _callee5$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
         case 0:
-          name = req.body.name;
-          oldPassword = req.body.oldPassword;
-          newPassword = req.body.newPassword;
-          confPassword = req.body.confPassword;
-          gender = req.body.gender;
+          _req$body3 = req.body, name = _req$body3.name, oldPassword = _req$body3.oldPassword, newPassword = _req$body3.newPassword, confPassword = _req$body3.confPassword, gender = _req$body3.gender;
           errors = []; //Nếu là localaccount
 
-          if (req.user.password != undefined) {
-            if (!name || !newPassword || !confPassword || !gender || !oldPassword) {
-              errors.push({
-                msg: "Please enter all fields"
-              });
-            }
-
-            if (newPassword != confPassword) {
-              errors.push({
-                msg: "Passwords do not match"
-              });
-            }
-
-            if (newPassword.length < 6) {
-              errors.push({
-                msg: "Password must be at least 6 characters"
-              });
-            }
-
-            bcrypt.compare(oldPassword, req.user.password).then(function (isMatch) {
-              if (!isMatch) {
-                errors.push({
-                  msg: 'Old password is uncorrect'
-                });
-              }
-            });
-          } //Nếu không phải Local Account
-          else {
-              if (!name) {
-                errors.push({
-                  msg: "Please enter all fields"
-                });
-              }
-            }
-
-          if (!(errors.length > 0)) {
-            _context5.next = 11;
+          if (!(req.user.password != undefined)) {
+            _context5.next = 13;
             break;
           }
 
-          res.render("./user/updateinfor", {
-            isLocalAccount: req.user.password != undefined ? true : false,
-            name: req.user.name,
-            errors: errors
+          if (!(!name || !newPassword || !confPassword || !gender || !oldPassword)) {
+            _context5.next = 7;
+            break;
+          }
+
+          errors.push({
+            msg: "Please enter all fields"
           });
-          _context5.next = 18;
+          _context5.next = 11;
           break;
 
+        case 7:
+          if (newPassword != confPassword) {
+            errors.push({
+              msg: "Passwords do not match"
+            });
+          }
+
+          if (newPassword.length < 6) {
+            errors.push({
+              msg: "Password must be at least 6 characters"
+            });
+          }
+
+          _context5.next = 11;
+          return regeneratorRuntime.awrap(bcrypt.compare(oldPassword, req.user.password).then(function (isMatch) {
+            if (!isMatch) {
+              errors.push({
+                msg: 'Old password is uncorrect'
+              });
+            }
+          }));
+
         case 11:
+          _context5.next = 14;
+          break;
+
+        case 13:
+          if (!name) {
+            errors.push({
+              msg: "Please enter all fields"
+            });
+          }
+
+        case 14:
+          if (!(errors.length > 0)) {
+            _context5.next = 20;
+            break;
+          }
+
+          data = {
+            errors: errors
+          };
+          _context5.next = 18;
+          return regeneratorRuntime.awrap(res.json(JSON.stringify(data)));
+
+        case 18:
+          _context5.next = 27;
+          break;
+
+        case 20:
+          //Nếu không có lỗi thì cập nhật lại thông tin user
           req.user.name = name;
           req.user.gender = gender; //Không phải account local
 
           if (!(req.user.password != undefined)) {
-            _context5.next = 17;
+            _context5.next = 26;
             break;
           }
 
-          _context5.next = 16;
+          _context5.next = 25;
           return regeneratorRuntime.awrap(bcrypt.hash(newPassword, 10));
 
-        case 16:
+        case 25:
           req.user.password = _context5.sent;
 
-        case 17:
+        case 26:
           req.user.save().then(function () {
             req.flash("success_msg", "Your are updated");
             res.redirect("/users/account");
           });
 
-        case 18:
+        case 27:
         case "end":
           return _context5.stop();
       }
     }
   });
-}); //Get update Avatar
-
-Router.get("/updateAvatar", ensureAuthenticated, function (req, res) {
-  res.render("./user/updateAvatar");
 }); //Upload avatar
 
 Router.post("/updateAvatar", function (req, res) {
