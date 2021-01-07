@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couser Detail</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .navbar-collapse {
+            flex-grow: 0;
+        }
+
+        .navbar-collapse-right {
+            margin-left: 750px;
+        }
+
+        .container-wrap {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 48px;
+        }
+
+        .udlite-container {
+            width: 100%;
+            max-width: 1340px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 30px 2.4px 30px 2.4px;
+            border-bottom: 1px solid #dcdacb;
+        }
+
+        .udlite-heading-xl {
+            font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
+                apple color emoji, segoe ui emoji, segoe ui symbol;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -.02px;
+            font-size: 2.4px;
+            margin-bottom: 20px;
+        }
+
+        .pink-background {
+            padding-top: 48px;
+            width: 100%;
+            height: 430px;
+            background-color: palevioletred;
+            padding-top: 32px;
+            padding-bottom: 32px;
+        }
+
+        body {
+            font-family: OpenSans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+        }
+
+        .inlineblock {
+            display: inline-block;
+            width: 700px;
+            height: 100%;
+            padding: 5px;
+        }
+
+        .img {
+            float: right;
+            width: 450px;
+            height: 100%;
+        }
+
+        .nav {
+            padding-top: 40px;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        .what-you-will-learn {
+            background-color: #fbfbf8;
+            border: 1px solid #dcdacb;
+            border-radius: 4px;
+            padding: 24px 0;
+        }
+
+        .what-you-will-learn-content {
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        .fas {
+            font-size: 11px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="navbar-collapse-right">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#" class="btn btn-link" style="color: snow;">Log in</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="btn btn-success">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pink-background">
+        <div class="container-wrap">
+            <div name="header">
+                <a href="#" style="color: black;">
+                    <strong>Home</strong>
+                </a>
+                <span> ></span>
+                <a href="#" style="color: black;">
+                    <strong>Category</strong>
+                </a>
+
+                <img src="/image/11.jpg" alt="" class="img">
+                <div class="udlite-container inlineblock" style="border-bottom: 0;">
+                    <div name='couser-detail' class="udlite-heading-xl">
+                        <h1><strong>Tiêu đề khóa học</strong></h1>
+                    </div>
+                    <p>Vài dòng giới thiệu về khóa học, ví dụ như: JUST COMPLETELY REDONE - The only
+                        course you need to
+                        learn web development - HTML, CSS, JS, Node, and More!</p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-alt checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span style="padding-left: 15px;">4.5</span>
+                    <p>Ngày update</p>
+                    <p>Giảng viên: <a href="#" style="color: black;"><strong>Mai Ngọc Tú</strong></a></p>
+                    <button type="button" class="btn btn-warning btn-lg"><strong style="font-size: 19px;">Tham
+                            gia</strong></button>
+                </div>
+            </div>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item home-tab">
+                    <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#couser-intro" role="tab"
+                        aria-controls="intro" aria-selected="true" style="font-size: 20px;">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="content-tab" data-toggle="tab" href="#couser-content" role="tab"
+                        aria-controls="content" aria-selected="false" style="font-size: 20px;">Nội dung</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="teacher-tab" data-toggle="tab" href="#couser-teacher" role="tab"
+                        aria-controls="teacher" aria-selected="false" style="font-size: 20px;">Thông tin giảng
+                        viên</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="review-tab" data-toggle="tab" href="#couser-review" role="tab"
+                        aria-controls="review" aria-selected="false" style="font-size: 20px;">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="faq-tab" data-toggle="tab" href="#couser-faq" role="tab" aria-controls="faq"
+                        aria-selected="false" style="font-size: 20px;">FAQ</a>
+                </li>
+            </ul>
+
+            <div id="couser-intro" class="udlite-container">
+                <div name='couser-detail' class="udlite-heading-xxl">
+
+                    <h2>About this Specialization</h2>
+                </div>
+                <p>This Specialization builds on the success of the Python for Everybody course and will
+                    introduce fundamental programming concepts including data structures, networked application
+                    program interfaces, and databases, using the Python programming language. In the Capstone
+                    Project, you’ll use the technologies learned throughout the Specialization to design and
+                    create your own applications for data retrieval, processing, and visualization.</p>
+                <p>Who this course is for:</p>
+                <ul>
+                    <li>Anyone interested in Machine Learning.</li>
+                    <li>Students who have at least high school knowledge in math and who want to start learning
+                        Machine
+                        Learning.</li>
+                    <li>Any intermediate level people who know the basics of machine learning, including the
+                        classical
+                        algorithms like linear regression or logistic regression, but who want to learn more about
+                        it
+                        and explore all the different fields of Machine Learning.</li>
+                </ul>
+                <div class="what-you-will-learn">
+                    <h3 style="margin: 0 2.4rem 1.6rem;"><strong>Bạn sẽ được học</strong></h3>
+                    <ul class="what-you-will-learn-content">
+                        <i class="fas fa-check"></i>
+                        <span> Key data science and machine learning concepts right from the beginning
+                            with a complete unfolding with examples in Python.</span><br>
+
+                        <i class="fas fa-check"></i>
+                        <span> Python for Data Science and Data Analysis</span><br>
+
+                        <i class="fas fa-check"></i>
+                        <span> Feature Engineering and Dimensionality Reduction with Python</span><br>
+
+                        <i class="fas fa-check"></i>
+                        <span> Convolutional Neural Networks with Python</span><br>
+
+                        <i class="fas fa-check"></i>
+                        <span> Building your own AI applications.</span>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="couser-content" class="udlite-container">
+                Nội dung khóa học (có giáo trình trong này)
+            </div>
+
+            <div id="couser-teacher" class="udlite-container">
+                Thông tin giảng viên
+            </div>
+
+            <div id="couser-review" class="udlite-container">
+                Đánh giá của học viên
+            </div>
+
+            <div id="couser-faq" class="udlite-container">
+                Câu hỏi về khóa học
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
