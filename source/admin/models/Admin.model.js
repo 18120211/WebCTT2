@@ -29,6 +29,10 @@ const AdminSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
+    roll: {
+        type: String,
+        default: false
+    },
 });
 
 const Lecturer = mongoose.model('admins', AdminSchema);

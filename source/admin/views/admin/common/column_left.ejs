@@ -1,5 +1,6 @@
 <nav id="column-left">
     <ul id="menu">
+        <%if (user.roll) { %>
         <li>
             <a href="/admin/account/edit">Thông tin tài khoản</a>
         </li>
@@ -7,7 +8,7 @@
             <a href="/admin/course/coursesList">Danh sách khóa học</a>
         </li>
         <li>
-            <a href="">Danh sách học viên</a>
+            <a href="/admin/student/studentsList">Danh sách học viên</a>
         </li>
         <li>
             <a href="/admin/lecturer/lecturersList">Danh sách giảng viên</a>
@@ -15,5 +16,13 @@
         <li>
             <a href="/admin/course/categoryList">Danh sách Category</a>
         </li>
+        <%  }else{ %>
+            <li>
+                <a href="/admin/account/edit">Thông tin tài khoản</a>
+            </li>
+            <li>
+                <a href="/admin/course/coursesList">Danh sách khóa học</a>
+            </li>
+        <%  } %>
     </ul>
 </nav>

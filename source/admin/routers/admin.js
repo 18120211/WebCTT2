@@ -10,6 +10,9 @@ const Course = require("../models/Course.model");
 
 const Category = require("../models/CourseCategory.model");
 
+const LocalUser = require("../models/LocalUser.model");
+
+
 
 const mongoose = require('mongoose');
 
@@ -262,6 +265,103 @@ router.get("/course/categoryDelete",ensureAuthenticated,async function (req, res
   });
 });
 
+
+//route for Student
+router.get("/student/studentsList", ensureAuthenticated,  (req, res) => {
+   
+  LocalUser.find({}, function(err, students) {
+      let data = [];
+      let students_arr = [];
+
+      students.forEach(function(student) {
+
+        students_arr.push(student);
+
+      });
+
+      data['students'] = students_arr;
+      data['title'] = "Danh sách học viên";
+      res.render("admin/student/studentsList", {
+          user: req.user, data:data
+      })
+  });
+
+  
+});
+router.get("/student/studentEdit",ensureAuthenticated, async function (req, res) {
+  let data = [];
+
+  let student_info = await  LocalUser.findById(req.query.id);;
+  
+
+  data["student_info"] = student_info;
+
+  data["title"] = "Thông tin học viên";
+  
+  res.render("admin/student/studentEdit",{
+    user:req.user, data:data
+  });
+});
+
+router.post("/student/studentEdit",ensureAuthenticated,async function (req, res) {
+  const {
+    id,
+    name,
+    gender,
+    password,
+  } = req.body; 
+
+  LocalUser.findById(id).then(async (student)=>{
+    if(student){
+      student.name = name;
+      student.gender = gender;
+      student.password = password;
+      student.save();
+    }
+  });
+  res.redirect("/admin/student/studentsList");
+});
+router.get("/student/studentAdd",ensureAuthenticated,async function (req, res) {
+  let data = [];
+  
+  data["title"] = "Tạo student";
+  
+  res.render("admin/student/studentAdd",{
+    user:req.user, data:data
+  });
+});
+router.post("/student/studentAdd",ensureAuthenticated,async function (req, res) {
+  const {
+    email,
+    name,
+    gender,
+    password,
+  } = req.body;  
+
+  const newstudent = new LocalUser({
+    email,
+    name,
+    gender,
+    password,
+  });
+
+  newstudent.save().then(()=>{
+    console.log("student save");
+  });
+  res.redirect("/admin/student/studentsList");
+});
+router.get("/student/studentDelete",ensureAuthenticated,async function (req, res) {
+  LocalUser.findByIdAndDelete(req.query.id).then( async (student)=>{
+    if(student){
+      res.json(true);
+    }else{
+      res.json(false);
+    }
+  });
+});
+
+
+
 //route for Courses
 router.get("/course/coursesList", ensureAuthenticated,  (req, res) => {
    
@@ -367,6 +467,16 @@ router.get("/is-user-available", ensureAuthenticated, function (req, res) {
         }
     });
    
+});
+
+router.get("/is-local-user-available", ensureAuthenticated, function (req, res) {
+  LocalUser.findOne({email:req.query.email}).then((user)=>{
+      if(user){
+          res.json(false);
+      }else{
+          res.json(true);
+      }
+  });
 });
 
 
