@@ -88,10 +88,11 @@ Router.get('/', async (req, res) => {
 
 
 //Xử lí request ajax bấm vào nút yêu thích cảu client
-Router.get('/wish-list-change', ensureAuthenticated, async (req, res) => {
-    courseID = req.query.courseID;
+Router.post('/wish-list-change', ensureAuthenticated, async (req, res) => {
+    courseID = req.body.courseID;
     if (courseID != undefined) {
         let index;
+        console.log(req.user);
         if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
             req.user.idWishList.push(courseID);
         } else {

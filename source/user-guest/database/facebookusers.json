@@ -7,12 +7,16 @@
     "$date": "2020-12-29T05:48:11.923Z"
   },
   "facebookId": "2945178119049012",
-  "name": "Võ Thế Minh",
+  "name": "Võ Thế Minh đẹp trai",
   "email": "minhthevo123@gmail.com",
   "token": "EAA0CtATr9K4BAIw7EjkcKLcBqwAdYjw48E8nWA7NGZBRI0eZAnGFO6ZAq3fURFngTLpU1a681gZAWG4WUZAEI8CduzjCD8arJ00Ea9jhLUgAkg2RI0iLZBVKuZCsMEWeAZCg9eaHuIDheTNABcTlPTuX6UpjkkPHAfeIH8rjZA8lzMwZDZD",
-  "__v": 4,
+  "__v": 5,
   "gender": "Male",
-  "idCourses": [],
+  "idCourses": [
+    {
+      "$oid": "5ff2e3b37d305e09608a1dde"
+    }
+  ],
   "idWishList": [
     {
       "$oid": "5ff2e3b37d305e09608a1df0"

@@ -6,8 +6,8 @@
   "description": "Bạn có thể học mọi thứ về đồ thị với Python qua khóa học của chúng tôi",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
-  "numberOfStudent": 0,
-  "numberOfView": 0,
+  "numberOfStudent": 2,
+  "numberOfView": 14,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -91,8 +91,8 @@
   "description": "Học xong khóa tutorial bạn sẽ trùm Android",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
-  "numberOfStudent": 0,
-  "numberOfView": 0,
+  "numberOfStudent": 1,
+  "numberOfView": 38,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -155,7 +155,7 @@
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
   "numberOfStudent": 0,
-  "numberOfView": 0,
+  "numberOfView": 1,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -217,8 +217,8 @@
   "description": "Học 2 buổi 10 chấm môn Web",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
-  "numberOfStudent": 0,
-  "numberOfView": 0,
+  "numberOfStudent": 1,
+  "numberOfView": 16,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"

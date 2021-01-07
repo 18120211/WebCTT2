@@ -54,15 +54,17 @@ Router.get('/', function _callee(req, res) {
   });
 }); //Xử lí request ajax bấm vào nút yêu thích cảu client
 
-Router.get('/wish-list-change', ensureAuthenticated, function _callee2(req, res) {
+Router.post('/wish-list-change', ensureAuthenticated, function _callee2(req, res) {
   var index;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          courseID = req.query.courseID;
+          courseID = req.body.courseID;
 
           if (courseID != undefined) {
+            console.log(req.user);
+
             if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
               req.user.idWishList.push(courseID);
             } else {

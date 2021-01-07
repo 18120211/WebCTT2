@@ -17,26 +17,26 @@
   "idWishList": []
 },{
   "_id": {
-    "$oid": "5ff0980efd23d439fc8dd732"
+    "$oid": "5ff6b4f14f2d2d2ce450e8a6"
   },
-  "gender": "Male",
+  "gender": "male",
   "date": {
-    "$date": "2021-01-02T15:57:14.377Z"
+    "$date": "2021-01-07T07:14:41.970Z"
   },
-  "avatar": "/public/avatar/5ff0980efd23d439fc8dd732/avatar.png",
+  "avatar": "/public/avatar/default/avatar.png",
   "isAuth": true,
   "idCourses": [],
-  "name": "Võ Thế Minh",
-  "email": "minhthevotemp@gmail.com",
-  "password": "$2a$10$GE522quSVuqtUVOoZjscE.dOoZ9M1c9VDB9eXTeEriN5iqs9VoiwS",
-  "otpNumber": "862739",
-  "__v": 69,
   "idWishList": [
     {
-      "$oid": "5ff2e3b37d305e09608a1df0"
+      "$oid": "5ff2e3b37d305e09608a1de6"
     },
     {
-      "$oid": "5ff2e3b37d305e09608a1dde"
+      "$oid": "5ff2e3b37d305e09608a1df0"
     }
-  ]
+  ],
+  "name": "Thế Minh Võ",
+  "email": "minhthevotemp@gmail.com",
+  "password": "$2a$10$7atACsIwCFABFtetJXAsu.qJ4p30yUZvFTx4I4is/1i4tdUrwUbuy",
+  "otpNumber": "601970",
+  "__v": 2
 }]

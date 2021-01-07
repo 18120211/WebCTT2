@@ -132,10 +132,14 @@
 
         //Kiểm tra đã đăng nhập chưa
         const isAuthenticated = $('#wish-list').attr('data-isAuthenticated');
+        console.log(isAuthenticated);
         if (isAuthenticated == 'true') {
             //Dùng ajax gửi thông tin về cho server thay đổi danh sách yêu thích
             const courseID = $(e.target).data('id');
-            $.getJSON(`wish-list-change?courseID=${courseID}`);
+            const data = {
+                courseID: courseID
+            };
+            $.post('/wish-list-change', data);
         } else {
             //điều hướng sang trang đăng nhập
             location.replace('/users/login')

@@ -20,12 +20,13 @@ const {
 //Trang thông tin chi tiết khóa học
 Router.get('/:nameCourse', async (req, res) => {
     let nameCourse = req.params.nameCourse.toString();
+   
     const course = await Course.findOne({
             name: nameCourse
         })
         .populate('idLecturer')
         .populate('idCourseTopic');
-    
+        
     //Tăng view Topic và Category
     course.numberOfView += 1;
     course.save();
