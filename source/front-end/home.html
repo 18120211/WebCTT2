@@ -1,0 +1,3072 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"
+        integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"
+        integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A=="
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+        integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.css"
+        integrity="sha512-riTSV+/RKaiReucjeDW+Id3WlRLVZlTKAJJOHejihLiYHdGaHV7lxWaCfAvUR0ErLYvxTePZpuKZbrTbwpyG9w=="
+        crossorigin="anonymous" />
+    <style>
+        .navbar-collapse {
+            flex-grow: 0;
+        }
+
+        .navbar-collapse-right {
+            margin-left: 750px;
+        }
+
+        .container-wrap {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 48px;
+        }
+
+        .img {
+            height: 350px;
+            padding: 0 300px 0 300px;
+        }
+
+        .carousel-control-prev {
+            left: 250px;
+        }
+
+        .carousel-control-next {
+            right: 250px;
+        }
+
+        .udlite-container {
+            width: 100%;
+            max-width: 1340px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 30px 2.4px 30px 2.4px;
+        }
+
+        .udlite-heading-xl {
+            font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
+                apple color emoji, segoe ui emoji, segoe ui symbol;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -.02px;
+            font-size: 2.4px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-auto-columns: max-content;
+            grid-auto-flow: column;
+            grid-gap: 16px;
+        }
+    </style>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="navbar-collapse-right">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#" class="btn btn-link" style="color: snow;">Log in</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="btn btn-success">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-wrap">
+
+        <!-- slideshow -->
+        <div id="slideshow" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+                <li data-target="#slideshow" data-slide-to="1"></li>
+                <li data-target="#slideshow" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/image/1.jpg" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/image/2.jpg" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/image/3.jpg" class="d-block w-100 img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#slideshow" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#slideshow" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- outstanding cousers -->
+        <div class="udlite-container">
+            <div name='outstanding_cousers' class="udlite-heading-xxl">
+                <h2>Các khóa học nổi bật</h2>
+                <div class="course-carousel">
+                    <div class="owl-carousel owl-theme owl-loaded">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage">
+                                <div class="owl-item">
+                                    <div class="course">
+                                        <div class="image">
+                                            <image src="/image/4.jpg">
+                                            </image>
+                                        </div>
+                                        <div class="course-detail">
+                                            <h3>
+                                                Tiêu đề
+                                            </h3>
+                                            <h5>Lĩnh vực</h5>
+                                        </div>
+                                        <div class="course-more-detail">
+                                            Giảng viên <br>
+                                            Đánh giá kèm số lượng học viên đánh giá<br>
+                                            Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item">
+                                    <div class="course">
+                                        <div class="image">
+                                            <image src="/image/5.jpg">
+                                            </image>
+                                        </div>
+                                        <div class="course-detail">
+                                            <h3>
+                                                Tiêu đề
+                                            </h3>
+                                            <h5>Lĩnh vực</h5>
+                                        </div>
+                                        <div class="course-more-detail">
+                                            Giảng viên <br>
+                                            Đánh giá kèm số lượng học viên đánh giá<br>
+                                            Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item">
+                                    <div class="course">
+                                        <div class="image">
+                                            <image src="/image/6.jpg">
+                                            </image>
+                                        </div>
+                                        <div class="course-detail">
+                                            <h3>
+                                                Tiêu đề
+                                            </h3>
+                                            <h5>Lĩnh vực</h5>
+                                        </div>
+                                        <div class="course-more-detail">
+                                            Giảng viên <br>
+                                            Đánh giá kèm số lượng học viên đánh giá<br>
+                                            Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item">
+                                    <div class="course">
+                                        <div class="image">
+                                            <image src="/image/7.jpg">
+                                            </image>
+                                        </div>
+                                        <div class="course-detail">
+                                            <h3>
+                                                Tiêu đề
+                                            </h3>
+                                            <h5>Lĩnh vực</h5>
+                                        </div>
+                                        <div class="course-more-detail">
+                                            Giảng viên <br>
+                                            Đánh giá kèm số lượng học viên đánh giá<br>
+                                            Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item">
+                                    <div class="course">
+                                        <div class="image">
+                                            <image
+                                                src="https://laptrinh.vn/uploads/images/cover_book/2020-04/thumbs-440-250/apache-spark.png">
+                                            </image>
+                                        </div>
+                                        <div class="course-detail">
+                                            <h3>
+                                                Tiêu đề
+                                            </h3>
+                                            <h5>Lĩnh vực</h5>
+                                        </div>
+                                        <div class="course-more-detail">
+                                            Giảng viên <br>
+                                            Đánh giá kèm số lượng học viên đánh giá<br>
+                                            Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item">
+                                    <div class="course">
+                                        <div class="image">
+                                            <image
+                                                src="https://laptrinh.vn/uploads/images/cover_book/2020-04/thumbs-440-250/apache-spark.png">
+                                            </image>
+                                        </div>
+                                        <div class="course-detail">
+                                            <h3>
+                                                Tiêu đề
+                                            </h3>
+                                            <h5>Lĩnh vực</h5>
+                                        </div>
+                                        <div class="course-more-detail">
+                                            Giảng viên <br>
+                                            Đánh giá kèm số lượng học viên đánh giá<br>
+                                            Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- carousel 10 best courses every category-->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item home-tab">
+                <a class="nav-link active" id="category-tab-1" data-toggle="tab" href="#category-1" role="tab"
+                    aria-controls="category-tab-1" aria-selected="true" style="font-size: 30px;">Python</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="category-tab-2" data-toggle="tab" href="#category-2" role="tab"
+                    aria-controls="category-2" aria-selected="false" style="font-size: 30px;">Excel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="category-tab-3" data-toggle="tab" href="#category-3" role="tab"
+                    aria-controls="category-3" aria-selected="false" style="font-size: 30px;">Web Development</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="category-tab-4" data-toggle="tab" href="#category-4" role="tab"
+                    aria-controls="category-4" aria-selected="false" style="font-size: 30px;">JavaScript</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="category-tab-5" data-toggle="tab" href="#category-5" role="tab"
+                    aria-controls="category-5" aria-selected="false" style="font-size: 30px;">Data Science</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="category-tab-6" data-toggle="tab" href="#category-6" role="tab"
+                    aria-controls="category-6" aria-selected="false" style="font-size: 30px;">AWS</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="category-1" role="tabpanel" aria-labelledby="category-tab-1">
+                <div class="udlite-container">
+                    <div name='outstanding_cousers' class="udlite-heading-xxl">
+                        <h3>Các khóa học được xem nhiều nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/8.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Các khóa học mới nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/1.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="category-2" role="tabpanel" aria-labelledby="category-tab-2">
+                <div class="udlite-container">
+                    <div name='outstanding_cousers' class="udlite-heading-xxl">
+                        <h3>Các khóa học được xem nhiều nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/8.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Các khóa học mới nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/1.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="category-3" role="tabpanel" aria-labelledby="category-tab-3">
+                <div class="udlite-container">
+                    <div name='outstanding_cousers' class="udlite-heading-xxl">
+                        <h3>Các khóa học được xem nhiều nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/8.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Các khóa học mới nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/1.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="category-4" role="tabpanel" aria-labelledby="category-tab-4">
+                <div class="udlite-container">
+                    <div name='outstanding_cousers' class="udlite-heading-xxl">
+                        <h3>Các khóa học được xem nhiều nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/8.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Các khóa học mới nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/1.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="category-5" role="tabpanel" aria-labelledby="category-tab-5">
+                <div class="udlite-container">
+                    <div name='outstanding_cousers' class="udlite-heading-xxl">
+                        <h3>Các khóa học được xem nhiều nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/8.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Các khóa học mới nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/1.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="category-6" role="tabpanel" aria-labelledby="category-tab-6">
+                <div class="udlite-container">
+                    <div name='outstanding_cousers' class="udlite-heading-xxl">
+                        <h3>Các khóa học được xem nhiều nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/8.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Các khóa học mới nhất</h3>
+                        <div class="course-carousel">
+                            <div class="owl-carousel owl-theme owl-loaded">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage">
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/1.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/9.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/10.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/11.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/12.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/13.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/14.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/15.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/16.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/17.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item">
+                                            <div class="course">
+                                                <div class="image">
+                                                    <image src="/image/18.jpg">
+                                                    </image>
+                                                </div>
+                                                <div class="course-detail">
+                                                    <h3>
+                                                        Tiêu đề
+                                                    </h3>
+                                                    <h5>Lĩnh vực</h5>
+                                                </div>
+                                                <div class="course-more-detail">
+                                                    Giảng viên <br>
+                                                    Đánh giá kèm số lượng học viên đánh giá<br>
+                                                    Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- best categories -->
+        <div class="udlite-container">
+            <div name='outstanding_cousers' class="udlite-heading-xxl">
+                <h2>Các lĩnh vực được đăng ký học nhiều nhất</h2>
+                <div class="container">
+                    <div class="card-columns">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">Python</p>
+                            </div>
+                        </div>
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">Web Development</p>
+                            </div>
+                        </div>
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">AWS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        items: 4,
+        loop: true,
+        margin: 4,
+    });
+</script>
+<style type="text/css">
+    .course .image {
+        width: 200px;
+    }
+
+    .course-carousel {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .course-more-detail {
+        display: none;
+    }
+
+    .course:hover .course-more-detail {
+        display: block
+    }
+</style>
+
+</html>
