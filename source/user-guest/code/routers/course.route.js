@@ -44,20 +44,36 @@ Router.get('/:nameCourse', async (req, res) => {
     });
     
     //Render trang chi tiết khóa học
+    //Kiểm tra khóa học đã được mua chưa
     let isPaid = false;
     if (req.user != undefined && req.user.idCourses.indexOf(course._id) != -1) {
         isPaid = true;
     }
+    //Kiểm tra khóa học có trong danh sách yêu thích không
     let isWishCourse = false;
     if (req.user != undefined && req.user.idWishList.indexOf(course._id) != -1) {
         isWishCourse = true
+    }
+    //Kiểm tra đã đánh giá chưa
+    let isEvaluate = false;
+    let myEvaluationPoint;
+    if(req.user != undefined) {
+        for (let i = 0; i < course.userEvaluations.length; i++) {
+            if (course.userEvaluations[i].idUser == req.user._id) {
+                isEvaluate = true;
+            }
+        }
     }
     res.render('./course/detail', {
         isAuthenticated: req.isAuthenticated(),
         isWishCourse: isWishCourse,
         course: course,
-        isPaid: isPaid
+        isPaid: isPaid,
+        isEvaluate
+
     });
 });
+
+
 
 module.exports = Router;

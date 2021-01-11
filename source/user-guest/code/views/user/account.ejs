@@ -197,11 +197,10 @@
                     window.location.replace('/users/account');
                     alert('Bạn đã cập nhật thành công');
                 }
-                if (json != undefined) {
-                    const data = JSON.parse(json);
-                    let mess = '';
-                    for (let i = 0; i < data.errors.length; i++) {
-                        mess += data.errors[i].msg + '\n';
+                if (json != true) {
+                    let mess = 'Error: \n';
+                    for (let i = 0; i < json.length; i++) {
+                        mess += `${i}: ${json[i].msg} \n`;
                     }
                     alert(mess);
                 }

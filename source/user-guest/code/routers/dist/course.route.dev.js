@@ -20,7 +20,7 @@ var _require = require('../config/auth.config'),
 
 
 Router.get('/:nameCourse', function _callee(req, res) {
-  var nameCourse, course, isPaid, isWishCourse;
+  var nameCourse, course, isPaid, isWishCourse, isEvaluate, myEvaluationPoint, i;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -48,27 +48,41 @@ Router.get('/:nameCourse', function _callee(req, res) {
             doc.numberOfView += 1;
             doc.save();
           }); //Render trang chi tiết khóa học
+          //Kiểm tra khóa học đã được mua chưa
 
           isPaid = false;
 
           if (req.user != undefined && req.user.idCourses.indexOf(course._id) != -1) {
             isPaid = true;
-          }
+          } //Kiểm tra khóa học có trong danh sách yêu thích không
+
 
           isWishCourse = false;
 
           if (req.user != undefined && req.user.idWishList.indexOf(course._id) != -1) {
             isWishCourse = true;
+          } //Kiểm tra đã đánh giá chưa
+
+
+          isEvaluate = false;
+
+          if (req.user != undefined) {
+            for (i = 0; i < course.userEvaluations.length; i++) {
+              if (course.userEvaluations[i].idUser == req.user._id) {
+                isEvaluate = true;
+              }
+            }
           }
 
           res.render('./course/detail', {
             isAuthenticated: req.isAuthenticated(),
             isWishCourse: isWishCourse,
             course: course,
-            isPaid: isPaid
+            isPaid: isPaid,
+            isEvaluate: isEvaluate
           });
 
-        case 13:
+        case 15:
         case "end":
           return _context.stop();
       }

@@ -11,7 +11,7 @@
         display: block;
     }
 
-    .yellow-start {
+    .yellow-star {
         color: yellow;
     }
 
@@ -25,30 +25,67 @@
         color: white;
         background-color: red;
     }
+
+    .student-feedback {
+        flex-direction: row;
+        display: flex;
+        margin: 0;
+    }
+
+    .rating-master {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        line-height: 1;
+    }
+
+    .rating-master-point {
+        font-size: 5.0rem;
+        font-weight: 700;
+        letter-spacing: -.02rem;
+        padding: 0;
+    }
+
+    .rating-master-star {
+        width: 10rem;
+        height: 2rem;
+        display: block;
+        padding-left: 5px;
+        padding-bottom: 0;
+    }
+
+    .rating-master-numEva {
+        font-size: 1.3rem;
+        padding-left: 5px;
+    }
 </style>
 <div class="jumbotron">
     <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated});  %>
 </div>
 <div class="body">
-    <img src='<%= course.poster %>' alt="" width="670px" height="300">
     <div>
-        <h2 style="display: inline-block;" class="name"><%=  course.name%> </h2>
-        <div style="display: inline-block;">(<%= course.numberOfView%> lượt xem)</div> 
-    </div>
-    <p id="evaPoint" data-evaPoint="<%= course.evaluationPoint %>" class="evaluation" style="display: inline;">
-        <%=  course.evaluationPoint%></p>
-    <i id="start0" class="fas fa-star"></i>
-    <i id="start1" class="fas fa-star"></i>
-    <i id="start2" class="fas fa-star"></i>
-    <i id="start3" class="fas fa-star"></i>
-    <i id="start4" class="fas fa-star"></i>
-    <p style="display: inline;" class="numberOfEvaluation">(<%=  course.numberOfEvaluation%> đánh giá)</p>
-    <p style="display: inline"><%= course.numberOfStudent %> học sinh</p><br>
-    <% if (!isPaid) { %>
+        <img src='<%= course.poster %>' alt="" width="670px" height="300">
+        <div>
+            <h2 id="name" data-name='<%= course.name%>' style="display: inline-block;" class="name"><%=  course.name%>
+            </h2>
+            <div style="display: inline-block;">(<%= course.numberOfView%> lượt xem)</div>
+        </div>
+        <p id="evaPoint" data-evaPoint="<%= course.evaluationPoint %>" class="evaluation" style="display: inline;">
+            <%=  course.evaluationPoint%></p>
+        <i class="star0" class="fas fa-star"></i>
+        <i class="star1" class="fas fa-star"></i>
+        <i class="star2" class="fas fa-star"></i>
+        <i class="star3" class="fas fa-star"></i>
+        <i class="star4" class="fas fa-star"></i>
+        <p style="display: inline;" class="numberOfEvaluation">(<%=  course.numberOfEvaluation%> đánh giá)</p>
+        <p style="display: inline"><%= course.numberOfStudent %> học sinh</p><br>
+        <% if (!isPaid) { %>
         <a href="/payment/<%= course.name%>/checkout">
             <button class="buy-now"><i class="fas fa-wallet"></i> MUA LUÔN($<%= course.tuition %>)</button>
         </a>
-    <% } %>
+        <% } %>
+    </div>
+
 
 
     <p>Tác giả: <%= course.idLecturer.name %> </p>
@@ -56,34 +93,90 @@
     <button data-isWishCourse="<%= isWishCourse %>" data-isAuthenticated="<%= isAuthenticated%>"
         data-id="<%= course._id %>" id="wish-list" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"
             id="heart"></i> Yêu thích</button>
-    <h3>What you will learn: </h3>
-    <% for( let i = 0; i < Math.ceil(course.whatYoullLearn.length / 2); i++ ) { %>
-    <div class="row">
-        <div class="col-sm">
-            <i class="fas fa-check"></i>
-            <%= course.whatYoullLearn[2*i] %>
+    <div>
+        <h3>Bạn sẽ được học</h3>
+        <% for( let i = 0; i < Math.ceil(course.whatYoullLearn.length / 2); i++ ) { %>
+        <div class="row">
+            <div class="col-sm">
+                <i class="fas fa-check"></i>
+                <%= course.whatYoullLearn[2*i] %>
+            </div>
+            <div class="col-sm">
+                <i class="fas fa-check"></i>
+                <% if (course.whatYoullLearn[2*1+1] != undefined) { %>
+                <%= course.whatYoullLearn[2*i+1] %>
+                <% } %>
+            </div>
         </div>
-        <div class="col-sm">
-            <i class="fas fa-check"></i>
-            <% if (course.whatYoullLearn[2*1+1] != undefined) { %>
-            <%= course.whatYoullLearn[2*i+1] %>
+        <% } %>
+    </div>
+    <div>
+        <h3>Mô tả</h3>
+        <p style="display:inline-block;"> <%= course.description %></p>
+    </div>
+
+
+    <div>
+        <h3>Nội dung khóa học</h3>
+        <div style="background-color: antiquewhite;">
+            <% for( let i = 0; i < course.videos.length; i++ ) { %>
+            <div class='document'>
+                <i class="fa fa-play-circle"></i>
+                <p style="display: inline-block;"><%= course.videos[i].name %> </p>
+                <% if (isPaid) { %>
+                <button class='btn btn-primary'>Xem video</button>
+                <% } %>
+                <% if (!isPaid && course.previewIndex.indexOf(i) != -1) { %>
+                <button class='btn btn-primary'>Preview</button>
+                <% } %>
+                <video id="my-video" class="video-js video" controls preload="auto" width="640" height="264">
+                    <source src="<%= course.videos[i].source %>" type="video/mp4" />
+                </video>
+            </div>
             <% } %>
         </div>
     </div>
-    <% } %>
-    <h3>Description: </h3>
-    <p style="display:inline-block;"> <%= course.description %></p>
 
-    <div style="background-color: antiquewhite;">
-        <% for( let i = 0; i < course.videos.length; i++ ) { %>
-        <div class='document'>
-            <p style="display: inline-block;"><%= course.videos[i].name %> </p>
-            <button class='btn btn-primary'>Preview</button>
-            <video id="my-video" class="video-js video" controls preload="auto" width="640" height="264">
-                <source src="<%= course.videos[i].source %>" type="video/mp4" />
-            </video>
+    <% if (!isPaid) { %>
+    <div>
+        <h3>Đánh giá</h3>
+        <i id="eva-star0" class="fas fa-star" style="color: yellow;"></i>
+        <i id="eva-star1" class="fas fa-star"></i>
+        <i id="eva-star2" class="fas fa-star"></i>
+        <i id="eva-star3" class="fas fa-star"></i>
+        <i id="eva-star4" class="fas fa-star"></i>
+        <button id="eva-btn" type="button">Gửi đánh giá</button>
+    </div>
+    <% } %>
+    <% if (isPaid) { %>
+    <h3>Bạn đã đánh giá khóa học này</h3>
+    <i id="eva-star0" class="fas fa-star" style="color: yellow;"></i>
+    <i id="eva-star1" class="fas fa-star"></i>
+    <i id="eva-star2" class="fas fa-star"></i>
+    <i id="eva-star3" class="fas fa-star"></i>
+    <i id="eva-star4" class="fas fa-star"></i>
+    <% } %>
+
+    <h3>Phản hồi của học sinh</h3>
+    <div class="student-feedback">
+        <div class="rating-master">
+            <div class="rating-master-point">
+                <%= course.evaluationPoint.toFixed(1) %> </div>
+            <div class="rating-master-star">
+                <i class="star0" class="fas fa-star"></i>
+                <i class="star1" class="fas fa-star"></i>
+                <i class="star2" class="fas fa-star"></i>
+                <i class="star3" class="fas fa-star"></i>
+                <i class="star4" class="fas fa-star"></i>
+            </div>
+            <div class="rating-master-numEva">
+                <%= course.numberOfEvaluation %> đánh giá
+            </div>
         </div>
-        <% } %>
+    </div>
+    <h4>Nhận xét của học sinh</h4>
+    <div>
+
     </div>
 </div>
 <script type="text/javascript">
@@ -98,32 +191,33 @@
         let evaPoint = +($('#evaPoint').attr('data-evaPoint'));
         evaPoint = evaPoint.toFixed(1);
         if (evaPoint >= 5) {
-            $('#start0').addClass('yellow-start');
-            $('#start1').addClass('yellow-start');
-            $('#start2').addClass('yellow-start');
-            $('#start3').addClass('yellow-start');
-            $('#start4').addClass('yellow-start');
+            $('.star0').addClass('yellow-star');
+            $('.star1').addClass('yellow-star');
+            $('.star2').addClass('yellow-star');
+            $('.star3').addClass('yellow-star');
+            $('.star4').addClass('yellow-star');
         } else if (evaPoint >= 4) {
-            $('#start0').addClass('yellow-start');
-            $('#start1').addClass('yellow-start');
-            $('#start2').addClass('yellow-start');
-            $('#start3').addClass('yellow-start');
+            $('.star0').addClass('yellow-star');
+            $('.star1').addClass('yellow-star');
+            $('.star2').addClass('yellow-star');
+            $('.star3').addClass('yellow-star');
         } else if (evaPoint >= 3) {
-            $('#start0').addClass('yellow-start');
-            $('#start1').addClass('yellow-start');
-            $('#start2').addClass('yellow-start');
+            $('.star0').addClass('yellow-star');
+            $('.star1').addClass('yellow-star');
+            $('.star2').addClass('yellow-star');
         } else if (evaPoint >= 2) {
-            $('#start0').addClass('yellow-start');
-            $('#start1').addClass('yellow-start');
+            $('.star0').addClass('yellow-star');
+            $('.star1').addClass('yellow-star');
         } else if (evaPoint >= 1) {
-            $('#start0').addClass('yellow-start');
+            $('.star0').addClass('yellow-star');
         }
     });
     //Bấm vào hiện video
     $('.document').children('button').on('click', (e) => {
-        if ($(e.target).siblings('video').hasClass('show-video')) {
-        }
+        if ($(e.target).siblings('video').hasClass('show-video')) {}
         $(e.target).siblings('video').toggleClass('show-video');
+        console.log($(e.target));
+        console.log($(e.target).siblings('video'));
     });
     //Bấm vào nút Yêu thích
     $('#wish-list').on('click', (e) => {
@@ -139,10 +233,62 @@
             const data = {
                 courseID: courseID
             };
-            $.post('/wish-list-change', data);
+            $.post('/users/wish-list-change', data);
         } else {
             //điều hướng sang trang đăng nhập
             location.replace('/users/login')
+        }
+    });
+    //Bấm vào ngôi sao thứ 4 
+    $('#eva-star4').on('click', () => {
+        console.log('4');
+        $('#eva-star4').addClass('yellow-star');
+        $('#eva-star3').addClass('yellow-star');
+        $('#eva-star2').addClass('yellow-star');
+        $('#eva-star1').addClass('yellow-star');
+        $('#eva-star0').addClass('yellow-star');
+    });
+    //Bấm vào ngôi sao thứ 3
+    $('#eva-star3').on('click', () => {
+        console.log('3');
+        $('#eva-star4').removeClass('yellow-star');
+        $('#eva-star3').addClass('yellow-star');
+        $('#eva-star2').addClass('yellow-star');
+        $('#eva-star1').addClass('yellow-star');
+        $('#eva-star0').addClass('yellow-star');
+    });
+    //Bấm vào ngôi sao thứ 2
+    $('#eva-star2').on('click', () => {
+        console.log('2');
+        $('#eva-star4').removeClass('yellow-star');
+        $('#eva-star3').removeClass('yellow-star');
+        $('#eva-star2').addClass('yellow-star');
+        $('#eva-star1').addClass('yellow-star');
+        $('#eva-star0').addClass('yellow-star');
+    });
+    //Bấm vào ngôi sao thứ 1
+    $('#eva-star1').on('click', () => {
+        console.log('1');
+        $('#eva-star4').removeClass('yellow-star');
+        $('#eva-star3').removeClass('yellow-star');
+        $('#eva-star2').removeClass('yellow-star');
+        $('#eva-star1').addClass('yellow-star');
+        $('#eva-star0').addClass('yellow-star');
+    });
+    //Bấm vào ngôi sao thứ 0 
+    $('#eva-star0').on('click', () => {
+        console.log('0');
+        $('#eva-star4').removeClass('yellow-star');
+        $('#eva-star3').removeClass('yellow-star');
+        $('#eva-star2').removeClass('yellow-star');
+        $('#eva-star1').removeClass('yellow-star');
+        $('#eva-star0').addClass('yellow-star');
+    });
+    //Bấm gửi đánh giá
+    $('#eva-btn').on('click', () => {
+        if ($('#eva-star4').hasClass('yellow-star')) {
+            const name = $('#name').attr('data-name');
+
         }
     });
 </script>

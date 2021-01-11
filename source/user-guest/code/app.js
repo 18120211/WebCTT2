@@ -15,6 +15,7 @@ require('./middlewares/view.mdw')(app);
 require('./middlewares/route.mdw')(app);
 require('./middlewares/error.mdw')(app);
 require('./middlewares/paypal.mdw')(app);
+require('./middlewares/cloudinary.mdw')(app);
 
 app.listen(8000, console.log('Server running on port 8000'));
 
@@ -23,6 +24,7 @@ app.listen(8000, console.log('Server running on port 8000'));
 // const app = express();
 
 // require('./middlewares/dbLocal.mdw')(app);
+// require('./middlewares/cloudinary.mdw')(app);
 // const Course = require('./models/Course.model');
 // const FaceBookUser = require('./models/FaceBookUser.model');
 // const Lecturer = require('./models/Lecturer.model');
@@ -30,5 +32,5 @@ app.listen(8000, console.log('Server running on port 8000'));
 // const CourseCategory = require('./models/CourseCategory.model');
 // const CategoryEnum = require('./models/CourseCategory.enum');
 // const TopicEnum = require('./models/CourseTopic.enum');
-// const UserReview = require('./models/UserReview.model');
 // const CourseTopic = require('./models/CourseTopic.model');
+// const cloudinary = require('cloudinary').v2;

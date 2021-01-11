@@ -28,11 +28,7 @@ const path = require('path');
 const multer = require('multer');
 const FaceBookUser = require('../models/FaceBookUser.model');
 
-const Course = require('../models/Course.model');
-
-const CourseTopic = require('../models/CourseTopic.model');
-
-const CourseCategory = require('../models/CourseCategory.model');
+const cloudinary = require('cloudinary').v2;
 
 //Xác thục bởi facebook
 Router.get(
@@ -285,10 +281,7 @@ Router.post('/updateInfor', async (req, res) => {
     }
     //Nếu có lỗi, tra về 1 file JSON danh sách các lỗi
     if (errors.length > 0) {
-        const data = {
-            errors: errors
-        }
-        await res.json(JSON.stringify(data));
+        await res.json(errors);
     } else { //Nếu không có lỗi thì cập nhật lại thông tin user
         req.user.name = name;
         req.user.gender = gender;
@@ -322,13 +315,37 @@ Router.post("/updateAvatar", function (req, res) {
     const upload = multer({
         storage,
     });
-    upload.single("fuMain")(req, res, function async (err) {
+    upload.single("fuMain")(req, res, async function async (err) {
         if (err) {
             console.log(err);
         } else {
-            res.redirect("/users/account");
+            // let avatar =
+            //     "../public/avatar/" + req.user._id.toString() + "/" + "avatar.png";
+            // await cloudinary.uploader.upload(avatar, {
+            //     public_id: 'NEWFOLDER/test',
+            //     resource_type: 'image'
+            // }, (err, result)=>{
+            //     console.log(err);
+            //     console.log(result);
+            // });
+            await res.redirect("/users/account");
         }
     });
+});
+
+//Xử lí request ajax bấm vào nút yêu thích cảu client
+Router.post('/wish-list-change', ensureAuthenticated, async (req, res) => {
+    courseID = req.body.courseID;
+    if (courseID != undefined) {
+        let index;
+        if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
+            req.user.idWishList.push(courseID);
+        } else {
+            req.user.idWishList.splice(index, 1);
+        }
+        req.user.save();
+        res.end();
+    }
 });
 
 module.exports = Router;

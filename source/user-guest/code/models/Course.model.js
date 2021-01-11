@@ -59,6 +59,31 @@ const CourseSchema = mongoose.Schema({
         type: [String],
         required: true
     },
+    userEvaluations: {
+        type: [{
+            idUser: {
+                type: mongoose.Schema.ObjectId,
+                required: true
+            },
+            point: {
+                type: Number,
+                required: true
+            }
+        }]
+    },
+    userReviewes: {
+        type: [{
+            idUser: {
+                type: mongoose.Schema.ObjectId,
+                required: true
+            },
+            comment: String,
+            dete: {
+                type: Date,
+                default: new Date(Date.now())
+            }
+        }]
+    }
 });
 
 const Course = mongoose.model('courses', CourseSchema);

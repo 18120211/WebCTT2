@@ -29,11 +29,7 @@ var multer = require('multer');
 
 var FaceBookUser = require('../models/FaceBookUser.model');
 
-var Course = require('../models/Course.model');
-
-var CourseTopic = require('../models/CourseTopic.model');
-
-var CourseCategory = require('../models/CourseCategory.model'); //Xác thục bởi facebook
+var cloudinary = require('cloudinary').v2; //Xác thục bởi facebook
 
 
 Router.get("/auth/facebook", passport.authenticate("facebook", {
@@ -270,7 +266,7 @@ Router.get('/account', ensureAuthenticated, function (req, res) {
 }); //Kiểm tra cập nhật thông tin cá nhân
 
 Router.post('/updateInfor', function _callee5(req, res) {
-  var _req$body3, name, oldPassword, newPassword, confPassword, gender, errors, data;
+  var _req$body3, name, oldPassword, newPassword, confPassword, gender, errors;
 
   return regeneratorRuntime.async(function _callee5$(_context5) {
     while (1) {
@@ -330,43 +326,40 @@ Router.post('/updateInfor', function _callee5(req, res) {
 
         case 14:
           if (!(errors.length > 0)) {
-            _context5.next = 20;
+            _context5.next = 19;
             break;
           }
 
-          data = {
-            errors: errors
-          };
-          _context5.next = 18;
-          return regeneratorRuntime.awrap(res.json(JSON.stringify(data)));
+          _context5.next = 17;
+          return regeneratorRuntime.awrap(res.json(errors));
 
-        case 18:
-          _context5.next = 27;
+        case 17:
+          _context5.next = 26;
           break;
 
-        case 20:
+        case 19:
           //Nếu không có lỗi thì cập nhật lại thông tin user
           req.user.name = name;
           req.user.gender = gender; //Không phải account local
 
           if (!(req.user.password != undefined)) {
-            _context5.next = 26;
+            _context5.next = 25;
             break;
           }
 
-          _context5.next = 25;
+          _context5.next = 24;
           return regeneratorRuntime.awrap(bcrypt.hash(newPassword, 10));
 
-        case 25:
+        case 24:
           req.user.password = _context5.sent;
 
-        case 26:
+        case 25:
           req.user.save().then(function () {
             req.flash("success_msg", "Your are updated");
             res.json(true);
           });
 
-        case 27:
+        case 26:
         case "end":
           return _context5.stop();
       }
@@ -391,10 +384,55 @@ Router.post("/updateAvatar", function (req, res) {
     storage: storage
   });
   upload.single("fuMain")(req, res, function async(err) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect("/users/account");
+    return regeneratorRuntime.async(function async$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            if (!err) {
+              _context6.next = 4;
+              break;
+            }
+
+            console.log(err);
+            _context6.next = 6;
+            break;
+
+          case 4:
+            _context6.next = 6;
+            return regeneratorRuntime.awrap(res.redirect("/users/account"));
+
+          case 6:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    });
+  });
+}); //Xử lí request ajax bấm vào nút yêu thích cảu client
+
+Router.post('/wish-list-change', ensureAuthenticated, function _callee6(req, res) {
+  var index;
+  return regeneratorRuntime.async(function _callee6$(_context7) {
+    while (1) {
+      switch (_context7.prev = _context7.next) {
+        case 0:
+          courseID = req.body.courseID;
+
+          if (courseID != undefined) {
+            if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
+              req.user.idWishList.push(courseID);
+            } else {
+              req.user.idWishList.splice(index, 1);
+            }
+
+            req.user.save();
+            res.end();
+          }
+
+        case 2:
+        case "end":
+          return _context7.stop();
+      }
     }
   });
 });

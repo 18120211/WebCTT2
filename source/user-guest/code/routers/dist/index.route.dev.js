@@ -52,38 +52,54 @@ Router.get('/', function _callee(req, res) {
       }
     }
   });
-}); //Xử lí request ajax bấm vào nút yêu thích cảu client
+}); //Trang danh sách khóa học yêu thích của tôi
 
-Router.post('/wish-list-change', ensureAuthenticated, function _callee2(req, res) {
-  var index;
+Router.get('/my-wish-list', ensureAuthenticated, function _callee2(req, res) {
+  var courses, i, course;
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          courseID = req.body.courseID;
-
-          if (courseID != undefined) {
-            console.log(req.user);
-
-            if ((index = req.user.idWishList.indexOf(courseID)) == -1) {
-              req.user.idWishList.push(courseID);
-            } else {
-              req.user.idWishList.splice(index, 1);
-            }
-
-            req.user.save();
-            res.end();
-          }
+          courses = [];
+          i = 0;
 
         case 2:
+          if (!(i < req.user.idWishList.length)) {
+            _context2.next = 11;
+            break;
+          }
+
+          _context2.next = 5;
+          return regeneratorRuntime.awrap(Course.findOne({
+            _id: req.user.idWishList[i]
+          }, ['poster', '_id', 'name', 'idLecturer', 'evaluationPoint', 'numberOfEvaluation', 'tuition', 'numberOfStudent', 'idCourseTopic', 'numberOfView']).populate('idCourseTopic').populate('idLecturer'));
+
+        case 5:
+          course = _context2.sent;
+          _context2.next = 8;
+          return regeneratorRuntime.awrap(courses.push(course));
+
+        case 8:
+          i++;
+          _context2.next = 2;
+          break;
+
+        case 11:
+          _context2.next = 13;
+          return regeneratorRuntime.awrap(res.render('./index/my-wish-list', {
+            isAuthenticated: req.isAuthenticated(),
+            courses: courses
+          }));
+
+        case 13:
         case "end":
           return _context2.stop();
       }
     }
   });
-}); //Trang danh sách khóa học yêu thích của tôi
+}); //Trang danh sách khóa học của tôi
 
-Router.get('/my-wish-list', ensureAuthenticated, function _callee3(req, res) {
+Router.get('/my-courses', ensureAuthenticated, function _callee3(req, res) {
   var courses, i, course;
   return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
@@ -93,15 +109,15 @@ Router.get('/my-wish-list', ensureAuthenticated, function _callee3(req, res) {
           i = 0;
 
         case 2:
-          if (!(i < req.user.idWishList.length)) {
+          if (!(i < req.user.idCourses.length)) {
             _context3.next = 11;
             break;
           }
 
           _context3.next = 5;
           return regeneratorRuntime.awrap(Course.findOne({
-            _id: req.user.idWishList[i]
-          }, ['poster', '_id', 'name', 'idLecturer', 'evaluationPoint', 'numberOfEvaluation', 'tuition', 'numberOfStudent', 'idCourseTopic']).populate('idCourseTopic').populate('idLecturer'));
+            _id: req.user.idCourses[i]
+          }, ['poster', '_id', 'name', 'idLecturer', 'evaluationPoint', 'numberOfEvaluation', 'tuition', 'numberOfStudent', 'idCourseTopic', 'numberOfView']).populate('idCourseTopic').populate('idLecturer'));
 
         case 5:
           course = _context3.sent;
@@ -115,51 +131,6 @@ Router.get('/my-wish-list', ensureAuthenticated, function _callee3(req, res) {
 
         case 11:
           _context3.next = 13;
-          return regeneratorRuntime.awrap(res.render('./index/my-wish-list', {
-            isAuthenticated: req.isAuthenticated(),
-            courses: courses
-          }));
-
-        case 13:
-        case "end":
-          return _context3.stop();
-      }
-    }
-  });
-}); //Trang danh sách khóa học của tôi
-
-Router.get('/my-courses', ensureAuthenticated, function _callee4(req, res) {
-  var courses, i, course;
-  return regeneratorRuntime.async(function _callee4$(_context4) {
-    while (1) {
-      switch (_context4.prev = _context4.next) {
-        case 0:
-          courses = [];
-          i = 0;
-
-        case 2:
-          if (!(i < req.user.idCourses.length)) {
-            _context4.next = 11;
-            break;
-          }
-
-          _context4.next = 5;
-          return regeneratorRuntime.awrap(Course.findOne({
-            _id: req.user.idCourses[i]
-          }, ['poster', '_id', 'name', 'idLecturer', 'evaluationPoint', 'numberOfEvaluation', 'tuition', 'numberOfStudent', 'idCourseTopic']).populate('idCourseTopic').populate('idLecturer'));
-
-        case 5:
-          course = _context4.sent;
-          _context4.next = 8;
-          return regeneratorRuntime.awrap(courses.push(course));
-
-        case 8:
-          i++;
-          _context4.next = 2;
-          break;
-
-        case 11:
-          _context4.next = 13;
           return regeneratorRuntime.awrap(res.render('./index/my-courses', {
             isAuthenticated: req.isAuthenticated(),
             courses: courses
@@ -167,7 +138,7 @@ Router.get('/my-courses', ensureAuthenticated, function _callee4(req, res) {
 
         case 13:
         case "end":
-          return _context4.stop();
+          return _context3.stop();
       }
     }
   });
