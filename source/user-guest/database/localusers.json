@@ -17,26 +17,27 @@
   "idWishList": []
 },{
   "_id": {
-    "$oid": "5ff6b4f14f2d2d2ce450e8a6"
+    "$oid": "5ffa9e4a7c800a2d18493316"
   },
-  "gender": "male",
+  "gender": "Male",
   "date": {
-    "$date": "2021-01-07T07:14:41.970Z"
+    "$date": "2021-01-10T06:25:42.430Z"
   },
-  "avatar": "/public/avatar/default/avatar.png",
+  "avatar": "/public/avatar/5ffa9e4a7c800a2d18493316/avatar.png",
   "isAuth": true,
-  "idCourses": [],
-  "idWishList": [
+  "idCourses": [
     {
-      "$oid": "5ff2e3b37d305e09608a1de6"
-    },
+      "$oid": "5ff2e3b37d305e09608a1df0"
+    }
+  ],
+  "idWishList": [
     {
       "$oid": "5ff2e3b37d305e09608a1df0"
     }
   ],
   "name": "Thế Minh Võ",
   "email": "minhthevotemp@gmail.com",
-  "password": "$2a$10$7atACsIwCFABFtetJXAsu.qJ4p30yUZvFTx4I4is/1i4tdUrwUbuy",
-  "otpNumber": "601970",
-  "__v": 2
+  "password": "$2a$10$811taeYRDipQe.6zMPiKBuNdkEjBNzkz4oIw94szyxu8dqJlWjOgm",
+  "otpNumber": "189102",
+  "__v": 4
 }]

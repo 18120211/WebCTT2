@@ -2,8 +2,8 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbdf"
   },
-  "numberOfView": 14,
-  "numberOfSignUp": 2,
+  "numberOfView": 66,
+  "numberOfSignUp": 3,
   "name": "Data Science",
   "idCourseCategory": {
     "$oid": "5ff2dd54eb01461e54152a15"
@@ -13,8 +13,8 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe0"
   },
-  "numberOfView": 16,
-  "numberOfSignUp": 1,
+  "numberOfView": 41,
+  "numberOfSignUp": 2,
   "name": "Web Development",
   "idCourseCategory": {
     "$oid": "5ff2dd54eb01461e54152a15"
@@ -24,7 +24,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe1"
   },
-  "numberOfView": 1,
+  "numberOfView": 14,
   "numberOfSignUp": 0,
   "name": "Programming Languages",
   "idCourseCategory": {
@@ -35,8 +35,8 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe2"
   },
-  "numberOfView": 38,
-  "numberOfSignUp": 1,
+  "numberOfView": 130,
+  "numberOfSignUp": 2,
   "name": "Mobile Development",
   "idCourseCategory": {
     "$oid": "5ff2dd54eb01461e54152a15"

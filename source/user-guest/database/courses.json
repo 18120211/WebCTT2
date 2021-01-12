@@ -2,12 +2,12 @@
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dde"
   },
-  "poster": "/public/poster/graphPython/poster.png",
+  "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385686/WEBCTT2/poster/graphPython/poster_ahwxw6.png",
   "description": "Bạn có thể học mọi thứ về đồ thị với Python qua khóa học của chúng tôi",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
-  "numberOfStudent": 2,
-  "numberOfView": 14,
+  "numberOfStudent": 3,
+  "numberOfView": 66,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -37,62 +37,64 @@
         "$oid": "5ff2e3b37d305e09608a1ddf"
       },
       "name": "Introduction and line",
-      "source": "/public/video/graphPython/0.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386715/WEBCTT2/video/graphPython/0_vg65fe.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1de0"
       },
       "name": "Legends titles and labels",
-      "source": "/public/video/graphPython/1.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386478/WEBCTT2/video/graphPython/1_yfxxqm.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1de1"
       },
       "name": "Bar charts and histograms",
-      "source": "/public/video/graphPython/2.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386759/WEBCTT2/video/graphPython/2_pnutfo.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1de2"
       },
       "name": "Scatter Plots",
-      "source": "/public/video/graphPython/3.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386504/WEBCTT2/video/graphPython/3_fw6hpm.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1de3"
       },
       "name": "Stack plots",
-      "source": "/public/video/graphPython/4.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386781/WEBCTT2/video/graphPython/4_vjc8jw.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1de4"
       },
       "name": "Pie Charts",
-      "source": "/public/video/graphPython/5.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386793/WEBCTT2/video/graphPython/5_wezwvg.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1de5"
       },
       "name": "Loading data from files",
-      "source": "/public/video/graphPython/6.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386773/WEBCTT2/video/graphPython/6_hs8fu9.mp4"
     }
   ],
-  "__v": 0
+  "__v": 2,
+  "userReviewes": [],
+  "userEvaluations": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1de6"
   },
-  "poster": "/public/poster/beginerAdrDev/poster.png",
+  "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385683/WEBCTT2/poster/beginerAdrDev/poster_omn0t9.jpg",
   "description": "Học xong khóa tutorial bạn sẽ trùm Android",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
-  "numberOfStudent": 1,
-  "numberOfView": 38,
+  "numberOfStudent": 2,
+  "numberOfView": 130,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -121,41 +123,43 @@
         "$oid": "5ff2e3b37d305e09608a1de7"
       },
       "name": "Introduction to Android",
-      "source": "/public/video/beginerAdrDev/0.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386129/WEBCTT2/video/beginerAdrDev/0_zurgdn.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1de8"
       },
       "name": "Prepare development environment",
-      "source": "/public/video/beginerAdrDev/1.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386643/WEBCTT2/video/beginerAdrDev/1_jopipa.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1de9"
       },
       "name": "Create hello world Android application",
-      "source": "/public/video/beginerAdrDev/2.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386631/WEBCTT2/video/beginerAdrDev/2_r3mmhk.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1dea"
       },
       "name": "Test android app in virtual device",
-      "source": "/public/video/beginerAdrDev/3.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386168/WEBCTT2/video/beginerAdrDev/3_y3wbmm.mp4"
     }
   ],
-  "__v": 0
+  "__v": 2,
+  "userReviewes": [],
+  "userEvaluations": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1deb"
   },
-  "poster": "/public/poster/beginerJvsDev/poster.png",
+  "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385684/WEBCTT2/poster/beginerJvsDev/poster_ipe29v.jpg",
   "description": "Học xong lương 10000$",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
   "numberOfStudent": 0,
-  "numberOfView": 1,
+  "numberOfView": 14,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -184,41 +188,43 @@
         "$oid": "5ff2e3b37d305e09608a1dec"
       },
       "name": "Beginning the Beginer series",
-      "source": "/public/video/beginerJvsDev/0.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386704/WEBCTT2/video/beginerJvsDev/0_elkeup.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1ded"
       },
       "name": "What is Javascript",
-      "source": "/public/video/beginerJvsDev/1.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386228/WEBCTT2/video/beginerJvsDev/1_c3yc2u.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1dee"
       },
       "name": "Running Javascript",
-      "source": "/public/video/beginerJvsDev/2.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386656/WEBCTT2/video/beginerJvsDev/2_tex606.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1def"
       },
       "name": "Building your toolbox",
-      "source": "/public/video/beginerJvsDev/3.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386302/WEBCTT2/video/beginerJvsDev/3_re9ai0.mp4"
     }
   ],
-  "__v": 0
+  "__v": 1,
+  "userEvaluations": [],
+  "userReviewes": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1df0"
   },
-  "poster": "/public/poster/beginerWebDev/poster.png",
+  "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385685/WEBCTT2/poster/beginerWebDev/poster_itjc2w.jpg",
   "description": "Học 2 buổi 10 chấm môn Web",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
-  "numberOfStudent": 1,
-  "numberOfView": 16,
+  "numberOfStudent": 2,
+  "numberOfView": 41,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -247,36 +253,38 @@
         "$oid": "5ff2e3b37d305e09608a1df1"
       },
       "name": "How to make a website",
-      "source": "/public/video/beginerWebDev/0.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386314/WEBCTT2/video/beginerWebDev/0_psmmve.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1df2"
       },
       "name": "HTML tutorial",
-      "source": "/public/video/beginerWebDev/1.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386702/WEBCTT2/video/beginerWebDev/1_zrabhe.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1df3"
       },
       "name": "HTML&CSS tutorial",
-      "source": "/public/video/beginerWebDev/2.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386365/WEBCTT2/video/beginerWebDev/2_lz4uh5.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1df4"
       },
       "name": "Make a website using HTML&CSS-FAST",
-      "source": "/public/video/beginerWebDev/3.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386665/WEBCTT2/video/beginerWebDev/3_zblvag.mp4"
     }
   ],
-  "__v": 0
+  "__v": 1,
+  "userEvaluations": [],
+  "userReviewes": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1df5"
   },
-  "poster": "/public/poster/gameDevUnity/poster.png",
+  "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385684/WEBCTT2/poster/gameDevUnity/poster_idtxig.webp",
   "description": "Học 3 buổi là vào Facebook",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
@@ -310,36 +318,38 @@
         "$oid": "5ff2e3b37d305e09608a1df6"
       },
       "name": "Introduction to game development",
-      "source": "/public/video/gameDevUnity/0.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386381/WEBCTT2/video/gameDevUnity/0_ttzy2k.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1df7"
       },
       "name": "Variables and method",
-      "source": "/public/video/gameDevUnity/1.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386397/WEBCTT2/video/gameDevUnity/1_rnvwqx.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1df8"
       },
       "name": "Using classes",
-      "source": "/public/video/gameDevUnity/2.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386413/WEBCTT2/video/gameDevUnity/2_ym0xhx.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1df9"
       },
       "name": "Unity overview",
-      "source": "/public/video/gameDevUnity/3.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386745/WEBCTT2/video/gameDevUnity/3_ivmg5c.mp4"
     }
   ],
-  "__v": 0
+  "__v": 1,
+  "userEvaluations": [],
+  "userReviewes": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dfa"
   },
-  "poster": "/public/poster/tutCommunication/poster.png",
+  "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385685/WEBCTT2/poster/tutCommunication/poster_yaw3y4.jpg",
   "description": "Bạn muốn làm đa cấp không thể bỏ qua khóa học này",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
@@ -373,36 +383,38 @@
         "$oid": "5ff2e3b37d305e09608a1dfb"
       },
       "name": "Business communication",
-      "source": "/public/video/tutCommunication/0.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386512/WEBCTT2/video/tutCommunication/0_ylszwv.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1dfc"
       },
       "name": "Business writing tips",
-      "source": "/public/video/tutCommunication/1.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386557/WEBCTT2/video/tutCommunication/1_hby3as.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1dfd"
       },
       "name": "Communicate with influence every time",
-      "source": "/public/video/tutCommunication/2.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386807/WEBCTT2/video/tutCommunication/2_w0jqyc.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1dfe"
       },
       "name": "Shake shark CEO",
-      "source": "/public/video/tutCommunication/3.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386566/WEBCTT2/video/tutCommunication/3_qpfx9y.mp4"
     }
   ],
-  "__v": 0
+  "__v": 1,
+  "userEvaluations": [],
+  "userReviewes": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dff"
   },
-  "poster": "/public/poster/tutPhotoshop/poster.png",
+  "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385687/WEBCTT2/poster/tutPhotoshop/poster_edxm7a.jpg",
   "description": "Bạn muốn làm đa cấp không thể bỏ qua khóa học này",
   "evaluationPoint": 0,
   "numberOfEvaluation": 0,
@@ -436,29 +448,31 @@
         "$oid": "5ff2e3b37d305e09608a1e00"
       },
       "name": "Course overview",
-      "source": "/public/video/tutPhotoshop/0.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386589/WEBCTT2/video/tutPhotoshop/0_c0akg1.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1e01"
       },
       "name": "Interface introduction to Adobe Photoshop",
-      "source": "/public/video/tutPhotoshop/1.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386755/WEBCTT2/video/tutPhotoshop/1_sggm4u.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1e02"
       },
       "name": "Pannel and workspace in Adobe Photoshop",
-      "source": "/public/video/tutPhotoshop/2.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386658/WEBCTT2/video/tutPhotoshop/2_mjsd0l.mp4"
     },
     {
       "_id": {
         "$oid": "5ff2e3b37d305e09608a1e03"
       },
       "name": "Raster imgae principles",
-      "source": "/public/video/tutPhotoshop/3.mp4"
+      "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386671/WEBCTT2/video/tutPhotoshop/3_vujspt.mp4"
     }
   ],
-  "__v": 0
+  "__v": 1,
+  "userEvaluations": [],
+  "userReviewes": []
 }]
