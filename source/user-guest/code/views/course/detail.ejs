@@ -1,294 +1,401 @@
-<style>
-    .body {
-        margin: 0%;
-    }
-
-    .video {
-        display: none;
-    }
-
-    .show-video {
-        display: block;
-    }
-
-    .yellow-star {
-        color: yellow;
-    }
-
-    .red-heart {
-        color: red;
-    }
-
-    .buy-now {
-        width: 250px;
-        height: 60px;
-        color: white;
-        background-color: red;
-    }
-
-    .student-feedback {
-        flex-direction: row;
-        display: flex;
-        margin: 0;
-    }
-
-    .rating-master {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        line-height: 1;
-    }
-
-    .rating-master-point {
-        font-size: 5.0rem;
-        font-weight: 700;
-        letter-spacing: -.02rem;
-        padding: 0;
-    }
-
-    .rating-master-star {
-        width: 10rem;
-        height: 2rem;
-        display: block;
-        padding-left: 5px;
-        padding-bottom: 0;
-    }
-
-    .rating-master-numEva {
-        font-size: 1.3rem;
-        padding-left: 5px;
-    }
-</style>
+<link rel="stylesheet" href="/public/css/detail.css">
 <div class="jumbotron">
-    <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated});  %>
+  <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated}); %>
 </div>
+
 <div class="body">
+  <div>
+    <img src="<%= course.poster %>" alt="" width="670px" height="300" />
     <div>
-        <img src='<%= course.poster %>' alt="" width="670px" height="300">
-        <div>
-            <h2 id="name" data-name='<%= course.name%>' style="display: inline-block;" class="name"><%=  course.name%>
-            </h2>
-            <div style="display: inline-block;">(<%= course.numberOfView%> lượt xem)</div>
-        </div>
-        <p id="evaPoint" data-evaPoint="<%= course.evaluationPoint %>" class="evaluation" style="display: inline;">
-            <%=  course.evaluationPoint%></p>
+      <h2 id="nameCourse" data-name="<%= course.name%>" style="display: inline-block" class="courseName">
+        <%= course.name%>
+      </h2>
+      <div style="display: inline-block">
+        (<%= course.numberOfView%> lượt xem)
+      </div>
+    </div>
+    <p data-myEvaPoint="<%= myEvaluationPoint %>" id="evaPoint" data-evaPoint="<%= course.evaluationPoint %>"
+      class="evaluation" style="display: inline">
+      <%= course.evaluationPoint%>
+    </p>
+    <i class="star0 fas fa-star"></i>
+    <i class="star1 fas fa-star"></i>
+    <i class="star2 fas fa-star"></i>
+    <i class="star3 fas fa-star"></i>
+    <i class="star4 fas fa-star"></i>
+    <p style="display: inline" class="numberOfEvaluation">
+      (<%= course.userEvaluations.length%> đánh giá)
+    </p>
+    <p style="display: inline"><%= course.numberOfStudent %> học sinh</p>
+    <br />
+    <% if (!isPaid) { %>
+    <a href="/payment/<%= course.name%>/checkout">
+      <button class="buy-now">
+        <i class="fas fa-wallet"></i> MUA LUÔN($<%= course.tuition %>)
+      </button>
+    </a>
+    <% } %>
+  </div>
+
+  <!-- Mục giới thiệu tác giả -->
+  <p>Tác giả: <%= course.idLecturer.name %></p>
+  <p>Ngày đăng: <%= course.uploadDate.toDateString() %></p>
+  <button data-isWishCourse="<%= isWishCourse %>" data-isAuthenticated="<%= isAuthenticated%>"
+    data-id="<%= course._id %>" id="wish-list" class="btn btn-primary">
+    <i class="fa fa-heart" aria-hidden="true" id="heart"></i> Yêu thích
+  </button>
+  <div>
+    <h3>Bạn sẽ được học</h3>
+    <% for( let i = 0; i < Math.ceil(course.whatYoullLearn.length / 2); i++ )
+    {%>
+    <div class="row">
+      <div class="col-sm">
+        <i class="fas fa-check"></i>
+        <%= course.whatYoullLearn[2*i] %>
+      </div>
+      <div class="col-sm">
+        <i class="fas fa-check"></i>
+        <% if (course.whatYoullLearn[2*1+1] != undefined) { %> <%=
+        course.whatYoullLearn[2*i+1] %> <% } %>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <div>
+    <h3>Mô tả</h3>
+    <p style="display: inline-block"><%= course.description %></p>
+  </div>
+
+  // Mục nội dung khóa học
+  <div>
+    <h3>Nội dung khóa học</h3>
+    <div style="background-color: antiquewhite">
+      <% for( let i = 0; i < course.videos.length; i++ ) { %>
+      <div class="document">
+        <i class="fa fa-play-circle"></i>
+        <p style="display: inline-block"><%= course.videos[i].name %></p>
+        <% if (isPaid) { %>
+        <% if (learnedVideos.indexOf(i) != -1) { %>
+        <button data-isPaid="<%= isPaid%>" data-index='<%= i%>' class="btn btn-primary learnedVideo">Xem video</button>
+        <% } %>
+        <% if (learnedVideos.indexOf(i) == -1) { %>
+        <button data-isPaid="<%= isPaid%>" data-index='<%= i%>' class="btn btn-primary">Xem video</button>
+        <% } %>
+        <% } %> <% if (!isPaid && course.previewIndex.indexOf(i) != -1) { %>
+        <button class="btn btn-primary">Preview</button>
+        <% } %>
+        <video id="my-video" class="video-js video" controls preload="auto" width="640" height="264">
+          <source src="<%= course.videos[i].source %>" type="video/mp4" />
+        </video>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Mục bạn đánh giá -->
+  <% if (isAuthenticated && isEvaluate) { %>
+  <div>
+    <h3>Bạn đã đánh giá</h3>
+    <i id="eva-star0" class="my-star0 fas fa-star" style="color: yellow"></i>
+    <i id="eva-star1" class="my-star1 fas fa-star"></i>
+    <i id="eva-star2" class="my-star2 fas fa-star"></i>
+    <i id="eva-star3" class="my-star3 fas fa-star"></i>
+    <i id="eva-star4" class="my-star4 fas fa-star"></i>
+    <button data-isPaid="<%= isPaid %>" id="eva-btn" type="button">
+      Đánh giá lại
+    </button>
+  </div>
+  <% } %> <% if (isAuthenticated && !isEvaluate) { %>
+  <div>
+    <h3>Đánh giá</h3>
+    <i id="eva-star0" class="fas fa-star" style="color: yellow"></i>
+    <i id="eva-star1" class="fas fa-star"></i>
+    <i id="eva-star2" class="fas fa-star"></i>
+    <i id="eva-star3" class="fas fa-star"></i>
+    <i id="eva-star4" class="fas fa-star"></i>
+    <button data-isPaid="<%= isPaid %>" id="eva-btn" type="button">
+      Gửi đánh giá
+    </button>
+  </div>
+  <% } %>
+
+  <!-- Mục đánh giá -->
+  <h3>Phản hồi của học sinh</h3>
+  <div class="student-feedback">
+    <div class="rating-master">
+      <div class="rating-master-point">
+        <%= course.evaluationPoint.toFixed(1) %>
+      </div>
+      <div class="rating-master-star">
         <i class="star0" class="fas fa-star"></i>
         <i class="star1" class="fas fa-star"></i>
         <i class="star2" class="fas fa-star"></i>
         <i class="star3" class="fas fa-star"></i>
         <i class="star4" class="fas fa-star"></i>
-        <p style="display: inline;" class="numberOfEvaluation">(<%=  course.numberOfEvaluation%> đánh giá)</p>
-        <p style="display: inline"><%= course.numberOfStudent %> học sinh</p><br>
-        <% if (!isPaid) { %>
-        <a href="/payment/<%= course.name%>/checkout">
-            <button class="buy-now"><i class="fas fa-wallet"></i> MUA LUÔN($<%= course.tuition %>)</button>
-        </a>
-        <% } %>
+      </div>
+      <div class="rating-master-numEva">
+        <%= course.userEvaluations.length %> đánh giá
+      </div>
     </div>
-
-
-
-    <p>Tác giả: <%= course.idLecturer.name %> </p>
-    <p>Ngày đăng: <%= course.uploadDate.toDateString() %> </p>
-    <button data-isWishCourse="<%= isWishCourse %>" data-isAuthenticated="<%= isAuthenticated%>"
-        data-id="<%= course._id %>" id="wish-list" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"
-            id="heart"></i> Yêu thích</button>
-    <div>
-        <h3>Bạn sẽ được học</h3>
-        <% for( let i = 0; i < Math.ceil(course.whatYoullLearn.length / 2); i++ ) { %>
-        <div class="row">
-            <div class="col-sm">
-                <i class="fas fa-check"></i>
-                <%= course.whatYoullLearn[2*i] %>
-            </div>
-            <div class="col-sm">
-                <i class="fas fa-check"></i>
-                <% if (course.whatYoullLearn[2*1+1] != undefined) { %>
-                <%= course.whatYoullLearn[2*i+1] %>
-                <% } %>
-            </div>
-        </div>
-        <% } %>
+  </div>
+  <h4>Nhận xét của học sinh</h4>
+  <!-- Mục bình luận -->
+  <% if (isPaid) { %>
+  <div>
+    <div class="form-group">
+      <label for="review">Bình luận</label>
+      <textarea id="review" name="review" class="form-control" rows="3"></textarea>
     </div>
-    <div>
-        <h3>Mô tả</h3>
-        <p style="display:inline-block;"> <%= course.description %></p>
+    <button id="review-btn" type="button" class="btn btn-primary">Gửi</button>
+  </div>
+  <% } %>
+  <% for( let i = course.userReviews.length - 1; i >= 0 ; i-- ) { %>
+  <div class="media comment-box">
+    <div class="media-left">
+      <img src='<%= userReviews[i].avatar%>' class="img-responsive user-photo">
     </div>
-
-
-    <div>
-        <h3>Nội dung khóa học</h3>
-        <div style="background-color: antiquewhite;">
-            <% for( let i = 0; i < course.videos.length; i++ ) { %>
-            <div class='document'>
-                <i class="fa fa-play-circle"></i>
-                <p style="display: inline-block;"><%= course.videos[i].name %> </p>
-                <% if (isPaid) { %>
-                <button class='btn btn-primary'>Xem video</button>
-                <% } %>
-                <% if (!isPaid && course.previewIndex.indexOf(i) != -1) { %>
-                <button class='btn btn-primary'>Preview</button>
-                <% } %>
-                <video id="my-video" class="video-js video" controls preload="auto" width="640" height="264">
-                    <source src="<%= course.videos[i].source %>" type="video/mp4" />
-                </video>
-            </div>
-            <% } %>
-        </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= userReviews[i].name%></h4>
+      <p><%=course.userReviews[i].review %>(<%= course.userReviews[i].date.toDateString()%>)</p>
     </div>
-
-    <% if (!isPaid) { %>
-    <div>
-        <h3>Đánh giá</h3>
-        <i id="eva-star0" class="fas fa-star" style="color: yellow;"></i>
-        <i id="eva-star1" class="fas fa-star"></i>
-        <i id="eva-star2" class="fas fa-star"></i>
-        <i id="eva-star3" class="fas fa-star"></i>
-        <i id="eva-star4" class="fas fa-star"></i>
-        <button id="eva-btn" type="button">Gửi đánh giá</button>
-    </div>
-    <% } %>
-    <% if (isPaid) { %>
-    <h3>Bạn đã đánh giá khóa học này</h3>
-    <i id="eva-star0" class="fas fa-star" style="color: yellow;"></i>
-    <i id="eva-star1" class="fas fa-star"></i>
-    <i id="eva-star2" class="fas fa-star"></i>
-    <i id="eva-star3" class="fas fa-star"></i>
-    <i id="eva-star4" class="fas fa-star"></i>
-    <% } %>
-
-    <h3>Phản hồi của học sinh</h3>
-    <div class="student-feedback">
-        <div class="rating-master">
-            <div class="rating-master-point">
-                <%= course.evaluationPoint.toFixed(1) %> </div>
-            <div class="rating-master-star">
-                <i class="star0" class="fas fa-star"></i>
-                <i class="star1" class="fas fa-star"></i>
-                <i class="star2" class="fas fa-star"></i>
-                <i class="star3" class="fas fa-star"></i>
-                <i class="star4" class="fas fa-star"></i>
-            </div>
-            <div class="rating-master-numEva">
-                <%= course.numberOfEvaluation %> đánh giá
-            </div>
-        </div>
-    </div>
-    <h4>Nhận xét của học sinh</h4>
-    <div>
-
-    </div>
+  </div>
+  <% } %>
 </div>
+
 <script type="text/javascript">
-    $('document').ready(() => {
-        //Đánh dấu trái tim đỏ
-        const isWishCourse = $('#wish-list').attr('data-isWishCourse');
-        if (isWishCourse == 'true') {
-            $('#heart').addClass('red-heart');
-        }
+  $('#review-btn').on('click', () => {
+    const nameCourse = $("#nameCourse").attr("data-name");
+    const review = $('#review').val();
+    console.log(review);
+    const data = {
+      review: review
+    }
+    $.post(`/course/${nameCourse}/review`, data);
+    window.location.reload();
+  });
+</script>
 
-        //Đánh dấu sao vàng
-        let evaPoint = +($('#evaPoint').attr('data-evaPoint'));
-        evaPoint = evaPoint.toFixed(1);
-        if (evaPoint >= 5) {
-            $('.star0').addClass('yellow-star');
-            $('.star1').addClass('yellow-star');
-            $('.star2').addClass('yellow-star');
-            $('.star3').addClass('yellow-star');
-            $('.star4').addClass('yellow-star');
-        } else if (evaPoint >= 4) {
-            $('.star0').addClass('yellow-star');
-            $('.star1').addClass('yellow-star');
-            $('.star2').addClass('yellow-star');
-            $('.star3').addClass('yellow-star');
-        } else if (evaPoint >= 3) {
-            $('.star0').addClass('yellow-star');
-            $('.star1').addClass('yellow-star');
-            $('.star2').addClass('yellow-star');
-        } else if (evaPoint >= 2) {
-            $('.star0').addClass('yellow-star');
-            $('.star1').addClass('yellow-star');
-        } else if (evaPoint >= 1) {
-            $('.star0').addClass('yellow-star');
-        }
-    });
-    //Bấm vào hiện video
-    $('.document').children('button').on('click', (e) => {
-        if ($(e.target).siblings('video').hasClass('show-video')) {}
-        $(e.target).siblings('video').toggleClass('show-video');
-        console.log($(e.target));
-        console.log($(e.target).siblings('video'));
-    });
-    //Bấm vào nút Yêu thích
-    $('#wish-list').on('click', (e) => {
-        //Đổi màu button
-        $('#wish-list').children('i').toggleClass('red-heart');
+<script type="text/javascript">
+  $("document").ready(() => {
+    //Đánh dấu trái tim đỏ
+    const isWishCourse = $("#wish-list").attr("data-isWishCourse");
+    if (isWishCourse == "true") {
+      $("#heart").addClass("red-heart");
+    }
+    //Đánh dấu sao vàng dựa vào đánh giá chung
+    let evaPoint = +$("#evaPoint").attr("data-evaPoint");
+    evaPoint = evaPoint.toFixed(1);
+    if (evaPoint >= 5) {
+      $(".star0").addClass("yellow-star");
+      $(".star1").addClass("yellow-star");
+      $(".star2").addClass("yellow-star");
+      $(".star3").addClass("yellow-star");
+      $(".star4").addClass("yellow-star");
+    } else if (evaPoint >= 4) {
+      $(".star0").addClass("yellow-star");
+      $(".star1").addClass("yellow-star");
+      $(".star2").addClass("yellow-star");
+      $(".star3").addClass("yellow-star");
+    } else if (evaPoint >= 3) {
+      $(".star0").addClass("yellow-star");
+      $(".star1").addClass("yellow-star");
+      $(".star2").addClass("yellow-star");
+    } else if (evaPoint >= 2) {
+      $(".star0").addClass("yellow-star");
+      $(".star1").addClass("yellow-star");
+    } else if (evaPoint >= 1) {
+      $(".star0").addClass("yellow-star");
+    }
 
-        //Kiểm tra đã đăng nhập chưa
-        const isAuthenticated = $('#wish-list').attr('data-isAuthenticated');
-        console.log(isAuthenticated);
-        if (isAuthenticated == 'true') {
-            //Dùng ajax gửi thông tin về cho server thay đổi danh sách yêu thích
-            const courseID = $(e.target).data('id');
-            const data = {
-                courseID: courseID
-            };
-            $.post('/users/wish-list-change', data);
-        } else {
-            //điều hướng sang trang đăng nhập
-            location.replace('/users/login')
-        }
-    });
-    //Bấm vào ngôi sao thứ 4 
-    $('#eva-star4').on('click', () => {
-        console.log('4');
-        $('#eva-star4').addClass('yellow-star');
-        $('#eva-star3').addClass('yellow-star');
-        $('#eva-star2').addClass('yellow-star');
-        $('#eva-star1').addClass('yellow-star');
-        $('#eva-star0').addClass('yellow-star');
-    });
-    //Bấm vào ngôi sao thứ 3
-    $('#eva-star3').on('click', () => {
-        console.log('3');
-        $('#eva-star4').removeClass('yellow-star');
-        $('#eva-star3').addClass('yellow-star');
-        $('#eva-star2').addClass('yellow-star');
-        $('#eva-star1').addClass('yellow-star');
-        $('#eva-star0').addClass('yellow-star');
-    });
-    //Bấm vào ngôi sao thứ 2
-    $('#eva-star2').on('click', () => {
-        console.log('2');
-        $('#eva-star4').removeClass('yellow-star');
-        $('#eva-star3').removeClass('yellow-star');
-        $('#eva-star2').addClass('yellow-star');
-        $('#eva-star1').addClass('yellow-star');
-        $('#eva-star0').addClass('yellow-star');
-    });
-    //Bấm vào ngôi sao thứ 1
-    $('#eva-star1').on('click', () => {
-        console.log('1');
-        $('#eva-star4').removeClass('yellow-star');
-        $('#eva-star3').removeClass('yellow-star');
-        $('#eva-star2').removeClass('yellow-star');
-        $('#eva-star1').addClass('yellow-star');
-        $('#eva-star0').addClass('yellow-star');
-    });
-    //Bấm vào ngôi sao thứ 0 
-    $('#eva-star0').on('click', () => {
-        console.log('0');
-        $('#eva-star4').removeClass('yellow-star');
-        $('#eva-star3').removeClass('yellow-star');
-        $('#eva-star2').removeClass('yellow-star');
-        $('#eva-star1').removeClass('yellow-star');
-        $('#eva-star0').addClass('yellow-star');
-    });
-    //Bấm gửi đánh giá
-    $('#eva-btn').on('click', () => {
-        if ($('#eva-star4').hasClass('yellow-star')) {
-            const name = $('#name').attr('data-name');
+    //Đánh dấu sao vàng dựa vào đánh giá của tôi
+    let myEvaPoint = +$("#evaPoint").attr("data-myEvaPoint");
+    myEvaPoint = myEvaPoint.toFixed(1);
+    if (myEvaPoint >= 5) {
+      $(".my-star0").addClass("yellow-star");
+      $(".my-star1").addClass("yellow-star");
+      $(".my-star2").addClass("yellow-star");
+      $(".my-star3").addClass("yellow-star");
+      $(".my-star4").addClass("yellow-star");
+    } else if (myEvaPoint >= 4) {
+      $(".my-star0").addClass("yellow-star");
+      $(".my-star1").addClass("yellow-star");
+      $(".my-star2").addClass("yellow-star");
+      $(".my-star3").addClass("yellow-star");
+    } else if (myEvaPoint >= 3) {
+      $(".my-star0").addClass("yellow-star");
+      $(".my-star1").addClass("yellow-star");
+      $(".my-star2").addClass("yellow-star");
+    } else if (myEvaPoint >= 2) {
+      $(".my-star0").addClass("yellow-star");
+      $(".my-star1").addClass("yellow-star");
+    } else if (myEvaPoint >= 1) {
+      $(".my-star0").addClass("yellow-star");
+    }
+  });
+  // Bấm vào hiện video
+  $(".document")
+    .children("button")
+    .on("click", (e) => {
+      $(e.target).siblings("video").toggleClass("show-video");
+      console.log($(e.target));
+      console.log($(e.target).siblings("video"));
+      const isPaid = $(e.target).attr('data-isPaid');
 
+      //Cập nhật thông tin learnedVideo
+      if ($(e.target).hasClass('learnedVideo') == false && isPaid == 'true') {
+        const nameCourse = $('#nameCourse').attr('data-name');
+        const videoIndex = $(e.target).attr('data-index');
+        
+        console.log(nameCourse);
+        const data = {
+          videoIndex: videoIndex
         }
+        $.post(`/users/${nameCourse}/updateLearnedVideo`, data, (json)=>{
+          if (json == true) {
+            $(e.target).addClass('learnedVideo');
+            console.log('Cập nhật thành công');
+          }
+        });
+      }
+      
     });
+  //Bấm vào nút Yêu thích
+  $("#wish-list").on("click", (e) => {
+    //Đổi màu button
+    $("#wish-list").children("i").toggleClass("red-heart");
+
+    //Kiểm tra đã đăng nhập chưa
+    const isAuthenticated = $("#wish-list").attr("data-isAuthenticated");
+    console.log(isAuthenticated);
+    if (isAuthenticated == "true") {
+      //Dùng ajax gửi thông tin về cho server thay đổi danh sách yêu thích
+      const courseID = $(e.target).data("id");
+      const data = {
+        courseID: courseID,
+      };
+      $.post("/users/wish-list-change", data);
+    } else {
+      //điều hướng sang trang đăng nhập
+      location.replace("/users/login");
+    }
+  });
+  //Bấm vào ngôi sao thứ 4
+  $("#eva-star4").on("click", () => {
+    console.log("4");
+    $("#eva-star4").addClass("yellow-star");
+    $("#eva-star3").addClass("yellow-star");
+    $("#eva-star2").addClass("yellow-star");
+    $("#eva-star1").addClass("yellow-star");
+    $("#eva-star0").addClass("yellow-star");
+  });
+  //Bấm vào ngôi sao thứ 3
+  $("#eva-star3").on("click", () => {
+    console.log("3");
+    $("#eva-star4").removeClass("yellow-star");
+    $("#eva-star3").addClass("yellow-star");
+    $("#eva-star2").addClass("yellow-star");
+    $("#eva-star1").addClass("yellow-star");
+    $("#eva-star0").addClass("yellow-star");
+  });
+  //Bấm vào ngôi sao thứ 2
+  $("#eva-star2").on("click", () => {
+    console.log("2");
+    $("#eva-star4").removeClass("yellow-star");
+    $("#eva-star3").removeClass("yellow-star");
+    $("#eva-star2").addClass("yellow-star");
+    $("#eva-star1").addClass("yellow-star");
+    $("#eva-star0").addClass("yellow-star");
+  });
+  //Bấm vào ngôi sao thứ 1
+  $("#eva-star1").on("click", () => {
+    console.log("1");
+    $("#eva-star4").removeClass("yellow-star");
+    $("#eva-star3").removeClass("yellow-star");
+    $("#eva-star2").removeClass("yellow-star");
+    $("#eva-star1").addClass("yellow-star");
+    $("#eva-star0").addClass("yellow-star");
+  });
+  //Bấm vào ngôi sao thứ 0
+  $("#eva-star0").on("click", () => {
+    console.log("0");
+    $("#eva-star4").removeClass("yellow-star");
+    $("#eva-star3").removeClass("yellow-star");
+    $("#eva-star2").removeClass("yellow-star");
+    $("#eva-star1").removeClass("yellow-star");
+    $("#eva-star0").addClass("yellow-star");
+  });
+  //Bấm gửi đánh giá
+  $("#eva-btn").on("click", () => {
+    const isAuthenticated = $("#wish-list").attr("data-isAuthenticated");
+    const nameCourse = $("#nameCourse").attr("data-name");
+
+    if (isAuthenticated == "true") {
+      const isPaid = $("#eva-btn").attr("data-isPaid");
+      if (isPaid == "true") {
+        if ($("#eva-star4").hasClass("yellow-star")) {
+          const data = {
+            evaluationPoint: 5,
+          };
+          $.post(`/course/${nameCourse}/evaluate`, data, (json) => {
+
+            if (json == true) {
+              alert("Bạn đã gửi đánh giá thành công");
+            } else {
+              alert("Rất tiếc! đánh giá của bạn không được ghi nhận");
+            }
+          });
+        } else if ($("#eva-star3").hasClass("yellow-star")) {
+          const data = {
+            evaluationPoint: 4,
+          };
+          $.post(`/course/${nameCourse}/evaluate`, data, (json) => {
+            if (json == true) {
+              alert("Bạn đã gửi đánh giá thành công");
+            } else {
+              alert("Rất tiếc! đánh giá của bạn không được ghi nhận");
+            }
+          });
+        } else if ($("#eva-star2").hasClass("yellow-star")) {
+          const data = {
+            evaluationPoint: 3,
+          };
+          $.post(`/course/${nameCourse}/evaluate`, data, (json) => {
+            if (json == true) {
+              alert("Bạn đã gửi đánh giá thành công");
+            } else {
+              alert("Rất tiếc! đánh giá của bạn không được ghi nhận");
+            }
+          });
+        } else if ($("#eva-star1").hasClass("yellow-star")) {
+          const data = {
+            evaluationPoint: 2,
+          };
+          $.post(`/course/${nameCourse}/evaluate`, data, (json) => {
+            if (json == true) {
+              alert("Bạn đã gửi đánh giá thành công");
+            } else {
+              alert("Rất tiếc! đánh giá của bạn không được ghi nhận");
+            }
+          });
+        } else if ($("#eva-star0").hasClass("yellow-star")) {
+          const data = {
+            evaluationPoint: 1,
+          };
+          $.post(`/course/${nameCourse}/evaluate`, data, (json) => {
+            if (json == true) {
+              alert("Bạn đã gửi đánh giá thành công");
+            } else {
+              alert("Rất tiếc! đánh giá của bạn không được ghi nhận");
+            }
+          });
+        }
+        window.location.reload(true);
+      } else {
+        alert("Bạn hãy mua khóa học trước khi đánh giá");
+        window.location.replace(`/payment/${nameCourse}/checkout`);
+      }
+    } else {
+      window.location.replace("/users/login");
+    }
+  });
 </script>

@@ -20,10 +20,6 @@ var CourseSchema = mongoose.Schema({
     type: Number,
     "default": 0
   },
-  numberOfEvaluation: {
-    type: Number,
-    "default": 0
-  },
   numberOfStudent: {
     type: Number,
     "default": 0
@@ -48,6 +44,10 @@ var CourseSchema = mongoose.Schema({
   idLecturer: {
     type: mongoose.Schema.ObjectId,
     ref: 'lecturers'
+  },
+  numberOfVideo: {
+    type: Number,
+    "default": 0
   },
   videos: {
     type: [{
@@ -81,7 +81,7 @@ var CourseSchema = mongoose.Schema({
         required: true
       },
       comment: String,
-      dete: {
+      date: {
         type: Date,
         "default": new Date(Date.now())
       }

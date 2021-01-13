@@ -28,16 +28,20 @@
   "idCourses": [
     {
       "$oid": "5ff2e3b37d305e09608a1df0"
+    },
+    {
+      "$oid": "5ff2e3b37d305e09608a1dde"
     }
   ],
   "idWishList": [
     {
-      "$oid": "5ff2e3b37d305e09608a1df0"
+      "$oid": "5ff2e3b37d305e09608a1deb"
     }
   ],
   "name": "Thế Minh Võ",
   "email": "minhthevotemp@gmail.com",
   "password": "$2a$10$811taeYRDipQe.6zMPiKBuNdkEjBNzkz4oIw94szyxu8dqJlWjOgm",
   "otpNumber": "189102",
-  "__v": 4
+  "__v": 13,
+  "coursesProgress": []
 }]

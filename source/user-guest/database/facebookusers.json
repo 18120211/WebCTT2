@@ -10,7 +10,7 @@
   "name": "Võ Thế Minh đẹp trai",
   "email": "minhthevo123@gmail.com",
   "token": "EAA0CtATr9K4BAIw7EjkcKLcBqwAdYjw48E8nWA7NGZBRI0eZAnGFO6ZAq3fURFngTLpU1a681gZAWG4WUZAEI8CduzjCD8arJ00Ea9jhLUgAkg2RI0iLZBVKuZCsMEWeAZCg9eaHuIDheTNABcTlPTuX6UpjkkPHAfeIH8rjZA8lzMwZDZD",
-  "__v": 5,
+  "__v": 6,
   "gender": "Male",
   "idCourses": [
     {
@@ -23,6 +23,9 @@
     },
     {
       "$oid": "5ff2e3b37d305e09608a1de6"
+    },
+    {
+      "$oid": "5ff2e3b37d305e09608a1dde"
     }
   ]
 }]

@@ -12,6 +12,10 @@ const CourseTopic = require('../models/CourseTopic.model');
 
 const paypal = require('paypal-rest-sdk');
 
+const LocalUser = require('../models/LocalUser.model');
+
+const FaceBookUser = require('../models/FaceBookUser.model');
+
 const {
     ensureAuthenticated,
     forwardAuthenticated
@@ -56,22 +60,117 @@ Router.get('/:nameCourse', async (req, res) => {
     }
     //Kiểm tra đã đánh giá chưa
     let isEvaluate = false;
-    let myEvaluationPoint;
+    let myEvaluationPoint = 1;
     if(req.user != undefined) {
         for (let i = 0; i < course.userEvaluations.length; i++) {
-            if (course.userEvaluations[i].idUser == req.user._id) {
-                isEvaluate = true;
+            if (course.userEvaluations[i].idUser.toString() == req.user._id) {
+                isEvaluate = true
+                myEvaluationPoint = course.userEvaluations[i].point
+                break;
             }
         }
     }
+    //Thêm vào thông tin của những người đã review khóa học
+    const userReviews = [];
+    for (let i = 0; i < course.userReviews.length; i++) {
+        const localUser = await LocalUser.findOne({
+            _id: course.userReviews[i].idUser
+        });
+        if (localUser == null) {
+            const facebookUser = await FaceBookUser.findOne({
+                _id: course.userReviews[i].idUser
+            });
+            userReviews.push(facebookUser);
+            continue;
+        }
+        userReviews.push(localUser);
+    }
+    console.log(userReviews);
+    
+    //Đánh dấu những video đã học
+    let learnedVideos = [];
+    if (isPaid) {
+        for (let i = 0; i < req.user.coursesProgress.length; i++) {
+            if (user.coursesProgress[i].idCourse == course._id) {
+                learnedVideos = user.coursesProgress[i].learnedVideos;
+                break;
+            }
+        }
+    }
+    
     res.render('./course/detail', {
         isAuthenticated: req.isAuthenticated(),
         isWishCourse: isWishCourse,
         course: course,
         isPaid: isPaid,
-        isEvaluate
-
+        isEvaluate: isEvaluate,
+        myEvaluationPoint: myEvaluationPoint,
+        userReviews: userReviews,
+        learnedVideos: learnedVideos
     });
+});
+
+Router.post('/:nameCourse/evaluate', async (req, res)=>{
+    const evaluationPoint = +req.body.evaluationPoint;
+    const nameCourse = req.params.nameCourse;
+
+    //Lấy ra khóa học vừa đánh giá
+    const course = await Course.findOne({name: nameCourse});
+    let isEvaluate = false;
+    for (let i = 0; i < course.userEvaluations.length; i++) {
+        // Nếu đã đánh giá thì cập nhật lại điểm đánh giá
+        if (course.userEvaluations[i].idUser.toString() == req.user._id) {
+            isEvaluate = true;
+            course.userEvaluations[i].point = evaluationPoint;
+            //Tính toán lại điểm đánh giá
+            let newEvaluationPoint = 0;
+            for (let i = 0; i < course.userEvaluations.length; i++) {
+                newEvaluationPoint += course.userEvaluations[i].point;
+            }
+            newEvaluationPoint /= course.userEvaluations.length;
+            newEvaluationPoint.toFixed(1);
+            course.evaluationPoint = newEvaluationPoint;
+            //Cập nhật lại khóa học
+            course.save().then((doc)=>{
+                res.json(true);
+            });
+            break;
+        }
+    }
+    //Nếu người dùng chưa đánh giá thì thêm đánh giá của người dùng vào
+    if (!isEvaluate) {
+        course.userEvaluations.push({
+            idUser: req.user._id,
+            point: evaluationPoint
+        });
+        //Tính toán lại điểm đánh giá
+        let newEvaluationPoint = 0;
+        for (let i = 0; i < course.userEvaluations.length; i++) {
+            newEvaluationPoint += course.userEvaluations[i].point;
+        }
+        newEvaluationPoint /= course.userEvaluations.length;
+        newEvaluationPoint.toFixed(1);
+        course.evaluationPoint = newEvaluationPoint;
+        //Cập nhật lại khóa học
+        course.save().then((doc)=>{
+            res.json(true);
+        });
+    }
+});
+
+//Xử lý tác vụ người dùng nhấn nút gửi bình luận
+Router.post('/:nameCourse/review', async (req, res)=>{
+    const nameCourse = req.params.nameCourse;
+    const review = req.body.review;
+    const course = await Course.findOne({
+        name: nameCourse
+    });
+    course.userReviews.push({
+        idUser: req.user._id,
+        review: review
+    });
+    course.save().then((doc)=>{});
+    res.json(true);
 });
 
 

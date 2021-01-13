@@ -4,10 +4,9 @@
   },
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385686/WEBCTT2/poster/graphPython/poster_ahwxw6.png",
   "description": "Bạn có thể học mọi thứ về đồ thị với Python qua khóa học của chúng tôi",
-  "evaluationPoint": 0,
-  "numberOfEvaluation": 0,
-  "numberOfStudent": 3,
-  "numberOfView": 66,
+  "evaluationPoint": 4.5,
+  "numberOfStudent": 4,
+  "numberOfView": 330,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -82,9 +81,78 @@
       "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386773/WEBCTT2/video/graphPython/6_hs8fu9.mp4"
     }
   ],
-  "__v": 2,
-  "userReviewes": [],
-  "userEvaluations": []
+  "__v": 21,
+  "userEvaluations": [
+    {
+      "_id": {
+        "$oid": "5ffe9c5215d8062844eedd51"
+      },
+      "idUser": {
+        "$oid": "5ffa9e4a7c800a2d18493316"
+      },
+      "point": 4
+    },
+    {
+      "_id": {
+        "$oid": "5ffebb8bcae7981c449f0df0"
+      },
+      "idUser": {
+        "$oid": "5feac320306cfb34bc6b12ca"
+      },
+      "point": 5
+    }
+  ],
+  "numberOfVideo": 0,
+  "userReviews": [
+    {
+      "date": {
+        "$date": "2021-01-13T15:02:45.849Z"
+      },
+      "_id": {
+        "$oid": "5fff0c09bcbf2432083c1469"
+      },
+      "idUser": {
+        "$oid": "5ffa9e4a7c800a2d18493316"
+      },
+      "review": "Khóa học tuyệt vời"
+    },
+    {
+      "date": {
+        "$date": "2021-01-13T15:02:45.849Z"
+      },
+      "_id": {
+        "$oid": "5fff0c12bcbf2432083c146a"
+      },
+      "idUser": {
+        "$oid": "5ffa9e4a7c800a2d18493316"
+      },
+      "review": "Hay quá Admin đẹp trai ơi"
+    },
+    {
+      "date": {
+        "$date": "2021-01-13T15:02:45.849Z"
+      },
+      "_id": {
+        "$oid": "5fff0c35bcbf2432083c146b"
+      },
+      "idUser": {
+        "$oid": "5feac320306cfb34bc6b12ca"
+      },
+      "review": "Học xong đảm bảo trùm python hehe"
+    },
+    {
+      "date": {
+        "$date": "2021-01-13T15:02:45.849Z"
+      },
+      "_id": {
+        "$oid": "5fff0c48bcbf2432083c146c"
+      },
+      "idUser": {
+        "$oid": "5feac320306cfb34bc6b12ca"
+      },
+      "review": "Hello chào mừng các bạn đã đến với trải nghiệm bị con gái đì"
+    }
+  ]
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1de6"
@@ -92,9 +160,8 @@
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385683/WEBCTT2/poster/beginerAdrDev/poster_omn0t9.jpg",
   "description": "Học xong khóa tutorial bạn sẽ trùm Android",
   "evaluationPoint": 0,
-  "numberOfEvaluation": 0,
   "numberOfStudent": 2,
-  "numberOfView": 130,
+  "numberOfView": 152,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -147,9 +214,10 @@
       "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386168/WEBCTT2/video/beginerAdrDev/3_y3wbmm.mp4"
     }
   ],
-  "__v": 2,
-  "userReviewes": [],
-  "userEvaluations": []
+  "__v": 3,
+  "userEvaluations": [],
+  "numberOfVideo": 0,
+  "userReviews": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1deb"
@@ -157,9 +225,8 @@
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385684/WEBCTT2/poster/beginerJvsDev/poster_ipe29v.jpg",
   "description": "Học xong lương 10000$",
   "evaluationPoint": 0,
-  "numberOfEvaluation": 0,
   "numberOfStudent": 0,
-  "numberOfView": 14,
+  "numberOfView": 21,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -213,8 +280,7 @@
     }
   ],
   "__v": 1,
-  "userEvaluations": [],
-  "userReviewes": []
+  "userEvaluations": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1df0"
@@ -222,9 +288,8 @@
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385685/WEBCTT2/poster/beginerWebDev/poster_itjc2w.jpg",
   "description": "Học 2 buổi 10 chấm môn Web",
   "evaluationPoint": 0,
-  "numberOfEvaluation": 0,
   "numberOfStudent": 2,
-  "numberOfView": 41,
+  "numberOfView": 50,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -278,8 +343,7 @@
     }
   ],
   "__v": 1,
-  "userEvaluations": [],
-  "userReviewes": []
+  "userEvaluations": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1df5"
@@ -287,7 +351,6 @@
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385684/WEBCTT2/poster/gameDevUnity/poster_idtxig.webp",
   "description": "Học 3 buổi là vào Facebook",
   "evaluationPoint": 0,
-  "numberOfEvaluation": 0,
   "numberOfStudent": 0,
   "numberOfView": 0,
   "tuition": 10,
@@ -343,8 +406,7 @@
     }
   ],
   "__v": 1,
-  "userEvaluations": [],
-  "userReviewes": []
+  "userEvaluations": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dfa"
@@ -352,7 +414,6 @@
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385685/WEBCTT2/poster/tutCommunication/poster_yaw3y4.jpg",
   "description": "Bạn muốn làm đa cấp không thể bỏ qua khóa học này",
   "evaluationPoint": 0,
-  "numberOfEvaluation": 0,
   "numberOfStudent": 0,
   "numberOfView": 0,
   "tuition": 10,
@@ -408,8 +469,7 @@
     }
   ],
   "__v": 1,
-  "userEvaluations": [],
-  "userReviewes": []
+  "userEvaluations": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dff"
@@ -417,7 +477,6 @@
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385687/WEBCTT2/poster/tutPhotoshop/poster_edxm7a.jpg",
   "description": "Bạn muốn làm đa cấp không thể bỏ qua khóa học này",
   "evaluationPoint": 0,
-  "numberOfEvaluation": 0,
   "numberOfStudent": 0,
   "numberOfView": 0,
   "tuition": 10,
@@ -473,6 +532,5 @@
     }
   ],
   "__v": 1,
-  "userEvaluations": [],
-  "userReviewes": []
+  "userEvaluations": []
 }]

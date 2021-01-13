@@ -18,10 +18,6 @@ const CourseSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    numberOfEvaluation: {
-        type: Number,
-        default: 0
-    },
     numberOfStudent: {
         type: Number,
         default: 0
@@ -45,6 +41,10 @@ const CourseSchema = mongoose.Schema({
     idLecturer: {
         type: mongoose.Schema.ObjectId,
         ref: 'lecturers'
+    },
+    numberOfVideo: {
+        type: Number,
+        default: 0
     },
     videos: {
         type: [{
@@ -71,14 +71,14 @@ const CourseSchema = mongoose.Schema({
             }
         }]
     },
-    userReviewes: {
+    userReviews: {
         type: [{
             idUser: {
                 type: mongoose.Schema.ObjectId,
                 required: true
             },
-            comment: String,
-            dete: {
+            review: String,
+            date: {
                 type: Date,
                 default: new Date(Date.now())
             }

@@ -29,6 +29,7 @@ const multer = require('multer');
 const FaceBookUser = require('../models/FaceBookUser.model');
 
 const cloudinary = require('cloudinary').v2;
+const Course = require('../models/Course.model');
 
 //Xác thục bởi facebook
 Router.get(
@@ -346,6 +347,25 @@ Router.post('/wish-list-change', ensureAuthenticated, async (req, res) => {
         req.user.save();
         res.end();
     }
+});
+
+//Xử lí requrest ajax bấm vào nút PlayVideo
+Router.post('/:nameCourse/updateLearnedVideo', async (req, res)=>{
+    const videoIndex = req.body.videoIndex;
+    const course = await Course.findOne({
+        name: req.params.nameCourse
+    }); 
+    for (let i = 0; i < req.user.coursesProgress.length; i++) {
+        if (req.user.coursesProgress[i].idCourse == course._id) {
+            req.user.coursesProgress[i].learnedVideos.push(i);
+            req.user.save().then((doc)=>{
+                console.log(doc);
+            })
+            res.json(true);
+            break;
+        }
+    }
+    res.json(false);
 });
 
 module.exports = Router;

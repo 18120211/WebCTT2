@@ -36,6 +36,17 @@ const FaceBookUserSchema = mongoose.Schema ({
     idWishList: {
         type: [mongoose.Schema.ObjectId],
         ref: 'courses'
+    },
+    coursesProgress: {
+        type: [{
+            idCourse: {
+                type: mongoose.Schema.ObjectId,
+                ref: 'courses'
+            },
+            learnedVideo: [{
+                type: Number
+            }]
+        }]
     }
 });
 
