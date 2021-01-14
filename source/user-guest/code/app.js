@@ -19,19 +19,32 @@ require('./middlewares/cloudinary.mdw')(app);
 
 app.listen(8000, console.log('Server running on port 8000'));
 
-// const express = require('express');
+// const express = require("express");
 
 // const app = express();
 
-// require('./middlewares/dbLocal.mdw')(app);
-// require('./middlewares/cloudinary.mdw')(app);
-// const Course = require('./models/Course.model');
-// const FaceBookUser = require('./models/FaceBookUser.model');
-// const Lecturer = require('./models/Lecturer.model');
-// const LocalUser = require('./models/LocalUser.model');
-// const CourseCategory = require('./models/CourseCategory.model');
-// const CategoryEnum = require('./models/CourseCategory.enum');
-// const TopicEnum = require('./models/CourseTopic.enum');
-// const CourseTopic = require('./models/CourseTopic.model');
-// const cloudinary = require('cloudinary').v2;
+// require("./middlewares/dbLocal.mdw")(app);
+// require("./middlewares/cloudinary.mdw")(app);
+// const Course = require("./models/Course.model");
+// const FaceBookUser = require("./models/FaceBookUser.model");
+// const Lecturer = require("./models/Lecturer.model");
+// const LocalUser = require("./models/LocalUser.model");
+// const CourseCategory = require("./models/CourseCategory.model");
+// const CategoryEnum = require("./models/CourseCategory.enum");
+// const TopicEnum = require("./models/CourseTopic.enum");
+// const CourseTopic = require("./models/CourseTopic.model");
+// const cloudinary = require("cloudinary").v2;
 
+// CourseCategory.insertMany([{
+//     name: CategoryEnum.MARKETING
+// }, {
+//     name: CategoryEnum.MUSIC
+// }]).then(console.log('saved'));
+
+// CourseTopic.insertMany([{
+//     name: TopicEnum.MARKETING_DIG,
+//     idCourseCategory: '60008b26ee6f4a2a9c4c2e7c'
+// }, {
+//     name: TopicEnum.MUSIC_INS,
+//     idCourseCategory: '60008b26ee6f4a2a9c4c2e7d'
+// }]).then(console.log('saved'));

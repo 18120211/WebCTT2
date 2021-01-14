@@ -17,42 +17,61 @@
   "purchasedCourses": []
 },{
   "_id": {
-    "$oid": "5ffa9e4a7c800a2d18493316"
+    "$oid": "6000451357786f321c0b1543"
   },
   "gender": "Male",
   "date": {
-    "$date": "2021-01-10T06:25:42.430Z"
+    "$date": "2021-01-14T13:20:00.511Z"
   },
-  "avatar": "/public/avatar/5ffa9e4a7c800a2d18493316/avatar.png",
+  "avatar": "/public/avatar/6000451357786f321c0b1543/avatar.png",
   "isAuth": true,
   "idWishList": [
-    {
-      "$oid": "5ff2e3b37d305e09608a1deb"
-    },
     {
       "$oid": "5ff2e3b37d305e09608a1dde"
     }
   ],
-  "name": "Thế Minh Võ",
-  "email": "minhthevotemp@gmail.com",
-  "password": "$2a$10$811taeYRDipQe.6zMPiKBuNdkEjBNzkz4oIw94szyxu8dqJlWjOgm",
-  "otpNumber": "189102",
-  "__v": 36,
-  "coursesProgress": [],
   "purchasedCourses": [
     {
+      "learnedVideos": [
+        1
+      ],
       "_id": {
-        "$oid": "5fffe989e4c956056cad113b"
+        "$oid": "60008467b820563928cb0072"
       },
       "idCourse": {
         "$oid": "5ff2e3b37d305e09608a1dde"
+      }
+    },
+    {
+      "learnedVideos": [],
+      "_id": {
+        "$oid": "60008d29fa7e7c0b7c0707f6"
       },
-      "learnedVideos": [
-        1,
-        2,
-        5,
-        3
-      ]
+      "idCourse": {
+        "$oid": "5ff2e3b37d305e09608a1de6"
+      }
     }
-  ]
+  ],
+  "name": "Võ Thế Minh",
+  "email": "minhthevotemp@gmail.com",
+  "password": "$2a$10$oLqB6bE9l4eu8GTrorzLPOH27jNvWyQljW7dNZHR07VSFsXYsMziu",
+  "otpNumber": "639091",
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "6000473871058d1140488fab"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2021-01-14T13:27:00.136Z"
+  },
+  "avatar": "/public/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "purchasedCourses": [],
+  "name": "Phạm Tống Bình Minh",
+  "email": "minhgoodkid123@gmail.com",
+  "password": "$2a$10$kS/qeceDmUNE04hAc.CXg.Axq/rW4OrUhpZyyBCHVbEKvWkR7pOxO",
+  "otpNumber": "671234",
+  "__v": 0
 }]

@@ -25,6 +25,7 @@ Router.get('/:nameCourse/checkout', ensureAuthenticated, async (req, res) => {
     const now = new Date(Date.now());
     const date = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
     res.render('./payment/checkout', {
+        isAuthenticated: req.isAuthenticated(),
         course: course,
         date: date
     })

@@ -50,12 +50,16 @@ Router.get(
 
 //GET LOGIN
 Router.get("/login", forwardAuthenticated, (req, res) => {
-  res.render("./user/login");
+  res.render("./user/login", {
+      isAuthenticated: req.isAuthenticated()
+  });
 });
 
 //GET register
 Router.get("/register", forwardAuthenticated, (req, res) => {
-  res.render("./user/register");
+  res.render("./user/register", {
+      isAuthenticated: req.isAuthenticated()
+  });
 });
 
 //POST register
@@ -84,7 +88,8 @@ Router.post("/register", function (req, res) {
 
   if (errors.length > 0) {
     res.render("./user/register", {
-      errors,
+      isAuthenticated: req.isAuthenticated(),
+      errors
     });
   } else {
     LocalUser.findOne({
@@ -95,7 +100,8 @@ Router.post("/register", function (req, res) {
           msg: "Account existed, Try another email",
         });
         res.render("./user/register", {
-          errors,
+          isAuthenticated: req.isAuthenticated(),
+          errors
         });
       } else {
         //Tạo client request để gửi gmail xác thực OTP
@@ -104,7 +110,7 @@ Router.post("/register", function (req, res) {
         const clientSecret = "NAjZvQbzYipjQYBxnaHPHSr9";
         const redirectUri = "https://developers.google.com/oauthplayground";
         const refreshToken =
-          "1//04xoTZN2oPryPCgYIARAAGAQSNwF-L9Irhz1y_ypHDLEizhevJ2P9DB7_ZSWfqItoqCIqZzI8Zp5eUYE1kFnJz4Z6gi9aWgYzKe8";
+          "1//042Ld0MGfUQmICgYIARAAGAQSNwF-L9IrzcaMjqdyMhuXqIXqsaWmNLn70YhjopS-pQU1hEr0311t9MA4nogHg3Ufq9xOBue9KF8";
 
         const oAuth2Client = new OAuth2(clientID, clientSecret, redirectUri);
 
@@ -150,7 +156,9 @@ Router.post("/register", function (req, res) {
 
           req.session.currentEmail = email;
 
-          res.render("./user/otp");
+          res.render("./user/otp", {
+            isAuthenticated: req.isAuthenticated(),
+          });
         });
       }
     });
@@ -179,6 +187,7 @@ Router.post("/otp", async (req, res) => {
     ];
     res.render("./user/otp", {
       errors,
+      isAuthenticated: req.isAuthenticated()
     });
   }
 });
@@ -187,7 +196,7 @@ Router.post("/login", async (req, res, next) => {
   let { email, password } = req.body;
 
   const user = await LocalUser.findOne({
-    email: email,
+    email: email
   });
 
   if (user != null) {
@@ -201,16 +210,22 @@ Router.post("/login", async (req, res, next) => {
         } else {
           req.session.currentEmail = email;
           req.flash("error_msg", "Please fill correct OTP to login");
-          res.redirect("/users/otp");
+          res.render("./user/otp", {
+            isAuthenticated: req.isAuthenticated()
+          });
         }
       } else {
         req.flash("error_msg", "Invalid account");
-        res.render("./user/login");
+        res.render("./user/login", {
+          isAuthenticated: req.isAuthenticated(),
+        });
       }
     });
   } else {
     req.flash("error_msg", "Invalid account");
-    res.render("./user/login");
+    res.render("./user/login", {
+      isAuthenticated: req.isAuthenticated(),
+    });
   }
 });
 
@@ -347,7 +362,7 @@ Router.post("/:nameCourse/updateLearnedVideo", async (req, res) => {
   const course = await Course.findOne({
     name: req.params.nameCourse,
   });
-  
+
   //Đánh dấu video đã được xem 
   let flag = false;
   for (let i = 0; i < req.user.purchasedCourses.length; i++) {

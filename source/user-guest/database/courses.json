@@ -4,9 +4,9 @@
   },
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385686/WEBCTT2/poster/graphPython/poster_ahwxw6.png",
   "description": "Bạn có thể học mọi thứ về đồ thị với Python qua khóa học của chúng tôi",
-  "evaluationPoint": 4.5,
-  "numberOfStudent": 4,
-  "numberOfView": 330,
+  "evaluationPoint": 5,
+  "numberOfStudent": 6,
+  "numberOfView": 422,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -81,7 +81,7 @@
       "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386773/WEBCTT2/video/graphPython/6_hs8fu9.mp4"
     }
   ],
-  "__v": 21,
+  "__v": 24,
   "userEvaluations": [
     {
       "_id": {
@@ -90,7 +90,7 @@
       "idUser": {
         "$oid": "5ffa9e4a7c800a2d18493316"
       },
-      "point": 4
+      "point": 5
     },
     {
       "_id": {
@@ -106,51 +106,15 @@
   "userReviews": [
     {
       "date": {
-        "$date": "2021-01-13T15:02:45.849Z"
+        "$date": "2021-01-14T17:47:44.504Z"
       },
       "_id": {
-        "$oid": "5fff0c09bcbf2432083c1469"
+        "$oid": "60008477b820563928cb0073"
       },
       "idUser": {
-        "$oid": "5ffa9e4a7c800a2d18493316"
+        "$oid": "6000451357786f321c0b1543"
       },
-      "review": "Khóa học tuyệt vời"
-    },
-    {
-      "date": {
-        "$date": "2021-01-13T15:02:45.849Z"
-      },
-      "_id": {
-        "$oid": "5fff0c12bcbf2432083c146a"
-      },
-      "idUser": {
-        "$oid": "5ffa9e4a7c800a2d18493316"
-      },
-      "review": "Hay quá Admin đẹp trai ơi"
-    },
-    {
-      "date": {
-        "$date": "2021-01-13T15:02:45.849Z"
-      },
-      "_id": {
-        "$oid": "5fff0c35bcbf2432083c146b"
-      },
-      "idUser": {
-        "$oid": "5feac320306cfb34bc6b12ca"
-      },
-      "review": "Học xong đảm bảo trùm python hehe"
-    },
-    {
-      "date": {
-        "$date": "2021-01-13T15:02:45.849Z"
-      },
-      "_id": {
-        "$oid": "5fff0c48bcbf2432083c146c"
-      },
-      "idUser": {
-        "$oid": "5feac320306cfb34bc6b12ca"
-      },
-      "review": "Hello chào mừng các bạn đã đến với trải nghiệm bị con gái đì"
+      "review": "Khóa học quá tuyệt vời!"
     }
   ]
 },{
@@ -160,8 +124,8 @@
   "poster": "https://res.cloudinary.com/minhvocloudinary/image/upload/v1610385683/WEBCTT2/poster/beginerAdrDev/poster_omn0t9.jpg",
   "description": "Học xong khóa tutorial bạn sẽ trùm Android",
   "evaluationPoint": 0,
-  "numberOfStudent": 2,
-  "numberOfView": 152,
+  "numberOfStudent": 3,
+  "numberOfView": 166,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -226,7 +190,7 @@
   "description": "Học xong lương 10000$",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 21,
+  "numberOfView": 28,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -279,8 +243,10 @@
       "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386302/WEBCTT2/video/beginerJvsDev/3_re9ai0.mp4"
     }
   ],
-  "__v": 1,
-  "userEvaluations": []
+  "__v": 2,
+  "userEvaluations": [],
+  "numberOfVideo": 0,
+  "userReviews": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1df0"
@@ -289,7 +255,7 @@
   "description": "Học 2 buổi 10 chấm môn Web",
   "evaluationPoint": 0,
   "numberOfStudent": 2,
-  "numberOfView": 50,
+  "numberOfView": 51,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -342,8 +308,10 @@
       "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386665/WEBCTT2/video/beginerWebDev/3_zblvag.mp4"
     }
   ],
-  "__v": 1,
-  "userEvaluations": []
+  "__v": 2,
+  "userEvaluations": [],
+  "numberOfVideo": 0,
+  "userReviews": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1df5"
@@ -352,7 +320,7 @@
   "description": "Học 3 buổi là vào Facebook",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 0,
+  "numberOfView": 1,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -405,8 +373,10 @@
       "source": "https://res.cloudinary.com/minhvocloudinary/video/upload/v1610386745/WEBCTT2/video/gameDevUnity/3_ivmg5c.mp4"
     }
   ],
-  "__v": 1,
-  "userEvaluations": []
+  "__v": 2,
+  "userEvaluations": [],
+  "numberOfVideo": 0,
+  "userReviews": []
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dfa"

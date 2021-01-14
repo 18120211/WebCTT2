@@ -2,8 +2,8 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbdf"
   },
-  "numberOfView": 66,
-  "numberOfSignUp": 3,
+  "numberOfView": 422,
+  "numberOfSignUp": 6,
   "name": "Data Science",
   "idCourseCategory": {
     "$oid": "5ff2dd54eb01461e54152a15"
@@ -13,7 +13,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe0"
   },
-  "numberOfView": 41,
+  "numberOfView": 51,
   "numberOfSignUp": 2,
   "name": "Web Development",
   "idCourseCategory": {
@@ -24,7 +24,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe1"
   },
-  "numberOfView": 14,
+  "numberOfView": 28,
   "numberOfSignUp": 0,
   "name": "Programming Languages",
   "idCourseCategory": {
@@ -35,8 +35,8 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe2"
   },
-  "numberOfView": 130,
-  "numberOfSignUp": 2,
+  "numberOfView": 166,
+  "numberOfSignUp": 3,
   "name": "Mobile Development",
   "idCourseCategory": {
     "$oid": "5ff2dd54eb01461e54152a15"
@@ -46,7 +46,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe3"
   },
-  "numberOfView": 0,
+  "numberOfView": 1,
   "numberOfSignUp": 0,
   "name": "Game Development",
   "idCourseCategory": {
@@ -114,6 +114,28 @@
   "name": "Sales",
   "idCourseCategory": {
     "$oid": "5ff2dd54eb01461e54152a16"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60008bbfb00fb11eecfcfb7c"
+  },
+  "numberOfView": 0,
+  "numberOfSignUp": 0,
+  "name": "Digital Marketing",
+  "idCourseCategory": {
+    "$oid": "60008b26ee6f4a2a9c4c2e7c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60008bbfb00fb11eecfcfb7d"
+  },
+  "numberOfView": 0,
+  "numberOfSignUp": 0,
+  "name": "Music Instruments",
+  "idCourseCategory": {
+    "$oid": "60008b26ee6f4a2a9c4c2e7d"
   },
   "__v": 0
 }]

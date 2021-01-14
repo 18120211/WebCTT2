@@ -9,5 +9,7 @@ module.exports = {
     BUSINESS_SALE: 'Sales',
     DESIGN_WEB: 'Web Design',
     DESIGN_GAME: 'Game Design',
-    DESIGN_TOOL: 'Design Tools' 
+    DESIGN_TOOL: 'Design Tools',
+    MARKETING_DIG: 'Digital Marketing',
+    MUSIC_INS: 'Music Instruments' 
 }

@@ -1,21 +1,103 @@
-<div style="display: inline-block;">
-    <a class="btn btn-primary" href="/" role="button">
-        <i class="fa fa-home" aria-hidden="true"></i>
-        HOME
-    </a>
-    <% if (!isAuthenticated) { %>
-    <a href="/users/register"><button type="button" class="btn btn-light">ĐĂNG KÝ</button></a>
-    <a href="/users/login"><button type="button" class="btn btn-danger">ĐĂNG NHẬP</button></a>
-    <a href="/users/auth/facebook"><button type="button" class="btn btn-info">FACEBOOK LOGIN</button></a>
-    <% } %>
-    <% if (isAuthenticated) { %>
-    <a href="/users/account"><button type="button" class="btn btn-info">TÀI KHOẢN</button></a>
-    <a href="/users/logout"><button type="button" class="btn btn-secondary">ĐĂNG XUẤT</button></a>
-    <a href="/my-wish-list"><button type="button" class="btn btn-light"><i class="fa fa-heart" aria-hidden="true"
-                style="color:red;"></i> YÊU THÍCH</button></a>
-    <a href="/my-courses"><button type="button" class="btn btn-light"><i class="fas fa-folder-open" style="color: darkorange;"></i> Khóa học của
-            tôi</button></a>
-    <% } %>
+<header id="header" class="navbar navbar-static-top">
+  <div class="container-fluid">
+    <div class="col-sm-2">
+      <div id="header-logo" class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img src="/public/logo.png" alt="Managment" title="Managment" />
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-4 menu">
+      <div class="menu-item category">
+        <div class="dropdown">
+          <button class="dropbtn"><a href="#">Categories </a></button>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 search">
+      <form
+        id="searchForm"
+        class="form-inline"
+        action="/courses/search"
+        method="GET"
+      >
+        <div class="row">
+          <div class="col-sm-8">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="queryString"
+              id="searchInput"
+            />
+          </div>
+          <div class="col-sm-4">
+            <button
+              id="searchButton"
+              class="btn btn-outline-warning my-2 my-sm-0"
+              type="button"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-2 featured">
+      <div class="row">
+        <% if (!isAuthenticated) { %>
+        <div class="col-sm-5">
+          <a href="/users/login"> <i class="fas fa-sign-in-alt"></i>Login </a>
+        </div>
+        <div class="col-sm-5">
+          <a href="/users/register">
+            <i class="fas fa-user-plus"></i>Register
+          </a>
+        </div>
+        <% }else{ %>
+        <div class="col-sm-5">
+          <a href="/my-courses">
+            <i class="fas fa-folder-open" style="color: darkorange"></i> My
+            Courses
+          </a>
+        </div>
+        <div class="col-sm-5">
+          <a href="/my-wish-list">
+            <i class="fa fa-heart" aria-hidden="true" style="color: crimson"></i
+            >Wish list
+          </a>
+        </div>
+        <div class="col-sm-5">
+          <a href="/users/account">
+            <i class="fas fa-user-circle"></i> Account
+          </a>
+        </div>
+        <div class="col-sm-5">
+          <a href="/users/logout">
+            <i class="fas fa-sign-out-alt"></i>Logout
+          </a>
+        </div>
 
-
-</div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</header>
+<script>
+  $('#searchButton').on('click', ()=>{
+    const val = $('#searchInput').val();
+    console.log(val);
+    if (val != '') {
+      $('#searchForm').submit();
+    }
+    else {
+      window.location.replace('/');
+    }
+  });
+</script>

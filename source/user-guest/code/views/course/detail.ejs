@@ -1,8 +1,4 @@
 <link rel="stylesheet" href="/public/css/detail.css">
-<div class="jumbotron">
-  <%- include('../partials/toolbar', {isAuthenticated: isAuthenticated}); %>
-</div>
-
 <div class="body">
   <div>
     <img src="<%= course.poster %>" alt="" width="670px" height="300" />
@@ -175,7 +171,7 @@
   });
 </script>
 
-<script type="text/javascript">
+<script>
   $("document").ready(() => {
     //Đánh dấu trái tim đỏ
     const isWishCourse = $("#wish-list").attr("data-isWishCourse");
@@ -232,7 +228,7 @@
       $(".my-star0").addClass("yellow-star");
     }
   });
-  
+
   //Bấm vào hiện video
   $(".document")
     .children("button")
