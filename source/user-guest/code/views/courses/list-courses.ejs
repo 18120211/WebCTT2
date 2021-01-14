@@ -1,4 +1,4 @@
-<h2>Các khóa học "<%= queryString %>"</h2>
+<h2><%= title %></h2>
 <% for( let i = 0; i < courses.length; i++ ) { %>
     <%- include('../partials/card-course', {course: courses[i]})  %> 
 <% } %>

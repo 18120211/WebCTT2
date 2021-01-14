@@ -5,7 +5,8 @@ const CategoryEnum = require('./CourseCategory.enum');
 const CourseCategorySchema = mongoose.Schema({
     name: {
         type: CategoryEnum,
-        required: true
+        required: true,
+        unique: true
     },
     numberOfView: {
         type: Number,

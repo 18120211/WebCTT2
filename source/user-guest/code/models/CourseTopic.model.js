@@ -5,7 +5,8 @@ const TopicEnum = require('./CourseTopic.enum');
 const CourseTopicSchema = mongoose.Schema({
     name: {
         type: TopicEnum,
-        required: true
+        required: true,
+        unique: true
     },
     numberOfView: {
         type: Number,

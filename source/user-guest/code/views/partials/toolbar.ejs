@@ -1,3 +1,4 @@
+</head>
 <header id="header" class="navbar navbar-static-top">
   <div class="container-fluid">
     <div class="col-sm-2">
@@ -7,25 +8,47 @@
         </a>
       </div>
     </div>
-    <div class="col-sm-4 menu">
-      <div class="menu-item category">
-        <div class="dropdown">
-          <button class="dropbtn"><a href="#">Categories </a></button>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </div>
+    <div class="col-sm-2 menu">
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+          Category
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="#"
+              >Business <i class="fas fa-chevron-right"></i
+            ></a>
+            <ul class="submenu dropdown-menu">
+              <li><a class="dropdown-item" href="">Sales</a></li>
+              <li><a class="dropdown-item" href="">Communication</a></li>
+              <li><a class="dropdown-item" href="">Managment</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Development <i class="fas fa-chevron-right"></i
+            ></a>
+            <ul class="submenu dropdown-menu">
+              <li><a class="dropdown-item" href="">Game Development</a></li>
+              <li><a class="dropdown-item" href="">Mobile Development</a></li>
+              <li><a class="dropdown-item" href="">Programing Language </a></li>
+              <li><a class="dropdown-item" href="">Data Science</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Design <i class="fas fa-chevron-right"></i
+            ></a>
+            <ul class="submenu dropdown-menu">
+              <li><a class="dropdown-item" href="">Design Tools</a></li>
+              <li><a class="dropdown-item" href="">Web Design</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="col-sm-4 search">
-      <form
-        id="searchForm"
-        class="form-inline"
-        action="/courses/search"
-        method="GET"
-      >
+    <div class="col-sm-5 search">
+      <form class="form-inline">
         <div class="row">
           <div class="col-sm-8">
             <input
@@ -33,52 +56,52 @@
               type="search"
               placeholder="Search"
               aria-label="Search"
-              name="queryString"
-              id="searchInput"
             />
           </div>
           <div class="col-sm-4">
-            <button
-              id="searchButton"
-              class="btn btn-outline-warning my-2 my-sm-0"
-              type="button"
-            >
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
               Search
             </button>
           </div>
         </div>
       </form>
     </div>
-    <div class="col-sm-2 featured">
+    <div class="col-sm-3 featured">
       <div class="row">
         <% if (!isAuthenticated) { %>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
           <a href="/users/login"> <i class="fas fa-sign-in-alt"></i>Login </a>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
           <a href="/users/register">
             <i class="fas fa-user-plus"></i>Register
           </a>
         </div>
         <% }else{ %>
-        <div class="col-sm-5">
-          <a href="/my-courses">
-            <i class="fas fa-folder-open" style="color: darkorange"></i> My
-            Courses
-          </a>
+        <div class="col-sm-6 text-right">
+          <div class="nav-item dropdown">
+            <a
+              href="/users/account"
+              data-toggle="dropdown"
+              class="nav-link dropdown-toggle"
+            >
+              <i class="fas fa-user-circle"></i> Võ Thế Minh
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/my-courses">
+                  <i class="fas fa-folder-open"></i> My Courses
+                </a>
+              </li>
+              <li>
+                <a href="/my-wish-list">
+                  <i class="fa fa-heart" aria-hidden="true"></i> Wish list
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="col-sm-5">
-          <a href="/my-wish-list">
-            <i class="fa fa-heart" aria-hidden="true" style="color: crimson"></i
-            >Wish list
-          </a>
-        </div>
-        <div class="col-sm-5">
-          <a href="/users/account">
-            <i class="fas fa-user-circle"></i> Account
-          </a>
-        </div>
-        <div class="col-sm-5">
+        <div class="col-sm-4 logout text-right">
           <a href="/users/logout">
             <i class="fas fa-sign-out-alt"></i>Logout
           </a>
@@ -90,14 +113,34 @@
   </div>
 </header>
 <script>
-  $('#searchButton').on('click', ()=>{
-    const val = $('#searchInput').val();
+  $("#searchButton").on("click", () => {
+    const val = $("#searchInput").val();
     console.log(val);
-    if (val != '') {
-      $('#searchForm').submit();
+    if (val != "") {
+      $("#searchForm").submit();
+    } else {
+      window.location.replace("/");
     }
-    else {
-      window.location.replace('/');
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $(document).on('click', '.dropdown-menu', function (e) {
+      e.stopPropagation();
+    });
+
+    // make it as accordion for smaller screens
+    if ($(window).width() < 992) {
+      $('.dropdown-menu a').click(function (e) {
+        e.preventDefault();
+        if ($(this).next('.submenu').length) {
+          $(this).next('.submenu').toggle();
+        }
+        $('.dropdown').on('hide.bs.dropdown', function () {
+          $(this).find('.submenu').hide();
+        })
+      });
     }
+
   });
 </script>

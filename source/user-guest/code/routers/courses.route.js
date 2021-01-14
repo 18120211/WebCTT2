@@ -6,6 +6,9 @@ const CourseTopic = require("../models/CourseTopic.model");
 
 const Course = require("../models/Course.model");
 
+const CourseCategory = require('../models/CourseCategory.model');
+
+//Danh sách khóa học người dùng truy vấn
 Router.get("/search", async (req, res) => {
   const queryString = req.query.queryString;
   const idCourseTopic = req.query.courseTopicID;
@@ -17,7 +20,7 @@ Router.get("/search", async (req, res) => {
   if (page == undefined) {
     page = 1;
   }
-  
+
   //Tìm các khóa học theo câu truy vấn
   //Trường hợp tìm kiếm không có idTopic
   let courses;
@@ -38,8 +41,30 @@ Router.get("/search", async (req, res) => {
   res.render("./courses/list-courses", {
     isAuthenticated: req.isAuthenticated(),
     courses: courses,
-    queryString: queryString
+    title: `Các khóa học ${queryString}`
   });
+});
+
+//Danh sách khóa học theo category
+Router.get("/:categoryName", async (req, res) => {
+  const categoryName = req.params.categoryName;
+  const category = await CourseCategory.findOne({name: categoryName});
+
+  let courses = [];
+  Course.find({})
+    .populate("idCourseTopic")
+    .then(async (docs) => {
+      for (let i = 0; i < docs.length; i++) {
+        if (docs[i].idCourseTopic.idCourseCategory.toString() == category._id) {
+          await courses.push(docs[i]);
+        }
+      }
+      await res.render('./courses/list-courses', {
+        isAuthenticated: req.isAuthenticated(),
+        title: `${category.name} khóa học`,
+        courses: courses
+      })
+    });
 });
 
 module.exports = Router;

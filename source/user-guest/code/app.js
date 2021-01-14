@@ -34,17 +34,3 @@ app.listen(8000, console.log('Server running on port 8000'));
 // const TopicEnum = require("./models/CourseTopic.enum");
 // const CourseTopic = require("./models/CourseTopic.model");
 // const cloudinary = require("cloudinary").v2;
-
-// CourseCategory.insertMany([{
-//     name: CategoryEnum.MARKETING
-// }, {
-//     name: CategoryEnum.MUSIC
-// }]).then(console.log('saved'));
-
-// CourseTopic.insertMany([{
-//     name: TopicEnum.MARKETING_DIG,
-//     idCourseCategory: '60008b26ee6f4a2a9c4c2e7c'
-// }, {
-//     name: TopicEnum.MUSIC_INS,
-//     idCourseCategory: '60008b26ee6f4a2a9c4c2e7d'
-// }]).then(console.log('saved'));
