@@ -50,8 +50,13 @@ Router.get('/:nameCourse', async (req, res) => {
     //Render trang chi tiết khóa học
     //Kiểm tra khóa học đã được mua chưa
     let isPaid = false;
-    if (req.user != undefined && req.user.idCourses.indexOf(course._id) != -1) {
-        isPaid = true;
+    if (req.user != undefined) {
+        for (let i = 0; i < req.user.purchasedCourses.length; i++) {
+            if (req.user.purchasedCourses[i].idCourse.toString() == course._id) {
+                isPaid = true;
+                break;
+            }
+        }
     }
     //Kiểm tra khóa học có trong danh sách yêu thích không
     let isWishCourse = false;
@@ -85,19 +90,17 @@ Router.get('/:nameCourse', async (req, res) => {
         }
         userReviews.push(localUser);
     }
-    console.log(userReviews);
     
     //Đánh dấu những video đã học
     let learnedVideos = [];
     if (isPaid) {
-        for (let i = 0; i < req.user.coursesProgress.length; i++) {
-            if (user.coursesProgress[i].idCourse == course._id) {
-                learnedVideos = user.coursesProgress[i].learnedVideos;
+        for (let i = 0; i < req.user.purchasedCourses.length; i++) {
+            if (req.user.purchasedCourses[i].idCourse.toString() == course._id) {
+                learnedVideos = req.user.purchasedCourses[i].learnedVideos;
                 break;
             }
         }
     }
-    
     res.render('./course/detail', {
         isAuthenticated: req.isAuthenticated(),
         isWishCourse: isWishCourse,

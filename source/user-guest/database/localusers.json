@@ -12,9 +12,9 @@
   "email": "sonkhungmtp.52@gmail.com",
   "password": "$2a$10$WEAZJwez8PlUyhGSvEZyS.kt8S80Nzg.ym53rSUaovSIN.bHa/pL.",
   "otpNumber": "744581",
-  "__v": 1,
-  "idCourses": [],
-  "idWishList": []
+  "__v": 2,
+  "idWishList": [],
+  "purchasedCourses": []
 },{
   "_id": {
     "$oid": "5ffa9e4a7c800a2d18493316"
@@ -25,23 +25,34 @@
   },
   "avatar": "/public/avatar/5ffa9e4a7c800a2d18493316/avatar.png",
   "isAuth": true,
-  "idCourses": [
-    {
-      "$oid": "5ff2e3b37d305e09608a1df0"
-    },
-    {
-      "$oid": "5ff2e3b37d305e09608a1dde"
-    }
-  ],
   "idWishList": [
     {
       "$oid": "5ff2e3b37d305e09608a1deb"
+    },
+    {
+      "$oid": "5ff2e3b37d305e09608a1dde"
     }
   ],
   "name": "Thế Minh Võ",
   "email": "minhthevotemp@gmail.com",
   "password": "$2a$10$811taeYRDipQe.6zMPiKBuNdkEjBNzkz4oIw94szyxu8dqJlWjOgm",
   "otpNumber": "189102",
-  "__v": 13,
-  "coursesProgress": []
+  "__v": 36,
+  "coursesProgress": [],
+  "purchasedCourses": [
+    {
+      "_id": {
+        "$oid": "5fffe989e4c956056cad113b"
+      },
+      "idCourse": {
+        "$oid": "5ff2e3b37d305e09608a1dde"
+      },
+      "learnedVideos": [
+        1,
+        2,
+        5,
+        3
+      ]
+    }
+  ]
 }]

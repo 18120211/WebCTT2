@@ -103,8 +103,11 @@ Router.get('/:nameCourse/success', async (req, res) =>{
         doc.save();
     });
 
-    //Thêm khóa học vào danh sách khóa học
-    req.user.idCourses.push(course._id);
+    //Thêm khóa học vào danh sách khóa học đã mua
+    req.user.purchasedCourses.push({
+        idCourse: course._id,
+        learnedVideos: []
+    });
     req.user.save().then(console.log('Mua thành công'));
 
     //CHuyển hướng về danh sách khóa học

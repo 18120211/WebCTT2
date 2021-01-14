@@ -32,15 +32,11 @@ const LocalUserSchema = mongoose.Schema({
     otpNumber: {
         type: String
     },
-    idCourses: {
-        type: [mongoose.Schema.ObjectId],
-        ref: 'courses'
-    },
     idWishList: {
         type: [mongoose.Schema.ObjectId],
         ref: 'courses'
     },
-    coursesProgress: {
+    purchasedCourses: {
         type: [{
             idCourse: {
                 type: mongoose.Schema.ObjectId,

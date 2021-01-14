@@ -118,10 +118,10 @@ Router.get('/my-wish-list', ensureAuthenticated, async (req, res) => {
 //Trang danh sách khóa học của tôi
 Router.get('/my-courses', ensureAuthenticated, async (req, res) => {
     let courses = [];
-    for (let i = 0; i < req.user.idCourses.length; i++) {
+    for (let i = 0; i < req.user.purchasedCourses.length; i++) {
         const course = await Course
             .findOne({
-                _id: req.user.idCourses[i]
+                _id: req.user.purchasedCourses[i].idCourse
             }, [
                 'poster',
                 '_id',

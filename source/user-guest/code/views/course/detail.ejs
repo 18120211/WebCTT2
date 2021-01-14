@@ -76,10 +76,10 @@
         <p style="display: inline-block"><%= course.videos[i].name %></p>
         <% if (isPaid) { %>
         <% if (learnedVideos.indexOf(i) != -1) { %>
-        <button data-isPaid="<%= isPaid%>" data-index='<%= i%>' class="btn btn-primary learnedVideo">Xem video</button>
+        <button data-isLearned="true" data-isPaid="<%= isPaid%>" data-index='<%= i%>' class="btn btn-primary">Đã xem</button>
         <% } %>
         <% if (learnedVideos.indexOf(i) == -1) { %>
-        <button data-isPaid="<%= isPaid%>" data-index='<%= i%>' class="btn btn-primary">Xem video</button>
+        <button data-isLearned="false" data-isPaid="<%= isPaid%>" data-index='<%= i%>' class="btn btn-primary">Xem video</button>
         <% } %>
         <% } %> <% if (!isPaid && course.previewIndex.indexOf(i) != -1) { %>
         <button class="btn btn-primary">Preview</button>
@@ -232,32 +232,32 @@
       $(".my-star0").addClass("yellow-star");
     }
   });
-  // Bấm vào hiện video
+  
+  //Bấm vào hiện video
   $(".document")
     .children("button")
     .on("click", (e) => {
+      //Mở tắt video
       $(e.target).siblings("video").toggleClass("show-video");
-      console.log($(e.target));
-      console.log($(e.target).siblings("video"));
       const isPaid = $(e.target).attr('data-isPaid');
 
       //Cập nhật thông tin learnedVideo
-      if ($(e.target).hasClass('learnedVideo') == false && isPaid == 'true') {
+      console.log($(e.target).attr('data-isLearned'));
+      if ($(e.target).attr('data-isLearned') == 'false' && isPaid == 'true') {
         const nameCourse = $('#nameCourse').attr('data-name');
         const videoIndex = $(e.target).attr('data-index');
         
-        console.log(nameCourse);
         const data = {
           videoIndex: videoIndex
         }
         $.post(`/users/${nameCourse}/updateLearnedVideo`, data, (json)=>{
+          console.log('json: ',json);
           if (json == true) {
-            $(e.target).addClass('learnedVideo');
-            console.log('Cập nhật thành công');
+            $(e.target).attr('data-isLearned', 'true');
+            console.log('Cập nhật lịch sử học thành công');
           }
         });
       }
-      
     });
   //Bấm vào nút Yêu thích
   $("#wish-list").on("click", (e) => {

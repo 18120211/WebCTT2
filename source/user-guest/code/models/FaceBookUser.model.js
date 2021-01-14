@@ -29,21 +29,17 @@ const FaceBookUserSchema = mongoose.Schema ({
         type: Date,
         default: Date.now()
     },
-    idCourses: {
-        type: [mongoose.Schema.ObjectId],
-        ref: 'courses'
-    },
     idWishList: {
         type: [mongoose.Schema.ObjectId],
         ref: 'courses'
     },
-    coursesProgress: {
+    purchasedCourses: {
         type: [{
             idCourse: {
                 type: mongoose.Schema.ObjectId,
                 ref: 'courses'
             },
-            learnedVideo: [{
+            learnedVideos: [{
                 type: Number
             }]
         }]
