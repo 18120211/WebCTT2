@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d62abf4f8f.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/js/fileinput.min.js"
+        integrity="sha512-vDrq7v1F/VUDuBTB+eILVfb9ErriIMW7Dn3JC/HOQLI8ZzTBTRRKrKJO3vfMmZFQpEGVpi+EYJFatPgVFxOKGA=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+
+    <!-- summer note -->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <%- include('../common/header',{user: user}); -%>
+            <%- include('../common/column_left'); -%>
+                <div id="content">
+                    <div class="page-header">
+                        <div class="container-fluid">
+                            <div class="pull-right">
+                                <button class="btn btn-primary" id="editcategory">
+                                    <i class="fa fa-save"></i>
+                                </button>
+                            </div>
+                            <h2>
+                                <%= data.title %>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="course-info">
+                        <div class="container-fluid">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa fa-pencil"></i> Thông tin khóa học </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form action="" method="post" id="frmUpdateInfocategory">
+                                        <div class="row tab-pane">
+                                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link " id="pills-home-tab" data-toggle="pill"
+                                                        href="#pills-home" role="tab" aria-controls="pills-home"
+                                                        aria-selected="true">Thông tin khóa học</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="pills-profile-tab" data-toggle="pill"
+                                                        href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                                        aria-selected="false">Danh sách bài giảng</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content" id="pills-tabContent">
+                                                <div class="tab-pane fade show " id="pills-home" role="tabpanel"
+                                                    aria-labelledby="pills-home-tab">
+
+                                                    <div class="row">
+                                                        <div class="course-detail">
+                                                            <div class="form-group hidden">
+                                                                <label class="col-sm-2 control-label" for="my-input">Tên khóa học</label>
+                                                                <div class="col-sm-10">
+                                                                    <input class="form-control" type="text" name="lecture_id"
+                                                                        value="<%=user._id%>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group hidden">
+                                                                <label class="col-sm-2 control-label" for="my-input">ID</label>
+                                                                <div class="col-sm-10">
+                                                                    <input class="form-control" type="text" name="id"
+                                                                        value="<%=data.course_info._id%>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="my-input">Tên
+                                                                    khóa
+                                                                    học:</label>
+                                                                <div class="col-sm-10">
+                                                                    <input class="form-control" type="text" name="name"
+                                                                        value="<%=data.course_info.name%>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label"
+                                                                    for="my-input">Category:</label>
+                                                                <div class="col-sm-10">
+                                                                    <select class="form-control" type="text"
+                                                                        name="category">
+                                                                        <% data.categories.forEach((category)=> { %>
+                                                                            <% if(data.course_info.idCourseTopic === category._id){  %> 
+                                                                                <option value="<%=category._id%>"
+                                                                                    selected="selected">
+                                                                                    <%=category.idCourseCategory.name%> -->
+                                                                                        <%=category.name%>
+                                                                                </option>
+                                                                            <%  }else{ %> 
+                                                                                <option value="<%=category._id%>"
+                                                                                    <%=category.idCourseCategory.name%> -->
+                                                                                        <%=category.name%>
+                                                                                </option>
+                                                                            <%  } %> 
+                                                                            <% }); %>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="my-input">Số
+                                                                    lượng bài
+                                                                    giảng:</label>
+                                                                <div class="col-sm-10">
+                                                                    <select class="form-control" name="number_of_video">
+                                                                        <% for (var i=1; i <=10; i++ ) { %>
+                                                                            <% if(data.course_info.numberOfVideos === i){  %> 
+                                                                            <option value="<%= i %> "
+                                                                                selected="selected">
+                                                                                <%= i %>
+                                                                            </option>
+                                                                            <%  }else{ %> 
+                                                                            <option value="<%= i %> ">
+                                                                                <%= i %>
+                                                                            </option>
+                                                                            <% } %>
+
+                                                                        <% } %>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group image">
+                                                                <label class="col-sm-2 control-label"
+                                                                    for="my-input">Poster:</label>
+                                                                <div class="col-sm-10">
+                                                                    <img src="<%= data.course_info.poster %>"
+                                                                        id="avatar-img">
+                                                                    <div class="avatar-update">
+                                                                        <input type="file" name="file" id="file" />
+                                                                        <input class="hidden" type="text" name="image"
+                                                                            id="image"
+                                                                            value="<%= data.course_info.poster %>" />
+                                                                        <button class="btn btn-success"
+                                                                            id="avartar-upload"> Thay
+                                                                            ảnh Category </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="my-input">Mô
+                                                                    tả khóa
+                                                                    học:</label>
+                                                                <div class="col-sm-10">
+                                                                    <textarea id="summernote" class="summernote"
+                                                                        name="description"><%= data.course_info.description %></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label"
+                                                                    for="my-input">Những gì bạn
+                                                                    đạt được:</label>
+                                                                <div class="col-sm-10">
+                                                                    <textarea id="summernote" class="summernote"
+                                                                        name="what_you_learn"><%= data.course_info.whatYoullLearn %></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
+                                                    aria-labelledby="pills-profile-tab">
+                                                    <div class="upload_video">
+                                                        <div class="form-group">
+                                                            <div class="table-responsive">
+                                                                <table id="videos"
+                                                                    class="table table-striped table-bordered table-hover">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td class="text-center">
+                                                                                STT
+                                                                            </td>
+                                                                            <td class="text-center">Video</td>
+                                                                            <td class="text-center">Tên bài giảng</td>
+                                                                            <td class="text-center">Actions</td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <% var i=0 %>
+                                                                            <% for (var i=1; i <=10; i++ ) { %>
+                                                                                <tr id="videos-row-<%= i %>">
+                                                                                    <td class="text-center">
+                                                                                        <%= i %>
+                                                                                    </td>
+                                                                                    <td class="text-center">
+                                                                                        <div class="video">
+                                                                                            <video id="my-video-<%= i %>"
+                                                                                                class="video-js video"
+                                                                                                controls preload="auto"
+                                                                                                width="640"
+                                                                                                height="264">
+                                                                                                <source
+                                                                                                    id = "video-source-<%= i %>"
+                                                                                                    src="/public/video/beginerAdrDev/0.mp4"
+                                                                                                    type="video/mp4" />
+                                                                                            </video>
+                                                                                            <div class="avatar-update">
+                                                                                                <input type="file" class="hidden"
+                                                                                                    name="file"
+                                                                                                    />
+                                                                                                <input class="hidden"
+                                                                                                    type="text"
+                                                                                                    name="videos[<%= i %>]['href']"
+                                                                                                    value="" />
+                                                                                                <button
+                                                                                                    type="button"
+                                                                                                    class="btn btn-success choose_video"
+                                                                                                >
+                                                                                                    Chọn video
+                                                                                                </button>
+                                                                                                <button
+                                                                                                    type="button"
+                                                                                                    class="btn btn-success "
+                                                                                                    id = "upload_video_<%=i%> "
+                                                                                                  >
+                                                                                                    Upload video
+                                                                                                </button>
+                                                                                                
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="text-center"><input
+                                                                                            type="text"
+                                                                                            name="videos[<%= i %>]['name']"
+                                                                                            value=""
+                                                                                            class="form-control" /></td>
+                                                                                    <td class="text-center"><button
+                                                                                            type="button"
+                                                                                            onclick="$('#videos-row-<%= i %>').remove();"
+                                                                                            data-toggle="tooltip"
+                                                                                            title="<?php echo $button_remove; ?>"
+                                                                                            class="btn btn-danger"><i
+                                                                                                class="fa fa-minus-circle"></i></button>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <% } %>
+                                                                    </tbody>
+                                                                    <tfoot>
+                                                                        <tr>
+                                                                            <td colspan="3"></td>
+                                                                            <td class="text-left"><button type="button"
+                                                                                    onclick="addImage();"
+                                                                                    data-toggle="tooltip"
+                                                                                    title="<?php echo $button_image_add; ?>"
+                                                                                    class="btn btn-primary"><i
+                                                                                        class="fa fa-plus-circle"></i></button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <%- include('../common/footer'); -%>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+
+
+        //for upload video
+        $('.choose_video').on('click', function () {
+            $(this).parent().find("input[name='file']").trigger("click");
+        })
+        $('[id^="upload_video_"]').on('click', function () {
+            //get id 
+            var upload_video_id = $(this).attr('id');
+            upload_video_id = upload_video_id.substr(13,1);
+
+            var fd = new FormData();
+            var files = $(this).parent().find("input[name='file']")[0].files;
+            var folder = "/video/";
+            var id =  $("input[name='id']").val();
+            // Check file selected or not
+            if (files.length > 0) {
+                fd.append('file', files[0]);
+
+                $.ajax({
+                    url: '/admin/upload?&fileType=video&id=' + id + '&folder=' + folder,
+                    type: 'post',
+                    data: fd,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response) {
+                            var timestamp = new Date().getTime();
+                            var video = document.getElementById("video-source-"+upload_video_id);
+                            var el =  document.getElementById("video-source-"+upload_video_id);
+                            var source = document.createElement('source');
+                            source.setAttribute('src', response);
+
+                            video.appendChild(source);
+                            el.src = response ;
+                            // video.play();
+                           console.log( document.getElementById('my-video-'+upload_video_id).attr('id'));
+                            $("input#avatar").val(response);
+                        } else {
+                            alert('file not uploaded');
+                        }
+                    },
+                });
+            } else {
+                alert("Please select a file.");
+            }
+        });
+
+        // //upload image
+        // $('#avartar-upload').on('click', function () {
+        //     var fd = new FormData();
+        //     var files = $('#file')[0].files;
+
+        //     // Check file selected or not
+        //     if (files.length > 0) {
+        //         fd.append('file', files[0]);
+
+        //         $.ajax({
+        //             url: '/admin/upload',
+        //             type: 'post',
+        //             data: fd,
+        //             contentType: false,
+        //             processData: false,
+        //             success: function (response) {
+        //                 if (response) {
+        //                     var timestamp = new Date().getTime();
+        //                     var el = document.getElementById("avatar-img");
+        //                     el.src = response + "?t=" + timestamp;
+        //                     $("input#avatar").val(response);
+        //                 } else {
+        //                     alert('file not uploaded');
+        //                 }
+        //             },
+        //         });
+        //     } else {
+        //         alert("Please select a file.");
+        //     }
+        //     return false;
+        // });
+        // $('#avatar-img').on('click', function () {
+        //     $('#file').trigger("click");
+        // });
+
+    
+        $('.summernote').summernote({
+            tabsize: 2,
+            height: 400
+        });
+    });
+</script>
+<style>
+    /*fix dropdown*/
+    .note-btn-group .dropdown-menu>li>a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: normal;
+        line-height: 1.42857143;
+        color: #333;
+        white-space: nowrap;
+    }
+
+    .note-popover .popover-content .note-color .dropdown-toggle,
+    .note-editor .panel-heading.note-toolbar .note-color .dropdown-toggle {
+        width: 20px;
+        padding-left: 1px;
+    }
+
+    /*fix icon button*/
+    .note-editor .btn-default {
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+    }
+
+    .note-editor .btn-default:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+    }
+
+    .note-editor .dropdown-toggle:after {
+        content: initial;
+    }
+
+    /*fix background toolbar*/
+    .note-editor .panel-default>.panel-heading {
+        color: #333;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #ddd;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    /*fix modal*/
+    .note-editor .modal-header {
+        display: block;
+    }
+
+    /*fix popover*/
+    .note-popover {
+        display: none;
+    }
+</style>
+
+</html>

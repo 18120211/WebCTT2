@@ -52,12 +52,16 @@ const CourseSchema = mongoose.Schema({
             source: String
         }]
     },
+    numberOfVideos: {
+        type: Number,
+        default: 0
+    },
     previewIndex: {
         type: [Number]
     },
     whatYoullLearn: {
-        type: [String],
-        required: true
+        type: String,
+        default: ''
     },
 });
 

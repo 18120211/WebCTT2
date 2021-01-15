@@ -84,6 +84,7 @@
             var files = $('#file')[0].files;
             var id =  $("input[name='id']").val();
             var folder = "/image/category/";
+            console.log(files.filename);
             // Check file selected or not
             if(files.length > 0 ){
             fd.append('file',files[0]);

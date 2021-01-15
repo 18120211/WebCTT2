@@ -19,6 +19,16 @@
         <%- include('../common/header',{user: user}); -%>
         <%- include('../common/column_left'); -%>
         <div id="content">
+            <div class="page-header">
+                <div class="container-fluid">
+                    <div class="pull-right">
+                        <button class="btn btn-primary" id="addCourse">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    <h2><%= data.title %></h2>
+                </div>
+            </div>
             <% if (data.Courses) { %>
                 <div class="Courses_list text-center">
                     <div class="col-sm-10 center ">
@@ -26,8 +36,8 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                      <td class="text-left"><a>Tên</a></td>
-                                      <td class="text-left">Học sinh</td>
+                                      <td class="text-left"><a>Tên khóa học</a></td>
+                                      <td class="text-left">Số học sinh</td>
                                       <td class="text-left"><a>Ngày đăng</a></td>
                                       <td class="text-left"><a>Action</a></td>
                                     </tr>
@@ -39,10 +49,11 @@
                                             <td class="text-left"><a> <%=Course.numberOfStudent %></a></td>
                                             <td class="text-left"><a> <%=Course.uploadDate %></a></td>
                                             <td class="text-left">
-                                                <button class="btn btn-primary">
-                                                    <i class="fa fa-eye"></i>
+                                                <input type="hidden" value="<%=Course._id %>">
+                                                <button class="btn btn-primary viewCourse">
+                                                        <i class="fa fa-pencil"></i>
                                                 </button>
-                                                <button class="btn btn-danger">
+                                                <button class="btn btn-danger deleteCourse">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </td>
@@ -65,40 +76,24 @@
 </body>
 <script>
     $(document).ready(function() {
-        $('#avartar-upload').on('click', function() {
-            var fd = new FormData();
-            var files = $('#file')[0].files;
-            
-            // Check file selected or not
-            if(files.length > 0 ){
-            fd.append('file',files[0]);
-
-            $.ajax({
-                url: '/admin/upload',
-                type: 'post',
-                data: fd,
-                contentType: false,
-                processData: false,
-                success: function(response){
-                    if(response){
-                        var timestamp = new Date().getTime();     
-                        var el = document.getElementById("avatar-img");     
-                        el.src = response +"?t=" + timestamp; 
-                        $("input#avatar").val(response);
-                    }else{
-                        alert('file not uploaded');
-                    }
-                },
+        $('.viewCourse').on('click', function() {
+            id = $(this).parent().find("input").val();
+             window.location.href = "/admin/course/courseEdit?id=" + id;
+        });
+        $('#addCourse').on('click', function() {
+            window.location.href = "/admin/course/courseAdd";
+        });
+        $('.deleteCourse').on('click', function() {
+            id = $(this).parent().find("input").val();
+            $.getJSON("/admin/course/courseDelete?id=" + id ,function( json ) {
+                if(json === true){
+                    alert("Xóa course thành công");
+                }else{
+                    alert("Xóa course thất bại");
+                }
+                window.location.href = "/admin/course/courseList";
             });
-            }else{
-            alert("Please select a file.");
-            }
-            return false;
         });
-        $('#avatar-img').on('click', function() {
-            $('#file').trigger("click");
-        });
-        
    });
 </script>
 </html>

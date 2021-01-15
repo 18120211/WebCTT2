@@ -197,7 +197,7 @@ Router.post('/login', async (req, res, next) => {
         email: email
     });
     if (user && user.isAuth) {
-        passport.authenticate('local', {
+        passport.authenticate('customer', {
             failureRedirect: '/users/login',
             successRedirect: '/'
         })(req, res, next);

@@ -113,7 +113,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+#loginForm input[type=text] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -134,7 +134,7 @@ input[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+#loginForm input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
@@ -329,7 +329,6 @@ header img{
 #content {
   padding-top: 20px;
   padding-bottom: 40px;
-  padding-right: 20px;
 }
 
 
@@ -415,4 +414,116 @@ input.hidden{
 .lecturer-add .info{
   margin-left: auto;
     margin-right: auto;
+}
+
+.course-info .image img {
+  margin-bottom: 10px;
+  padding:15px;
+  border: 1px dashed #242d37;
+  width: 200px;
+  height: 200px;
+}
+
+
+.upload_video .form-group{
+  border:0px;
+}
+.course-info .tab-pane{
+  margin-left: 0px;
+}
+
+.course-info .form-group{
+  display: flex;
+}
+
+.course-info .course-detail select{
+  height: 35px!important;
+}
+.course-info .tab-content{
+  margin-top:20px;
+}
+
+.upload_video .video video{
+  height: 200px;
+  width: 400px;
+  margin: 10px auto;
+}
+
+table#videos thead td {
+    color: #000;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+table#videos tbody td {
+  vertical-align: middle;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+.panel-default {
+  border: 1px solid #dcdcdc;
+  border-top: 1px solid #dcdcdc;
+}
+
+.panel {
+  border-radius: 0px;
+}
+
+.panel {
+  margin-bottom: 18px;
+  background-color: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-heading {
+  padding: 12px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  color: #4c4d5a;
+  border-color: #dcdcdc;
+  background: #f6f6f6;
+  text-shadow: 0 -1px 0 rgba(50,50,50,0);
+}
+
+.panel-heading h3 {
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-block;
+}
+.panel-body{ 
+  padding-top:30px;
+}
+
+.form-group{
+  border-top: 1px solid #ededed;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+}
+
+.course-detail .form-group:first-child{
+  border-top: 0px;
+  
+}
+
+.form-group  .control-label{
+   font-weight: bold;
+    text-align: right;
+    margin-bottom: 0;
+    padding-top: 9px;
+
+
+}
+
+.viewCourse a{
+  color: #fff;
+}
+
+.hidden{
+  display: none!important;
 }

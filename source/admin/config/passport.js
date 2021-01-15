@@ -50,7 +50,7 @@ module.exports = function (passport) {
             });
         })
     );
-    passport.use(
+    passport.use("customer",
         new LocalStrategy({
             usernameField: 'email'
         }, (email, password, done) => {

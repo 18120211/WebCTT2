@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "5fd90eb92201551ca46d5509"
+  },
+  "name": "pirates of the caribbean",
+  "__v": 0,
+  "poster": "http://res.cloudinary.com/nmcnpmctt2/image/upload/v1610733403/nmcnpmctt2/poster/5fd90eb92201551ca46d5509/avatar.png.jpg",
+  "description": "Cướp biển vùng Caribbean là một loạt phim giả tưởng thể loại anh hùng dân gian do Jerry Bruckheimer sản xuất và dựa trên chủ đề trò chơi trong công viên cùng tên của hãng Walt Disney Pictures. Những đạo diễn của loạt phim bao gồm Gore Verbinski, Rob Marshall và Joachim Rønning cùng Espen Sandberg",
+  "genre": "Hành động, phiêu lưu, thám hiểm",
+  "runningTime": "100 phút",
+  "releaseTime": {
+    "$date": "2021-01-01T10:00:00Z"
+  },
+  "cast": "Peter Cullen, Shia LaBeouf, Frank Welker",
+  "director": "Joachim Rønning, Espen Sandberg, Rob Marshall, Gore Verbinski",
+  "trailer": "https://www.youtube.com/embed/Hgeu5rhoxxY"
+},{
+  "_id": {
+    "$oid": "5fd90eb92201551ca46d550a"
+  },
+  "name": "Frozen",
+  "__v": 0,
+  "description": "Có thể nhiều người sẽ ao ước sở hữu phép thuật, song đó chắc chắn không phải nàng công chúa Elsa. Ngay từ nhỏ, cô đã có khả năng kỳ diệu là tạo ra băng tuyết cũng như điều khiển những con gió.  Nhưng chính khả năng ấy đã vô tình gây thương tích cho em gái Anna. Anna được các quỷ lùn chữa trị và cái giá phải trả là cô bé hoàn toàn quên mất việc chị mình có năng lực đặc biệt. Không những thế, đức vua và hoàng hậu còn phải cách ly Elsa trong căn phòng kín để phép thuật của cô không phát tác, khiến tuổi thơ hai chị em Elsa và Anna bị tách rời.",
+  "poster": "http://res.cloudinary.com/nmcnpmctt2/image/upload/v1610732953/nmcnpmctt2/poster/5fd90eb92201551ca46d550a/avatar.png.jpg",
+  "genre": "Tình cảm, hoạt hình, trẻ em",
+  "runningTime": "109 phút",
+  "releaseTime": {
+    "$date": "2021-01-01T03:00:00Z"
+  },
+  "cast": "Kristen Bell, Idina Menzel, Jonathan Groff, Josh Gad, Santino Fontana",
+  "director": "Jennifer Lee , Chris Buck",
+  "trailer": "https://www.youtube.com/embed/TbQm5doF_Uc"
+},{
+  "_id": {
+    "$oid": "6001cfca8b04b82fc81b385f"
+  },
+  "poster": "http://res.cloudinary.com/nmcnpmctt2/image/upload/v1610731558/nmcnpmctt2/poster/6001cfca8b04b82fc81b385f/avatar.png.jpg",
+  "description": "Robot đại chiến - Transformers (2007) là bộ phim hành động khoa học viễn tưởng của Mỹ được phát hành vào năm 2007 dựa trên dòng đồ chơi cùng tên của Hasbro. Phim sử dụng kỹ xảo kết giữa hoạt hình máy tính và ghi hình người đóng, đạo diễn Michael Bay chịu trách nhiệm bấm máy với Steven Spielberg đảm nhiệm vị trí giám đốc sản xuất, cùng với Don Murphy và Tom De Santo chịu trách nhiệm sản xuất.",
+  "director": "Michael Bay",
+  "cast": "Shia LaBeouf ,Tyrese Gibson, Josh Duhamel, Anthony Anderson, Megan Fox ,Rachael Taylor, Kevin Dunn, Julie White ",
+  "genre": "Hành động, Giả tưởng",
+  "runningTime": "144 phút",
+  "releaseTime": {
+    "$date": "2023-02-12T03:22:00Z"
+  },
+  "trailer": "https://www.youtube.com/embed/AntcyqJ6brc",
+  "name": " Transformers",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6001d0a88b04b82fc81b3860"
+  },
+  "poster": "http://res.cloudinary.com/nmcnpmctt2/image/upload/v1610731874/nmcnpmctt2/poster/6001d0a88b04b82fc81b3860/avatar.png.png",
+  "description": "Biệt đội siêu anh hùng - The Avenger là bộ phim điện ảnh thuộc thể loại siêu anh hùng viễn tưởng được xây dựng dựa trên hình tượng của các thành viên trong biệt đội siêu anh hùng của hãng Marvel Comics, được sản xuất bởi Marvel Studio và Walt Disney Studios chịu trách nhiệm phân phối. Đây cũng là phần phim điện ảnh thứ 6 trong vũ trụ Marvel (MCU).",
+  "director": "Joss Whedon",
+  "cast": "Robert Downey, Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson, Tom Hiddleston, và Samuel L. Jackson",
+  "genre": "siêu anh hùng, viễn tưởng, hành động",
+  "runningTime": "144 phút",
+  "releaseTime": {
+    "$date": "2020-12-28T13:27:00Z"
+  },
+  "trailer": "https://www.youtube.com/embed/eOrNdBpGMv8",
+  "name": "The Avengers",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6001d2818b04b82fc81b3861"
+  },
+  "poster": "http://res.cloudinary.com/nmcnpmctt2/image/upload/v1610732173/nmcnpmctt2/poster/6001d2818b04b82fc81b3861/avatar.png.jpg",
+  "description": "Lấy bối cảnh năm 1971, phim kể về câu chuyện của Ed và Lorraine Warren, những người chuyên điều tra về các hiện tượng siêu nhiên nổi tiếng vào thế kỉ 20. Một gia đình bị ma ám và liên tục bị khủng bố bởi một bóng ma kinh dị đã cầu xin sự giúp đỡ từ bộ đôi Warren. Tất nhiên, đây là nghề của họ nên Warren nhanh chóng nhận lời giúp đỡ. Tuy nhiên, họ lại không hề biết rằng chính sự gật đầu này đã dẫn họ tiếp xúc với những thế lực siêu nhiên kì quái và trở thành một trong những vụ đáng sợ nhất mà họ từng gặp trong đời.",
+  "director": "ames Wan",
+  "cast": "Vera Farmiga, Patrick Wilson, Sterling Jerins, Lili Taylor",
+  "genre": "Kinh dị, Drama, Tình cảm",
+  "runningTime": "127 phút",
+  "releaseTime": {
+    "$date": "2020-12-29T03:35:00Z"
+  },
+  "trailer": "https://www.youtube.com/embed/MAH2FJ4hGgs",
+  "name": "Ám Ảnh Kinh Hoàng 1 (The Conjuring)",
+  "__v": 0
+}]
