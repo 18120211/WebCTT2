@@ -1,7 +1,7 @@
 module.exports = function(cloudinary) {
     cloudinary.config({
-        cloud_name: 'minhvocloudinary',
-        api_key: '939616567728684',
-        api_secret: 'S858tqTJaLVqb98jUEyKtuXiXl4'
+        cloud_name: 'teamwebctt2',
+        api_key: '983121122945713',
+        api_secret: 'gulRf36137BySnsuZHIFkRZqT-U'
     })
 };
