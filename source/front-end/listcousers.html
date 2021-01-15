@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Cousers</title>
+    <title>Python coursers</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -35,7 +35,7 @@
             padding-top: 48px;
         }
 
-        .course-list-container {
+        .course-list {
             padding-top: 40px;
             padding-bottom: 16px;
             border-bottom: 1px solid #dcdacb;
@@ -55,14 +55,45 @@
             font-weight: 700;
             line-height: 1.2;
             letter-spacing: -.02px;
-            font-size: 2.4px;
+            font-size: 24px;
         }
 
         .img {
             float: left;
-            width: 150px;
-            height: 150px;
+            width: 260px;
+            height: 145px;
             margin-right: 20px;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        .card-hot {
+            width: 40px;
+            height: 25px;
+            background-color: rgba(243, 70, 70, 0.788);
+        }
+
+        .card-new {
+            width: 40px;
+            height: 25px;
+            background-color: rgb(86, 202, 86);
+        }
+
+        .card-best {
+            width: 40px;
+            height: 25px;
+            background-color: rgb(226, 226, 73);
+        }
+
+        .price {
+            float: right;
+            font-size: 20px;
+        }
+
+        .fa-star {
+            font-size: 13px;
         }
     </style>
 </head>
@@ -115,77 +146,166 @@
     </nav>
 
     <div class="container-wrap">
-        <div class="udlite-container">
-            <div name='python-cousers' class="udlite-heading-xxl">
-                <h1>Khóa học về Python</h1>
-                <div class="course-list-container">
-                    <a href="#">
-                        <img src="/image/11.jpg" alt="" class="img">
-                    </a>
-                    <div class="course-detail">
-                        <a href="#">
-                            <h3>Tiêu đề</h3>
-                        </a>
-                        <h5>Lĩnh vực</h5>
-                    </div>
-                    <div class="course-more-detail">
-                        Giảng viên <br>
-                        Đánh giá kèm số lượng học viên đánh giá<br>
-                        Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
-                    </div>
-                </div>
+        <div name='python-coursers' class="udlite-container">
+            <h1 class="udlite-heading-xl">Khóa học về Python</h1>
+            <div class="btn-group">
+                <button type="button" class="btn btn-light border-dark dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Sắp xếp theo
+                </button>
+                <div class="dropdown-menu">
 
-                <div class="course-list-container">
-                    <a class="" href="#">
-                        <img src="/image/8.jpg" alt="" class="img">
-                    </a>
-                    <div class="course-detail">
-                        <a href="#">
-                            <h3>Tiêu đề</h3>
-                        </a>
-                        <h5>Lĩnh vực</h5>
-                    </div>
-                    <div class="course-more-detail">
-                        Giảng viên <br>
-                        Đánh giá kèm số lượng học viên đánh giá<br>
-                        Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
-                    </div>
+                    <a class="dropdown-item" href="#">Highest Rated</a>
+                    <a class="dropdown-item" href="#">Most popular</a>
+                    <a class="dropdown-item" href="#">Newest</a>
                 </div>
+            </div>
 
-                <div class="course-list-container">
-                    <a class="" href="#">
-                        <img src="/image/1.jpg" alt="" class="img">
-                    </a>
-                    <div class="course-detail">
+            <div class="course-list">
+                <a href="#">
+                    <img src="/image/11.jpg" alt="" class="img">
+                </a>
+                <div class="row">
+                    <div class="col-sm-8">
                         <a href="#">
-                            <h3>Tiêu đề</h3>
+                            <h4>Python for Everybody</h4>
                         </a>
-                        <h5>Lĩnh vực</h5>
+                        <p style="font-size: 13px;">Shrirang Korde</p>
+                        <div>Learn Python like a Professional Start from the basics and go all the way to creating
+                            your own applications and games</div>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span><strong class="text-warning">4.0</strong></span><br>
+                        <div class="card card-hot">
+                            <strong class="text-center" style="font-size: 13px;">Hot</strong>
+                        </div>
                     </div>
-                    <div class="course-more-detail">
-                        Giảng viên <br>
-                        Đánh giá kèm số lượng học viên đánh giá<br>
-                        Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
-                    </div>
-                </div>
 
-                <div class="course-list-container">
-                    <a href="#">
-                        <img src="/image/7.jpg" alt="" class="img">
-                    </a>
-                    <div class="course-detail">
-                        <a href="#">
-                            <h3>Tiêu đề</h3>
-                        </a>
-                        <h5>Lĩnh vực</h5>
-                    </div>
-                    <div class="course-more-detail">
-                        Giảng viên <br>
-                        Đánh giá kèm số lượng học viên đánh giá<br>
-                        Giá đăng ký học kèm giá khuyến mại (nếu có)<br>
+                    <div class="col-sm-4">
+                        <strong class="price">$11.5</strong>
                     </div>
                 </div>
             </div>
+
+            <div class="course-list">
+                <a href="#">
+                    <img src="/image/11.jpg" alt="" class="img">
+                </a>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <a href="#">
+                            <h4>Python for Everybody</h4>
+                        </a>
+                        <p style="font-size: 13px;">Shrirang Korde</p>
+                        <div>Learn Python like a Professional Start from the basics and go all the way to creating
+                            your own applications and games</div>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span><strong class="text-warning">4.0</strong></span><br>
+                        <div class="card card-new">
+                            <strong class="text-center" style="font-size: 13px;">New</strong>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <strong class="price">$11.5</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-list">
+                <a href="#">
+                    <img src="/image/11.jpg" alt="" class="img">
+                </a>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <a href="#">
+                            <h4>Python for Everybody</h4>
+                        </a>
+                        <p style="font-size: 13px;">Shrirang Korde</p>
+                        <div>Learn Python like a Professional Start from the basics and go all the way to creating
+                            your own applications and games</div>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span><strong class="text-warning">4.0</strong></span><br>
+                        <div class="card card-best">
+                            <strong class="text-center" style="font-size: 13px;">Best</strong>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <strong class="price">$11.5</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-list">
+                <a href="#">
+                    <img src="/image/11.jpg" alt="" class="img">
+                </a>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <a href="#">
+                            <h4>Python for Everybody</h4>
+                        </a>
+                        <p style="font-size: 13px;">Shrirang Korde</p>
+                        <div>Learn Python like a Professional Start from the basics and go all the way to creating
+                            your own applications and games</div>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span><strong class="text-warning">4.0</strong></span><br>
+                        <div class="card card-hot">
+                            <strong class="text-center" style="font-size: 13px;">Hot</strong>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <strong class="price">$11.5</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-list">
+                <a href="#">
+                    <img src="/image/11.jpg" alt="" class="img">
+                </a>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <a href="#">
+                            <h4>Python for Everybody</h4>
+                        </a>
+                        <p style="font-size: 13px;">Shrirang Korde</p>
+                        <div>Learn Python like a Professional Start from the basics and go all the way to creating
+                            your own applications and games</div>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="fa fa-star text-warning"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span><strong class="text-warning">4.0</strong></span><br>
+                        <div class="card card-hot">
+                            <strong class="text-center" style="font-size: 13px;">Hot</strong>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <strong class="price">$11.5</strong>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
