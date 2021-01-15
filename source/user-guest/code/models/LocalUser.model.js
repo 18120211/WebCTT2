@@ -23,7 +23,7 @@ const LocalUserSchema = mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: '/public/avatar/default/avatar.png'
+        default: 'https://res.cloudinary.com/teamwebctt2/image/upload/v1610695375/webctt2/avatar/default/avatar.png'
     }, 
     isAuth: {
         type: Boolean,

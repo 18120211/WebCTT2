@@ -1,4 +1,65 @@
+<div class="col-sm-5 search">
+  <form
+    id="searchForm"
+    action="/courses/search"
+    class="form-inline"
+    method="GET"
+  >
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <input
+          id="searchInput"
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="queryString"
+        />
+      </div>
+      <div class="form-group">
+        <select id="categorySelect" name="category" id="category">
+          <% for( let i = 0; i < courseCategories.length; i++ ) { %>
+          <option
+            data-categoryID="<%= courseCategories[i]._id %>"
+            value="<%= courseCategories[i].name %>"
+          >
+            <%=courseCategories[i].name %>
+          </option>
+          <% } %>
+        </select>
+      </div>
+      <div class="form-group">
+        <select id="topicSelect" name="topic" id="topic">
+          <% for( let i = 0; i < courseTopics.length; i++ ) { %>
+          <option value="<%= courseTopics[i].name%>">
+            <%= courseTopics[i].name%>
+          </option>
+          <% } %>
+        </select>
+      </div>
+      <div class="form-group col-sm-4">
+        <button
+          id="searchButton"
+          class="btn btn-outline-warning my-2 my-sm-0"
+          type="button"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 <h2><%= title %></h2>
 <% for( let i = 0; i < courses.length; i++ ) { %>
-    <%- include('../partials/card-course', {course: courses[i]})  %> 
-<% } %>
+<%-include('../partials/card-course', {course: courses[i]}) %> <% } %>
+<script>
+//Bắt sự kiện tha đổi giá trị category
+  $("#categorySelect").change(function () {
+    console.log($(this).val());
+    const categoryName = $(this).val();
+    $.post(`/courses/${categoryName}/getTopics`, categoryName, (json)=>{
+        const topics = json.topics;
+        console.log(topics);
+    });
+  });
+</script>

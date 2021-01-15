@@ -617,3 +617,10 @@ a {
 .featured .logout {
   padding: 6px;
 }
+
+#header.fixed{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
