@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "5ff3e756a9147b36a8fe1cbf"
+  },
+  "name": "admin",
+  "date_added": {
+    "$date": "2021-01-05T04:12:57.945Z"
+  },
+  "email": "admin",
+  "password": "$2a$10$9AHu0jTJIdfONgFhTmFLuerBgPC5eI6cNpxc0XGaYzPPGsbKZTt0y",
+  "__v": 0,
+  "gender": "nữ",
+  "phone": "0781878556",
+  "roll": "admin",
+  "avatar": "http://res.cloudinary.com/nmcnpmctt2/image/upload/v1610729684/nmcnpmctt2/profile/5ff3e756a9147b36a8fe1cbf/avatar.png.png"
+},{
+  "_id": {
+    "$oid": "5ff78410f2e86331a0e29e94"
+  },
+  "name": "minh pham",
+  "date_added": {
+    "$date": "2021-01-07T21:57:29.633Z"
+  },
+  "avatar": "/public/image/manager/5ff78410f2e86331a0e29e94/avatar.png",
+  "email": "abc123@gmail.com",
+  "password": "$2a$10$E4LjqlbniW/DjiY3ljkG7OtXWNz.JCRRxJaGA4f4aGrX7q429Yzui",
+  "gender": "nam",
+  "__v": 0,
+  "phone": "abc@gmail.com",
+  "roll": "manager"
+},{
+  "_id": {
+    "$oid": "5ff786d6f29e3e490cb3adb8"
+  },
+  "name": "minh pham",
+  "date_added": {
+    "$date": "2021-01-07T22:09:10.102Z"
+  },
+  "avatar": "/public/avatar/default/avatar.png",
+  "email": "abc1234@gmail.com",
+  "password": "$2a$10$aehC7YZasWP2asXOfSrg6uYtnpvkhrew6/R7xDFRmY.i1oQarGdOK",
+  "gender": "nam",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6001ca7c592e592520b57929"
+  },
+  "name": "Hòa Mộc Lan",
+  "date_added": {
+    "$date": "2021-01-15T17:01:14.993Z"
+  },
+  "avatar": "https://res.cloudinary.com/nmcnpmctt2/image/upload/v1610729879/nmcnpmctt2/manager/default/download_fmkhae.png",
+  "roll": "manager",
+  "email": "abc@gmail.com",
+  "password": "$2a$10$.VVdFsrOnDiwdLnbXBkyueO4bKvYf7UPqUY7Xs5rByGCEkq3b6WBW",
+  "gender": "nam",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6001cab1592e592520b5792a"
+  },
+  "name": "Phạm Thượng Vũ",
+  "date_added": {
+    "$date": "2021-01-15T17:01:14.993Z"
+  },
+  "avatar": "http://res.cloudinary.com/nmcnpmctt2/image/upload/v1610730200/nmcnpmctt2/manager/6001cab1592e592520b5792a/avatar.png.png",
+  "roll": "manager",
+  "email": "donalTrump@gmail.com",
+  "password": "$2a$10$SIr4Sgd.uLMUMXo1YUWp8OYEfcmB9Gpf4f65ipRaGNGEZaOtXoQeC",
+  "gender": "nam",
+  "__v": 0,
+  "phone": ""
+}]

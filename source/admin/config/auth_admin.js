@@ -1,5 +1,5 @@
 module.exports = {
-    ensureAuthenticated: function(req, res, next) {
+    ensureAuthenticated:  function(req, res, next) {
         if (req.isAuthenticated()) {
             return next();
         }
@@ -10,6 +10,6 @@ module.exports = {
         if (!req.isAuthenticated()) {
             return next();
         }
-        res.redirect('/');
+        res.redirect('/admin/homepage');
     }
 }

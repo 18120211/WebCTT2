@@ -17,7 +17,7 @@ require('./middlewares/view.mdw')(app);
 require('./middlewares/route.mdw')(app);
 require('./middlewares/error.mdw')(app);
 
-app.listen(8000, console.log('Server running on port 8000'));
+app.listen(8080, console.log('Server running on port 8080'));
 
 // const express = require('express');
 

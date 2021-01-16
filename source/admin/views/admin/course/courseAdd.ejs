@@ -1,115 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d62abf4f8f.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/js/fileinput.min.js" integrity="sha512-vDrq7v1F/VUDuBTB+eILVfb9ErriIMW7Dn3JC/HOQLI8ZzTBTRRKrKJO3vfMmZFQpEGVpi+EYJFatPgVFxOKGA==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/css/fileinput.min.css" integrity="sha512-8KeRJXvPns3KF9uGWdZW18Azo4c1SG8dy2IqiMBq8Il1wdj7EWtR3EGLwj+DnvznrRjn0oyBU+OEwJk7A79n7w==" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.3/js/fileinput.min.js"
+        integrity="sha512-vDrq7v1F/VUDuBTB+eILVfb9ErriIMW7Dn3JC/HOQLI8ZzTBTRRKrKJO3vfMmZFQpEGVpi+EYJFatPgVFxOKGA=="
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/stylesheet.css">
-    
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+
+    <!-- summer note -->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 </head>
+
 <body>
     <div id="container">
         <%- include('../common/header',{user: user}); -%>
-        <%- include('../common/column_left'); -%>
-        <div id="content">
-            <div class="user-info">
-                <div class="row">
-                    <div class="col-sm-4 image">
-                        <img src="<%=user.avatar%>" id="avatar-img">
-                        <div class="avatar-update">
-                                <input type="file" name="file" id="file"/>
-                                <input type="text" name="avatar" id="avatar" />
-                            <button class="btn btn-success" id="avartar-upload" > Thay avatar </button>
+            <%- include('../common/column_left'); -%>
+                <div id="content">
+                    <div class="page-header">
+                        <div class="container-fluid">
+                            <div class="pull-right">
+                                <button class="btn btn-primary" id="addcategory">
+                                    <i class="fa fa-save"></i>
+                                </button>
+                            </div>
+                            <h2>
+                                <%= data.title %>
+                            </h2>
+                        </div>
                     </div>
-                    </div>
-                    <div class="col-sm-8 info">
-                        <div class="form-group">
-                            <label class ="col-sm-2 control-label" for="my-input">Name:</label>
-                            <div class="col-sm-10">
-                                <input  class="form-control" type="text" name="name" value="<%=user.name%>" >
+                    <div class="course-info">
+                        <div class="container-fluid">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa fa-pencil"></i> Thông tin khóa học </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form action="#" method="post" id="frmAddCourse">
+                                        <div class="course-detail">
+                                            <div class="form-group hidden">
+                                                <label class="col-sm-2 control-label" for="my-input">Tên khóa học</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" name="lecture_id"
+                                                        value="<%=user._id%>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group required">
+                                                <label class="col-sm-2 control-label" for="my-input">Tên khóa học</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" name="name"
+                                                        value="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="my-input">Category</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" type="text" name="category">
+                                                        <% data.categories.forEach((category)=> { %>
+                                                            <option value="<%=category._id%>" selected="selected">
+                                                                <%=category.idCourseCategory.name%> --> <%=category.name%>
+                                                            </option>
+                                                            <% }); %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="my-input">Số lượng bài giảng</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" name="number_of_video">
+                                                        <% for (var i=1; i <=10; i++ ) { %>
+                                                            <option value="<%= i %> ">
+                                                                <%= i %>
+                                                            </option>
+                                                            <% } %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="my-input">Mô tả khóa học</label>
+                                                <div class="col-sm-10">
+                                                    <textarea id="summernote" class="summernote"
+                                                        name="description"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="my-input">Những gì bạn đạt được</label>
+                                                <div class="col-sm-10">
+                                                    <textarea id="summernote" class="summernote"
+                                                        name="what_you_learn"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                        <!-- <div class="form-group">
-                            <label class ="col-sm-2 control-label" for="my-input">Email:</label>
-                            <div class="col-sm-10">
-                                <input  class="form-control" type="text" name="email" value="<%=user.email%>">
-                            </div>
-                        </div> -->
-                        <div class="form-group">
-                            <label class ="col-sm-2 control-label" for="my-input">Gender:</label>
-                            <div class="col-sm-10">
-                                <select  class="form-control" type="text" name="gender">
-                                    <%if (user.gender == "nam") { %>
-                                        <option value="nam" selected="selected"> Nam</option>
-                                        <option value="nữ"> Nữ</option>
-                                    <% }else{ %>
-                                        <option value="nam" > Nam</option>
-                                        <option value="nữ"  selected="selected"> Nữ</option>
-                                    <% } %>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class ="col-sm-2 control-label" for="my-input">Description:</label>
-                            <div class="col-sm-10">
-                                <textarea  class="form-control" type="text" name="description" ><%=user.description%></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group col-sm-10 text-center">
-                            <button class="btn btn-success" type="submit" id="update-info"> Thay đổi thông tin </button>
-                        </div>
+                       
+                        
                     </div>
                 </div>
-            </div>
-        </div>
-        <%- include('../common/footer'); -%>
+                <%- include('../common/footer'); -%>
     </div>
-    
+
 </body>
 <script>
-    $(document).ready(function() {
-        $('#avartar-upload').on('click', function() {
-            var fd = new FormData();
-            var files = $('#file')[0].files;
-            
-            // Check file selected or not
-            if(files.length > 0 ){
-            fd.append('file',files[0]);
-
-            $.ajax({
-                url: '/admin/upload',
-                type: 'post',
-                data: fd,
-                contentType: false,
-                processData: false,
-                success: function(response){
-                    if(response){
-                        var timestamp = new Date().getTime();     
-                        var el = document.getElementById("avatar-img");     
-                        el.src = response +"?t=" + timestamp; 
-                        $("input#avatar").val(response);
-                    }else{
-                        alert('file not uploaded');
-                    }
-                },
+    $(document).ready(function () {
+        $("#addcategory").on("click",function () {
+            $("#frmAddCourse").submit();
+        });
+      
+        $(document).ready(function () {
+            $('.summernote').summernote({
+                tabsize: 2,
+                height: 400
             });
-            }else{
-            alert("Please select a file.");
-            }
-            return false;
         });
-        $('#avatar-img').on('click', function() {
-            $('#file').trigger("click");
-        });
-        
-   });
+    });
 </script>
-</html>
 
+</html>

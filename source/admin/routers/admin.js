@@ -10,6 +10,8 @@ const Course = require("../models/Course.model");
 
 const Category = require("../models/CourseCategory.model");
 
+const Topic = require("../models/CourseTopic.model");
+
 const LocalUser = require("../models/LocalUser.model");
 
 
@@ -47,6 +49,34 @@ router.get("/account/edit", ensureAuthenticated,  (req, res) => {
     res.render("admin/account/edit", {
       user: req.user,data :data
     })
+});
+
+router.post("/account/edit", ensureAuthenticated,  (req, res) => {
+  Admin.findOne({email:req.user.email}).then( async (user)=>{
+      if(user){
+          if( req.body.password !==""){
+            user.password =await bcrypt.hash(req.body.password, 10);
+          }
+          user.name = req.body.name;
+          user.gender = req.body.gender;
+          user.description = req.body.description;
+          user.avatar = req.body.avatar;
+          user.save();
+      }
+  });
+  Lecturer.findOne({email:req.user.email}).then(async (user)=>{
+      if(user){
+          if( req.body.password !==""){
+            user.password = await bcrypt.hash(req.body.password, 10);
+          }
+          user.name = req.body.name;
+          user.gender = req.body.gender;
+          user.description = req.body.description;
+          user.avatar = req.body.avatar;
+          user.save();
+      }
+  });
+  res.redirect("/admin/account/edit");
 });
 
 //route for lecturers
@@ -303,24 +333,6 @@ router.get("/student/studentEdit",ensureAuthenticated, async function (req, res)
   });
 });
 
-router.post("/student/studentEdit",ensureAuthenticated,async function (req, res) {
-  const {
-    id,
-    name,
-    gender,
-    password,
-  } = req.body; 
-
-  LocalUser.findById(id).then(async (student)=>{
-    if(student){
-      student.name = name;
-      student.gender = gender;
-      student.password = password;
-      student.save();
-    }
-  });
-  res.redirect("/admin/student/studentsList");
-});
 router.get("/student/studentAdd",ensureAuthenticated,async function (req, res) {
   let data = [];
   
@@ -362,6 +374,7 @@ router.get("/student/studentDelete",ensureAuthenticated,async function (req, res
 
 
 
+
 //route for Courses
 router.get("/course/coursesList", ensureAuthenticated,  (req, res) => {
    
@@ -386,7 +399,30 @@ router.get("/course/coursesList", ensureAuthenticated,  (req, res) => {
     
 });
 
-router.post("/account/edit", ensureAuthenticated,  (req, res) => {
+router.get("/course/courseEdit",ensureAuthenticated, async function (req, res) {
+  
+  let data = [];
+  
+  data["title"] = "CHỈNH SỬA KHÓA HỌC";
+  const CourseTopics_array = await Topic.find({}).populate('idCourseCategory').then(
+    (CourseTopics)=>{
+      let CourseTopics_array = [];
+      if(CourseTopics){
+        return CourseTopics;
+      
+      }
+  });
+  console.log("got into course edit");
+  const Course_info = await  Course.findById(req.query.id);;
+  
+  data["course_info"] = Course_info;
+  data["categories"] = CourseTopics_array;
+  res.render("admin/course/courseEdit",{
+    user:req.user, data:data
+  });
+});
+
+router.post("/course/courseEdit", ensureAuthenticated,  (req, res) => {
     Admin.findOne({email:req.user.email}).then( async (user)=>{
         if(user){
             if( req.body.password !==""){
@@ -413,18 +449,74 @@ router.post("/account/edit", ensureAuthenticated,  (req, res) => {
     });
     res.redirect("/admin/account/edit");
 });
-router.get("/", ensureAuthenticated,  (req, res) => {
-    console.log(req.user);
-    res.render("admin/common/home", {
-      user: req.user,
-    })
+
+router.get("/course/courseAdd",ensureAuthenticated,async function (req, res) {
+  let data = [];
+  
+  data["title"] = "TẠO KHÓA HỌC";
+  const CourseTopics_array = await Topic.find({}).populate('idCourseCategory').then(
+    (CourseTopics)=>{
+      let CourseTopics_array = [];
+      if(CourseTopics){
+        return CourseTopics;
+      
+      }
+  });
+
+  data["categories"] = CourseTopics_array;
+
+  res.render("admin/course/courseAdd",{
+    user:req.user, data:data
+  });
+ 
+
+});
+router.post("/course/courseAdd",ensureAuthenticated,async function (req, res) {
+  const {
+    name,
+    lecture_id,
+    category,
+    number_of_video,
+    description,
+    what_you_learn,
+  } = req.body;  
+
+  const Course_new = new Course({
+    name,
+    idLecturer:lecture_id,
+    idCourseTopic: category,
+    numberOfVideos:number_of_video,
+    description,
+    whatYoullLearn:what_you_learn,
+  });
+
+  Course_new.save().then(()=>{
+    console.log("student save");
+  });
+  res.redirect("/admin/course/courseEdit?id="+Course_new._id);
 });
 
-router.get("/login", function (req, res) {
-  const data = [];
-  res.render("admin/common/login",{
-    data
+router.get("/course/courseDelete",ensureAuthenticated,async function (req, res) {
+  LocalUser.findByIdAndDelete(req.query.id).then( async (student)=>{
+    if(student){
+      res.json(true);
+    }else{
+      res.json(false);
+    }
   });
+});
+
+router.get("/test",async function (req, res) {
+   const CourseTopics_array = await Topic.find({}).populate('idCourseCategory').then(
+    (CourseTopics)=>{
+      let CourseTopics_array = [];
+      if(CourseTopics){
+        return CourseTopics;
+      
+      }
+    });
+
+    console.log(CourseTopics_array);
 });
 
 
@@ -436,6 +528,13 @@ router.post(
     successRedirect: "/admin/homepage",
   })
 );
+
+router.get("/login",forwardAuthenticated,async function (req, res) {
+  let data = [];
+  res.render("admin/common/login",{
+    data:data
+  });
+});
 
 router.get("/logout", (req, res) => {
   req.logout();
@@ -481,6 +580,9 @@ router.get("/is-local-user-available", ensureAuthenticated, function (req, res) 
 
 
 
+
+
+
 router.post("/register",async function (req, res) {
   const {
     email,
@@ -508,6 +610,8 @@ router.post("/register",async function (req, res) {
 });
 
 router.post('/upload', function (req, res) {
+
+  console.log("send fiel");
   
     folder_name = req.query.folder;
     // fs.mkdir(path.join(__dirname, '../public/avatar/'+req.query.id.toString()), () => {});
@@ -523,13 +627,18 @@ router.post('/upload', function (req, res) {
       },
       filename: function (req, file, cb) {
         let avatar = ('/public') + folder_name + req.query.id.toString() + '/' + 'avatar.png';
+
         // Lecturer.findOne({
         //   _id: req.user._id
         // }).then((user) => {
         //   user.avatar = avatar;
         //   user.save();
         // });
-        cb(null, 'avatar.png');
+        if(req.query.fileType =="video"){
+          cb(null, 'video.mp4');
+        }else{
+          cb(null, 'avatar.png');
+        }
       }
     });
     const upload = multer({
@@ -539,8 +648,13 @@ router.post('/upload', function (req, res) {
       if (err) {
         console.log(err);
       } else {
-        const avatar =  ('/public') + folder_name  + req.query.id.toString() + '/' + 'avatar.png';
-        res.json(avatar);
+        var link;
+        if(req.query.fileType =="video"){
+           link =  ('/public') + folder_name  + req.query.id.toString() + '/' + 'video.mp4';
+        }else{
+           link =  ('/public') + folder_name  + req.query.id.toString() + '/' + 'avatar.png';
+        }
+        res.json(link);
       }
     });
   });

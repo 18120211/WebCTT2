@@ -81,7 +81,6 @@
             id = $(this).parent().find("input").val();
             window.location.href = "/admin/Student/StudentEdit?id=" + id;
         });
-
         $('.deleteStudent').on('click', function() {
             id = $(this).parent().find("input").val();
             $.getJSON("/admin/student/studentDelete?id=" + id ,function( json ) {
