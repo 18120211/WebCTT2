@@ -49,7 +49,6 @@
             position: fixed;
             right: 0;
             width: 25%;
-            
         }
 
         body {
@@ -65,13 +64,13 @@
 
         }
 
-        .udlite-heading-xl {
+        .heading-xl {
             font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
                 apple color emoji, segoe ui emoji, segoe ui symbol;
             font-weight: 700;
             line-height: 1.2;
             letter-spacing: -.02px;
-            font-size: 2.4px;
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
@@ -81,7 +80,12 @@
             padding-top: 20px;
         }
 
-
+        .footer-container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -138,8 +142,8 @@
         <div class="card" style="width: 24rem;">
             <div class="card-header">
                 <div class="udlite-container">
-                    <div name='python-cousers' class="udlite-heading-xxl">
-                        <h5><strong>Bài giảng</strong></h5>
+                    <div name='python-cousers'>
+                        <h5 class="heading-xl">Bài giảng</h5>
                     </div>
                 </div>
             </div>
@@ -163,10 +167,15 @@
 
     <div class="container-wrap">
         <div class="udlite-container">
-            <div class="udlite-heading-xxl border-underline">
-                <h3><strong>Tên bài giảng đang xem</strong></h3>
+            <div class="border-underline">
+                <h3 class="heading-xl">Tên bài giảng đang xem</h3>
             </div>
         </div>
+    </div>
+
+    <div class="footer-container">
+        @ copyright by web CTT2 team
+    </div>
 </body>
 
 </html>
