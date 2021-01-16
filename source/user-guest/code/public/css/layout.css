@@ -624,3 +624,14 @@ a {
   width: 100%;
   z-index: 9999;
 }
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}

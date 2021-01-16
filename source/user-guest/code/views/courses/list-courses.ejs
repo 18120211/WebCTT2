@@ -1,21 +1,21 @@
+<% if (isFilter) { %>
 <div class="col-sm-5 search">
   <form
-    id="searchForm"
+    data-searchInput="<%= searchInput %>"
+    id="searchForm1"
     action="/courses/search"
     class="form-inline"
     method="GET"
   >
     <div class="row">
-      <div class="form-group col-sm-8">
-        <input
-          id="searchInput"
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          name="queryString"
-        />
-      </div>
+      <input
+        id="searchInput1"
+        type="text"
+        value="<%= searchInput%>"
+        name="queryString"
+      />
+      <input type="text" value="<%= page%>" name="page" />
+      <input type="text" />
       <div class="form-group">
         <select id="categorySelect" name="category" id="category">
           <% for( let i = 0; i < courseCategories.length; i++ ) { %>
@@ -29,37 +29,137 @@
         </select>
       </div>
       <div class="form-group">
-        <select id="topicSelect" name="topic" id="topic">
-          <% for( let i = 0; i < courseTopics.length; i++ ) { %>
-          <option value="<%= courseTopics[i].name%>">
-            <%= courseTopics[i].name%>
-          </option>
-          <% } %>
-        </select>
+        <!-- Truyền option topic cho select -->
+        <select id="topicSelect" name="courseTopicID"></select>
       </div>
       <div class="form-group col-sm-4">
-        <button
-          id="searchButton"
-          class="btn btn-outline-warning my-2 my-sm-0"
-          type="button"
-        >
-          Search
-        </button>
+        <button id="buttonFilter" type="button">Filter</button>
       </div>
     </div>
   </form>
 </div>
-<h2><%= title %></h2>
-<% for( let i = 0; i < courses.length; i++ ) { %>
-<%-include('../partials/card-course', {course: courses[i]}) %> <% } %>
 <script>
-//Bắt sự kiện tha đổi giá trị category
-  $("#categorySelect").change(function () {
-    console.log($(this).val());
-    const categoryName = $(this).val();
-    $.post(`/courses/${categoryName}/getTopics`, categoryName, (json)=>{
-        const topics = json.topics;
-        console.log(topics);
+  $(document).ready(() => {
+    $("#searchInput").val($("#searchForm1").attr("data-searchInput"));
+  });
+</script>
+<script>
+  //Nhấp nút filter
+  $("#buttonFilter").on("click", () => {
+    console.log("hello");
+    const categoryName = $("#categorySelect").find(":selected").val();
+    const topicName = $("#topicSelect").find(":selected").val();
+    const queryString = $("#searchInput").val();
+
+    //Gán queryString searchForm1 = queryString searchForm
+    $("#searchInput1").val($("#searchInput").val());
+
+    //Không điền thì trả về danh sách khóa học theo topic
+    if (queryString == null) {
+      $.get(`/courses/${categoryName}/${topicName}`);
+    }
+    //Ngược lại thực hiện truy vấn
+    else {
+      $("#searchForm1").submit();
+    }
+  });
+</script>
+<script type="text/javascript">
+  //Chuẩn bị cho việc mở trang
+  $(document).ready(() => {
+    //Thêm topic ban đầu
+    const categoryName = $("#categorySelect").find(":selected").val();
+    $.post(`/courses/${categoryName}/getTopics`, categoryName, (json) => {
+      const topics = json;
+      $("#topicSelect").find("option").remove();
+      topics.forEach((topic) => {
+        $("#topicSelect").append(
+          `<option value="${topic._id}">${topic.name}</option>`
+        );
+      });
     });
+  });
+
+  //Bắt sự kiện thay đổi giá trị category
+  $("#categorySelect").change(function () {
+    const categoryName = $(this).val();
+    $.post(`/courses/${categoryName}/getTopics`, categoryName, (json) => {
+      const topics = json;
+      $("#topicSelect").find("option").remove();
+      topics.forEach((topic) => {
+        $("#topicSelect").append(
+          `<option value="${topic._id}">${topic.name}</option>`
+        );
+      });
+    });
+  });
+</script>
+<% } %>
+
+<h2 id="title"><%= title %></h2>
+<% for( let i = 0; i < courses.length; i++ ) { %> <%-
+include('../partials/card-course', {course: courses[i]}) %> <% } %>
+<div
+  data-currentPage="<%= page %>"
+  data-numberOfPage="<%= numberOfPage %>"
+  class="pagination"
+>
+  <a id="prev-page" href="#">&laquo;</a>
+  <% for(let i = 0; i < numberOfPage; i++ ) { %>
+  <a class="sub-page" data-page="<%= i + 1%>" href="#"><%= i +1 %></a>
+  <% } %>
+  <a id="next-page" href="#">&raquo;</a>
+</div>
+
+<script>
+  const numberOfPage = $(".pagination").attr("data-numberOfPage");
+  const currentPage = $(".pagination").attr("data-currentPage");
+  const currentURL = window.location.href;
+  const url = new URL(currentURL);
+
+  //Bắt sự kiện nhấp vào trang con
+  $('.sub-page').on('click', (e)=>{
+    console.log("num: ", numberOfPage);
+    console.log('url: ', url);
+
+    const subPage = $(e.target).attr('data-page');
+    console.log('sub-page: ', subPage);
+    url.searchParams.set('page', subPage);
+    console.log(url.href);
+    //Chuyển trang 
+    window.location.replace(url.href);
+  })
+  //Bắt sự kiện nhấp vào nút trang trước đó
+  $("#prev-page").on("click", () => {
+    console.log("num: ", numberOfPage);
+    console.log("cur: ", currentPage);  
+    console.log('url: ', url.href);
+
+    const page = (+currentPage) -1;
+    if (currentPage > 1) {
+      url.searchParams.set('page', page);
+      console.log(url.href);
+    }
+    else {
+      console.log(url.href);
+    }
+    //Chuyển trang 
+    window.location.replace(url.href);
+  });
+  //Bắt sự kiện nhấp vào nút trang tiếp theo
+  $('#next-page').on('click', ()=>{
+    console.log("num: ", numberOfPage);
+    console.log("cur: ", currentPage);  
+    console.log('url: ', url.href);
+    const page = (+currentPage) +1;
+    if (currentPage < numberOfPage) {
+      url.searchParams.set('page', page);
+      console.log(url.href);
+    }
+    else {
+      console.log(url.href);
+    }
+    //Chuyển trang 
+    window.location.replace(url.href);
   });
 </script>

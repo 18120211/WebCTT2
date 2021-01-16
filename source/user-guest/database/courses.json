@@ -6,7 +6,7 @@
   "description": "Bạn có thể học mọi thứ về đồ thị với Python qua khóa học của chúng tôi",
   "evaluationPoint": 5,
   "numberOfStudent": 6,
-  "numberOfView": 430,
+  "numberOfView": 434,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -125,7 +125,7 @@
   "description": "Học xong khóa tutorial bạn sẽ trùm Android",
   "evaluationPoint": 0,
   "numberOfStudent": 3,
-  "numberOfView": 172,
+  "numberOfView": 174,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -190,7 +190,7 @@
   "description": "Học xong lương 10000$",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 31,
+  "numberOfView": 32,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -255,7 +255,7 @@
   "description": "Học 2 buổi 10 chấm môn Web",
   "evaluationPoint": 0,
   "numberOfStudent": 2,
-  "numberOfView": 52,
+  "numberOfView": 56,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -320,7 +320,7 @@
   "description": "Học 3 buổi là vào Facebook",
   "evaluationPoint": 5,
   "numberOfStudent": 1,
-  "numberOfView": 7,
+  "numberOfView": 15,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -395,7 +395,7 @@
   "description": "Bạn muốn làm đa cấp không thể bỏ qua khóa học này",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 2,
+  "numberOfView": 3,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -460,7 +460,7 @@
   "description": "Bạn muốn làm đa cấp không thể bỏ qua khóa học này",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 2,
+  "numberOfView": 3,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -517,4 +517,112 @@
   "userEvaluations": [],
   "numberOfVideo": 4,
   "userReviews": []
+},{
+  "_id": {
+    "$oid": "6002d1c7777655267ca1fd77"
+  },
+  "poster": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610797258/webctt2/poster/webAngularDev/angular_dvr3ls.jpg",
+  "description": "Bạn có thể học mọi thứ về Angular qua khóa học của chúng tôi",
+  "evaluationPoint": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
+  "tuition": 10,
+  "uploadDate": {
+    "$date": "2021-01-16T11:45:11.312Z"
+  },
+  "numberOfVideo": 0,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về ngôn ngữ lập trình.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc lập trình.",
+    "Hiểu cách tạo các chương trình của riêng bạn.",
+    "Học xong đảm bảo trùm lập trình"
+  ],
+  "name": "Website angular development",
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbe0"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9b7"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002d1c7777655267ca1fd78"
+  },
+  "poster": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610797240/webctt2/poster/htmlGameDev/gamedeve_oqggop.jpg",
+  "description": "Bạn có thể học mọi thứ về Website game development qua khóa học của chúng tôi",
+  "evaluationPoint": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 0,
+  "tuition": 10,
+  "uploadDate": {
+    "$date": "2021-01-16T11:45:11.312Z"
+  },
+  "numberOfVideo": 0,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về ngôn ngữ lập trình.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc lập trình.",
+    "Hiểu cách tạo các chương trình của riêng bạn.",
+    "Học xong đảm bảo trùm lập trình"
+  ],
+  "name": "Website game development",
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbe3"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9b7"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002d1c7777655267ca1fd79"
+  },
+  "poster": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610797249/webctt2/poster/macLearnDev/machinelearning_wd6qqi.jpg",
+  "description": "Bạn có thể học mọi thứ về Machine learning qua khóa học của chúng tôi",
+  "evaluationPoint": 0,
+  "numberOfStudent": 0,
+  "numberOfView": 1,
+  "tuition": 10,
+  "uploadDate": {
+    "$date": "2021-01-16T11:45:11.312Z"
+  },
+  "numberOfVideo": 0,
+  "previewIndex": [
+    0,
+    1,
+    2
+  ],
+  "whatYoullLearn": [
+    "Có hiểu biết chuyên sâu về ngôn ngữ lập trình.",
+    "Có kỹ năng và hiểu biết về mọi thứ để tự tin ứng tuyển vào các công việc lập trình.",
+    "Hiểu cách tạo các chương trình của riêng bạn.",
+    "Học xong đảm bảo trùm lập trình"
+  ],
+  "name": "Machine learning development",
+  "idCourseTopic": {
+    "$oid": "5ff2e1c9ac3567138849dbdf"
+  },
+  "idLecturer": {
+    "$oid": "5fed6330aba5d81fc019f9b7"
+  },
+  "videos": [],
+  "userEvaluations": [],
+  "userReviews": [],
+  "__v": 0
 }]

@@ -16,24 +16,21 @@
         <ul class="dropdown-menu">
           <li>
             <a class="dropdown-item" href="/courses/Marketing">
-              Marketing <i class="fas fa-chevron-right"></i
-            ></a>
+              Marketing <i class="fas fa-chevron-right"></i></a>
             <ul class="submenu dropdown-menu">
               <li><a class="dropdown-item" href="/courses/Marketing/Digital Marketing">Digital Marketing</a></li>
             </ul>
           </li>
           <li>
             <a class="dropdown-item" href="/courses/Music">
-              Music <i class="fas fa-chevron-right"></i
-            ></a>
+              Music <i class="fas fa-chevron-right"></i></a>
             <ul class="submenu dropdown-menu">
               <li><a class="dropdown-item" href="/courses/Music/Music Instruments">Music Instruments</a></li>
             </ul>
           </li>
           <li>
             <a class="dropdown-item" href="/courses/Design">
-              Design <i class="fas fa-chevron-right"></i
-            ></a>
+              Design <i class="fas fa-chevron-right"></i></a>
             <ul class="submenu dropdown-menu">
               <li><a class="dropdown-item" href="/courses/Design/Web Design">Web Design</a></li>
               <li><a class="dropdown-item" href="/courses/Design/Game Design">Game Design</a></li>
@@ -41,9 +38,7 @@
             </ul>
           </li>
           <li>
-            <a class="dropdown-item" href="/courses/Business"
-              >Business <i class="fas fa-chevron-right"></i
-            ></a>
+            <a class="dropdown-item" href="/courses/Business">Business <i class="fas fa-chevron-right"></i></a>
             <ul class="submenu dropdown-menu">
               <li><a class="dropdown-item" href="/courses/Business/Communications">Communications</a></li>
               <li><a class="dropdown-item" href="/courses/Business/Management">Management</a></li>
@@ -52,8 +47,7 @@
           </li>
           <li>
             <a class="dropdown-item" href="/courses/Development">
-              Development <i class="fas fa-chevron-right"></i
-            ></a>
+              Development <i class="fas fa-chevron-right"></i></a>
             <ul class="submenu dropdown-menu">
               <li><a class="dropdown-item" href="/courses/Development/Game Development">Game Development</a></li>
               <li><a class="dropdown-item" href="/courses/Development/Mobile Development">Mobile Development</a></li>
@@ -69,14 +63,8 @@
       <form id="searchForm" action="/courses/search" class="form-inline" method="GET">
         <div class="row">
           <div class="col-sm-8">
-            <input
-              id="searchInput"
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              name="queryString"
-            />
+            <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+              name="queryString" />
           </div>
           <div class="col-sm-4">
             <button id="searchButton" class="btn btn-outline-warning my-2 my-sm-0" type="button">
@@ -100,11 +88,7 @@
         <% }else{ %>
         <div class="col-sm-6 text-right">
           <div class="nav-item dropdown">
-            <a
-              href="/users/account"
-              data-toggle="dropdown"
-              class="nav-link dropdown-toggle"
-            >
+            <a href="/users/account" data-toggle="dropdown" class="nav-link dropdown-toggle">
               <i class="fas fa-user-circle"></i> Võ Thế Minh
             </a>
             <ul class="dropdown-menu">
@@ -133,6 +117,7 @@
   </div>
 </header>
 <script>
+  //  Bấm vào bút search
   $("#searchButton").on("click", () => {
     const val = $("#searchInput").val();
     console.log(val);
@@ -144,6 +129,7 @@
   });
 </script>
 <script>
+  // Mở đóng menu Category
   $(document).ready(function () {
     $(document).on('click', '.dropdown-menu', function (e) {
       e.stopPropagation();
@@ -165,11 +151,12 @@
   });
 </script>
 <script>
+  //Bắt sự kiện kéo màn hình
   $(window).bind('scroll', function () {
-          if ($(window).scrollTop() > 100) {
-              $('#header').addClass('fixed');
-          } else {
-              $('#header').removeClass('fixed');
-          }
-      });
+    if ($(window).scrollTop() > 100) {
+      $('#header').addClass('fixed');
+    } else {
+      $('#header').removeClass('fixed');
+    }
+  });
 </script>
