@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .container-wrap {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 48px;
+        }
+
+        .navbar-collapse {
+            flex-grow: 0;
+        }
+
+        .navbar-collapse-right {
+            margin-left: 750px;
+        }
+
+        .footer-container {
+            /* padding-top: 30px; */
+            padding-bottom: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
+        .opt-input{
+            border:1px solid #000;
+        }
+        .OTP_label{
+            font-size: 25px;
+            font-weight: 500;
+        }
+        .OTP-form{
+            width: 60%;
+            border-radius: 20px;
+            border:2px dashed #070707;
+            padding: 30px 0px;
+            margin: 0 auto;
+        }
+        .otp_submit{
+            border-radius: 10px!important;
+            padding: 0 30px;
+            background-color: #222222!important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="navbar-collapse-right">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#" class="btn btn-link" style="color: snow;">Log in</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="btn btn-success">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-wrap">
+        <div class="min-h-screen flex flex-col justify-center text-center">
+            <!-- Make sure the following div id (OTPInput) is the same in the Javascipt -->
+            <form action="#" method="post" class="OTP-form">
+                <!-- This is the div where the otp fields are generated by Javascript -->
+                <label class="OTP_label">
+                    INPUT YOUR OTP CODE HERE
+                </label>
+                <div class="flex justify-center " id="OTPInput">
+                </div>
+                <!-- Change this name attribute to mach your form submission parameters. Make sure you update the id in the javascript code if any changes are made to the id attribute -->
+                <input hidden id="otp" name="otp" value="">
+                <button class="mt-10 button button-primary font-bold text-lg px-6 pt-3 pb-3 rounded bg-black text-white otp_submit"
+                    id="otpSubmit">Submit</button>
+            </form>
+        </div>
+        <script>
+
+            /* This creates all the OTP input fields dynamically. Change the otp_length variable  to change the OTP Length */
+            const $otp_length = 6;
+
+            const element = document.getElementById('OTPInput');
+            for (let i = 0; i < $otp_length; i++) {
+                let inputField = document.createElement('input'); // Creates a new input element
+                inputField.className = "w-12 h-12 bg-gray-100 border-gray-100 outline-none focus:bg-gray-200 m-2 text-center rounded focus:border-blue-400 focus:shadow-outline opt-input";
+                // Do individual OTP input styling here;
+                inputField.style.cssText = "color: transparent; text-shadow: 0 0 0 black;"; // Input field text styling. This css hides the text caret
+                inputField.id = 'otp-field' + i; // Don't remove
+                inputField.maxLength = 1; // Sets individual field length to 1 char
+                element.appendChild(inputField); // Adds the input field to the parent div (OTPInput)
+            }
+
+            /*  This is for switching back and forth the input box for user experience */
+            const inputs = document.querySelectorAll('#OTPInput > *[id]');
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].addEventListener('keydown', function (event) {
+                    if (event.key === "Backspace") {
+                        inputs[i].value = '';
+                        if (i !== 0) {
+                            inputs[i - 1].focus();
+                        }
+                    } else if (event.key === "ArrowLeft" && i !== 0) {
+                        inputs[i - 1].focus();
+                    } else if (event.key === "ArrowRight" && i !== inputs.length - 1) {
+                        inputs[i + 1].focus();
+                    }
+                });
+                inputs[i].addEventListener('input', function () {
+                    inputs[i].value = inputs[i].value.toUpperCase(); // Converts to Upper case. Remove .toUpperCase() if conversion isnt required.
+                    if (i === inputs.length - 1 && inputs[i].value !== '') {
+                        return true;
+                    } else if (inputs[i].value !== '') {
+                        inputs[i + 1].focus();
+                    }
+                });
+
+            }
+            /*  This is to get the value on pressing the submit button
+            *   In this example, I used a hidden input box to store the otp after compiling data from each input fields
+            *   This hidden input will have a name attribute and all other single character fields won't have a name attribute
+            *   This is to ensure that only this hidden input field will be submitted when you submit the form */
+
+            document.getElementById('otpSubmit').addEventListener("click", function () {
+                const inputs = document.querySelectorAll('#OTPInput > *[id]');
+                let compiledOtp = '';
+                for (let i = 0; i < inputs.length; i++) {
+                    compiledOtp += inputs[i].value;
+                }
+                document.getElementById('otp').value = compiledOtp;
+                return true;
+            });
+        </script>
+    </div>
+
+    <div class="footer-container">
+        @ copyright by web CTT2 team
+    </div>
+</body>
+
+</html>

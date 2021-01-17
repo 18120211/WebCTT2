@@ -41,18 +41,8 @@
 
         .embed-responsive {
             margin-top: 62px;
-            width: 75%;
-            height: 75%;
-        }
-
-        .list-lessons {
-            position: fixed;
-            right: 0;
-            width: 25%;
-        }
-
-        body {
-            font-family: OpenSans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+            width: 100%;
+            height: 100%;
         }
 
         .udlite-container {
@@ -61,7 +51,6 @@
             margin-right: auto;
             margin-left: auto;
             padding: 10px 2.4px 5px 2.4px;
-
         }
 
         .heading-xl {
@@ -77,7 +66,7 @@
         .border-underline {
             border-bottom: 1px solid #dcdacb;
             margin-right: 125px;
-            padding-top: 20px;
+            padding-top: 80px;
         }
 
         .footer-container {
@@ -85,6 +74,23 @@
             padding-bottom: 20px;
             font-size: 12px;
             text-align: center;
+        }
+
+        .list-lessons {
+            padding-top: 80px;
+            padding-left: 10px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            border-bottom: 1px solid #dcdacb;
+        }
+
+        .list-group {
+            margin-top: -21px;
+        }
+
+        .col-sm-9,
+        .col-sm-3 {
+            padding: 0px;
         }
     </style>
 </head>
@@ -138,37 +144,32 @@
         </div>
     </nav>
 
-    <div class="list-lessons">
-        <div class="card" style="width: 24rem;">
-            <div class="card-header">
-                <div class="udlite-container">
-                    <div name='python-cousers'>
-                        <h5 class="heading-xl">Bài giảng</h5>
-                    </div>
-                </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="embed-responsive embed-responsive-21by9">
+                <iframe class="embed-responsive-item" src="/video/1.mp4"></iframe>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <a href="#">Link các bài giảng trong khóa học</a><br>
-                    <a href="#">Link các bài giảng trong khóa học</a><br>
-                    <a href="#">Link các bài giảng trong khóa học</a><br>
-                    <a href="#">Link các bài giảng trong khóa học</a><br>
-                    <a href="#">Link các bài giảng trong khóa học</a><br>
-                    <a href="#">Link các bài giảng trong khóa học</a><br>
-                    <a href="#">Link các bài giảng trong khóa học</a><br>
-                </li>
-            </ul>
+        </div>
+        <div class="col-sm-3">
+            <h5 class="heading-xl list-lessons" style="font-size: 20px;">Danh sách bài giảng</h5>
+            <div class="list-group">
+                <a href="/video/1.mp4" class="list-group-item list-group-item-action "><i class='fas fa-play-circle'
+                        style="padding-right: 10px;"></i>Bài giảng số 1</a>
+                <a href="/video/2.mp4" class="list-group-item list-group-item-action"><i class='fas fa-play-circle'
+                        style="padding-right: 10px;"></i>Bài giảng số 2</a>
+                <a href="/video/3.mp4" class="list-group-item list-group-item-action"><i class='fas fa-play-circle'
+                        style="padding-right: 10px;"></i>Bài giảng số 3</a>
+                <a href="/video/4.mp4" class="list-group-item list-group-item-action"><i class='fas fa-play-circle'
+                        style="padding-right: 10px;"></i>Bài giảng số 4</a>
+            </div>
         </div>
     </div>
 
-    <div class="embed-responsive embed-responsive-21by9">
-        <iframe class="embed-responsive-item" src="/video/1.mp4"></iframe>
-    </div>
 
     <div class="container-wrap">
         <div class="udlite-container">
             <div class="border-underline">
-                <h3 class="heading-xl">Tên bài giảng đang xem</h3>
+                <h3 class="heading-xl">Bài giảng số 1</h3>
             </div>
         </div>
     </div>
