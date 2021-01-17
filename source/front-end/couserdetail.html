@@ -70,17 +70,14 @@
             font-size: 16px;
         }
 
-        .pink-background {
+        .black-background {
             padding-top: 48px;
             width: 100%;
             height: 430px;
-            background-color: palevioletred;
+            background-color: black;
             padding-top: 32px;
             padding-bottom: 32px;
-        }
-
-        body {
-            font-family: OpenSans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+            color: white;
         }
 
         .inlineblock {
@@ -94,10 +91,6 @@
             float: right;
             width: 450px;
             height: 100%;
-        }
-
-        .nav {
-            padding-top: 60px;
         }
 
         .checked {
@@ -189,7 +182,22 @@
         }
 
         .comment {
-            padding-top: 50px;
+            padding-top: 40px;
+        }
+
+        .footer-container {
+            padding-top: 30px;
+            padding-bottom: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .pagination {
+            padding-top: 30px;
+        }
+
+        .btn-outline-danger {
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -241,21 +249,21 @@
         </div>
     </nav>
 
-    <div class="pink-background">
+    <div class="black-background">
         <div class="container-wrap">
             <div name="header">
-                <a href="#" style="color: black;">
+                <a href="#" style="color: rgb(144, 205, 247);">
                     <strong>Home</strong>
                 </a>
-                <span> ></span>
-                <a href="#" style="color: black;">
-                    <strong>Category</strong>
+                <span style="color: rgb(144, 205, 247);"> ></span>
+                <a href="#" style="color: rgb(144, 205, 247);">
+                    <strong>Python</strong>
                 </a>
 
                 <img src="/image/11.jpg" alt="image" class="img">
                 <div class="text-container inlineblock" style="border-bottom: 0;">
                     <div name='couser-detail'>
-                        <h1><strong>Tiêu đề khóa học</strong></h1>
+                        <h2><strong>2021 Complete Python Bootcamp From Zero to Hero in Python</strong></h2>
                     </div>
                     <p>Vài dòng giới thiệu về khóa học, ví dụ như: JUST COMPLETELY REDONE - The only
                         course you need to
@@ -265,305 +273,325 @@
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star-half-alt checked"></span>
                     <span class="far fa-star text-warning"></span>
-                    <span style="padding-left: 15px;">4.5</span>
+                    <span class="text-warning" style="padding-left: 5px;"><strong>4.5</strong></span>
                     <p>Ngày update</p>
-                    <p>Giảng viên: <a href="#" style="color: black;"><strong>Mai Ngọc Tú</strong></a></p>
-                    <button type="button" class="btn btn-warning btn-lg"><strong style="font-size: 19px;">Tham
-                            gia</strong></button>
+                    <p>Giảng viên: <a href="#" style="color: rgb(144, 205, 247);"><strong>Mai Ngọc Tú</strong></a></p>
+                    <button type="button" class="btn btn-outline-warning"><strong style="font-size: 18px;">Mua
+                            luôn</strong></button>
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class='far fa-heart'></i>
+                        <strong style="font-size: 18px;">Yêu thích</strong>
+                    </button>
                 </div>
-            </div>
-
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item home-tab">
-                    <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#couser-intro" role="tab"
-                        aria-controls="intro" aria-selected="true" style="font-size: 20px;">Giới thiệu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="content-tab" data-toggle="tab" href="#couser-content" role="tab"
-                        aria-controls="content" aria-selected="false" style="font-size: 20px;">Nội dung</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="teacher-tab" data-toggle="tab" href="#couser-teacher" role="tab"
-                        aria-controls="teacher" aria-selected="false" style="font-size: 20px;">Thông tin giảng
-                        viên</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="review-tab" data-toggle="tab" href="#couser-review" role="tab"
-                        aria-controls="review" aria-selected="false" style="font-size: 20px;">Reviews</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="faq-tab" data-toggle="tab" href="#couser-faq" role="tab" aria-controls="faq"
-                        aria-selected="false" style="font-size: 20px;">FAQ</a>
-                </li>
-            </ul>
-
-            <div id="couser-intro" class="text-container">
-                <h2 class="heading-xl">About this Specialization</h2>
-                <p>This Specialization builds on the success of the Python for Everybody course and will
-                    introduce fundamental programming concepts including data structures, networked application
-                    program interfaces, and databases, using the Python programming language. In the Capstone
-                    Project, you’ll use the technologies learned throughout the Specialization to design and
-                    create your own applications for data retrieval, processing, and visualization.</p>
-                <p>Who this course is for:</p>
-                <ul>
-                    <li>Anyone interested in Machine Learning.</li>
-                    <li>Students who have at least high school knowledge in math and who want to start learning
-                        Machine
-                        Learning.</li>
-                    <li>Any intermediate level people who know the basics of machine learning, including the
-                        classical
-                        algorithms like linear regression or logistic regression, but who want to learn more about
-                        it
-                        and explore all the different fields of Machine Learning.</li>
-                </ul>
-                <div class="what-you-will-learn">
-                    <h3 style="margin: 0 2.4rem 1.6rem;"><strong>Bạn sẽ được học</strong></h3>
-                    <ul class="what-you-will-learn-content">
-                        <i class="fas fa-check"></i>
-                        <span> Key data science and machine learning concepts right from the beginning
-                            with a complete unfolding with examples in Python.</span><br>
-
-                        <i class="fas fa-check"></i>
-                        <span> Python for Data Science and Data Analysis</span><br>
-
-                        <i class="fas fa-check"></i>
-                        <span> Feature Engineering and Dimensionality Reduction with Python</span><br>
-
-                        <i class="fas fa-check"></i>
-                        <span> Convolutional Neural Networks with Python</span><br>
-
-                        <i class="fas fa-check"></i>
-                        <span> Building your own AI applications.</span>
-                    </ul>
-                </div>
-            </div>
-
-            <div id="couser-content" class="text-container">
-                <h2 class="heading-xl">Course's Syllabus is the following:</h2>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <ul>
-                            <i class="fa fa-play-circle"></i>
-                            <a href="#" style="color: black;"> Installations of PyCharm - Most popular IDE
-                                (Where we write our code)</a>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 text-left">
-                        <button type="button" class="btn btn-secondary">Preview</button>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-8">
-                        <ul>
-                            <i class="fa fa-play-circle"></i>
-                            <a href="#" style="color: black;"> Installations of Python , step-by-step
-                                configurations</a>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 text-left">
-                        <button type="button" class="btn btn-secondary">Preview</button>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-8">
-                        <ul>
-                            <i class="fa fa-play-circle"></i>
-                            <a href="#" style="color: black;"> IVariables - Strings</a>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 text-left">
-                        <button type="button" class="btn btn-secondary">Preview</button>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-8">
-                        <ul>
-                            <i class="fa fa-play-circle"></i>
-                            <a href="#" style="color: black;"> Variables - String Formatting</a>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 text-left">
-                        <button type="button" class="btn btn-secondary">Preview</button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="couser-teacher" class="text-container">
-                <h2 class="heading-xl">Instructor</h2>
-                <div class="heading-lg">
-                    <a href="#" style="text-decoration:none;">Mai Ngọc Tú</a>
-                </div>
-                <p style="color: gray;">Development Team Lead</p>
-                <div class="row">
-                    <div>
-                        <img src="/image/19.jpg" alt="" class="rounded-circle teacher-avt">
-                    </div>
-                    <div style="margin-left: 20px;">
-                        <i class="fas fa-star text-warning"></i>
-                        <span style="margin-left: 8px;">4.5 Instructor Rating</span><br>
-
-                        <i class="fas fa-user-graduate text-warning"></i>
-                        <span style="margin-left: 8px;">32,523 Students</span><br>
-
-                        <i class='fas fa-play-circle text-warning'></i>
-                        <span style="margin-left: 8px;">1 Course</span><br>
-                    </div>
-                    <p style="padding-top: 20px;">Hi There, My name is Dmitry and I'm a Senior instructor at 'Ninja
-                        Developer Academy'. I started
-                        as student not so few years ago here at Udemy. And for today my vision is to bring Premium Level
-                        courses with honest prices, affordable education for everybody. You will get huge amount of
-                        examples and coding exprience in each topic you choose. Join us and become a Ninja Developer</p>
-                </div>
-            </div>
-
-            <div id="student-feedback" class="text-container">
-                <h2 class="heading-xl">Student feedback</h2>
-                <div class="row">
-                    <div class="card">
-                        <div class="heading-xxl text-warning">4.6</div>
-                        <div>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-half-alt checked"></span>
-                            <span class="far fa-star text-warning"></span>
-                        </div>
-                        <div class="text-warning"><strong>Course rating</strong></div>
-                    </div>
-
-                    <div class="col">
-                        <div class="middle">
-                            <div class="bar-container">
-                                <div class="bar bar-5"></div>
-                            </div>
-                        </div>
-
-                        <div class="middle">
-                            <div class="bar-container">
-                                <div class="bar bar-4"></div>
-                            </div>
-                        </div>
-
-                        <div class="middle">
-                            <div class="bar-container">
-                                <div class="bar bar-3"></div>
-                            </div>
-                        </div>
-
-                        <div class="middle">
-                            <div class="bar-container">
-                                <div class="bar bar-2"></div>
-                            </div>
-                        </div>
-
-                        <div class="middle">
-                            <div class="bar-container">
-                                <div class="bar bar-1"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="reviews">
-                    <h2 class="heading-xl" style="padding-top: 40px;">Reviews</h2>
-                    <div class="row">
-                        <div>
-                            <img src="/image/19.jpg" alt="" class="rounded-circle reviews">
-                        </div>
-                        <div>
-                            <p class="heading-md">Sikander Ali Haroon</p>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="far fa-star text-warning"></span>
-                            <span style="color: gray;">a week ago </span>
-                            <p style="padding-top: 10px;">I am a complete beginner and I must say I love the course Jose
-                                actually went from very basic
-                                right up to advance topics, One thing which i would like to ask Jose to improve is Final
-                                Capstone Project section, Instead of letting us choose from if there is one provided
-                                with the solution that would be great</p>
-                            <a href="#"><i class="fa fa-thumbs-up" style="color: gray;"></i></a>
-                            <span style="font-size: 12px;">Was this review helpful?</span>
-                        </div>
-                    </div>
-
-                    <div class="row comment">
-                        <div>
-                            <img src="/image/23.jpg" alt="" class="rounded-circle reviews">
-                        </div>
-                        <div>
-                            <p class="heading-md">Sikander Ali Haroon</p>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="far fa-star text-warning"></span>
-                            <span style="color: gray;">a week ago </span>
-                            <p style="padding-top: 10px;">I am a complete beginner and I must say I love the course Jose
-                                actually went from very basic
-                                right up to advance topics, One thing which i would like to ask Jose to improve is Final
-                                Capstone Project section, Instead of letting us choose from if there is one provided
-                                with the solution that would be great</p>
-                            <a href="#"><i class="fa fa-thumbs-up" style="color: gray;"></i></a>
-                            <span style="font-size: 12px;">Was this review helpful?</span>
-                        </div>
-                    </div>
-
-                    <div class="row comment">
-                        <div>
-                            <img src="/image/7.jpg" alt="" class="rounded-circle reviews">
-                        </div>
-                        <div>
-                            <p class="heading-md">Sikander Ali Haroon</p>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="far fa-star text-warning"></span>
-                            <span style="color: gray;">a week ago </span>
-                            <p style="padding-top: 10px;">I am a complete beginner and I must say I love the course Jose
-                                actually went from very basic
-                                right up to advance topics, One thing which i would like to ask Jose to improve is Final
-                                Capstone Project section, Instead of letting us choose from if there is one provided
-                                with the solution that would be great</p>
-                            <a href="#"><i class="fa fa-thumbs-up" style="color: gray;"></i></a>
-                            <span style="font-size: 12px;">Was this review helpful?</span>
-                        </div>
-                    </div>
-
-                    <div class="row comment">
-                        <div>
-                            <img src="/image/21.webp" alt="" class="rounded-circle reviews">
-                        </div>
-                        <div>
-                            <p class="heading-md">Sikander Ali Haroon</p>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="far fa-star text-warning"></span>
-                            <span style="color: gray;">a week ago </span>
-                            <p style="padding-top: 10px;">I am a complete beginner and I must say I love the course Jose
-                                actually went from very basic
-                                right up to advance topics, One thing which i would like to ask Jose to improve is Final
-                                Capstone Project section, Instead of letting us choose from if there is one provided
-                                with the solution that would be great</p>
-                            <a href="#"><i class="fa fa-thumbs-up" style="color: gray;"></i></a>
-                            <span style="font-size: 12px;">Was this review helpful?</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="faq" class="text-container">
-                <h2 class="heading-xl">FAQ</h2>
             </div>
         </div>
+    </div>
+
+    <div class="container-wrap">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item home-tab">
+                <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#couser-intro" role="tab"
+                    aria-controls="intro" aria-selected="true" style="font-size: 20px;">Giới thiệu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="content-tab" data-toggle="tab" href="#couser-content" role="tab"
+                    aria-controls="content" aria-selected="false" style="font-size: 20px;">Nội dung</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="teacher-tab" data-toggle="tab" href="#couser-teacher" role="tab"
+                    aria-controls="teacher" aria-selected="false" style="font-size: 20px;">Thông tin giảng
+                    viên</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="review-tab" data-toggle="tab" href="#couser-review" role="tab"
+                    aria-controls="review" aria-selected="false" style="font-size: 20px;">Reviews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="faq-tab" data-toggle="tab" href="#couser-faq" role="tab" aria-controls="faq"
+                    aria-selected="false" style="font-size: 20px;">FAQ</a>
+            </li>
+        </ul>
+
+        <div id="couser-intro" class="text-container">
+            <h2 class="heading-xl">About this Specialization</h2>
+            <p>This Specialization builds on the success of the Python for Everybody course and will
+                introduce fundamental programming concepts including data structures, networked application
+                program interfaces, and databases, using the Python programming language. In the Capstone
+                Project, you’ll use the technologies learned throughout the Specialization to design and
+                create your own applications for data retrieval, processing, and visualization.</p>
+            <p>Who this course is for:</p>
+            <ul>
+                <li>Anyone interested in Machine Learning.</li>
+                <li>Students who have at least high school knowledge in math and who want to start learning
+                    Machine
+                    Learning.</li>
+                <li>Any intermediate level people who know the basics of machine learning, including the
+                    classical
+                    algorithms like linear regression or logistic regression, but who want to learn more about
+                    it
+                    and explore all the different fields of Machine Learning.</li>
+            </ul>
+            <div class="what-you-will-learn">
+                <h3 style="margin: 0 2.4rem 1.6rem;"><strong>Bạn sẽ được học</strong></h3>
+                <ul class="what-you-will-learn-content">
+                    <i class="fas fa-check"></i>
+                    <span> Key data science and machine learning concepts right from the beginning
+                        with a complete unfolding with examples in Python.</span><br>
+
+                    <i class="fas fa-check"></i>
+                    <span> Python for Data Science and Data Analysis</span><br>
+
+                    <i class="fas fa-check"></i>
+                    <span> Feature Engineering and Dimensionality Reduction with Python</span><br>
+
+                    <i class="fas fa-check"></i>
+                    <span> Convolutional Neural Networks with Python</span><br>
+
+                    <i class="fas fa-check"></i>
+                    <span> Building your own AI applications.</span>
+                </ul>
+            </div>
+        </div>
+
+        <div id="couser-content" class="text-container">
+            <h2 class="heading-xl">Course's Syllabus is the following:</h2>
+            <div class="row">
+                <div class="col-sm-8">
+                    <ul>
+                        <i class="fa fa-play-circle"></i>
+                        <a href="#" style="color: black;"> Installations of PyCharm - Most popular IDE
+                            (Where we write our code)</a>
+                    </ul>
+                </div>
+                <div class="col-sm-4 text-left">
+                    <button type="button" class="btn btn-secondary">Preview</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <ul>
+                        <i class="fa fa-play-circle"></i>
+                        <a href="#" style="color: black;"> Installations of Python , step-by-step
+                            configurations</a>
+                    </ul>
+                </div>
+                <div class="col-sm-4 text-left">
+                    <button type="button" class="btn btn-secondary">Preview</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <ul>
+                        <i class="fa fa-play-circle"></i>
+                        <a href="#" style="color: black;"> IVariables - Strings</a>
+                    </ul>
+                </div>
+                <div class="col-sm-4 text-left">
+                    <button type="button" class="btn btn-secondary">Preview</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <ul>
+                        <i class="fa fa-play-circle"></i>
+                        <a href="#" style="color: black;"> Variables - String Formatting</a>
+                    </ul>
+                </div>
+                <div class="col-sm-4 text-left">
+                    <button type="button" class="btn btn-secondary">Preview</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="couser-teacher" class="text-container">
+            <h2 class="heading-xl">Instructor</h2>
+            <div class="heading-lg">
+                <a href="#" style="text-decoration:none;">Mai Ngọc Tú</a>
+            </div>
+            <p style="color: gray;">Development Team Lead</p>
+            <div class="row">
+                <div>
+                    <img src="/image/19.jpg" alt="" class="rounded-circle teacher-avt">
+                </div>
+                <div style="margin-left: 20px;">
+                    <i class="fas fa-star text-warning"></i>
+                    <span style="margin-left: 8px;">4.5 Instructor Rating</span><br>
+
+                    <i class="fas fa-user-graduate text-warning"></i>
+                    <span style="margin-left: 8px;">32,523 Students</span><br>
+
+                    <i class='fas fa-play-circle text-warning'></i>
+                    <span style="margin-left: 8px;">1 Course</span><br>
+                </div>
+                <p style="padding-top: 20px;">Hi There, My name is Dmitry and I'm a Senior instructor at 'Ninja
+                    Developer Academy'. I started
+                    as student not so few years ago here at Udemy. And for today my vision is to bring Premium Level
+                    courses with honest prices, affordable education for everybody. You will get huge amount of
+                    examples and coding exprience in each topic you choose. Join us and become a Ninja Developer</p>
+            </div>
+        </div>
+
+        <div id="student-feedback" class="text-container">
+            <h2 class="heading-xl">Student feedback</h2>
+            <div class="row">
+                <div class="card">
+                    <div class="heading-xxl text-warning">4.6</div>
+                    <div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star-half-alt checked"></span>
+                        <span class="far fa-star text-warning"></span>
+                    </div>
+                    <div class="text-warning"><strong>Course rating</strong></div>
+                </div>
+
+                <div class="col">
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar bar-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar bar-4"></div>
+                        </div>
+                    </div>
+
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar bar-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar bar-2"></div>
+                        </div>
+                    </div>
+
+                    <div class="middle">
+                        <div class="bar-container">
+                            <div class="bar bar-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reviews">
+                <h2 class="heading-xl" style="padding-top: 40px;">Reviews</h2>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <img src="/image/19.jpg" alt="" class="rounded-circle reviews">
+                    </div>
+                    <div class="col-sm-11">
+                        <p class="heading-md">Sikander Ali Haroon</p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span style="color: gray;">a week ago </span>
+                        <p style="padding-top: 10px;">I am a complete beginner and I must say I love the course Jose
+                            actually went from very basic
+                            right up to advance topics, One thing which i would like to ask Jose to improve is Final
+                            Capstone Project section, Instead of letting us choose from if there is one provided
+                            with the solution that would be great</p>
+                        <a href="#"><i class="fa fa-thumbs-up" style="color: gray;"></i></a>
+                        <span style="font-size: 12px;">Was this review helpful?</span>
+                    </div>
+                </div>
+
+                <div class="row comment">
+                    <div class="col-sm-1">
+                        <img src="/image/23.jpg" alt="" class="rounded-circle reviews">
+                    </div>
+                    <div class="col-sm-11">
+                        <p class="heading-md">Sikander Ali Haroon</p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span style="color: gray;">a week ago </span>
+                        <p style="padding-top: 10px;">I am a complete beginner and I must say I love the course Jose
+                            actually went from very basic
+                            right up to advance topics, One thing which i would like to ask Jose to improve is Final
+                            Capstone Project section, Instead of letting us choose from if there is one provided
+                            with the solution that would be great</p>
+                        <a href="#"><i class="fa fa-thumbs-up" style="color: gray;"></i></a>
+                        <span style="font-size: 12px;">Was this review helpful?</span>
+                    </div>
+                </div>
+
+                <div class="row comment">
+                    <div class="col-sm-1">
+                        <img src="/image/7.jpg" alt="" class="rounded-circle reviews">
+                    </div>
+                    <div class="col-sm-11">
+                        <p class="heading-md">Sikander Ali Haroon</p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span style="color: gray;">a week ago </span>
+                        <p style="padding-top: 10px;">I am a complete beginner and I must say I love the course Jose
+                            actually went from very basic
+                            right up to advance topics, One thing which i would like to ask Jose to improve is Final
+                            Capstone Project section, Instead of letting us choose from if there is one provided
+                            with the solution that would be great</p>
+                        <a href="#"><i class="fa fa-thumbs-up" style="color: gray;"></i></a>
+                        <span style="font-size: 12px;">Was this review helpful?</span>
+                    </div>
+                </div>
+
+                <div class="row comment">
+                    <div class="col-sm-1">
+                        <img src="/image/21.webp" alt="" class="rounded-circle reviews">
+                    </div>
+                    <div class="col-sm-11">
+                        <p class="heading-md">Sikander Ali Haroon</p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="far fa-star text-warning"></span>
+                        <span style="color: gray;">a week ago </span>
+                        <p style="padding-top: 10px;">I am a complete beginner and I must say I love the course Jose
+                            actually went from very basic
+                            right up to advance topics, One thing which i would like to ask Jose to improve is Final
+                            Capstone Project section, Instead of letting us choose from if there is one provided
+                            with the solution that would be great</p>
+                        <a href="#"><i class="fa fa-thumbs-up" style="color: gray;"></i></a>
+                        <span style="font-size: 12px;">Was this review helpful?</span>
+                    </div>
+                </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div id="faq" class="text-container" style="border: 0px">
+            <h2 class="heading-xl">FAQ</h2>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        @ copyright by web CTT2 team
     </div>
 </body>
 

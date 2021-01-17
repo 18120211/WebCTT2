@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Payment</title>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -40,6 +41,34 @@
             padding-bottom: 20px;
             font-size: 12px;
             text-align: center;
+        }
+
+        .price-payment {
+            border-bottom: 1px solid #cacbcc;
+            font-size: 16px;
+        }
+
+        .paypal {
+            padding-left: 20px;
+            width: 20%;
+        }
+
+        .row {
+            margin-left: 3px;
+            margin-right: 3px;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            border-collapse: separate;
+        }
+
+        .agree-service {
+            font-size: 12px;
+            line-height: 19px;
+            margin-bottom: 8px;
+        }
+
+        .img-payment {
+            width: 100%;
         }
     </style>
 </head>
@@ -96,39 +125,41 @@
             <div class="col-md-6 m-auto">
                 <div class="card card-body">
                     <h1 class="text-center mb-3">
-                        <i class="fas fa-user-plus"></i> Register
+                        <i class='fas fa-dollar-sign'></i> Hóa đơn
                     </h1>
                     <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <img src="/image/11.jpg" alt="" class="img-payment">
+                            </div>
+                            <div class="col-sm-10"><strong>2021 Complete Python Bootcamp From Zero to Hero in Python
+                            </strong></div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
+
+                        <div class="row">
+                            <div class="col-8">Giá gốc:</div>
+                            <div class="col-4 text-right">$11.5</div>
                         </div>
-                        <div class="form-group">
-                            <label for="gender">Gender</label><br>
-                            <input type="radio" id="male" name="gender" value="male">
-                            <label for="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
+                        <div class="row price-payment">
+                            <div class="col-8">Giá giảm:</div>
+                            <div class="col-4 text-right">$1.5</div>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control"
-                                placeholder="Create Password">
+                        <div class="row" style="font-size: 20px;">
+                            <div class="col-8"><strong>Tổng cộng:</strong></div>
+                            <div class="col-4 text-right"><strong>$10</strong></div>
                         </div>
-                        <div class="form-group">
-                            <label for="password2">Confirm Password</label>
-                            <input type="password" id="password2" name="password2" class="form-control"
-                                placeholder="Confirm Password"><br>
+
+                        <div class="row" style="padding-bottom: 10px;">
+                            <div>Thanh toán với:</div>
+                            <img src="https://s3.amazonaws.com/growth-prototypes/pp_cc_mark_111x69.jpg"
+                                alt="PayPal Icon" class="paypal">
+                        </div>
+                        <div class="agree-service">Khi hoàn tất giao dịch, bạn đồng ý với các Điều khoản dịch vụ của chúng tôi.
                         </div>
                         <button type="submit" class="btn btn-danger btn-block">
-                            Register
+                            Thanh toán
                         </button>
                     </form>
-                    <p class="lead mt-4">Have An Account? <a href="#" style="color: red;">Login</a></p>
                 </div>
             </div>
         </div>
