@@ -176,6 +176,12 @@ Router.post('/:nameCourse/review', async (req, res)=>{
     res.json(true);
 });
 
-
+//Vào coi bài giảng
+Router.get('/:nameCourse/lessions', ensureAuthenticated, async(req, res)=>{
+    const nameCourse = req.params.nameCourse;
+    const course = await Course.findOne({
+        name: nameCourse
+    });
+});
 
 module.exports = Router;

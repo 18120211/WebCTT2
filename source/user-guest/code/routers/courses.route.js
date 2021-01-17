@@ -116,7 +116,7 @@ Router.get("/:categoryName/:topicName", async (req, res) => {
 
   //Tìm khóa học theo Topic
   const courseTopic = await CourseTopic.findOne({ name: topicName });
-  const courses = await Course.find({ idCourseTopic: courseTopic._id });
+  let courses = await Course.find({ idCourseTopic: courseTopic._id });
   let numberOfPage = Math.ceil(courses.length / 5);
   //Lấy đúng 5 khóa học theo số trang
   courses = courses.slice((page - 1) * 5, (page - 1) * 5 + 5);

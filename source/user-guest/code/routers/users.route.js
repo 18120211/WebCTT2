@@ -156,7 +156,7 @@ Router.post("/register", function (req, res) {
 
           req.session.currentEmail = email;
 
-          res.render("./user/otp", {
+          res.render("./user/otp1", {
             isAuthenticated: req.isAuthenticated(),
           });
         });
@@ -185,7 +185,7 @@ Router.post("/otp", async (req, res) => {
         msg: "OTP not correct!!",
       },
     ];
-    res.render("./user/otp", {
+    res.render("./user/otp1", {
       errors,
       isAuthenticated: req.isAuthenticated()
     });
@@ -210,7 +210,7 @@ Router.post("/login", async (req, res, next) => {
         } else {
           req.session.currentEmail = email;
           req.flash("error_msg", "Please fill correct OTP to login");
-          res.render("./user/otp", {
+          res.render("./user/otp1", {
             isAuthenticated: req.isAuthenticated()
           });
         }

@@ -1,0 +1,113 @@
+<style>
+  .course-list {
+    padding-top: 40px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dcdacb;
+  }
+
+  .img {
+    float: left;
+    width: 260px;
+    height: 145px;
+    margin-right: 20px;
+  }
+
+  .btn-group {
+    margin-top: 20px;
+  }
+
+  .card-hot {
+    width: 40px;
+    height: 25px;
+    background-color: rgba(243, 70, 70, 0.788);
+  }
+
+  .card-new {
+    width: 40px;
+    height: 25px;
+    background-color: rgb(86, 202, 86);
+  }
+
+  .card-best {
+    width: 40px;
+    height: 25px;
+    background-color: rgb(226, 226, 73);
+  }
+
+  .price {
+    float: right;
+    font-size: 20px;
+  }
+
+  .fa-star {
+    font-size: 13px;
+  }
+  .yellow-star {
+    color: yellow;
+  }
+</style>
+<div class="course-list">
+  <a href="/course/<%=  course.name%>">
+    <img src="<%= course.poster %>" alt="" class="img" />
+    <div class="row">
+      <div class="col-sm-8">
+        <a href="#">
+          <h4
+            id="nameCourse"
+            data-name="<%= course.name%>"
+            data-evaPoint="<%= course.evaluationPoint %>"
+            data-isAuthenticated="<%= isAuthenticated%>"
+            data-id="<%= course._id %>"
+          >
+            <%= course.name %>
+          </h4>
+        </a>
+        <p style="font-size: 13px"><%= course.idLecturer.name %></p>
+        <div><%= course.description %></div>
+        <i class="star0 fa fa-star"></i>
+        <i class="star1 fa fa-star"></i>
+        <i class="star2 fa fa-star"></i>
+        <i class="star3 fa fa-star"></i>
+        <i class="star4 fa fa-star"></i>
+        <br />
+        <div class="card card-hot">
+          <strong class="text-center" style="font-size: 13px">Hot</strong>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <strong class="price">$10</strong>
+      </div>
+    </div>
+  </a>
+</div>
+<script>
+  $(document).ready(() => {
+    //Đánh dấu sao vàng dựa vào đánh giá chung
+    let evaPoint = +$("#nameCourse").attr("data-evaPoint");
+    evaPoint = evaPoint.toFixed(1);
+    console.log(evaPoint);
+    if (evaPoint >= 5) {
+      $(".star0").addClass("yellow-star");
+      $(".star1").addClass("yellow-star");
+      $(".star2").addClass("yellow-star");
+      $(".star3").addClass("yellow-star");
+      $(".star4").addClass("yellow-star");
+    } else if (evaPoint >= 4) {
+      $(".star0").addClass("yellow-star");
+      $(".star1").addClass("yellow-star");
+      $(".star2").addClass("yellow-star");
+      $(".star3").addClass("yellow-star");
+    } else if (evaPoint >= 3) {
+      $(".star0").addClass("yellow-star");
+      $(".star1").addClass("yellow-star");
+      $(".star2").addClass("yellow-star");
+    } else if (evaPoint >= 2) {
+      $(".star0").addClass("yellow-star");
+      $(".star1").addClass("yellow-star");
+    } else if (evaPoint >= 1) {
+      $(".star0").addClass("yellow-star");
+    }
+  });
+</script>
+
