@@ -63,6 +63,10 @@ const CourseSchema = mongoose.Schema({
         type: String,
         default: ''
     },
+    status: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 const Course = mongoose.model('courses', CourseSchema);

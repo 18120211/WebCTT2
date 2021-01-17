@@ -527,3 +527,11 @@ table#videos tbody td {
 .hidden{
   display: none!important;
 }
+
+.choose_video{
+  margin-right:10px;
+}
+
+.level-2-category{
+  padding-left: 20px!important;
+}

@@ -47,7 +47,7 @@
                                         <tr>
                                             <td class="text-left"><a> <%=Course.name %></a></td>
                                             <td class="text-left"><a> <%=Course.numberOfStudent %></a></td>
-                                            <td class="text-left"><a> <%=Course.uploadDate %></a></td>
+                                            <td class="text-left"><a> <%=new Date(Course.uploadDate).toISOString().substr(0,10) %></a></td>
                                             <td class="text-left">
                                                 <input type="hidden" value="<%=Course._id %>">
                                                 <button class="btn btn-primary viewCourse">
@@ -91,7 +91,7 @@
                 }else{
                     alert("Xóa course thất bại");
                 }
-                window.location.href = "/admin/course/courseList";
+                window.location.href = "/admin/course/coursesList";
             });
         });
    });

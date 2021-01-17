@@ -45,7 +45,12 @@
                                   <tbody>
                                     <% data.Categories.forEach((Category) => { %>
                                         <tr>
-                                            <td class="text-left"><a> <%=Category.name %></a></td>
+                                            <% if(Category.idCourseCategory){ %> 
+                                                <td class="text-left level-2-category"><a> <%=Category.idCourseCategory.name %> --> <%=Category.name %> </a></td>
+                                            <% }else{ %>
+                                                <td class="text-left"><a>  <%=Category.name %> </a></td>
+                                            <% } %> 
+
                                             <td class="text-left"><a> <%=Category.numberOfView %></a></td>
                                             <td class="text-left"><a> <%=Category.numberOfSignUp %></a></td>
                                             <td class="text-left">
@@ -81,16 +86,35 @@
             window.location.href = "/admin/course/categoryEdit?id=" + id;
         });
 
+
+       
         $('.deleteCategory').on('click', function() {
+
             id = $(this).parent().find("input").val();
-            $.getJSON("/admin/course/categoryDelete?id=" + id ,function( json ) {
-                if(json === true){
-                    alert("Xóa Category thành công");
-                }else{
+            //check before delete
+            $.getJSON("/admin/course/categoryDelete-available?id=" + id,function( json ) {
+                if(json === 100){
+                    $.getJSON("/admin/course/categoryDelete?id=" + id ,function( json ) {
+                        if(json === true){
+                            alert("Xóa Category thành công");
+                        }else{
+                            alert("Xóa Category thất bại");
+                        }
+                        window.location.href = "/admin/course/categoryList";
+                    });
+                }
+                if(json === 301){
+                    alert("Vui lòng xóa hết category con");
+                }
+                if(json === 302){
+                    alert("Còn sản phẩm thuộc category này, không thể xóa");
+                }
+                if(json === 303){
                     alert("Xóa Category thất bại");
                 }
-                window.location.href = "/admin/course/categoryList";
             });
+          
+               
         });
         $('#addCategory').on('click', function() {
             window.location.href = "/admin/course/categoryAdd";
