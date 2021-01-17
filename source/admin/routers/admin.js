@@ -14,7 +14,7 @@ const Topic = require("../models/CourseTopic.model");
 
 const LocalUser = require("../models/LocalUser.model");
 
-
+const cloudinary = require("cloudinary").v2;
 
 const mongoose = require('mongoose');
 
@@ -193,25 +193,37 @@ router.get("/lecturer/lecturerDelete",ensureAuthenticated,async function (req, r
 });
 
 //route for Category
-router.get("/course/categoryList", ensureAuthenticated,  (req, res) => {
+router.get("/course/categoryList", ensureAuthenticated, async (req, res) => {
    
-  Category.find({}, function(err, Categories) {
-      let data = [];
-      let Categories_arr = [];
+  let data = [];
+  let CourseTopics_array = [];
+  let CourseCategories_array = [];
+  let Category_array = [];
 
-      Categories.forEach(function(Category) {
-
-        Categories_arr.push(Category);
-
-      });
-
-      data['Categories'] = Categories_arr;
-      data['title'] = "Danh sách Category";
-      res.render("admin/course/categoryList", {
-          user: req.user, data:data
-      })
+  CourseTopics_array = await Topic.find({}).populate('idCourseCategory').then(
+    (CourseTopics)=>{
+      if(CourseTopics){
+        return CourseTopics;
+      }
   });
 
+  CourseCategories_array = await Category.find({});
+  
+  CourseCategories_array.forEach((Category_item) => {
+    Category_array.push(Category_item);
+    CourseTopics_array.forEach((Topic_item) =>{
+      console.log(Topic_item.idCourseCategory._id +" - " +Category_item._id);
+      if(Topic_item.idCourseCategory._id.toString() == Category_item._id.toString()){
+        Category_array.push(Topic_item);
+      }
+    })
+  });
+  console.log(Category_array);
+  data['Categories'] = Category_array;
+  data['title'] = "Danh sách Category";
+  res.render("admin/course/categoryList", {
+      user: req.user, data:data
+  })
   
 });
 router.get("/course/categoryEdit",ensureAuthenticated, async function (req, res) {
@@ -219,13 +231,17 @@ router.get("/course/categoryEdit",ensureAuthenticated, async function (req, res)
 
   let category_info = await  Category.findById(req.query.id);;
   
+  if(!category_info){
+    category_info =  await  Topic.findById(req.query.id);;
+  }
+
   var Categories = await Category.find({});
 
   data["category_info"] = category_info;
 
   data["categories_option"] = Categories;
 
-  data["title"] = "Thông tin giảng viên";
+  data["title"] = "Thông tin Category";
   
   res.render("admin/course/categoryEdit",{
     user:req.user, data:data
@@ -244,8 +260,17 @@ router.post("/course/categoryEdit",ensureAuthenticated,async function (req, res)
     if(category){
       category.name = name;
       category.image = image;
-      category.parent = parent;
       category.save();
+    }else{
+      Topic.findById(id).then(async (topic)=>{
+        if(topic){
+          console.log("find topic");
+          topic.name = name;
+          topic.image = image;
+          topic.idCourseCategory = parent;
+          topic.save();
+        }
+      })
     }
   });
   res.redirect("/admin/course/categoryList");
@@ -271,18 +296,21 @@ router.post("/course/categoryAdd",ensureAuthenticated,async function (req, res) 
     name,
     image,
     parent,
-    id
   } = req.body;  
 
-  const newcategory = new Category({
-    name,
-    image,
-    parent,
-    id
-  });
-  newcategory.save().then(()=>{
-    console.log("Category save");
-  });
+
+  if(parent == 0){
+    const newcategory = new Category({
+      name,
+    });
+    newcategory.save();
+  }else{
+    const newTopic = new Topic({
+      name,
+      idCourseCategory:parent,
+    });
+    newTopic.save();
+  }
   res.redirect("/admin/course/categoryList");
 });
 router.get("/course/categoryDelete",ensureAuthenticated,async function (req, res) {
@@ -290,11 +318,45 @@ router.get("/course/categoryDelete",ensureAuthenticated,async function (req, res
     if(category){
       res.json(true);
     }else{
-      res.json(false);
+      Topic.findByIdAndDelete(req.query.id).then( async (Topic)=>{
+        if(Topic){
+          res.json(true);
+        }else{
+          res.json(false);
+        }
+      });
+    }
+  });
+  
+});
+
+router.get("/course/categoryDelete-available",ensureAuthenticated,async function (req, res) {
+  Category.findById(req.query.id).then( async (category)=>{
+    if(category){
+      const topic = await Topic.find({idCourseCategory:category._id});
+      console.log(topic);
+      if(topic.length > 0){
+        res.json(301);
+      }
+      else{
+        res.json(100);
+      }
+    }else{
+      Topic.findById(req.query.id).then( async (topic)=>{
+        if(topic){
+          const course = await Course.find({idCourseTopic:topic._id});
+          if(course.length > 0){
+            res.json(302);
+          }else{
+            res.json(100);
+          }
+        }else{
+          res.json(303);
+        }
+      });
     }
   });
 });
-
 
 //route for Student
 router.get("/student/studentsList", ensureAuthenticated,  (req, res) => {
@@ -381,13 +443,14 @@ router.get("/course/coursesList", ensureAuthenticated,  (req, res) => {
     Course.find({}, function(err, Courses) {
         let data = [];
         let Courses_arr = [];
-
-    
+        
         Courses.forEach(function(Course) {
 
             Courses_arr.push(Course);
 
         });
+        
+        data['title'] = "Danh sách khóa học";
 
         data['Courses'] = Courses_arr;
         
@@ -406,16 +469,15 @@ router.get("/course/courseEdit",ensureAuthenticated, async function (req, res) {
   data["title"] = "CHỈNH SỬA KHÓA HỌC";
   const CourseTopics_array = await Topic.find({}).populate('idCourseCategory').then(
     (CourseTopics)=>{
-      let CourseTopics_array = [];
       if(CourseTopics){
         return CourseTopics;
-      
       }
   });
   console.log("got into course edit");
   const Course_info = await  Course.findById(req.query.id);;
   
   data["course_info"] = Course_info;
+  console.log(Course_info);
   data["categories"] = CourseTopics_array;
   res.render("admin/course/courseEdit",{
     user:req.user, data:data
@@ -423,31 +485,53 @@ router.get("/course/courseEdit",ensureAuthenticated, async function (req, res) {
 });
 
 router.post("/course/courseEdit", ensureAuthenticated,  (req, res) => {
-    Admin.findOne({email:req.user.email}).then( async (user)=>{
-        if(user){
-            if( req.body.password !==""){
-              user.password =await bcrypt.hash(req.body.password, 10);
-            }
-            user.name = req.body.name;
-            user.gender = req.body.gender;
-            user.description = req.body.description;
-            user.avatar = req.body.avatar;
-            user.save();
+  const {
+    name,
+    lecture_id,
+    category,
+    number_of_video,
+    description,
+    what_you_learn,
+    id,
+    image,
+    videos,
+    status,
+  } = req.body;  
+
+
+  //add video
+  let courses_video = [];
+  if(videos){
+    videos.forEach((video) => {
+      console.log(video);
+        video_item = {
+          name: video.name,
+          source: video.href,
         }
+        courses_video.push(video_item);
     });
-    Lecturer.findOne({email:req.user.email}).then(async (user)=>{
-        if(user){
-            if( req.body.password !==""){
-              user.password = await bcrypt.hash(req.body.password, 10);
-            }
-            user.name = req.body.name;
-            user.gender = req.body.gender;
-            user.description = req.body.description;
-            user.avatar = req.body.avatar;
-            user.save();
-        }
+  }
+  
+
+  Course.findById(id).then((Course_finded)=>{
+    if(Course_finded){
+      Course_finded.name = name;
+      Course_finded.idLecturer = lecture_id;
+      Course_finded.idCourseTopic = category;
+      Course_finded.numberOfVideos = number_of_video;
+      Course_finded.description = description;
+      Course_finded.whatYoullLearn = what_you_learn;
+      Course_finded.whatYoullLearn = what_you_learn;
+      Course_finded.poster = image;
+      Course_finded.videos = courses_video;
+      Course_finded.status = status;
+
+      
+      Course_finded.save();
+      console.log("course saved");
+    } 
     });
-    res.redirect("/admin/account/edit");
+    res.redirect("/admin/course/coursesList");
 });
 
 router.get("/course/courseAdd",ensureAuthenticated,async function (req, res) {
@@ -479,6 +563,7 @@ router.post("/course/courseAdd",ensureAuthenticated,async function (req, res) {
     number_of_video,
     description,
     what_you_learn,
+    status,
   } = req.body;  
 
   const Course_new = new Course({
@@ -488,6 +573,7 @@ router.post("/course/courseAdd",ensureAuthenticated,async function (req, res) {
     numberOfVideos:number_of_video,
     description,
     whatYoullLearn:what_you_learn,
+    status,
   });
 
   Course_new.save().then(()=>{
@@ -497,7 +583,7 @@ router.post("/course/courseAdd",ensureAuthenticated,async function (req, res) {
 });
 
 router.get("/course/courseDelete",ensureAuthenticated,async function (req, res) {
-  LocalUser.findByIdAndDelete(req.query.id).then( async (student)=>{
+  Course.findByIdAndDelete(req.query.id).then( async (student)=>{
     if(student){
       res.json(true);
     }else{
@@ -611,7 +697,6 @@ router.post("/register",async function (req, res) {
 
 router.post('/upload', function (req, res) {
 
-  console.log("send fiel");
   
     folder_name = req.query.folder;
     // fs.mkdir(path.join(__dirname, '../public/avatar/'+req.query.id.toString()), () => {});
@@ -648,13 +733,38 @@ router.post('/upload', function (req, res) {
       if (err) {
         console.log(err);
       } else {
-        var link;
+        var avatar
         if(req.query.fileType =="video"){
-           link =  ('/public') + folder_name  + req.query.id.toString() + '/' + 'video.mp4';
+           avatar =  ('/public') + folder_name  + req.query.id.toString() + '/' + 'video.mp4';
+           const file_path = path.dirname(require.main.filename) + avatar;
+           cloudinary.uploader.upload(file_path, {
+            resource_type: "video",
+            public_id: req.query.folder_cloud + '/' +req.query.id.toString() + '/video.mp4',
+            chunk_size: 6000000,
+          },  function(error, result) {
+            if (error) {
+              // handle error
+            } else {
+              res.json(result.url);
+            }
+          });
         }else{
-           link =  ('/public') + folder_name  + req.query.id.toString() + '/' + 'avatar.png';
+           avatar =  ('/public') + folder_name  + req.query.id.toString() + '/' + 'avatar.png';
+           const file_path = path.dirname(require.main.filename) + avatar;
+           cloudinary.uploader.upload(file_path, {
+            public_id: req.query.folder_cloud + '/' +req.query.id.toString() + '/avatar.png',
+            chunk_size: 6000000,
+          },  function(error, result) {
+            if (error) {
+              // handle error
+            } else {
+              res.json(result.url);
+            }
+          });
         }
-        res.json(link);
+        
+
+        
       }
     });
   });

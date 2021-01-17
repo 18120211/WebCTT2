@@ -22,7 +22,7 @@
             <div class="page-header">
                 <div class="container-fluid">
                     <div class="pull-right">
-                        <button class="btn btn-primary" id="editcategory">
+                        <button class="btn btn-primary" id="Addcategory">
                             <i class="fa fa-save"></i>
                         </button>
                     </div>
@@ -30,46 +30,47 @@
                 </div>
             </div>
            
-            <div class="category-info">
-                <form action="" method="post" id="frmUpdateInfocategory">
-                    <div class="user-info">
-                        <div class="row">
-                            <div class="col-sm-4 image">
-                                <img src="/public/avatar/default/avatar.png" id="avatar-img">
-                                <div class="avatar-update">
-                                    <input type="file" name="file" id="file"/>
-                                    <input class="hidden" type="text" name="image" id="image" value="/public/avatar/default/avatar.png" />
-                                    <button class="btn btn-success" id="avartar-upload" > Thay ảnh Category </button>
-                                </div>
-                            </div>
-                            <div class="col-sm-8 info">
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Name:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="name" value="" >
+            <div class="category-info course-info">
+                <div class="container-fluid">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-pencil"></i> Thông tin category </h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="" method="post" id="frmUpdateInfocategory">
+                                <div class="course_info">
+                                    <div class="row tab-pane">    
+                                            <div class=" info">
+                                                <div class="form-group">
+                                                    <label class ="col-sm-2 control-label" for="my-input">Name:</label>
+                                                    <div class="col-sm-10">
+                                                        <input  class="form-control" type="text" name="name" value="" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group hidden">
+                                                    <label class ="col-sm-2 control-label" for="my-input">Name:</label>
+                                                    <div class="col-sm-10">
+                                                        <input  class="form-control" type="text" name="id" value="" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class ="col-sm-2 control-label" for="my-input">Parent:</label>
+                                                    <div class="col-sm-10">
+                                                        <select  class="form-control" type="text" name="parent">
+                                                        <option value="0" > None </option>
+                                                        <% data.categories_option.forEach((Category) => { %>
+                                                            <option value="<%=Category._id%>" selected="selected"> <%=Category.name%></option>
+                                                        <% }); %>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
-                                <div class="form-group hidden">
-                                    <label class ="col-sm-2 control-label" for="my-input">Name:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="id" value="" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Parent:</label>
-                                    <div class="col-sm-10">
-                                        <select  class="form-control" type="text" name="parent">
-                                        <option value="" > None </option>
-                                        <% data.categories_option.forEach((Category) => { %>
-                                            <option value="<%=Category._id%>" selected="selected"> <%=Category.name%></option>
-                                        <% }); %>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         
         </div>
@@ -114,24 +115,19 @@
             $('#file').trigger("click");
         });
         function validateForm(){
-            password =  $("input[name='password']").val();
-            re_password =  $("input[name='confirm']").val();
-            if(password!==re_password && password !== ""){
-                return "password and confirm is not match";
-            }
-            return "valid";
+            
         }
         $('#frmUpdateInfocategory').on('submit', function(e) {
-            e.preventDefault();
+            // e.preventDefault();
           
-            let check = validateForm();
-            if( check == "valid"){
-                $("#frmUpdateInfocategory").off("submit").submit();
-            }else{
-                alert(check);
-            }
+            // let check = validateForm();
+            // if( check == "valid"){
+            //     $("#frmUpdateInfocategory").off("submit").submit();
+            // }else{
+            //     alert(check);
+            // }
         });
-        $('#editcategory').on('click', function(e) {
+        $('#Addcategory').on('click', function(e) {
             $("#frmUpdateInfocategory").submit();
         });
    });

@@ -40,7 +40,7 @@
                     <div class="page-header">
                         <div class="container-fluid">
                             <div class="pull-right">
-                                <button class="btn btn-primary" id="editcategory">
+                                <button class="btn btn-primary" id="editCourse">
                                     <i class="fa fa-save"></i>
                                 </button>
                             </div>
@@ -56,7 +56,7 @@
                                     <h3 class="panel-title"><i class="fa fa-pencil"></i> Thông tin khóa học </h3>
                                 </div>
                                 <div class="panel-body">
-                                    <form action="" method="post" id="frmUpdateInfocategory">
+                                    <form action="" method="post" id="frmUpdateCourse">
                                         <div class="row tab-pane">
                                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                                 <li class="nav-item">
@@ -129,7 +129,7 @@
                                                                 <div class="col-sm-10">
                                                                     <select class="form-control" name="number_of_video">
                                                                         <% for (var i=1; i <=10; i++ ) { %>
-                                                                            <% if(data.course_info.numberOfVideos === i){  %> 
+                                                                            <% if(data.course_info.numberOfVideos == i){  %> 
                                                                             <option value="<%= i %> "
                                                                                 selected="selected">
                                                                                 <%= i %>
@@ -156,6 +156,7 @@
                                                                             id="image"
                                                                             value="<%= data.course_info.poster %>" />
                                                                         <button class="btn btn-success"
+                                                                            type="button"
                                                                             id="avartar-upload"> Thay
                                                                             ảnh Category </button>
                                                                     </div>
@@ -179,6 +180,20 @@
                                                                         name="what_you_learn"><%= data.course_info.whatYoullLearn %></textarea>
                                                                 </div>
                                                             </div>
+                                                            <div class="form-group ">
+                                                                <label class="col-sm-2 control-label" for="my-input">Status</label>
+                                                                <div class="col-sm-10">
+                                                                    <select class="form-control" type="text" name="status">
+                                                                        <% if(data.course_info.status===true){ %> 
+                                                                            <option value="1" selected="selected"> Enable</option>
+                                                                            <option value="0" > Disable</option>
+                                                                        <% }else{ %> 
+                                                                            <option value="1"> Enable</option>
+                                                                            <option value="0" selected="selected"> Disable</option>
+                                                                        <% }  %> 
+                                                                    </select>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
 
@@ -192,21 +207,15 @@
                                                                     class="table table-striped table-bordered table-hover">
                                                                     <thead>
                                                                         <tr>
-                                                                            <td class="text-center">
-                                                                                STT
-                                                                            </td>
                                                                             <td class="text-center">Video</td>
                                                                             <td class="text-center">Tên bài giảng</td>
                                                                             <td class="text-center">Actions</td>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <% var i=0 %>
-                                                                            <% for (var i=1; i <=10; i++ ) { %>
+                                                                        <% var i = 1 %>
+                                                                        <% data.course_info.videos.forEach((video)=> { %>
                                                                                 <tr id="videos-row-<%= i %>">
-                                                                                    <td class="text-center">
-                                                                                        <%= i %>
-                                                                                    </td>
                                                                                     <td class="text-center">
                                                                                         <div class="video">
                                                                                             <video id="my-video-<%= i %>"
@@ -215,8 +224,7 @@
                                                                                                 width="640"
                                                                                                 height="264">
                                                                                                 <source
-                                                                                                    id = "video-source-<%= i %>"
-                                                                                                    src="/public/video/beginerAdrDev/0.mp4"
+                                                                                                    src="<%= video.source  %>"
                                                                                                     type="video/mp4" />
                                                                                             </video>
                                                                                             <div class="avatar-update">
@@ -225,8 +233,9 @@
                                                                                                     />
                                                                                                 <input class="hidden"
                                                                                                     type="text"
-                                                                                                    name="videos[<%= i %>]['href']"
-                                                                                                    value="" />
+                                                                                                    name="videos[<%= i %>][href]"
+                                                                                                    value="<%= video.source  %>"
+                                                                                                    id = "video-link-<%= i %>" />
                                                                                                 <button
                                                                                                     type="button"
                                                                                                     class="btn btn-success choose_video"
@@ -246,19 +255,19 @@
                                                                                     </td>
                                                                                     <td class="text-center"><input
                                                                                             type="text"
-                                                                                            name="videos[<%= i %>]['name']"
-                                                                                            value=""
+                                                                                            name="videos[<%= i %>][name]"
+                                                                                            value="<%= video.name  %>"
                                                                                             class="form-control" /></td>
                                                                                     <td class="text-center"><button
                                                                                             type="button"
                                                                                             onclick="$('#videos-row-<%= i %>').remove();"
                                                                                             data-toggle="tooltip"
-                                                                                            title="<?php echo $button_remove; ?>"
                                                                                             class="btn btn-danger"><i
                                                                                                 class="fa fa-minus-circle"></i></button>
                                                                                     </td>
                                                                                 </tr>
-                                                                                <% } %>
+                                                                                <% i++ %>
+                                                                                <% }); %>
                                                                     </tbody>
                                                                     <tfoot>
                                                                         <tr>
@@ -291,45 +300,42 @@
 
 </body>
 <script>
-    $(document).ready(function () {
 
-
-        //for upload video
-        $('.choose_video').on('click', function () {
-            $(this).parent().find("input[name='file']").trigger("click");
-        })
-        $('[id^="upload_video_"]').on('click', function () {
+        $(document).on('click','[id^="upload_video_"]', function () {
             //get id 
             var upload_video_id = $(this).attr('id');
-            upload_video_id = upload_video_id.substr(13,1);
-
+            upload_video_id = upload_video_id.slice(13,upload_video_id.length);
             var fd = new FormData();
             var files = $(this).parent().find("input[name='file']")[0].files;
             var folder = "/video/";
             var id =  $("input[name='id']").val();
+            var folder_cloud = "nmcnpmctt2/video";
             // Check file selected or not
             if (files.length > 0) {
                 fd.append('file', files[0]);
 
                 $.ajax({
-                    url: '/admin/upload?&fileType=video&id=' + id + '&folder=' + folder,
+                    url: '/admin/upload?&fileType=video&id=' + id + '&folder=' + folder+ '&folder_cloud=' + folder_cloud,
                     type: 'post',
                     data: fd,
                     contentType: false,
                     processData: false,
                     success: function (response) {
                         if (response) {
+
                             var timestamp = new Date().getTime();
                             var video = document.getElementById("video-source-"+upload_video_id);
                             var el =  document.getElementById("video-source-"+upload_video_id);
                             var source = document.createElement('source');
                             source.setAttribute('src', response);
 
-                            video.appendChild(source);
-                            el.src = response ;
-                            // video.play();
-                           console.log( document.getElementById('my-video-'+upload_video_id).attr('id'));
-                            $("input#avatar").val(response);
+                            video_source = "#my-video-"+upload_video_id;
+                            $(video_source + ' source').attr('src', response);
+                            $(video_source)[0].load();
+                            //get name of video
+                            var name = "videos["+ upload_video_id +"]['href']";
+                            $("#video-link-"+upload_video_id).val(response);
+                            alert("upload video success");
                         } else {
                             alert('file not uploaded');
                         }
@@ -339,41 +345,52 @@
                 alert("Please select a file.");
             }
         });
+    $(document).ready(function () {
+        //for upload video
+        $(document).on('click','.choose_video',function(){
+            $(this).parent().find("input[name='file']").trigger("click");
+        });
+        $('#editCourse').on('click', function () {
+            $("#frmUpdateCourse").submit();
+        })
+       
 
         // //upload image
-        // $('#avartar-upload').on('click', function () {
-        //     var fd = new FormData();
-        //     var files = $('#file')[0].files;
+        $('#avartar-upload').on('click', function () {
+            var fd = new FormData();
+            var files = $('#file')[0].files;
+            var folder = "/poster/";
+            var id =  $("input[name='id']").val();
+            var folder_cloud = "nmcnpmctt2/poster";
+            // Check file selected or not
+            if (files.length > 0) {
+                fd.append('file', files[0]);
 
-        //     // Check file selected or not
-        //     if (files.length > 0) {
-        //         fd.append('file', files[0]);
-
-        //         $.ajax({
-        //             url: '/admin/upload',
-        //             type: 'post',
-        //             data: fd,
-        //             contentType: false,
-        //             processData: false,
-        //             success: function (response) {
-        //                 if (response) {
-        //                     var timestamp = new Date().getTime();
-        //                     var el = document.getElementById("avatar-img");
-        //                     el.src = response + "?t=" + timestamp;
-        //                     $("input#avatar").val(response);
-        //                 } else {
-        //                     alert('file not uploaded');
-        //                 }
-        //             },
-        //         });
-        //     } else {
-        //         alert("Please select a file.");
-        //     }
-        //     return false;
-        // });
-        // $('#avatar-img').on('click', function () {
-        //     $('#file').trigger("click");
-        // });
+                $.ajax({
+                    url: '/admin/upload?&fileType=image&id=' + id + '&folder='+ '&folder_cloud=' + folder_cloud,
+                    type: 'post',
+                    data: fd,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response) {
+                            var timestamp = new Date().getTime();
+                            var el = document.getElementById("avatar-img");
+                            el.src = response + "?t=" + timestamp;
+                            $("input#image").val(response);
+                        } else {
+                            alert('file not uploaded');
+                        }
+                    },
+                });
+            } else {
+                alert("Please select a file.");
+            }
+            return false;
+        });
+        $('#avatar-img').on('click', function () {
+            $('#file').trigger("click");
+        });
 
     
         $('.summernote').summernote({
@@ -381,6 +398,39 @@
             height: 400
         });
     });
+
+
+
+    var i = 100 ;
+    function addImage(){
+        var html = '<tr id="videos-row-'+ i + '">';
+        html += '<td class="text-center">';
+            html += '<div class="video">';
+                html += '<video id="my-video-'+ i +'" class="video-js video" controls preload="auto" width="640" height="264">';
+                html += '  <source src="/public/video/beginerAdrDev/0.mp4" type="video/mp4" />';
+                html += '</video>';
+            html += '</div>';
+            html += '<div class="avatar-update">';
+                html += '<input  type="file" class="hidden" name="file" />';
+                html += '<input  class="hidden" type="text" name="videos['+ i +'][href]"  id = "video-link-'+ i +'">';
+                html += '<button type="button" class="btn btn-success choose_video"> Chọn video </button>';
+                html += '<button type="button" class="btn btn-success " id = "upload_video_'+i+'"> Upload video  </button>';
+            html += '</div>';
+        html +=  '</td>';
+
+        html += '<td class="text-center">';
+            html += '<input type="text" name="videos['+i+'][name]" value="" class="form-control" />';
+        html +=  '</td>';
+
+        html += '<td class="text-center">';
+            html += `<button type="button"  onclick="$('#videos-row-`+ i +`').remove();" data-toggle="tooltip"  class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>`;
+        html +=  '</td>'; 
+      
+        html +=  '</tr>';
+      
+        $('tbody').append(html);
+        i++;
+    }
 </script>
 <style>
     /*fix dropdown*/

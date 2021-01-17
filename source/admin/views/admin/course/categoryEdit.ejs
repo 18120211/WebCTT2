@@ -31,49 +31,61 @@
             </div>
             <% if (data.category_info) { %>
             <div class="category-info">
-                <form action="" method="post" id="frmUpdateInfocategory">
-                    <div class="user-info">
-                        <div class="row">
-                            <div class="col-sm-4 image">
-                                <img src="<%=data.category_info.image%>" id="avatar-img">
-                                <div class="avatar-update">
-                                    <input type="file" name="file" id="file"/>
-                                    <input class="hidden" type="text" name="image" id="image" value="<%=data.category_info.image%>" />
-                                    <button class="btn btn-success" id="avartar-upload" > Thay avatar </button>
+                <div class="container-fluid">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-pencil"></i> Thông tin category </h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="" method="post" id="frmUpdateInfocategory">
+                                <div class="course-info">
+                                        <div class=" info">
+                                            <div class="form-group">
+                                                <label class ="col-sm-2 control-label" for="my-input">Name:</label>
+                                                <div class="col-sm-10">
+                                                    <input  class="form-control" type="text" name="name" value="<%=data.category_info.name%>" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group hidden">
+                                                <label class ="col-sm-2 control-label" for="my-input">Name:</label>
+                                                <div class="col-sm-10">
+                                                    <input  class="form-control" type="text" name="id" value="<%=data.category_info._id%>" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class ="col-sm-2 control-label" for="my-input">Parent:</label>
+                                                <div class="col-sm-10">
+                                                    <select  class="form-control" type="text" name="parent">
+                                                    <option value="" > None </option>
+                                                    <% data.categories_option.forEach((Category) => { %>
+                                                        <%if (data.category_info.parent == Category._id) { %>
+                                                            <option value="<%=Category._id%>" selected="selected"> <%=Category.name%></option>
+                                                        <% }else{ %>
+                                                            <option value="<%=Category._id%>" > <%=Category.name%></option>
+                                                        <% } %>
+                                                    <% }); %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group image">
+                                                <label class ="col-sm-2 control-label" for="my-input">Ảnh category:</label>
+                                                <div class="col-sm-10">
+                                                    <img src="<%=data.category_info.image%>" id="avatar-img">
+                                                    <div class="avatar-update">
+                                                        <input type="file" name="file" id="file"/>
+                                                        <input class="hidden" type="text" name="image" id="image" value="<%=data.category_info.image%>" />
+                                                        <button class="btn btn-success" id="avartar-upload" > Thay ảnh Category </button>
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    
                                 </div>
-                            </div>
-                            <div class="col-sm-8 info">
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Name:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="name" value="<%=data.category_info.name%>" >
-                                    </div>
-                                </div>
-                                <div class="form-group hidden">
-                                    <label class ="col-sm-2 control-label" for="my-input">Name:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="id" value="<%=data.category_info._id%>" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Parent:</label>
-                                    <div class="col-sm-10">
-                                        <select  class="form-control" type="text" name="parent">
-                                        <option value="" > None </option>
-                                        <% data.categories_option.forEach((Category) => { %>
-                                            <%if (data.category_info.parent == Category._id) { %>
-                                                <option value="<%=Category._id%>" selected="selected"> <%=Category.name%></option>
-                                            <% }else{ %>
-                                                <option value="<%=Category._id%>" > <%=Category.name%></option>
-                                            <% } %>
-                                        <% }); %>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
             <% } %>
         </div>
@@ -88,11 +100,12 @@
             var files = $('#file')[0].files;
             var id =  $("input[name='id']").val();
             var folder = "/image/category/";
+            var folder_cloud = "nmcnpmctt2/poster";
             // Check file selected or not
             if(files.length > 0 ){
             fd.append('file',files[0]);
             $.ajax({
-                url: '/admin/upload?&id=' + id + '&folder=' + folder,
+                url: '/admin/upload?&fileType=image&id=' + id + '&folder='+ '&folder_cloud=' + folder_cloud,
                 type: 'post',
                 data: fd,
                 contentType: false,
@@ -103,6 +116,7 @@
                         var el = document.getElementById("avatar-img");     
                         el.src = response +"?t=" + timestamp; 
                         $("input#image").val(response);
+                        alert("upload image success!")
                     }else{
                         alert('file not uploaded');
                     }
