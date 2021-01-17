@@ -130,6 +130,7 @@ router.post("/lecturer/lecturerEdit",ensureAuthenticated,async function (req, re
     password,
     description,
     avatar, 
+    status,
   } = req.body; 
 
   Lecturer.findById(id).then(async (user)=>{
@@ -141,6 +142,8 @@ router.post("/lecturer/lecturerEdit",ensureAuthenticated,async function (req, re
         user.gender = req.body.gender;
         user.description = req.body.description;
         user.avatar = req.body.avatar;
+        user.status = req.body.status;
+
         user.save();
     }
   });
@@ -164,6 +167,7 @@ router.post("/lecturer/lecturerAdd",ensureAuthenticated,async function (req, res
     gender,
     password,
     description,
+    status
   } = req.body; 
 
     const newLecturer = new Lecturer({
@@ -172,6 +176,7 @@ router.post("/lecturer/lecturerAdd",ensureAuthenticated,async function (req, res
       name,
       gender,
       description,
+      status,
     });
 
     newLecturer.password =  await bcrypt.hash(newLecturer.password, 10);
@@ -413,6 +418,7 @@ router.post("/student/studentEdit",ensureAuthenticated, async function (req, res
     avatar, 
     name,
     password,
+    status,
   } = req.body; 
 
   LocalUser.findById(id).then(async (user)=>{
@@ -424,6 +430,8 @@ router.post("/student/studentEdit",ensureAuthenticated, async function (req, res
         user.gender = req.body.gender;
         user.description = req.body.description;
         user.avatar = req.body.avatar;
+        user.status = req.body.status;
+
         user.save();
     }
   });
@@ -450,6 +458,7 @@ router.post("/student/studentAdd",ensureAuthenticated,async function (req, res) 
     name,
     gender,
     password,
+    status
   } = req.body;  
 
   const newstudent = new LocalUser({
@@ -457,6 +466,7 @@ router.post("/student/studentAdd",ensureAuthenticated,async function (req, res) 
     name,
     gender,
     password,
+    status
   });
 
   newstudent.save().then(()=>{
