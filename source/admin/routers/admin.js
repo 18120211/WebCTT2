@@ -38,9 +38,7 @@ const {
 
 
 router.get("/homepage", ensureAuthenticated,  (req, res) => {
-  res.render("admin/common/home", {
-    user: req.user,
-  })
+  res.redirect("/admin/course/coursesList");
 });
 
 router.get("/account/edit", ensureAuthenticated,  (req, res) => {
@@ -152,7 +150,7 @@ router.get("/lecturer/lecturerAdd",ensureAuthenticated, function (req, res) {
   
       let data = [];
 
-      data["title"] = "Thông tin giảng viên";
+      data["title"] = "Thêm giảng viên";
       
       res.render("admin/lecturer/lecturerAdd",{
         user:req.user, data:data
@@ -212,13 +210,11 @@ router.get("/course/categoryList", ensureAuthenticated, async (req, res) => {
   CourseCategories_array.forEach((Category_item) => {
     Category_array.push(Category_item);
     CourseTopics_array.forEach((Topic_item) =>{
-      console.log(Topic_item.idCourseCategory._id +" - " +Category_item._id);
       if(Topic_item.idCourseCategory._id.toString() == Category_item._id.toString()){
         Category_array.push(Topic_item);
       }
     })
   });
-  console.log(Category_array);
   data['Categories'] = Category_array;
   data['title'] = "Danh sách Category";
   res.render("admin/course/categoryList", {
@@ -357,7 +353,22 @@ router.get("/course/categoryDelete-available",ensureAuthenticated,async function
     }
   });
 });
-
+router.get("/course/categoryEdit-available",ensureAuthenticated,async function (req, res) {
+  Category.findById(req.query.id).then( async (category)=>{
+    if(category){
+      const topic = await Topic.find({idCourseCategory:category._id});
+      console.log(topic);
+      if(topic.length > 0){
+        res.json(301);
+      }
+      else{
+        res.json(100);
+      }
+    }else{
+      res.json(100);
+    }
+  });
+});
 //route for Student
 router.get("/student/studentsList", ensureAuthenticated,  (req, res) => {
    
@@ -393,6 +404,35 @@ router.get("/student/studentEdit",ensureAuthenticated, async function (req, res)
   res.render("admin/student/studentEdit",{
     user:req.user, data:data
   });
+});
+
+router.post("/student/studentEdit",ensureAuthenticated, async function (req, res) {
+  const {
+    id,
+    gender,
+    avatar, 
+    name,
+    password,
+  } = req.body; 
+
+  LocalUser.findById(id).then(async (user)=>{
+    if(user){
+        if( password !==""){
+          user.password = await bcrypt.hash(req.body.password, 10);
+        }
+        user.name = req.body.name;
+        user.gender = req.body.gender;
+        user.description = req.body.description;
+        user.avatar = req.body.avatar;
+        user.save();
+    }
+  });
+  res.redirect("/admin/student/studentsList");
+
+
+
+  
+  
 });
 
 router.get("/student/studentAdd",ensureAuthenticated,async function (req, res) {
@@ -438,26 +478,62 @@ router.get("/student/studentDelete",ensureAuthenticated,async function (req, res
 
 
 //route for Courses
-router.get("/course/coursesList", ensureAuthenticated,  (req, res) => {
-   
-    Course.find({}, function(err, Courses) {
-        let data = [];
-        let Courses_arr = [];
-        
-        Courses.forEach(function(Course) {
+router.get("/course/coursesList", ensureAuthenticated, async  (req, res) => {
+  let data = [];
+  let Courses_arr = [];
+  
+  console.log(req.query.lecture_filter);
+  console.log(req.query.category_filter);
 
-            Courses_arr.push(Course);
+  if(req.user.name == "admin"){
+    Courses_arr  = await Course.find();
+    if(req.query.lecture_filter){
+      Courses_arr  = await Course.find({idLecturer:req.query.lecture_filter});
+    }
+    if(req.query.category_filter){
+      Courses_arr  = await Course.find({idCourseTopic:req.query.category_filter});
+    }
+    if(req.query.lecture_filter && req.query.category_filter){
+      Courses_arr  = await Course.find({idLecturer:req.query.lecture_filter,idCourseTopic:req.query.category_filter});
+    }
+    
+  }else{
+    Courses_arr  = await Course.find({idLecturer:req.user._id});
+  }
 
-        });
-        
-        data['title'] = "Danh sách khóa học";
+  console.log(Courses_arr);
+  
+  const CourseTopics_array = await Topic.find({}).populate('idCourseCategory').then(
+    (CourseTopics)=>{
+      if(CourseTopics){
+        return CourseTopics;
+      }
+  });
+  data['CourseTopics_array'] = CourseTopics_array;
 
-        data['Courses'] = Courses_arr;
-        
-        res.render("admin/course/coursesList", {
-            user: req.user, data:data
-        })
-    });
+
+  const Lecturers_array = await Lecturer.find({}).then(
+    (Lecturer_arr)=>{
+      if(Lecturer_arr){
+        return Lecturer_arr;
+      }
+  });
+
+  data['Lecturers_array'] = Lecturers_array;
+
+  data['title'] = "Danh sách khóa học";
+  
+  data['category_filter'] =req.query.category_filter;
+  data['lecture_filter'] =req.query.lecture_filter;
+
+  data['title'] = "Danh sách khóa học";
+
+  data['Courses'] = Courses_arr;
+  
+  res.render("admin/course/coursesList", {
+      user: req.user, data:data
+  })
+  
 
     
 });
@@ -473,9 +549,8 @@ router.get("/course/courseEdit",ensureAuthenticated, async function (req, res) {
         return CourseTopics;
       }
   });
-  console.log("got into course edit");
   const Course_info = await  Course.findById(req.query.id);;
-  
+
   data["course_info"] = Course_info;
   console.log(Course_info);
   data["categories"] = CourseTopics_array;
@@ -484,7 +559,7 @@ router.get("/course/courseEdit",ensureAuthenticated, async function (req, res) {
   });
 });
 
-router.post("/course/courseEdit", ensureAuthenticated,  (req, res) => {
+router.post("/course/courseEdit", ensureAuthenticated, async (req, res) => {
   const {
     name,
     lecture_id,
@@ -501,19 +576,19 @@ router.post("/course/courseEdit", ensureAuthenticated,  (req, res) => {
 
   //add video
   let courses_video = [];
+  console.log(videos);
   if(videos){
     videos.forEach((video) => {
-      console.log(video);
         video_item = {
           name: video.name,
           source: video.href,
         }
         courses_video.push(video_item);
+
     });
   }
-  
-
-  Course.findById(id).then((Course_finded)=>{
+   Course.findById(id).then((Course_finded)=>{
+     console.log(Course_finded);
     if(Course_finded){
       Course_finded.name = name;
       Course_finded.idLecturer = lecture_id;
@@ -521,12 +596,10 @@ router.post("/course/courseEdit", ensureAuthenticated,  (req, res) => {
       Course_finded.numberOfVideos = number_of_video;
       Course_finded.description = description;
       Course_finded.whatYoullLearn = what_you_learn;
-      Course_finded.whatYoullLearn = what_you_learn;
       Course_finded.poster = image;
       Course_finded.videos = courses_video;
       Course_finded.status = status;
 
-      
       Course_finded.save();
       console.log("course saved");
     } 
@@ -577,9 +650,9 @@ router.post("/course/courseAdd",ensureAuthenticated,async function (req, res) {
   });
 
   Course_new.save().then(()=>{
-    console.log("student save");
+    console.log("course save");
+    res.redirect("/admin/course/courseEdit?id="+Course_new._id);
   });
-  res.redirect("/admin/course/courseEdit?id="+Course_new._id);
 });
 
 router.get("/course/courseDelete",ensureAuthenticated,async function (req, res) {

@@ -30,61 +30,75 @@
                 </div>
             </div>
             <% if (data.student_info) { %>
-            <div class="student-info">
-                <form action="" method="post" id="frmUpdateInfostudent">
-                    <div class="user-info">
-                        <div class="row">
-                            <div class="col-sm-4 image">
-                                <img src="<%=data.student_info.avatar%>" id="avatar-img">
-                                <div class="avatar-update">
-                                    <input type="file" name="file" id="file"/>
-                                    <input type="text" name="avatar" id="avatar" value="<%=data.student_info.avatar%>" />
-                                    <button class="btn btn-success" id="avartar-upload" > Thay avatar </button>
-                                </div>
-                            </div>
-                            <div class="col-sm-8 info">
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Name:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="name" value="<%=data.student_info.name%>" >
+            <div class="student-info course-info">
+                <div class="container-fluid">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-pencil"></i> Thông tin học viên </h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="" method="post" id="frmUpdateInfostudent">
+                                <div class="sutdent-info">
+                                    <div class="row">
+                                        <div class="info">
+                                            <div class="form-group">
+                                                <label class ="col-sm-2 control-label" for="my-input">Name:</label>
+                                                <div class="col-sm-10">
+                                                    <input  class="form-control" type="text" name="name" value="<%=data.student_info.name%>" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group hidden">
+                                                <label class ="col-sm-2 control-label" for="my-input">Email:</label>
+                                                <div class="col-sm-10">
+                                                    <input  class="form-control" type="text" name="id" value="<%=data.student_info.id%>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class ="col-sm-2 control-label" for="my-input">Gender:</label>
+                                                <div class="col-sm-10">
+                                                    <select  class="form-control" type="text" name="gender">
+                                                        <%if (data.student_info.gender == "nam") { %>
+                                                            <option value="nam" selected="selected"> Nam</option>
+                                                            <option value="nữ"> Nữ</option>
+                                                        <% }else{ %>
+                                                            <option value="nam" > Nam</option>
+                                                            <option value="nữ"  selected="selected"> Nữ</option>
+                                                        <% } %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group image">
+                                                <label class ="col-sm-2 control-label" for="my-input">Ảnh đại diện:</label>
+                                                <div class="col-sm-10">
+                                                    <img src="<%=data.student_info.avatar%>" id="avatar-img">
+                                                    <div class="avatar-update">
+                                                        <input type="file" name="file" id="file"/>
+                                                        <input type="text" name="avatar" id="avatar" value="<%=data.student_info.avatar%>" />
+                                                        <button type="button" class="btn btn-success" id="avartar-upload" > Thay avatar </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class ="col-sm-2 control-label" for="my-input">Password:</label>
+                                                <div class="col-sm-10">
+                                                    <input  class="form-control" type="password" name="password" value="" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class ="col-sm-2 control-label" for="my-input">Confirm:</label>
+                                                <div class="col-sm-10">
+                                                    <input  class="form-control" type="password" name="confirm" value="" >
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group hidden">
-                                    <label class ="col-sm-2 control-label" for="my-input">Email:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="text" name="id" value="<%=data.student_info.id%>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Gender:</label>
-                                    <div class="col-sm-10">
-                                        <select  class="form-control" type="text" name="gender">
-                                            <%if (data.student_info.gender == "nam") { %>
-                                                <option value="nam" selected="selected"> Nam</option>
-                                                <option value="nữ"> Nữ</option>
-                                            <% }else{ %>
-                                                <option value="nam" > Nam</option>
-                                                <option value="nữ"  selected="selected"> Nữ</option>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Password:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="password" name="password" value="" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class ="col-sm-2 control-label" for="my-input">Confirm:</label>
-                                    <div class="col-sm-10">
-                                        <input  class="form-control" type="password" name="confirm" value="" >
-                                    </div>
-                                </div>
-                            </div>
+                            </form> 
                         </div>
                     </div>
-                </form>
+                </div>
+              
+                
             </div>
             <% } %>
         </div>
@@ -99,11 +113,12 @@
             var files = $('#file')[0].files;
             var id =  $("input[name='id']").val();
             var folder = "/image/student/";
+            var folder_cloud = "webctt2/student";
             // Check file selected or not
             if(files.length > 0 ){
             fd.append('file',files[0]);
             $.ajax({
-                url: '/admin/upload?&id=' + id + '&folder=' + folder,
+                url: '/admin/upload?&fileType=image&id=' + id + '&folder='+ '&folder_cloud=' + folder_cloud,
                 type: 'post',
                 data: fd,
                 contentType: false,

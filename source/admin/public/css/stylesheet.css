@@ -113,7 +113,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-#loginForm input[type=text] {
+#loginForm input[type=text],input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -134,7 +134,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   border-radius: 5px 5px 5px 5px;
 }
 
-#loginForm input[type=text]:focus {
+#loginForm input[type=text],input[type=password]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
@@ -534,4 +534,37 @@ table#videos tbody td {
 
 .level-2-category{
   padding-left: 20px!important;
+}
+
+.filter{
+  margin-bottom: 10px;
+  border: 1px dashed #030303;
+  margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.filter .form-group{
+  border:0px!important;
+}
+
+.text-left-filter{
+  padding-right:10px;
+  float:left!important;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.text-left-filter.title{
+  font-size: 20px;
+  text-decoration-line:underline;
+  margin-bottom: 20px;
+}
+
+.button-filter{
+  width: 20px;;
+}
+
+.button-filter button{
+  padding: 7px 20px;
 }

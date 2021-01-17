@@ -15,6 +15,10 @@ const CourseTopicSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    image : {
+        type: String,
+        default: '/public/avatar/default/avatar.png'
+    },
     idCourseCategory: {
         type: mongoose.Schema.ObjectId,
         ref: 'coursecategories'

@@ -60,18 +60,18 @@
                                         <div class="row tab-pane">
                                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                                 <li class="nav-item">
-                                                    <a class="nav-link " id="pills-home-tab" data-toggle="pill"
+                                                    <a class="nav-link active " id="pills-home-tab" data-toggle="pill"
                                                         href="#pills-home" role="tab" aria-controls="pills-home"
                                                         aria-selected="true">Thông tin khóa học</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" id="pills-profile-tab" data-toggle="pill"
+                                                    <a class="nav-link " id="pills-profile-tab" data-toggle="pill"
                                                         href="#pills-profile" role="tab" aria-controls="pills-profile"
                                                         aria-selected="false">Danh sách bài giảng</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content" id="pills-tabContent">
-                                                <div class="tab-pane fade show " id="pills-home" role="tabpanel"
+                                                <div class="tab-pane fade show active " id="pills-home" role="tabpanel"
                                                     aria-labelledby="pills-home-tab">
 
                                                     <div class="row">
@@ -83,6 +83,7 @@
                                                                         value="<%=user._id%>">
                                                                 </div>
                                                             </div>
+                                                            <%  %> 
                                                             <div class="form-group hidden">
                                                                 <label class="col-sm-2 control-label" for="my-input">ID</label>
                                                                 <div class="col-sm-10">
@@ -106,7 +107,7 @@
                                                                     <select class="form-control" type="text"
                                                                         name="category">
                                                                         <% data.categories.forEach((category)=> { %>
-                                                                            <% if(data.course_info.idCourseTopic === category._id){  %> 
+                                                                            <% if(data.course_info.idCourseTopic.toString() === category._id.toString()){  %> 
                                                                                 <option value="<%=category._id%>"
                                                                                     selected="selected">
                                                                                     <%=category.idCourseCategory.name%> -->
@@ -198,7 +199,7 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
+                                                <div class="tab-pane fade " id="pills-profile" role="tabpanel"
                                                     aria-labelledby="pills-profile-tab">
                                                     <div class="upload_video">
                                                         <div class="form-group">
@@ -309,7 +310,7 @@
             var files = $(this).parent().find("input[name='file']")[0].files;
             var folder = "/video/";
             var id =  $("input[name='id']").val();
-            var folder_cloud = "nmcnpmctt2/video";
+            var folder_cloud = "webctt2/course_video";
             // Check file selected or not
             if (files.length > 0) {
                 fd.append('file', files[0]);
@@ -361,7 +362,7 @@
             var files = $('#file')[0].files;
             var folder = "/poster/";
             var id =  $("input[name='id']").val();
-            var folder_cloud = "nmcnpmctt2/poster";
+            var folder_cloud = "webctt2/course_image";
             // Check file selected or not
             if (files.length > 0) {
                 fd.append('file', files[0]);
@@ -401,7 +402,7 @@
 
 
 
-    var i = 100 ;
+    var i = 15 ;
     function addImage(){
         var html = '<tr id="videos-row-'+ i + '">';
         html += '<td class="text-center">';
@@ -412,14 +413,14 @@
             html += '</div>';
             html += '<div class="avatar-update">';
                 html += '<input  type="file" class="hidden" name="file" />';
-                html += '<input  class="hidden" type="text" name="videos['+ i +'][href]"  id = "video-link-'+ i +'">';
+                html += '<input  class="hidden" value="https://res.cloudinary.com/teamwebctt2/video/upload/v1610865496/webctt2/course_video/default/videoplayback_az8wk0.mp4" type="text" name="videos['+ i +'][href]"  id = "video-link-'+ i +'">';
                 html += '<button type="button" class="btn btn-success choose_video"> Chọn video </button>';
                 html += '<button type="button" class="btn btn-success " id = "upload_video_'+i+'"> Upload video  </button>';
             html += '</div>';
         html +=  '</td>';
 
         html += '<td class="text-center">';
-            html += '<input type="text" name="videos['+i+'][name]" value="" class="form-control" />';
+            html += '<input type="text" name="videos['+ i +'][name]" value="Tên bài giảng" class="form-control" />';
         html +=  '</td>';
 
         html += '<td class="text-center">';

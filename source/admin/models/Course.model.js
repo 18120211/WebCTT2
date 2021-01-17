@@ -4,7 +4,6 @@ const CourseSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true
     },
     poster: {
         type: String,

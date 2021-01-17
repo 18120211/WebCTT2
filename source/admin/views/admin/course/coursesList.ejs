@@ -29,6 +29,60 @@
                     <h2><%= data.title %></h2>
                 </div>
             </div>
+            <% if(user.email=="admin"){ %> 
+            <div class="filter-wrap center">
+                <div class="text-center filter col-sm-10" >
+                    <div class=" center ">
+                        <div class="row course-info">
+                            <label for="my-input" class="text-left-filter title ">Bộ Lọc</label>
+                            <div class="form-group col-sm-5  course-detail">
+                                <label for="my-input" class="text-left-filter">Category:</label>
+                                <select name="category_filter"  class="form-control " id="">
+                                    <option value> None </option>
+                                    <%  data.CourseTopics_array.forEach((Category) => { %>
+                                        <% if(data.category_filter){ %> 
+                                            <% if(data.category_filter.toString() == Category._id.toString()){%> 
+                                                <option value="<%=Category._id %>" selected="selected"> <%=Category.idCourseCategory.name %> --> <%=Category.name %> </option>
+                                            <% }else{ %> 
+                                                <option value="<%=Category._id %>"> <%=Category.idCourseCategory.name %> --> <%=Category.name %> </option>
+
+                                            <% } %> 
+                                        <% }else{ %> 
+                                            <option value="<%=Category._id %>"> <%=Category.idCourseCategory.name %> --> <%=Category.name %> </option>
+
+                                        <% } %> 
+                                    <% }) %> 
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label  class="text-left-filter" for="my-input">Lecturer:</label>
+                                    <select name="lecturer_filter" class="form-control">
+                                        <option value=> None </option>
+                                        <%  data.Lecturers_array.forEach((Lecturer) => { %>
+                                            <% if(data.lecture_filter){ %> 
+                                                <% if(data.lecture_filter.toString() == Lecturer._id.toString()){%> 
+                                                    <option value="<%=Lecturer._id %>" selected="selected"> <%=Lecturer.name %> </option>
+                                                <% }else{ %> 
+                                                    <option value="<%=Lecturer._id %>" > <%=Lecturer.name %> </option>
+                                                <% } %> 
+                                            <% }else{ %> 
+                                                    <option value="<%=Lecturer._id %>" > <%=Lecturer.name %> </option>
+                                            <% } %> 
+                                        <% }) %> 
+                                    </select>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-2 button-filter">
+                                <button class="btn btn-success" id="filter_course">
+                                    <i class="fa fa-filter"></i>
+                                    Lọc
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %> 
             <% if (data.Courses) { %>
                 <div class="Courses_list text-center">
                     <div class="col-sm-10 center ">
@@ -38,17 +92,28 @@
                                     <tr>
                                       <td class="text-left"><a>Tên khóa học</a></td>
                                       <td class="text-left">Số học sinh</td>
+                                      <td class="text-left">Tình trạng</td>
                                       <td class="text-left"><a>Ngày đăng</a></td>
                                       <td class="text-left"><a>Action</a></td>
                                     </tr>
                                   </thead>
                                   <tbody>
+                                    <% if(data.Courses.length >0){ %> 
                                     <% data.Courses.forEach((Course) => { %>
                                         <tr>
                                             <td class="text-left"><a> <%=Course.name %></a></td>
                                             <td class="text-left"><a> <%=Course.numberOfStudent %></a></td>
-                                            <td class="text-left"><a> <%=new Date(Course.uploadDate).toISOString().substr(0,10) %></a></td>
                                             <td class="text-left">
+                                                <% if(Course.numberOfVideos > Course.videos.length){ %> 
+                                                    Đang tiến hành
+                                                <% }else{ %> 
+                                                    Hoàn thành
+                                                <% }%> 
+
+                                            </td>
+                                            <td class="text-center"><a> <%=new Date(Course.uploadDate).toISOString().substr(0,10) %></a></td>
+                                           
+                                            <td class="text-center">
                                                 <input type="hidden" value="<%=Course._id %>">
                                                 <button class="btn btn-primary viewCourse">
                                                         <i class="fa fa-pencil"></i>
@@ -59,15 +124,15 @@
                                             </td>
                                         </tr>
                                     <% }) %>
+                                    <% }else{ %> 
+                                        <tr><td colspan="5">Không có dữ liệu hiển thị</td></tr>
+                                    <% } %> 
                                   </tbody>
                             </table>
                        
                         </div>
                     </div>
                 </div>
-                
-               
-
             <% } %>
         </div>
         <%- include('../common/footer'); -%>
@@ -94,6 +159,12 @@
                 window.location.href = "/admin/course/coursesList";
             });
         });
+        $('#filter_course').on('click', function() {
+            category_filter = $("select[name='category_filter']").val();
+            lecture_filter = $("select[name='lecturer_filter']").val();
+            window.location.href = "/admin/course/coursesList?category_filter="+category_filter+"&lecture_filter="+lecture_filter;
+        });
+        
    });
 </script>
 </html>

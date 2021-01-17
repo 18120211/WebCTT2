@@ -1,5 +1,5 @@
 module.exports = {
-    cloud_name: 'nmcnpmctt2',
-    api_key: '121949488768297',
-    api_secret: '8LzMLaNkkpoPt2VXdh9xGyqrisw'
+    cloud_name: 'teamwebctt2',
+    api_key: '983121122945713',
+    api_secret: 'gulRf36137BySnsuZHIFkRZqT-U'
 }

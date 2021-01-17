@@ -25,6 +25,10 @@ module.exports = function (passport) {
                     bcrypt.compare(password, user.password).then((isMatch) => {
                         if (isMatch) {
                             return done(null, user);
+                        }else {
+                            return done(null, false, {
+                                message: 'Password incorrect'
+                            });
                         }
                     });
                 }else{
@@ -76,35 +80,7 @@ module.exports = function (passport) {
         })
     );
 
-    //Use for passport-facebook
-    passport.use(new FacebookStrategy({
-            clientID: '3662146897179822',
-            clientSecret: '04c643cca3e1d80047b35b81a5d92895',
-            callbackURL: "http://localhost:8000/users/auth/facebook/callback",
-            profileFields: ['id', 'displayName', 'photos', 'email', 'name', 'gender']
-        },
-        function (accessToken, refreshToken, profile, done) {
-            FaceBookUser.findOne({
-                facebookId: profile.id
-            }).then((user) => {
-                if (user) {
-                    return done(null, user);
-                } else if (!user) {
-                    let newFaceBookUser = new FaceBookUser();
-                    newFaceBookUser.facebookId = profile.id;
-                    newFaceBookUser.name = profile.name.givenName + ' ' + profile.name.familyName;
-                    newFaceBookUser.email = profile.emails[0].value;
-                    newFaceBookUser.avatar = profile.photos[0].value;
-                    newFaceBookUser.gender = profile.gender;
-                    newFaceBookUser.token = accessToken;
-
-                    newFaceBookUser.save().then((user) => {
-                        return done(null, user);
-                    });
-                }
-            });
-        }
-    ));
+    
 
     //Call when auth complete to save user data to session
     passport.serializeUser(function (user, done) {

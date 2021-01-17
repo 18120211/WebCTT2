@@ -25,69 +25,82 @@
                 </div>
             </div>
             <form action="" method="post" id="frmUpdateInfo">
-                <div class="user-info">
-                    <div class="row">
-                        <div class="col-sm-4 image">
-                            <img src="<%=user.avatar%>" id="avatar-img">
-                            <div class="avatar-update">
-                                <input type="file" name="file" id="file"/>
-                                <input type="text" name="avatar" id="avatar" value="<%=user.avatar%>" />
-                                <button class="btn btn-success" id="avartar-upload" > Thay avatar </button>
+                <div class=" course-info">
+                    <div class="container-fluid">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-pencil"></i> Thông tin giảng viên </h3>
                             </div>
-                        </div>
-                        <div class="col-sm-8 info">
-                            <div class="form-group">
-                                <label class ="col-sm-2 control-label" for="my-input">Name:</label>
-                                <div class="col-sm-10">
-                                    <input  class="form-control" type="text" name="name" value="<%=user.name%>" >
-                                </div>
-                            </div>
-                            <div class="form-group hidden">
-                                <label class ="col-sm-2 control-label" for="my-input">ID:</label>
-                                <div class="col-sm-10">
-                                    <input  class="form-control" type="text" name="id" value="<%=user.id%>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class ="col-sm-2 control-label" for="my-input">Gender:</label>
-                                <div class="col-sm-10">
-                                    <select  class="form-control" type="text" name="gender">
-                                        <%if (user.gender == "nam") { %>
-                                            <option value="nam" selected="selected"> Nam</option>
-                                            <option value="nữ"> Nữ</option>
-                                        <% }else{ %>
-                                            <option value="nam" > Nam</option>
-                                            <option value="nữ"  selected="selected"> Nữ</option>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="info">
+                                        <div class="form-group">
+                                            <label class ="col-sm-2 control-label" for="my-input">Name:</label>
+                                            <div class="col-sm-10">
+                                                <input  class="form-control" type="text" name="name" value="<%=user.name%>" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group hidden">
+                                            <label class ="col-sm-2 control-label" for="my-input">ID:</label>
+                                            <div class="col-sm-10">
+                                                <input  class="form-control" type="text" name="id" value="<%=user.id%>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group image">
+                                            <label class ="col-sm-2 control-label" for="my-input">Ảnh đại diện:</label>
+                                            <div class="col-sm-10">
+                                                <img src="<%=user.avatar%>" id="avatar-img">
+                                                <div class="avatar-update">
+                                                    <input type="file" name="file" id="file"/>
+                                                    <input type="text" name="avatar" id="avatar" value="<%=user.avatar%>" />
+                                                    <button class="btn btn-success" id="avartar-upload" > Thay avatar </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class ="col-sm-2 control-label" for="my-input">Gender:</label>
+                                            <div class="col-sm-10">
+                                                <select  class="form-control" type="text" name="gender">
+                                                    <%if (user.gender == "nam") { %>
+                                                        <option value="nam" selected="selected"> Nam</option>
+                                                        <option value="nữ"> Nữ</option>
+                                                    <% }else{ %>
+                                                        <option value="nam" > Nam</option>
+                                                        <option value="nữ"  selected="selected"> Nữ</option>
+                                                    <% } %>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <%if (!user.roll) { %>
+                                        <div class="form-group">
+                                            <label class ="col-sm-2 control-label" for="my-input">Description:</label>
+                                            <div class="col-sm-10">
+                                                <textarea  class="form-control" type="text" name="description" ><%=user.description%></textarea>
+                                            </div>
+                                        </div>
                                         <% } %>
-                                    </select>
+            
+                                        <div class="form-group">
+                                            <label class ="col-sm-2 control-label" for="my-input">Password:</label>
+                                            <div class="col-sm-10">
+                                                <input  class="form-control" type="password" name="password" value="" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class ="col-sm-2 control-label" for="my-input">Confirm:</label>
+                                            <div class="col-sm-10">
+                                                <input  class="form-control" type="password" name="confirm" value="" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-10 text-center">
+                                            <button class="btn btn-success" type="submit" id="update-info"> Thay đổi thông tin </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <%if (!user.roll) { %>
-                            <div class="form-group">
-                                <label class ="col-sm-2 control-label" for="my-input">Description:</label>
-                                <div class="col-sm-10">
-                                    <textarea  class="form-control" type="text" name="description" ><%=user.description%></textarea>
-                                </div>
-                            </div>
-                            <% } %>
-
-                            <div class="form-group">
-                                <label class ="col-sm-2 control-label" for="my-input">Password:</label>
-                                <div class="col-sm-10">
-                                    <input  class="form-control" type="password" name="password" value="" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class ="col-sm-2 control-label" for="my-input">Confirm:</label>
-                                <div class="col-sm-10">
-                                    <input  class="form-control" type="password" name="confirm" value="" >
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-10 text-center">
-                                <button class="btn btn-success" type="submit" id="update-info"> Thay đổi thông tin </button>
                             </div>
                         </div>
                     </div>
+                   
                 </div>
             </form>
       </div>

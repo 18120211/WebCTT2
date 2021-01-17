@@ -52,17 +52,19 @@
                                                     <input  class="form-control" type="text" name="id" value="<%=data.category_info._id%>" >
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                                <div class="form-group  <% if(!data.category_info.idCourseCategory){ %>hidden<% } %>">
                                                 <label class ="col-sm-2 control-label" for="my-input">Parent:</label>
                                                 <div class="col-sm-10">
                                                     <select  class="form-control" type="text" name="parent">
                                                     <option value="" > None </option>
                                                     <% data.categories_option.forEach((Category) => { %>
-                                                        <%if (data.category_info.parent == Category._id) { %>
-                                                            <option value="<%=Category._id%>" selected="selected"> <%=Category.name%></option>
-                                                        <% }else{ %>
-                                                            <option value="<%=Category._id%>" > <%=Category.name%></option>
-                                                        <% } %>
+                                                        <% if(data.category_info.idCourseCategory) {%>
+                                                            <%if (data.category_info.idCourseCategory.toString() == Category._id.toString()) { %>
+                                                                <option value="<%=Category._id%>" selected="selected"> <%=Category.name%></option>
+                                                            <% }else{ %>    
+                                                                <option value="<%=Category._id%>" > <%=Category.name%></option>
+                                                            <% } %>
+                                                        <% } %> 
                                                     <% }); %>
                                                     </select>
                                                 </div>
@@ -100,7 +102,7 @@
             var files = $('#file')[0].files;
             var id =  $("input[name='id']").val();
             var folder = "/image/category/";
-            var folder_cloud = "nmcnpmctt2/poster";
+            var folder_cloud = "webctt2/category";
             // Check file selected or not
             if(files.length > 0 ){
             fd.append('file',files[0]);
@@ -131,21 +133,23 @@
             $('#file').trigger("click");
         });
         function validateForm(){
-            password =  $("input[name='password']").val();
-            re_password =  $("input[name='confirm']").val();
-            if(password!==re_password && password !== ""){
-                return "password and confirm is not match";
-            }
-            return "valid";
+           
         }
         $('#frmUpdateInfocategory').on('submit', function(e) {
             e.preventDefault();
-          
-            let check = validateForm();
-            if( check == "valid"){
-                $("#frmUpdateInfocategory").off("submit").submit();
+            id = $("input[name='id']").val();
+            parent  = $("select[name='parent']").val();
+            if(parent != 0 ){
+                $.getJSON("/admin/course/categoryEdit-available?id=" + id,function( json ) {
+                    if(json === 100){
+                        $("#frmUpdateInfocategory").off("submit").submit();
+                    }
+                    if(json === 301){
+                        alert("Vui lòng xóa hết category con để đổi parent!");
+                    }
+                });
             }else{
-                alert(check);
+                $("#frmUpdateInfocategory").off("submit").submit();
             }
         });
         $('#editcategory').on('click', function(e) {
