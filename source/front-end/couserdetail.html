@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Couser Detail</title>
+    <title>course Detail</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -199,6 +199,10 @@
         .btn-outline-danger {
             margin-left: 10px;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -262,7 +266,7 @@
 
                 <img src="/image/11.jpg" alt="image" class="img">
                 <div class="text-container inlineblock" style="border-bottom: 0;">
-                    <div name='couser-detail'>
+                    <div name='course-detail'>
                         <h2><strong>2021 Complete Python Bootcamp From Zero to Hero in Python</strong></h2>
                     </div>
                     <p>Vài dòng giới thiệu về khóa học, ví dụ như: JUST COMPLETELY REDONE - The only
@@ -290,29 +294,24 @@
     <div class="container-wrap">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item home-tab">
-                <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#couser-intro" role="tab"
-                    aria-controls="intro" aria-selected="true" style="font-size: 20px;">Giới thiệu</a>
+                <a class="nav-link active" href="#course-intro" style="font-size: 20px;">Giới thiệu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="content-tab" data-toggle="tab" href="#couser-content" role="tab"
-                    aria-controls="content" aria-selected="false" style="font-size: 20px;">Nội dung</a>
+                <a class="nav-link" href="#course-content" style="font-size: 20px;">Nội dung</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="teacher-tab" data-toggle="tab" href="#couser-teacher" role="tab"
-                    aria-controls="teacher" aria-selected="false" style="font-size: 20px;">Thông tin giảng
+                <a class="nav-link" href="#course-teacher" style="font-size: 20px;">Thông tin giảng
                     viên</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="review-tab" data-toggle="tab" href="#couser-review" role="tab"
-                    aria-controls="review" aria-selected="false" style="font-size: 20px;">Reviews</a>
+                <a class="nav-link" href="#student-feedback" style="font-size: 20px;">Reviews</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="faq-tab" data-toggle="tab" href="#couser-faq" role="tab" aria-controls="faq"
-                    aria-selected="false" style="font-size: 20px;">FAQ</a>
+            <li id="course-intro" class="nav-item">
+                <a class="nav-link" href="#faq" style="font-size: 20px;">FAQ</a>
             </li>
         </ul>
 
-        <div id="couser-intro" class="text-container">
+        <div class="text-container">
             <h2 class="heading-xl">About this Specialization</h2>
             <p>This Specialization builds on the success of the Python for Everybody course and will
                 introduce fundamental programming concepts including data structures, networked application
@@ -331,7 +330,7 @@
                     it
                     and explore all the different fields of Machine Learning.</li>
             </ul>
-            <div class="what-you-will-learn">
+            <div id="course-content" class="what-you-will-learn">
                 <h3 style="margin: 0 2.4rem 1.6rem;"><strong>Bạn sẽ được học</strong></h3>
                 <ul class="what-you-will-learn-content">
                     <i class="fas fa-check"></i>
@@ -353,7 +352,7 @@
             </div>
         </div>
 
-        <div id="couser-content" class="text-container">
+        <div class="text-container">
             <h2 class="heading-xl">Course's Syllabus is the following:</h2>
             <div class="row">
                 <div class="col-sm-8">
@@ -400,14 +399,14 @@
                         <a href="#" style="color: black;"> Variables - String Formatting</a>
                     </ul>
                 </div>
-                <div class="col-sm-4 text-left">
+                <div id="course-teacher" class="col-sm-4 text-left">
                     <button type="button" class="btn btn-secondary">Preview</button>
                 </div>
             </div>
 
         </div>
 
-        <div id="couser-teacher" class="text-container">
+        <div class="text-container">
             <h2 class="heading-xl">Instructor</h2>
             <div class="heading-lg">
                 <a href="#" style="text-decoration:none;">Mai Ngọc Tú</a>
@@ -427,7 +426,8 @@
                     <i class='fas fa-play-circle text-warning'></i>
                     <span style="margin-left: 8px;">1 Course</span><br>
                 </div>
-                <p style="padding-top: 20px;">Hi There, My name is Dmitry and I'm a Senior instructor at 'Ninja
+                <p id="student-feedback" style="padding-top: 20px;">Hi There, My name is Dmitry and I'm a Senior
+                    instructor at 'Ninja
                     Developer Academy'. I started
                     as student not so few years ago here at Udemy. And for today my vision is to bring Premium Level
                     courses with honest prices, affordable education for everybody. You will get huge amount of
@@ -435,7 +435,7 @@
             </div>
         </div>
 
-        <div id="student-feedback" class="text-container">
+        <div class="text-container">
             <h2 class="heading-xl">Student feedback</h2>
             <div class="row">
                 <div class="card">
@@ -582,6 +582,16 @@
                         <li class="page-item"><a class="page-link" href="#">Next</a></li>
                     </ul>
                 </nav>
+
+                <div id="evaluation">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Đánh giá của bạn</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </form>
+                    <button type="button" class="btn btn-info" style="float: right;">Gửi</button><br>
+                </div>
             </div>
         </div>
 

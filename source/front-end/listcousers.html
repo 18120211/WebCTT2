@@ -49,7 +49,7 @@
             padding: 30px 2.4px 30px 2.4px;
         }
 
-        .udlite-heading-xl {
+        .heading-xl {
             font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
                 apple color emoji, segoe ui emoji, segoe ui symbol;
             font-weight: 700;
@@ -154,19 +154,19 @@
 
     <div class="container-wrap">
         <div name='python-coursers' class="udlite-container">
-            <h1 class="udlite-heading-xl">Khóa học về Python</h1>
-            <div class="btn-group">
-                <button type="button" class="btn btn-light border-dark dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Sắp xếp theo
-                </button>
-                <div class="dropdown-menu">
-
-                    <a class="dropdown-item" href="#">Highest Rated</a>
-                    <a class="dropdown-item" href="#">Most popular</a>
-                    <a class="dropdown-item" href="#">Newest</a>
+            <h1 class="heading-xl">Khóa học về Python</h1>
+            <form>
+                <div class="form-row align-items-center">
+                    <div class="col-auto my-1">
+                        <select class="custom-select mr-sm-2">
+                            <option selected>Sắp xếp theo</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
+            </form>
 
             <div class="course-list">
                 <a href="#">
