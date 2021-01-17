@@ -54,7 +54,16 @@ Router.get("/", async (req, res) => {
 
 //Trang danh sách khóa học yêu thích của tôi
 Router.get("/my-wish-list", ensureAuthenticated, async (req, res) => {
+  let page = +req.query.page;
+
+  //Nếu page == undefined thi page = 1
+  if (Number.isNaN(page)) {
+    page = 1;
+  }
+
+  //Lấy ra danh sách khóa học
   let courses = [];
+  let numberOfPage = 0;
   for (let i = 0; i < req.user.idWishList.length; i++) {
     const course = await Course.findOne(
       {
@@ -77,15 +86,33 @@ Router.get("/my-wish-list", ensureAuthenticated, async (req, res) => {
       .populate("idLecturer");
     await courses.push(course);
   }
-  await res.render("./index/my-wish-list", {
+  numberOfPage = Math.ceil(courses.length / 2);
+
+  //Lấy ra đúng 5 khóa học
+  courses = courses.slice((page-1) * 5, (page - 1) * 5 + 5);
+
+  await res.render("./courses/list-courses", {
     isAuthenticated: req.isAuthenticated(),
     courses: courses,
+    title: `Các khóa học yêu thích`,
+    page: page,
+    isFilter: false,
+    numberOfPage: numberOfPage
   });
 });
 
 //Trang danh sách khóa học của tôi
 Router.get("/my-courses", ensureAuthenticated, async (req, res) => {
+  let page = +req.query.page;
+
+  //Nếu page == undefined thi page = 1
+  if (Number.isNaN(page)) {
+    page = 1;
+  }
+
+  //Lấy ra danh sách khóa học
   let courses = [];
+  let numberOfPage = 0;
   for (let i = 0; i < req.user.purchasedCourses.length; i++) {
     const course = await Course.findOne(
       {
@@ -108,9 +135,19 @@ Router.get("/my-courses", ensureAuthenticated, async (req, res) => {
       .populate("idLecturer");
     await courses.push(course);
   }
-  await res.render("./index/my-courses", {
+  numberOfPage = Math.ceil(courses.length / 5);
+
+  //Lấy ra đúng 5 khóa học 
+  courses = courses.slice((page - 1) * 5, (page - 1) *5 + 5);
+
+  //Render trang danh sách khóa học
+  await res.render("./courses/list-courses", {
     isAuthenticated: req.isAuthenticated(),
     courses: courses,
+    title: `Các khóa học của tôi`,
+    page: page,
+    isFilter: false,
+    numberOfPage: numberOfPage
   });
 });
 

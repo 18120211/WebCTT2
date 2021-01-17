@@ -625,13 +625,10 @@ a {
   z-index: 9999;
 }
 
-.pagination {
-  display: inline-block;
-}
 
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
+.footer-container {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  font-size: 12px;
+  text-align: center;
 }

@@ -1,115 +1,251 @@
-<% if (isFilter) { %>
-<div class="col-sm-5 search">
-  <form
-    data-searchInput="<%= searchInput %>"
-    id="searchForm1"
-    action="/courses/search"
-    class="form-inline"
-    method="GET"
-  >
-    <div class="row">
-      <input
-        id="searchInput1"
-        type="text"
-        value="<%= searchInput%>"
-        name="queryString"
-      />
-      <input type="text" value="<%= page%>" name="page" />
-      <input type="text" />
-      <div class="form-group">
-        <select id="categorySelect" name="category" id="category">
-          <% for( let i = 0; i < courseCategories.length; i++ ) { %>
-          <option
-            data-categoryID="<%= courseCategories[i]._id %>"
-            value="<%= courseCategories[i].name %>"
-          >
-            <%=courseCategories[i].name %>
-          </option>
-          <% } %>
-        </select>
-      </div>
-      <div class="form-group">
-        <!-- Truyền option topic cho select -->
-        <select id="topicSelect" name="courseTopicID"></select>
-      </div>
-      <div class="form-group col-sm-4">
-        <button id="buttonFilter" type="button">Filter</button>
-      </div>
+<style>
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-collapse-right {
+    margin-left: 750px;
+  }
+
+  .container-wrap {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 48px;
+  }
+
+  .course-list {
+    padding-top: 40px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dcdacb;
+  }
+
+  .udlite-container {
+    width: 100%;
+    max-width: 1340px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px 2.4px 30px 2.4px;
+  }
+
+  .heading-xl {
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto,
+      segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji,
+      segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02px;
+    font-size: 24px;
+  }
+
+  .img {
+    float: left;
+    width: 260px;
+    height: 145px;
+    margin-right: 20px;
+  }
+
+  .btn-group {
+    margin-top: 20px;
+  }
+
+  .card-hot {
+    width: 40px;
+    height: 25px;
+    background-color: rgba(243, 70, 70, 0.788);
+  }
+
+  .card-new {
+    width: 40px;
+    height: 25px;
+    background-color: rgb(86, 202, 86);
+  }
+
+  .card-best {
+    width: 40px;
+    height: 25px;
+    background-color: rgb(226, 226, 73);
+  }
+
+  .price {
+    float: right;
+    font-size: 20px;
+  }
+
+  .fa-star {
+    font-size: 13px;
+  }
+
+  .footer-container {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .pagination {
+    margin-top: 20px;
+    margin-left: 600px;
+  }
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .active {
+    background-color: red;
+    color: white;
+  }
+  #searchForm1 select{
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+#searchForm1{
+  margin-bottom: 20px;
+}
+#buttonFilter{
+  padding: 16px 23px;
+}
+
+</style>
+
+<body>
+  <div class="container-wrap">
+    <% if (isFilter) { %>
+    <div class=" search">
+      <form
+        data-searchInput="<%= searchInput %>"
+        id="searchForm1"
+        action="/courses/search"
+        class="form-inline"
+        method="GET"
+      >
+        <div class="row">
+          <input
+            id="searchInput1"
+            type="hidden"
+            value="<%= searchInput%>"
+            name="queryString"
+          />
+          <input type="hidden" value="<%= page%>" name="page" />
+          <input type="hidden" />
+          <div class="form-group col-sm-5">
+            <select id="categorySelect" name="category" id="category">
+              <% for( let i=0; i < courseCategories.length; i++ ) { %>
+              <option
+                data-categoryID="<%= courseCategories[i]._id %>"
+                value="<%= courseCategories[i].name %>"
+              >
+                <%=courseCategories[i].name %>
+              </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="form-group col-sm-5">
+            <!-- Truyền option topic cho select -->
+            <select id="topicSelect" name="courseTopicID"></select>
+          </div>
+          <div class="form-group col-sm-2">
+            <button class="btn btn-success" id="buttonFilter" type="button">Filter</button>
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
-<script>
-  $(document).ready(() => {
-    $("#searchInput").val($("#searchForm1").attr("data-searchInput"));
-  });
-</script>
-<script>
-  //Nhấp nút filter
-  $("#buttonFilter").on("click", () => {
-    console.log("hello");
-    const categoryName = $("#categorySelect").find(":selected").val();
-    const topicName = $("#topicSelect").find(":selected").val();
-    const queryString = $("#searchInput").val();
-
-    //Gán queryString searchForm1 = queryString searchForm
-    $("#searchInput1").val($("#searchInput").val());
-
-    //Không điền thì trả về danh sách khóa học theo topic
-    if (queryString == null) {
-      $.get(`/courses/${categoryName}/${topicName}`);
-    }
-    //Ngược lại thực hiện truy vấn
-    else {
-      $("#searchForm1").submit();
-    }
-  });
-</script>
-<script type="text/javascript">
-  //Chuẩn bị cho việc mở trang
-  $(document).ready(() => {
-    //Thêm topic ban đầu
-    const categoryName = $("#categorySelect").find(":selected").val();
-    $.post(`/courses/${categoryName}/getTopics`, categoryName, (json) => {
-      const topics = json;
-      $("#topicSelect").find("option").remove();
-      topics.forEach((topic) => {
-        $("#topicSelect").append(
-          `<option value="${topic._id}">${topic.name}</option>`
-        );
+    <script>
+      $(document).ready(() => {
+        $("#searchInput").val($("#searchForm1").attr("data-searchInput"));
       });
-    });
-  });
+    </script>
+    <script>
+      //Nhấp nút filter
+      $("#buttonFilter").on("click", () => {
+        console.log("hello");
+        const categoryName = $("#categorySelect").find(":selected").val();
+        const topicName = $("#topicSelect").find(":selected").val();
+        const queryString = $("#searchInput").val();
 
-  //Bắt sự kiện thay đổi giá trị category
-  $("#categorySelect").change(function () {
-    const categoryName = $(this).val();
-    $.post(`/courses/${categoryName}/getTopics`, categoryName, (json) => {
-      const topics = json;
-      $("#topicSelect").find("option").remove();
-      topics.forEach((topic) => {
-        $("#topicSelect").append(
-          `<option value="${topic._id}">${topic.name}</option>`
-        );
+        //Gán queryString searchForm1 = queryString searchForm
+        $("#searchInput1").val($("#searchInput").val());
+
+        //Không điền thì trả về danh sách khóa học theo topic
+        if (queryString == null) {
+          $.get(`/courses/${categoryName}/${topicName}`);
+        }
+        //Ngược lại thực hiện truy vấn
+        else {
+          $("#searchForm1").submit();
+        }
       });
-    });
-  });
-</script>
-<% } %>
+    </script>
+    <script type="text/javascript">
+      //Chuẩn bị cho việc mở trang
+      $(document).ready(() => {
+        //Thêm topic ban đầu
+        const categoryName = $("#categorySelect").find(":selected").val();
+        $.post(`/courses/${categoryName}/getTopics`, categoryName, (json) => {
+          const topics = json;
+          $("#topicSelect").find("option").remove();
+          topics.forEach((topic) => {
+            $("#topicSelect").append(
+              `<option value="${topic._id}">${topic.name}</option>`
+            );
+          });
+        });
+      });
 
-<h2 id="title"><%= title %></h2>
-<% for( let i = 0; i < courses.length; i++ ) { %> <%-
-include('../partials/card-course', {course: courses[i]}) %> <% } %>
-<div
-  data-currentPage="<%= page %>"
-  data-numberOfPage="<%= numberOfPage %>"
-  class="pagination"
->
-  <a id="prev-page" href="#">&laquo;</a>
-  <% for(let i = 0; i < numberOfPage; i++ ) { %>
-  <a class="sub-page" data-page="<%= i + 1%>" href="#"><%= i +1 %></a>
-  <% } %>
-  <a id="next-page" href="#">&raquo;</a>
-</div>
+      //Bắt sự kiện thay đổi giá trị category
+      $("#categorySelect").change(function () {
+        const categoryName = $(this).val();
+        $.post(`/courses/${categoryName}/getTopics`, categoryName, (json) => {
+          const topics = json;
+          $("#topicSelect").find("option").remove();
+          topics.forEach((topic) => {
+            $("#topicSelect").append(
+              `<option value="${topic._id}">${topic.name}</option>`
+            );
+          });
+        });
+      });
+    </script>
+    <% } %>
+    <h1><%= title %> </h1>
+    <% for( let i=0; i < courses.length; i++ ) { %> <%-
+    include('../partials/card-course-list', { course: courses[i],
+    isAuthenticated: isAuthenticated, index: i }) %> <% } %>
+  </div>
+
+  <div
+    data-currentPage="<%= page %>"
+    data-numberOfPage="<%= numberOfPage %>"
+    class="pagination"
+  >
+    <a id="prev-page" href="#">&laquo;</a>
+    <div class="sub-pages">
+      <% for(let i = 0; i < numberOfPage; i++ ) { %>
+      <a class="sub-page" data-page="<%= i + 1%>" href="#"><%= i +1 %></a>
+      <% } %>
+    </div>
+    <a id="next-page" href="#">&raquo;</a>
+  </div>
+</body>
 
 <script>
   const numberOfPage = $(".pagination").attr("data-numberOfPage");
@@ -117,49 +253,55 @@ include('../partials/card-course', {course: courses[i]}) %> <% } %>
   const currentURL = window.location.href;
   const url = new URL(currentURL);
 
-  //Bắt sự kiện nhấp vào trang con
-  $('.sub-page').on('click', (e)=>{
-    console.log("num: ", numberOfPage);
-    console.log('url: ', url);
+  $(document).ready(() => {
+    $(".sub-page").each((index, e) => {
+      if (index + 1 == +currentPage) {
+        $(e).addClass("active");
+      }
+    });
+  });
 
-    const subPage = $(e.target).attr('data-page');
-    console.log('sub-page: ', subPage);
-    url.searchParams.set('page', subPage);
+  //Bắt sự kiện nhấp vào trang con
+  $(".sub-page").on("click", (e) => {
+    console.log("num: ", numberOfPage);
+    console.log("url: ", url);
+
+    const subPage = $(e.target).attr("data-page");
+    console.log("sub-page: ", subPage);
+    url.searchParams.set("page", subPage);
     console.log(url.href);
-    //Chuyển trang 
+    //Chuyển trang
     window.location.replace(url.href);
-  })
+  });
   //Bắt sự kiện nhấp vào nút trang trước đó
   $("#prev-page").on("click", () => {
     console.log("num: ", numberOfPage);
-    console.log("cur: ", currentPage);  
-    console.log('url: ', url.href);
+    console.log("cur: ", currentPage);
+    console.log("url: ", url.href);
 
-    const page = (+currentPage) -1;
+    const page = +currentPage - 1;
     if (currentPage > 1) {
-      url.searchParams.set('page', page);
+      url.searchParams.set("page", page);
+      console.log(url.href);
+    } else {
       console.log(url.href);
     }
-    else {
-      console.log(url.href);
-    }
-    //Chuyển trang 
+    //Chuyển trang
     window.location.replace(url.href);
   });
   //Bắt sự kiện nhấp vào nút trang tiếp theo
-  $('#next-page').on('click', ()=>{
+  $("#next-page").on("click", () => {
     console.log("num: ", numberOfPage);
-    console.log("cur: ", currentPage);  
-    console.log('url: ', url.href);
-    const page = (+currentPage) +1;
+    console.log("cur: ", currentPage);
+    console.log("url: ", url.href);
+    const page = +currentPage + 1;
     if (currentPage < numberOfPage) {
-      url.searchParams.set('page', page);
+      url.searchParams.set("page", page);
+      console.log(url.href);
+    } else {
       console.log(url.href);
     }
-    else {
-      console.log(url.href);
-    }
-    //Chuyển trang 
+    //Chuyển trang
     window.location.replace(url.href);
   });
 </script>
