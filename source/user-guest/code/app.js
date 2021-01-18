@@ -6,8 +6,6 @@ const app = express();
 app.use('/public', express.static('public'));
  app.use( express.static('public'));
 
-
-
 //Default body-parser
 app.use(express.urlencoded());
 require('./middlewares/dbLocal.mdw')(app);
@@ -37,6 +35,24 @@ app.listen(8000, console.log('Server running on port 8000'));
 // const TopicEnum = require("./models/CourseTopic.enum");
 // const CourseTopic = require("./models/CourseTopic.model");
 // const cloudinary = require("cloudinary").v2;
+
+// Course.findOne({_id: '60047f3899dbc32298745e80'}).then((doc)=>{
+//     doc.numberOfVideo = 4;
+//     doc.videos = [{
+//         name: 'Machine learning overview',
+//         source: 'https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4'
+//     }, {
+//         name: 'First application',
+//         source: 'https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4'
+//     }, {
+//         name: 'Finding algorithm',
+//         source: 'https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4'
+//     }, {
+//         name: 'End course',
+//         source: 'https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4'
+//     }];
+//     doc.save().then(console.log('saved'));
+// });
 
 
 // Course.insertMany([{

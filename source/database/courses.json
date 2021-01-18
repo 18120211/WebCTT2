@@ -6,7 +6,7 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 0,
   "numberOfStudent": 3,
-  "numberOfView": 184,
+  "numberOfView": 186,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -146,7 +146,7 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 0,
   "numberOfStudent": 3,
-  "numberOfView": 63,
+  "numberOfView": 64,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -211,7 +211,7 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 5,
   "numberOfStudent": 1,
-  "numberOfView": 230,
+  "numberOfView": 231,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -290,7 +290,8 @@
       },
       "review": "Khóa học tuyệt vời đặc biệt là giảng viên Võ Thế Minh, tôi đã đánh giá 5 sao!!"
     }
-  ]
+  ],
+  "status": true
 },{
   "_id": {
     "$oid": "5ff2e3b37d305e09608a1dfa"
@@ -364,7 +365,7 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 7,
+  "numberOfView": 8,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-04T09:45:23.278Z"
@@ -456,35 +457,37 @@
   "videos": [
     {
       "_id": {
-        "$oid": "6005bbd9c412a93b7c7a838f"
+        "$oid": "6005cf9792f0f70a489f0930"
       },
       "name": "Machine learning overview",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bbd9c412a93b7c7a8390"
+        "$oid": "6005cf9792f0f70a489f0931"
       },
       "name": "First application",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bbd9c412a93b7c7a8391"
+        "$oid": "6005cf9792f0f70a489f0932"
       },
       "name": "Finding algorithm",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bbd9c412a93b7c7a8392"
+        "$oid": "6005cf9792f0f70a489f0933"
       },
-      "name": "End course"
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
     }
   ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 1
+  "__v": 2,
+  "status": true
 },{
   "_id": {
     "$oid": "6002d1c7777655267ca1fd78"
@@ -493,12 +496,12 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 4,
   "numberOfStudent": 1,
-  "numberOfView": 16,
+  "numberOfView": 17,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-16T11:45:11.312Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -517,7 +520,36 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cf811f7a912d20ef09b4"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cf811f7a912d20ef09b5"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cf811f7a912d20ef09b6"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cf811f7a912d20ef09b7"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [
     {
       "_id": {
@@ -530,7 +562,8 @@
     }
   ],
   "userReviews": [],
-  "__v": 1
+  "__v": 2,
+  "status": true
 },{
   "_id": {
     "$oid": "6002d1c7777655267ca1fd79"
@@ -539,7 +572,7 @@
   "description": "Học 1 bữa có việc làm chính thức ở VNG, 2 bữa làm giám đốc công ty start up về IT, 3 bữa làm senior coder tại Facebook",
   "evaluationPoint": 5,
   "numberOfStudent": 4,
-  "numberOfView": 65,
+  "numberOfView": 70,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-16T11:45:11.312Z"
@@ -566,30 +599,31 @@
   "videos": [
     {
       "_id": {
-        "$oid": "6005bc3319fecb42543d5f0d"
+        "$oid": "6005cfa2313a1c04f4c7611f"
       },
       "name": "Machine learning overview",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc3319fecb42543d5f0e"
+        "$oid": "6005cfa2313a1c04f4c76120"
       },
       "name": "First application",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc3319fecb42543d5f0f"
+        "$oid": "6005cfa2313a1c04f4c76121"
       },
       "name": "Finding algorithm",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc3319fecb42543d5f10"
+        "$oid": "6005cfa2313a1c04f4c76122"
       },
-      "name": "End course"
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
     }
   ],
   "userEvaluations": [
@@ -653,7 +687,8 @@
       "review": "Khóa học hay quá bạn ei!!"
     }
   ],
-  "__v": 6
+  "__v": 7,
+  "status": true
 },{
   "_id": {
     "$oid": "60047d3819b151093c0018e6"
@@ -689,35 +724,37 @@
   "videos": [
     {
       "_id": {
-        "$oid": "6005bc44e581780f34198533"
+        "$oid": "6005cfa75e14db3c106f27de"
       },
       "name": "Machine learning overview",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc44e581780f34198534"
+        "$oid": "6005cfa75e14db3c106f27df"
       },
       "name": "First application",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc44e581780f34198535"
+        "$oid": "6005cfa75e14db3c106f27e0"
       },
       "name": "Finding algorithm",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc44e581780f34198536"
+        "$oid": "6005cfa75e14db3c106f27e1"
       },
-      "name": "End course"
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
     }
   ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 1
+  "__v": 2,
+  "status": true
 },{
   "_id": {
     "$oid": "60047d52f174ae4108bfb5b7"
@@ -753,35 +790,37 @@
   "videos": [
     {
       "_id": {
-        "$oid": "6005bc6b986db716d428bec7"
+        "$oid": "6005cfad8a61d30d60c414d2"
       },
       "name": "Machine learning overview",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc6b986db716d428bec8"
+        "$oid": "6005cfad8a61d30d60c414d3"
       },
       "name": "First application",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc6b986db716d428bec9"
+        "$oid": "6005cfad8a61d30d60c414d4"
       },
       "name": "Finding algorithm",
       "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
     },
     {
       "_id": {
-        "$oid": "6005bc6b986db716d428beca"
+        "$oid": "6005cfad8a61d30d60c414d5"
       },
-      "name": "End course"
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
     }
   ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 9
+  "__v": 10,
+  "status": true
 },{
   "_id": {
     "$oid": "60047d92b5a8d22b18f6f9d0"
@@ -795,7 +834,7 @@
   "uploadDate": {
     "$date": "2021-01-17T18:10:26.013Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -814,10 +853,40 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cfd632d50326e029bde2"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfd632d50326e029bde3"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfd632d50326e029bde4"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfd632d50326e029bde5"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 0
+  "__v": 1,
+  "status": true
 },{
   "_id": {
     "$oid": "60047da844fca02954365b23"
@@ -831,7 +900,7 @@
   "uploadDate": {
     "$date": "2021-01-17T18:10:48.782Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -850,10 +919,40 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cfe2a3f56b0a2c4e77ab"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfe2a3f56b0a2c4e77ac"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfe2a3f56b0a2c4e77ad"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfe2a3f56b0a2c4e77ae"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 0
+  "__v": 1,
+  "status": true
 },{
   "_id": {
     "$oid": "60047dd05dfd6030885f581a"
@@ -867,7 +966,7 @@
   "uploadDate": {
     "$date": "2021-01-17T18:11:28.652Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -886,10 +985,40 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cfe6cde483226c766fc7"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfe6cde483226c766fc8"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfe6cde483226c766fc9"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfe6cde483226c766fca"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 0
+  "__v": 1,
+  "status": true
 },{
   "_id": {
     "$oid": "60047e04fa0e631270eff380"
@@ -903,7 +1032,7 @@
   "uploadDate": {
     "$date": "2021-01-17T18:12:20.707Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -922,10 +1051,40 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cfebed1316432ced9e4d"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfebed1316432ced9e4e"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfebed1316432ced9e4f"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfebed1316432ced9e50"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 0
+  "__v": 1,
+  "status": true
 },{
   "_id": {
     "$oid": "60047e2da6ccc5365c4b9fd3"
@@ -939,7 +1098,7 @@
   "uploadDate": {
     "$date": "2021-01-17T18:13:01.247Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -958,10 +1117,40 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cfef70acb83c54bc7077"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfef70acb83c54bc7078"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfef70acb83c54bc7079"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfef70acb83c54bc707a"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 0
+  "__v": 1,
+  "status": true
 },{
   "_id": {
     "$oid": "60047e53b5ceaa0a34c7e6aa"
@@ -975,7 +1164,7 @@
   "uploadDate": {
     "$date": "2021-01-17T18:13:39.256Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -994,10 +1183,40 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cff30165ad31e8627bd8"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cff30165ad31e8627bd9"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cff30165ad31e8627bda"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cff30165ad31e8627bdb"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 0
+  "__v": 1,
+  "status": true
 },{
   "_id": {
     "$oid": "60047e8aa4c47840800406cf"
@@ -1006,12 +1225,12 @@
   "description": "Bạn có thể học mọi thứ về Management qua khóa học của chúng tôi",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 11,
+  "numberOfView": 12,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-17T18:14:34.049Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -1030,10 +1249,40 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cffa6073b2404ce49bf2"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cffa6073b2404ce49bf3"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cffa6073b2404ce49bf4"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cffa6073b2404ce49bf5"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 0
+  "__v": 1,
+  "status": true
 },{
   "_id": {
     "$oid": "60047f3899dbc32298745e80"
@@ -1042,12 +1291,12 @@
   "description": "Bạn có thể học mọi thứ về Sales qua khóa học của chúng tôi",
   "evaluationPoint": 0,
   "numberOfStudent": 0,
-  "numberOfView": 1,
+  "numberOfView": 2,
   "tuition": 10,
   "uploadDate": {
     "$date": "2021-01-17T18:17:28.922Z"
   },
-  "numberOfVideo": 0,
+  "numberOfVideo": 4,
   "previewIndex": [
     0,
     1,
@@ -1066,8 +1315,38 @@
   "idLecturer": {
     "$oid": "5fed6330aba5d81fc019f9b7"
   },
-  "videos": [],
+  "videos": [
+    {
+      "_id": {
+        "$oid": "6005cfffa7573735606a020a"
+      },
+      "name": "Machine learning overview",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/1_z97lxw.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfffa7573735606a020b"
+      },
+      "name": "First application",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/2_pne144.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfffa7573735606a020c"
+      },
+      "name": "Finding algorithm",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/3_io1o37.mp4"
+    },
+    {
+      "_id": {
+        "$oid": "6005cfffa7573735606a020d"
+      },
+      "name": "End course",
+      "source": "https://res.cloudinary.com/teamwebctt2/video/upload/v1610988326/webctt2/video/machineLearning/4_jm9lkt.mp4"
+    }
+  ],
   "userEvaluations": [],
   "userReviews": [],
-  "__v": 0
+  "__v": 1,
+  "status": true
 }]

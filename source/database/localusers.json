@@ -30,7 +30,7 @@
   "email": "minhthevotemp@gmail.com",
   "password": "$2a$10$oLqB6bE9l4eu8GTrorzLPOH27jNvWyQljW7dNZHR07VSFsXYsMziu",
   "otpNumber": "639091",
-  "__v": 43,
+  "__v": 48,
   "status": true,
   "idWishList": [
     {
@@ -38,11 +38,19 @@
     },
     {
       "$oid": "60047e8aa4c47840800406cf"
+    },
+    {
+      "$oid": "5ff2e3b37d305e09608a1dff"
     }
   ],
   "purchasedCourses": [
     {
-      "learnedVideos": [],
+      "learnedVideos": [
+        3,
+        2,
+        1,
+        0
+      ],
       "_id": {
         "$oid": "6005bf14a506743344cc3f6d"
       },

@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbdf"
   },
-  "numberOfView": 545,
+  "numberOfView": 550,
   "numberOfSignUp": 12,
   "name": "Data Science",
   "idCourseCategory": {
@@ -13,7 +13,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe0"
   },
-  "numberOfView": 74,
+  "numberOfView": 75,
   "numberOfSignUp": 4,
   "name": "Web Development",
   "idCourseCategory": {
@@ -35,7 +35,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe2"
   },
-  "numberOfView": 184,
+  "numberOfView": 186,
   "numberOfSignUp": 3,
   "name": "Mobile Development",
   "idCourseCategory": {
@@ -46,7 +46,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe3"
   },
-  "numberOfView": 246,
+  "numberOfView": 248,
   "numberOfSignUp": 2,
   "name": "Game Development",
   "idCourseCategory": {
@@ -68,7 +68,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe5"
   },
-  "numberOfView": 8,
+  "numberOfView": 9,
   "numberOfSignUp": 0,
   "name": "Design Tools",
   "idCourseCategory": {
@@ -101,7 +101,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe8"
   },
-  "numberOfView": 11,
+  "numberOfView": 12,
   "numberOfSignUp": 0,
   "name": "Management",
   "idCourseCategory": {
@@ -112,7 +112,7 @@
   "_id": {
     "$oid": "5ff2e1c9ac3567138849dbe9"
   },
-  "numberOfView": 1,
+  "numberOfView": 2,
   "numberOfSignUp": 0,
   "name": "Sales",
   "idCourseCategory": {

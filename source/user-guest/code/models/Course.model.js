@@ -83,6 +83,10 @@ const CourseSchema = mongoose.Schema({
                 default: new Date(Date.now())
             }
         }]
+    },
+    status: {
+        type: Boolean,
+        default: true
     }
 });
 

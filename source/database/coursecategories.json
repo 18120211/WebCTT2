@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "5ff2dd54eb01461e54152a15"
   },
-  "numberOfView": 1081,
+  "numberOfView": 1091,
   "numberOfSignUp": 21,
   "name": "Development",
   "__v": 0
@@ -10,7 +10,7 @@
   "_id": {
     "$oid": "5ff2dd54eb01461e54152a16"
   },
-  "numberOfView": 18,
+  "numberOfView": 20,
   "numberOfSignUp": 1,
   "name": "Business",
   "__v": 0
@@ -18,7 +18,7 @@
   "_id": {
     "$oid": "5ff2dd54eb01461e54152a17"
   },
-  "numberOfView": 8,
+  "numberOfView": 9,
   "numberOfSignUp": 0,
   "name": "Design",
   "__v": 0
