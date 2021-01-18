@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "5fed6330aba5d81fc019f9b7"
+  },
+  "date": {
+    "$date": "2020-12-31T05:35:44.047Z"
+  },
+  "avatar": "https://res.cloudinary.com/teamwebctt2/image/upload/v1610869584/webctt2/avatar/5fed6330aba5d81fc019f9b7/19_jrf4qt.jpg",
+  "description": "Siêu giáo viên, tác giả của hơn 300 framwork nổi tiếng của Javascript, C#, ..., 30 năm kinh nghiệp giảng dạy các trường đại học danh tiếng",
+  "isAuth": true,
+  "name": "Võ Thế Minh",
+  "email": "minhthevo123@gmail.com",
+  "password": "$2a$10$TylilIpxwaWuugK67jVQR.RrSaSzYNjjUAVV3oUDivyJa/7UIu.J.",
+  "gender": "Male",
+  "otpNumber": "",
+  "__v": 0,
+  "idCourses": [
+    {
+      "$oid": "5ff0a3447b12cc3930737863"
+    },
+    {
+      "$oid": "5ff0a3447b12cc3930737864"
+    },
+    {
+      "$oid": "5ff0a3447b12cc3930737865"
+    },
+    {
+      "$oid": "5ff0a3447b12cc3930737866"
+    },
+    {
+      "$oid": "5ff0a3447b12cc3930737867"
+    },
+    {
+      "$oid": "5ff0a3447b12cc3930737868"
+    },
+    {
+      "$oid": "5ff0a3447b12cc3930737869"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "60045832026fa944b4d62d0c"
+  },
+  "date": {
+    "$date": "2021-01-17T15:20:42.838Z"
+  },
+  "avatar": "/public/avatar/default/avatar.png",
+  "description": "good teacher !!!",
+  "isAuth": false,
+  "idCourses": [],
+  "email": "abc@gmail.com",
+  "password": "$2a$10$TylilIpxwaWuugK67jVQR.RrSaSzYNjjUAVV3oUDivyJa/7UIu.J.",
+  "name": "Mai Ngọc Tú",
+  "gender": "nam",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "600512bcd805871ba419691a"
+  },
+  "date": {
+    "$date": "2021-01-18T04:35:34.453Z"
+  },
+  "avatar": "/public/avatar/default/avatar.png",
+  "description": "Giáo viên mới",
+  "isAuth": false,
+  "status": true,
+  "idCourses": [],
+  "email": "maingoctu@gmail.com",
+  "password": "$2a$10$p3.RBMTefR1CwYao6CBWcu6etnYGgEMcu/vUZKli1tapCCU8B01xq",
+  "name": "Mai Ngọc Tú",
+  "gender": "nam",
+  "__v": 0
+}]

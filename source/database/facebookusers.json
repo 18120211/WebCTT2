@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "5feac320306cfb34bc6b12ca"
+  },
+  "avatar": "/public/avatar/5feac320306cfb34bc6b12ca/avatar.png",
+  "date": {
+    "$date": "2020-12-29T05:48:11.923Z"
+  },
+  "facebookId": "2945178119049012",
+  "name": "Võ Thế Minh đẹp trai",
+  "email": "minhthevo123@gmail.com",
+  "token": "EAA0CtATr9K4BAIw7EjkcKLcBqwAdYjw48E8nWA7NGZBRI0eZAnGFO6ZAq3fURFngTLpU1a681gZAWG4WUZAEI8CduzjCD8arJ00Ea9jhLUgAkg2RI0iLZBVKuZCsMEWeAZCg9eaHuIDheTNABcTlPTuX6UpjkkPHAfeIH8rjZA8lzMwZDZD",
+  "__v": 8,
+  "gender": "Male",
+  "idWishList": [
+    {
+      "$oid": "6002d1c7777655267ca1fd79"
+    }
+  ],
+  "purchasedCourses": [],
+  "status": true
+}]

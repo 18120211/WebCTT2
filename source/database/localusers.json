@@ -1,0 +1,104 @@
+[{
+  "_id": {
+    "$oid": "5feb5b061e17e40784aee490"
+  },
+  "gender": "Male",
+  "date": {
+    "$date": "2020-12-29T16:34:32.514Z"
+  },
+  "avatar": "/public/avatar/default/avatar.png",
+  "isAuth": true,
+  "name": "Ngô Phù Hữu Đại Sơn",
+  "email": "sonkhungmtp.52@gmail.com",
+  "password": "$2a$10$WEAZJwez8PlUyhGSvEZyS.kt8S80Nzg.ym53rSUaovSIN.bHa/pL.",
+  "otpNumber": "744581",
+  "__v": 2,
+  "idWishList": [],
+  "purchasedCourses": [],
+  "status": true
+},{
+  "_id": {
+    "$oid": "6000451357786f321c0b1543"
+  },
+  "gender": "Male",
+  "date": {
+    "$date": "2021-01-14T13:20:00.511Z"
+  },
+  "avatar": "/public/avatar/6000451357786f321c0b1543/avatar.png",
+  "isAuth": true,
+  "name": "Võ Thế Minh",
+  "email": "minhthevotemp@gmail.com",
+  "password": "$2a$10$oLqB6bE9l4eu8GTrorzLPOH27jNvWyQljW7dNZHR07VSFsXYsMziu",
+  "otpNumber": "639091",
+  "__v": 43,
+  "status": true,
+  "idWishList": [
+    {
+      "$oid": "6002d1c7777655267ca1fd79"
+    },
+    {
+      "$oid": "60047e8aa4c47840800406cf"
+    }
+  ],
+  "purchasedCourses": [
+    {
+      "learnedVideos": [],
+      "_id": {
+        "$oid": "6005bf14a506743344cc3f6d"
+      },
+      "idCourse": {
+        "$oid": "6002d1c7777655267ca1fd79"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6000473871058d1140488fab"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2021-01-14T13:27:00.136Z"
+  },
+  "avatar": "/public/avatar/default/avatar.png",
+  "isAuth": true,
+  "idWishList": [],
+  "purchasedCourses": [],
+  "name": "Phạm Tống Bình Minh",
+  "email": "minhgoodkid123@gmail.com",
+  "password": "$2a$10$kS/qeceDmUNE04hAc.CXg.Axq/rW4OrUhpZyyBCHVbEKvWkR7pOxO",
+  "otpNumber": "671234",
+  "__v": 0,
+  "status": true
+},{
+  "_id": {
+    "$oid": "600510de0bbefd1b2051c3b0"
+  },
+  "gender": "male",
+  "date": {
+    "$date": "2021-01-18T04:35:38.971Z"
+  },
+  "avatar": "/public/avatar/600510de0bbefd1b2051c3b0/avatar.png",
+  "isAuth": true,
+  "status": true,
+  "name": "Team Web Ctt2",
+  "email": "webctt2@gmail.com",
+  "password": "$2a$10$Bb5sJi.lhx62VFEl03ZCFOm4TDbTznFaXq9fBkep00FBR.u/llODK",
+  "otpNumber": "450694",
+  "__v": 9,
+  "purchasedCourses": [
+    {
+      "learnedVideos": [],
+      "_id": {
+        "$oid": "6005bdc9a506743344cc3f6c"
+      },
+      "idCourse": {
+        "$oid": "6002d1c7777655267ca1fd79"
+      }
+    }
+  ],
+  "idWishList": [
+    {
+      "$oid": "6002d1c7777655267ca1fd79"
+    }
+  ]
+}]

@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "5ff2dd54eb01461e54152a15"
+  },
+  "numberOfView": 1081,
+  "numberOfSignUp": 21,
+  "name": "Development",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ff2dd54eb01461e54152a16"
+  },
+  "numberOfView": 18,
+  "numberOfSignUp": 1,
+  "name": "Business",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ff2dd54eb01461e54152a17"
+  },
+  "numberOfView": 8,
+  "numberOfSignUp": 0,
+  "name": "Design",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60008b26ee6f4a2a9c4c2e7c"
+  },
+  "numberOfView": 0,
+  "numberOfSignUp": 0,
+  "name": "Marketing",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60008b26ee6f4a2a9c4c2e7d"
+  },
+  "numberOfView": 0,
+  "numberOfSignUp": 0,
+  "name": "Music",
+  "__v": 0
+}]

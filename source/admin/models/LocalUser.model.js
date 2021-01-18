@@ -39,7 +39,11 @@ const LocalUserSchema = mongoose.Schema({
     idWishList: {
         type: [mongoose.Schema.ObjectId],
         ref: 'courses'
-    }
+    },
+    status: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 const LocalUser = mongoose.model('localusers', LocalUserSchema);

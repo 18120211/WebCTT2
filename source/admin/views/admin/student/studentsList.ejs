@@ -40,6 +40,7 @@
                                       <td class="text-left"><a>Tên</a></td>
                                       <td class="text-left"> Email</td>
                                       <td class="text-left"><a>Giới tính</a></td>
+                                      <td class="text-left"><a>Tình trạng</a></td>
                                       <td class="text-left"><a>Action</a></td>
                                     </tr>
                                   </thead>
@@ -49,6 +50,14 @@
                                             <td class="text-left"><a> <%=student.name %></a></td>
                                             <td class="text-left"><a> <%=student.email %></a></td>
                                             <td class="text-left"><a> <%=student.gender %></a></td>
+                                            <td class="text-center">
+                                                <% if(student.status){ %> 
+                                                    Active
+                                                <% }else{ %> 
+                                                    Disable
+                                                <% } %> 
+                                            </td>
+
                                             <td class="text-left">
                                                 <input type="hidden" value="<%=student._id %>">
                                                 <button class="btn btn-primary viewStudent" >
