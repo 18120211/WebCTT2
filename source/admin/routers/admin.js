@@ -330,7 +330,6 @@ router.get("/course/categoryDelete-available",ensureAuthenticated,async function
   Category.findById(req.query.id).then( async (category)=>{
     if(category){
       const topic = await Topic.find({idCourseCategory:category._id});
-      console.log(topic);
       if(topic.length > 0){
         res.json(301);
       }
@@ -357,7 +356,6 @@ router.get("/course/categoryEdit-available",ensureAuthenticated,async function (
   Category.findById(req.query.id).then( async (category)=>{
     if(category){
       const topic = await Topic.find({idCourseCategory:category._id});
-      console.log(topic);
       if(topic.length > 0){
         res.json(301);
       }
@@ -482,8 +480,6 @@ router.get("/course/coursesList", ensureAuthenticated, async  (req, res) => {
   let data = [];
   let Courses_arr = [];
   
-  console.log(req.query.lecture_filter);
-  console.log(req.query.category_filter);
 
   if(req.user.name == "admin"){
     Courses_arr  = await Course.find();
@@ -501,7 +497,6 @@ router.get("/course/coursesList", ensureAuthenticated, async  (req, res) => {
     Courses_arr  = await Course.find({idLecturer:req.user._id});
   }
 
-  console.log(Courses_arr);
   
   const CourseTopics_array = await Topic.find({}).populate('idCourseCategory').then(
     (CourseTopics)=>{
@@ -509,6 +504,7 @@ router.get("/course/coursesList", ensureAuthenticated, async  (req, res) => {
         return CourseTopics;
       }
   });
+  //console.log(CourseTopics_array);
   data['CourseTopics_array'] = CourseTopics_array;
 
 
@@ -552,7 +548,6 @@ router.get("/course/courseEdit",ensureAuthenticated, async function (req, res) {
   const Course_info = await  Course.findById(req.query.id);;
 
   data["course_info"] = Course_info;
-  console.log(Course_info);
   data["categories"] = CourseTopics_array;
   res.render("admin/course/courseEdit",{
     user:req.user, data:data
@@ -576,7 +571,6 @@ router.post("/course/courseEdit", ensureAuthenticated, async (req, res) => {
 
   //add video
   let courses_video = [];
-  console.log(videos);
   if(videos){
     videos.forEach((video) => {
         video_item = {
@@ -588,7 +582,6 @@ router.post("/course/courseEdit", ensureAuthenticated, async (req, res) => {
     });
   }
    Course.findById(id).then((Course_finded)=>{
-     console.log(Course_finded);
     if(Course_finded){
       Course_finded.name = name;
       Course_finded.idLecturer = lecture_id;
@@ -675,7 +668,6 @@ router.get("/test",async function (req, res) {
       }
     });
 
-    console.log(CourseTopics_array);
 });
 
 

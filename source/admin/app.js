@@ -19,7 +19,7 @@ require('./middlewares/error.mdw')(app);
 require('./middlewares/cloudinary.mdw')(app);
 
 
-app.listen(8080, console.log('Server running on port 8080'));
+app.listen(3000, console.log('Server running on port 3000'));
 
 // const express = require('express');
 

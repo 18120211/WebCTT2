@@ -101,6 +101,7 @@ Router.get('/:nameCourse', async (req, res) => {
             }
         }
     }
+    
     res.render('./course/detail', {
         isAuthenticated: req.isAuthenticated(),
         isWishCourse: isWishCourse,
@@ -109,7 +110,8 @@ Router.get('/:nameCourse', async (req, res) => {
         isEvaluate: isEvaluate,
         myEvaluationPoint: myEvaluationPoint,
         userReviews: userReviews,
-        learnedVideos: learnedVideos
+        learnedVideos: learnedVideos,
+        user: req.user
     });
 });
 

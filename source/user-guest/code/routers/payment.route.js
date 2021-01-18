@@ -27,7 +27,8 @@ Router.get('/:nameCourse/checkout', ensureAuthenticated, async (req, res) => {
     res.render('./payment/checkout', {
         isAuthenticated: req.isAuthenticated(),
         course: course,
-        date: date
+        date: date,
+        user: req.user
     })
 });
 

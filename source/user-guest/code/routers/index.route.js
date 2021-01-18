@@ -38,9 +38,9 @@ Router.get("/", async (req, res) => {
     .populate("idCourseTopic")
     .limit(10);
 
-  //5 lĩnh vực được xem nhiều nhất
-  const latestCategory = await CourseCategory.find({})
-    .sort([["numberOfView", -1]])
+  //5 lĩnh vực được đăng ký nhiều nhất
+  const mostSignUpCategory = await CourseCategory.find({})
+    .sort([["numberOfSignUp", -1]])
     .limit(5);
 
   await res.render("./index/home", {
@@ -48,7 +48,8 @@ Router.get("/", async (req, res) => {
     proCourses: proCourses,
     mostViewCourses: mostViewCourses,
     latestCourses: latestCourses,
-    latestCategory: latestCategory
+    mostSignUpCategory: mostSignUpCategory,
+    user: req.user
   });
 });
 
@@ -97,7 +98,8 @@ Router.get("/my-wish-list", ensureAuthenticated, async (req, res) => {
     title: `Các khóa học yêu thích`,
     page: page,
     isFilter: false,
-    numberOfPage: numberOfPage
+    numberOfPage: numberOfPage,
+    user: req.user
   });
 });
 
@@ -147,7 +149,8 @@ Router.get("/my-courses", ensureAuthenticated, async (req, res) => {
     title: `Các khóa học của tôi`,
     page: page,
     isFilter: false,
-    numberOfPage: numberOfPage
+    numberOfPage: numberOfPage,
+    user: req.user
   });
 });
 

@@ -58,7 +58,8 @@ Router.get("/login", forwardAuthenticated, (req, res) => {
 //GET register
 Router.get("/register", forwardAuthenticated, (req, res) => {
   res.render("./user/register", {
-      isAuthenticated: req.isAuthenticated()
+      isAuthenticated: req.isAuthenticated(),
+      user: req.user
   });
 });
 
@@ -89,7 +90,8 @@ Router.post("/register", function (req, res) {
   if (errors.length > 0) {
     res.render("./user/register", {
       isAuthenticated: req.isAuthenticated(),
-      errors
+      errors,
+      user: req.user
     });
   } else {
     LocalUser.findOne({
@@ -101,7 +103,8 @@ Router.post("/register", function (req, res) {
         });
         res.render("./user/register", {
           isAuthenticated: req.isAuthenticated(),
-          errors
+          errors,
+          user: req.user
         });
       } else {
         //Tạo client request để gửi gmail xác thực OTP
@@ -110,7 +113,7 @@ Router.post("/register", function (req, res) {
         const clientSecret = "NAjZvQbzYipjQYBxnaHPHSr9";
         const redirectUri = "https://developers.google.com/oauthplayground";
         const refreshToken =
-          "1//042Ld0MGfUQmICgYIARAAGAQSNwF-L9IrzcaMjqdyMhuXqIXqsaWmNLn70YhjopS-pQU1hEr0311t9MA4nogHg3Ufq9xOBue9KF8";
+          "1//04pUalhF17quECgYIARAAGAQSNwF-L9IrtIab8o_JgFJXXg0bnTvA6q_3ODGZ2CxpgzTw2uMFQysLTh_YgX5PY4TWCszQ3ZVENzQ";
 
         const oAuth2Client = new OAuth2(clientID, clientSecret, redirectUri);
 
@@ -156,8 +159,9 @@ Router.post("/register", function (req, res) {
 
           req.session.currentEmail = email;
 
-          res.render("./user/otp1", {
+          res.render("./user/otp", {
             isAuthenticated: req.isAuthenticated(),
+            user: req.user
           });
         });
       }
@@ -185,9 +189,10 @@ Router.post("/otp", async (req, res) => {
         msg: "OTP not correct!!",
       },
     ];
-    res.render("./user/otp1", {
+    res.render("./user/otp", {
       errors,
-      isAuthenticated: req.isAuthenticated()
+      isAuthenticated: req.isAuthenticated(),
+      user: req.user
     });
   }
 });
@@ -202,22 +207,33 @@ Router.post("/login", async (req, res, next) => {
   if (user != null) {
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        if (user.isAuth) {
-          passport.authenticate("local", {
-            failureRedirect: "/users/login",
-            successRedirect: "/",
-          })(req, res, next);
-        } else {
-          req.session.currentEmail = email;
-          req.flash("error_msg", "Please fill correct OTP to login");
-          res.render("./user/otp1", {
-            isAuthenticated: req.isAuthenticated()
-          });
+        if (user.status == false) {
+          req.flash('error_msg', 'Your account has been blocked');
+          res.render('./user/login', {
+            isAuthenticated: req.isAuthenticated(),
+            user: req.user
+          })
+        }
+        else {
+          if (user.isAuth) {
+            passport.authenticate("local", {
+              failureRedirect: "/users/login",
+              successRedirect: "/",
+            })(req, res, next);
+          } else {
+            req.session.currentEmail = email;
+            req.flash("error_msg", "Please fill correct OTP to login");
+            res.render("./user/otp", {
+              isAuthenticated: req.isAuthenticated(),
+              user: req.user
+            });
+          }
         }
       } else {
         req.flash("error_msg", "Invalid account");
         res.render("./user/login", {
           isAuthenticated: req.isAuthenticated(),
+          user: req.user
         });
       }
     });
@@ -225,6 +241,7 @@ Router.post("/login", async (req, res, next) => {
     req.flash("error_msg", "Invalid account");
     res.render("./user/login", {
       isAuthenticated: req.isAuthenticated(),
+      user: req.user
     });
   }
 });
@@ -240,6 +257,7 @@ Router.get("/account", ensureAuthenticated, (req, res) => {
     isLocalAccount: req.user.password != undefined ? true : false,
     user: req.user,
     isAuthenticated: req.isAuthenticated(),
+    user: req.user
   });
 });
 

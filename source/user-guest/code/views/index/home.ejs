@@ -1,23 +1,336 @@
-<div>
-  <h2>3 khóa học được quan tâm nhất</h2>
-  <% for( let i = 0; i < proCourses.length; i++ ) { %>
-  <!-- 1 card khóa học -->
-  <%- include('../partials/card-course', {course: proCourses[i]}) %> <% } %>
+<div id="body" class="container-wrap">
+  <div class="row top-section">
+    <div class="col-sm-8">
+      <div id="slideshow" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+          <li data-target="#slideshow" data-slide-to="1"></li>
+          <li data-target="#slideshow" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="/course/<%= proCourses[0].name %>">
+              <img
+                src="<%= proCourses[0].poster %>"
+                class="d-block w-100 img"/>
+            </a>
 
-  <h2>10 khóa học được xem nhiều nhất</h2>
-  <% for( let i = 0; i < mostViewCourses.length; i++ ) { %> <%-
-  include('../partials/card-course', {course: mostViewCourses[i]}) %> <% } %>
+            <div class="carousel-caption d-none d-md-block"></div>
+          </div>
+        </div>
 
-  <h2>10 khóa học mới nhất</h2>
-  <% for( let i = 0; i < latestCourses.length; i++ ) { %> <%-
-  include('../partials/card-course', {course: latestCourses[i]}) %> <% } %>
+        <a
+          class="carousel-control-prev"
+          href="#slideshow"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#slideshow"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
 
-  <h2>5 lĩnh vực được xem nhiều nhất</h2>
-  <% for( let i = 0; i < latestCategory.length; i++ ) { %>
-  <a href="/courses/<%= latestCategory[i].name %>"
-    ><button class="btn btn-outline-warning">
-      <%= latestCategory[i].name %>
-    </button></a
-  >
-  <% } %>
+    <div class="col-sm-4">
+      <a href="/course/<%= proCourses[1].name %>">
+        <div class="banner">
+          <img src="<%= proCourses[1].poster %>" />
+        </div>
+      </a>
+      <a href="/course/<%= latestCourses[1].name %>">
+        <div class="banner">
+          <img src="<%= latestCourses[1].poster %>" />
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="most-care-courses">
+    <h4>3 khóa học được quan tâm nhất</h4>
+    <!-- 1 card khóa học -->
+    <%- include('../partials/card-course', {courses: proCourses, type:
+    'proCourse'}) %>
+  </div>
+  <hr />
+  <div class="most-view-courses">
+    <h4>10 khóa học được xem nhiều nhất</h4>
+    <!-- 1 card khóa học -->
+    <%- include('../partials/card-course', {courses: mostViewCourses, type:
+    'mostViewCourse'}) %>
+  </div>
+  <hr />
+  <div class="most-newest-courses">
+    <h4>10 khóa học mới nhất</h4>
+    <!-- 1 card khóa học -->
+    <%- include('../partials/card-course', {courses: latestCourses, type:
+    'latestCourse'}) %>
+  </div>
+  <hr />
+  <div class="most-view-category">
+    <h2>5 lĩnh vực được đăng ký nhiều nhất</h2>
+    <!-- 1 card khóa học -->
+    <% for( let i = 0; i < mostSignUpCategory.length; i++ ) { %>
+    <% if(i==0 || i==3  ){ %>
+        <div class="row">
+    <% } %>
+    <% if( i==3  ){ %>
+        <div class="row second">
+        <div class="col-sm-2"></div>
+    <% } %>
+        <div class="col-sm-4">
+            <a href="/courses/<%= mostSignUpCategory[i].name %>"
+                ><button class="btn btn-outline-warning">
+                    <div class="icon">
+                        <% if(i==0){ %> 
+                            <i class="fa fa-laptop"></i>
+                        <% } %> 
+                        <% if(i == 1 ){ %> 
+                            <i class="fas fa-chart-line"></i>
+                        <% } %> 
+                        <% if(i == 2){ %> 
+                            <i class="fas fa-ad"></i>
+                        <% } %> 
+                        <% if(i==3){ %> 
+                            <i class="fa fa-music"></i>
+                        <% } %> 
+                        <% if(i==4){ %> 
+                            <i class="fas fa-pen-fancy"></i>
+                        <% } %> 
+                    </div>
+                  <%= mostSignUpCategory[i].name %>
+                </button></a>
+        </div>
+    <% if(i==2  ){ %>
+        </div>
+    <% } %>
+    <% if(i==4  ){ %>
+    </div>
+<% } %>
+    
+    <% } %>
+  </div>
+  <div class="section-feature">
+      <label> WEBCTT2 BRING US :</label>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="block">
+          <i class="fas fa-thumbs-up"></i>
+          <h2>Chất lượng uy tín</h2>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="block">
+          <i class="fas fa-dollar-sign"></i>
+          <h2>Giá cả phải chăng</h2>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="block">
+          <i class="far fa-file-video"></i>
+          <h2>Video đa dạng</h2>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<style type="text/css">
+  .course-carousel {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .course-more-detail {
+    display: none;
+  }
+
+  .course:hover .course-more-detail {
+    display: block;
+  }
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-collapse-right {
+    margin-left: 750px;
+  }
+
+  .container-wrap {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 48px;
+  }
+
+  .img {
+    height: 350px;
+  }
+
+  .carousel-control-prev {
+    left: 250px;
+  }
+
+  .carousel-control-next {
+    right: 250px;
+  }
+
+  .udlite-container {
+    width: 100%;
+    max-width: 1340px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px 2.4px 30px 2.4px;
+  }
+
+  .heading-xl {
+    font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto,
+      segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji,
+      segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02px;
+    font-size: 24px;
+    padding-bottom: 10px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    grid-gap: 16px;
+  }
+
+  .banner img {
+    height: 170px;
+    margin-bottom: 10px;
+  }
+
+  .carousel-control-prev {
+    display: none;
+  }
+
+  .carousel-control-next {
+    display: none;
+  }
+
+  .carousel-indicators li {
+    border: 0px;
+    margin: 0 5px;
+    height: 15px;
+    width: 15px;
+    border-radius: 20px;
+  }
+
+  .row.top-section {
+    margin-top: 20px;
+  }
+
+  .course .image {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .course {
+    margin: 0 10px;
+  }
+
+  .heading-xl h2 {
+    margin-left: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted #222;
+  }
+
+  .section-feature {
+    margin-bottom: 30px;
+  }
+
+  .section-feature i {
+    margin-right: 10px;
+    float: left;
+    font-size: 40px;
+    color: rgb(119, 113, 113);
+  }
+
+  .section-feature h2 {
+    color: rgb(119, 113, 113);
+  }
+
+  .section-feature .col-sm-4 {
+    padding: 20px;
+  }
+
+  .section-feature .col-sm-4 .block {
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    border: 4px dotted rgb(119, 113, 113);
+  }
+
+  .footer-container {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .footer-container{
+      font-size: 20px;
+      background: #171616;;
+      color: white;
+  }
+  .most-view-category .row{
+      margin-bottom: 20px;
+  }
+  .most-view-category .row button{ 
+      width: 100%;
+      min-height: 250px;
+  }
+  .most-view-category .second button{ 
+      width: 100%!important;
+      min-height: 250px!important;
+  }
+  .second .btn-outline-warning{
+    width: 100%!important;
+      min-height: 250px!important;
+  }
+  .most-view-category .row .center{
+    margin: 0 auto;
+  }
+  .most-view-category h2{
+      margin-bottom: 20px;
+  }
+  .btn-outline-warning i{
+      font-size: 60px;
+
+  }
+  .btn-outline-warning{
+      font-size: 20px;
+  }
+  .btn-outline-warning .icon{
+      margin-bottom: 10px;
+      font-size: 60px;
+
+  }
+  .section-feature label{
+      font-size: 25px;
+      font-weight: 700;
+  }
+</style>
+<script type="text/javascript">
+  $(".owl-carousel").owlCarousel({
+    items: 4,
+    loop: true,
+    margin: 4,
+  });
+</script>

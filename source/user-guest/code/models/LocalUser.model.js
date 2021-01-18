@@ -46,6 +46,10 @@ const LocalUserSchema = mongoose.Schema({
                 type: Number
             }]
         }]
+    },
+    status: {
+        type: Boolean,
+        default: true
     }
 });
 

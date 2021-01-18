@@ -43,6 +43,10 @@ const FaceBookUserSchema = mongoose.Schema ({
                 type: Number
             }]
         }]
+    },
+    status: {
+        type: Boolean,
+        default: 'true'
     }
 });
 
