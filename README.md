@@ -117,3 +117,8 @@
 
 - **Giao diện quản lý danh sách category**
     ![](https://res.cloudinary.com/teamwebctt2/image/upload/v1613295430/webctt2/readme/qldanhsachcategory_siv9dh.png)
+ 
+___
+*Các em sinh viên có dùng tài liệu của anh để tham khảo thì nhớ để lại 1 sao nha :))*
+
+**END**
